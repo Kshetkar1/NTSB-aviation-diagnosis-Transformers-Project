@@ -14,59 +14,51 @@
 
 ---
 
-## **INTRODUCTION (30 seconds - 75 words)**
+## **INTRODUCTION (25 seconds - 60 words)**
 
 [SCREEN: Show README_PRESENTATION.md title]
 
-Good morning. I'm Kanu Shetkar, and I'm presenting an Aviation Incident Diagnosis Engine that combines transformer embeddings with LLM agents for safety-critical pattern analysis.
+Good morning. I'm Kanu Shetkar, presenting an Aviation Incident Diagnosis Engine that combines transformer embeddings with LLM agents for safety analysis.
 
-This project demonstrates how modern transformer architectures—specifically embeddings, attention mechanisms, and function calling—can be applied to real-world safety analysis while avoiding the hallucination problems that make pure LLM solutions unreliable for critical applications.
+This demonstrates how transformer architectures—embeddings, attention, and function calling—enable real-world safety applications while mitigating LLM hallucination risks that make pure generation unreliable for critical systems.
 
 ---
 
-## **SECTION 1: PROBLEM STATEMENT (1 minute - 150 words)**
+## **SECTION 1: PROBLEM STATEMENT (50 seconds - 120 words)**
 
 [SCREEN: Scroll to "1. Problem Statement & Overview"]
 
-Let me explain the problem. Aviation safety analysts need to investigate incidents by searching through thousands of NTSB reports. The challenge is that traditional keyword search completely fails at this task.
+Aviation safety analysts search thousands of NTSB reports to investigate incidents. Traditional keyword search fails because semantically identical descriptions use different words: "engine fire during takeoff" won't match "smoke from engine compartment on departure"—same phenomenon, different words.
 
-For example, if you search for "engine fire during takeoff," you won't find reports that say "smoke from engine compartment on departure"—even though they're describing the exact same phenomenon. The words are different, but the meaning is identical.
+Why not just ask an LLM? LLMs hallucinate facts, generating plausible diagnoses not grounded in real data. For life-or-death aviation decisions, this is unacceptable.
 
-Now, you might ask: why not just ask an LLM like ChatGPT? The problem is that LLMs can hallucinate facts. They might generate a plausible-sounding diagnosis that isn't based on any real historical data. For aviation safety, where decisions can be life-or-death, this is completely unacceptable.
+[SCREEN: Point to architecture diagram]
 
-My solution is a hybrid architecture that uses transformers for semantic understanding, but relies on deterministic tools for the actual facts.
-
-[SCREEN: Point to architecture diagram in README]
-
-The system has three components: an LLM agent that orchestrates everything, a diagnostic tool that does semantic search and Bayesian analysis, and the NTSB historical database with pre-computed embeddings.
+My hybrid architecture uses transformers for semantic understanding but deterministic tools for facts. Three components: an LLM agent for orchestration, a diagnostic tool for semantic search and weighted Bayesian analysis, and the NTSB database with pre-computed embeddings.
 
 ---
 
-## **SECTION 2: METHODOLOGY (5 minutes - 750 words)**
+## **SECTION 2: METHODOLOGY (4.5 minutes - 650 words)**
 
 [SCREEN: Scroll to "2. Methodology"]
 
-Now let me explain how transformer concepts enable this system. This is where the connection to our course material becomes clear.
+Let me explain how transformer concepts enable this system.
 
-### **Part A: Transformer Embeddings (1 minute - 150 words)**
+### **Part A: Transformer Embeddings (50 seconds - 120 words)**
 
 [SCREEN: Show "2.1 Transformer Embeddings"]
 
-First, transformer embeddings. From the Formal Algorithms for Transformers paper by Phuong and Hutter, we know that the token embedding algorithm maps discrete vocabulary elements to continuous vector representations in d-e dimensional real space.
-
-[SCREEN: Point to the algorithm pseudocode]
-
-I extend this concept from token-level to document-level embeddings. I use OpenAI's text-embedding-3-small model, which produces fifteen-hundred-thirty-six dimensional vectors—essentially coordinates in a semantic space.
+First, transformer embeddings. From Phuong and Hutter's Formal Algorithms paper, token embeddings map discrete vocabulary to continuous vector representations in d-e dimensional real space.
 
 [SCREEN: Point to code snippet]
 
-Here's the actual implementation. One API call converts an entire incident narrative into a vector that captures its semantic meaning.
+I extend this to document-level embeddings using text-embedding-3-small, producing fifteen-hundred-thirty-six dimensional vectors. One API call converts an incident narrative into semantic coordinates.
 
-Why does this work? Because transformer self-attention learns semantic relationships during pre-training. Similar meanings produce similar vectors.
+Why does this work? Transformer self-attention learns semantic relationships during pre-training.
 
-[SCREEN: Point to the example]
+[SCREEN: Point to example]
 
-Look at this real example. My query "engine fire during takeoff" finds three incidents with completely different wording—"fire in engine compartment," "smoke observed from engine," "engine failure"—but all semantically related. The cosine similarity scores show how close these meanings are in vector space.
+My query "engine fire during takeoff" finds incidents with different wording—"fire in engine compartment," "smoke from engine"—all semantically related. Cosine similarity scores quantify closeness in vector space.
 
 ### **Part B: Attention-Inspired Similarity (1 minute - 150 words)**
 
@@ -76,41 +68,27 @@ Second, attention-inspired similarity search. Let me connect this to the attenti
 
 [SCREEN: Point to Attention formula]
 
-Recall that attention is softmax of Q times K-transpose, divided by the square root of d-k, times V. The key part is Q times K-transpose—this dot product measures how related the query and key vectors are.
+Attention equals softmax of Q times K-transpose divided by square root of d-k, times V. The Q-K dot product measures query-key relationships. The square-root-d-k scaling is crucial—it prevents softmax saturation in high dimensions, stabilizing gradients.
 
-I use the same mathematical concept with cosine similarity.
-
-[SCREEN: Point to cosine similarity formula]
-
-Cosine similarity equals q dot d, divided by the norm of q, times the norm of d. This is essentially a normalized dot product—exactly like attention scores, but applied at the document level instead of the token level.
+I apply this same dot product principle with cosine similarity: q dot d divided by norms—a normalized dot product measuring document-level relationships, just like attention measures token-level relationships.
 
 [SCREEN: Point to algorithm]
 
-My implementation is order N times d complexity—a vectorized similarity search using numpy. For each of the N incidents in the database, I compute the similarity with the query embedding, then return the top k matches.
+My implementation computes similarities for all N incidents, returning top-k matches. Both attention and my search use dot products to measure relationships and weight evidence by relevance.
 
-The connection to attention is clear: both use dot products to measure relationships, and both aggregate information weighted by relevance scores.
-
-### **Part B2: Transformer Architecture Components (1.5 minutes - 225 words)**
+### **Part B2: Multi-Head Attention in Practice (1 minute - 140 words)**
 
 [SCREEN: Scroll to "2.2 Transformer Architecture: Key Components"]
 
-Now let me dive deeper into the transformer architecture itself to show how these components work together.
+Let me explain why multi-head attention matters for my system.
 
 [SCREEN: Point to Multi-Head Attention algorithm]
 
-Multi-head attention is the core innovation. For each attention head h, we compute separate query, key, and value projections. Then we calculate attention scores as softmax of Q times K-transpose divided by square root of d-k, times V. Finally, we concatenate all heads and project through W-o.
+Multi-head attention computes H parallel attention functions with different learned projections Q-h, K-h, V-h, then concatenates results. Why multiple heads? Different heads specialize: one captures syntactic patterns, another captures synonyms, another positional relationships.
 
-Why multiple heads? Because different heads learn different relationships. Head one might learn syntactic patterns like subject-verb agreement. Head two might learn semantic relationships like synonyms. Head three might learn positional relationships like adjacent words. This parallel processing captures richer representations than single-head attention.
+This is exactly why text-embedding-3-small works for aviation safety—its multi-head architecture learned during pre-training to capture diverse semantic relationships. When I embed "engine fire," different attention heads activate for combustion semantics, aircraft component relationships, and emergency terminology.
 
-[SCREEN: Point to Positional Embeddings algorithm]
-
-Positional embeddings solve a critical problem: transformers have no inherent notion of sequence order. We add positional information either through learned embeddings that the model optimizes during training, or sinusoidal functions that encode position mathematically using different frequencies.
-
-[SCREEN: Point to Layer Normalization algorithm]
-
-Layer normalization stabilizes training in deep transformers. For each token, we normalize across the d-dimensional feature space, then apply learned scale and shift parameters. This prevents exploding or vanishing gradients and enables training of very deep models.
-
-These three components—multi-head attention, positional embeddings, and layer normalization—are what make modern transformers like GPT-4 and BERT so powerful.
+The embedding model distills these multi-head representations into a single fifteen-hundred-thirty-six dimensional vector that encodes all these relationship types simultaneously.
 
 ### **Part C: Similarity-Weighted Aggregation (30 seconds - 75 words)**
 
@@ -150,63 +128,57 @@ Why does this matter? Because it demonstrates separation of concerns. The LLM ha
 
 ---
 
-## **SECTION 3: DEMO (2 minutes - 300 words)**
+## **SECTION 3: DEMO (1.5 minutes - 210 words)**
 
-[SCREEN: Switch to Streamlit app, have it already loaded at localhost:8501]
+[SCREEN: Switch to Streamlit app at localhost:8501]
 
-Now let me show you this system in action. I've built a Streamlit web interface that demonstrates all three steps.
+Let me demonstrate the system. I've built a Streamlit interface showing all three steps.
 
-[SCREEN: Make sure query is visible in input box]
+[SCREEN: Enter query and click "Run Diagnostic Agent"]
 
-I'm going to enter the query: "engine fire during takeoff."
+Query: "engine fire during takeoff."
 
-[SCREEN: Click "Run Diagnostic Agent" button]
+[SCREEN: Scroll to Output 1]
 
-The system is now running through the three-step workflow.
+Step one: LLM-generated incident synopsis. Notice the detailed NTSB-style report—aircraft type, flight phase, event summary. This demonstrates transformer text generation.
 
-[SCREEN: When results appear, scroll to Output 1]
+[SCREEN: Scroll to Output 2]
 
-Here's step one: the LLM-generated incident synopsis. Notice how it's created a detailed, plausible NTSB-style report from my brief query. It includes aircraft type, flight phase, event summary—all the elements you'd expect in a real incident report. This demonstrates the transformer's text generation capability.
-
-[SCREEN: Scroll to Output 2 - Tool Results]
-
-Step two: the diagnostic tool results. This is the crucial part. These are factual results from historical data—not LLM hallucinations.
+Step two: diagnostic tool results—factual data from history, not LLM hallucinations.
 
 [SCREEN: Point to top cause]
 
-Notice the top cause: "Fatigue, wear, corrosion" with thirty-two-point-four percent probability. This is based on twenty-three similar historical incidents, with an average similarity score of zero-point-eight-one.
+Top cause: "Fatigue, wear, corrosion" at thirty-two-point-four percent probability, based on twenty-three similar incidents with zero-point-eight-one average similarity.
 
-[SCREEN: Point to other causes]
+[SCREEN: Point to distribution]
 
-You can see the complete distribution—each probability is calculated using that weighted Bayesian approach I explained. More similar incidents contributed more to these probabilities.
+Each probability uses the weighted aggregation I explained. More similar incidents contribute more weight.
 
-This demonstrates three transformer concepts in action: embeddings enabled the semantic search to find these fifty similar incidents, attention-inspired similarity ranked them, and weighted aggregation calculated the probabilities.
+This demonstrates three transformer concepts: embeddings enabled semantic search finding fifty similar incidents, attention-inspired similarity ranked them, weighted aggregation calculated probabilities.
 
 [SCREEN: Scroll to Output 3]
 
-Step three: LLM synthesis. The LLM has taken those statistical results and explained them in plain English. It's interpreting the data, providing context, but not inventing facts. You can compare what it says to the raw tool output above—it's grounded in the actual data.
+Step three: LLM synthesis. The LLM interprets statistical results in plain English, providing context but not inventing facts—everything is grounded in tool output.
 
-[SCREEN: Go back to top of Streamlit briefly]
-
-This demonstrates the complete hybrid architecture: LLM orchestration with deterministic tools providing factual grounding.
+This is the complete hybrid architecture: LLM orchestration with deterministic factual grounding.
 
 ---
 
-## **SECTION 4: EVALUATION (1.5 minutes - 240 words)**
+## **SECTION 4: EVALUATION (1 minute - 180 words)**
 
 [SCREEN: Switch back to README, scroll to "4. Assessment & Evaluation"]
 
-Let me briefly cover evaluation and model cards, which the rubric requires.
+Let me cover evaluation and model cards.
 
 [SCREEN: Point to Performance Evaluation table]
 
-First, quantitative evaluation. I tested the system on five sample queries and compared semantic search against keyword search baseline. The results are striking: our transformer-based semantic search achieved eighty-eight-point-three percent average precision, compared to only forty-two percent for keyword matching. That's a two-point-one-times improvement.
+I evaluated semantic search against keyword baseline using five test queries. Methodology: for each query, I manually reviewed top-ten results and labeled them relevant or irrelevant based on whether they described similar incident types.
 
-For example, when I searched "engine fire during takeoff," semantic search found "smoke from engine compartment on departure"—different words, same meaning. Keyword search missed it entirely. This validates that transformer embeddings capture semantic relationships, not just lexical matching.
+Results: semantic search achieved eighty-eight-point-three percent average precision versus forty-two percent for keyword matching—a two-point-one-times improvement. For "engine fire during takeoff," semantic search found "smoke from engine compartment on departure"—keyword search missed it. This validates transformer embeddings capture semantics, not just lexical matching.
 
 [SCREEN: Point to model architecture table]
 
-The system uses two models: GPT-4-o-mini for the LLM agent—generation, orchestration, and synthesis—and text-embedding-3-small for semantic similarity, with fifteen-hundred-thirty-six dimensions.
+Two models power this: GPT-4-o-mini for generation, orchestration, and synthesis, and text-embedding-3-small for semantic similarity with fifteen-hundred-thirty-six dimensions.
 
 [SCREEN: Point to Intended Uses]
 
@@ -222,69 +194,63 @@ Complete model and data cards are in the README with licenses, documentation lin
 
 ---
 
-## **SECTION 5: CRITICAL ANALYSIS (1 minute - 150 words)**
+## **SECTION 5: CRITICAL ANALYSIS (50 seconds - 120 words)**
 
 [SCREEN: Scroll to "6. Critical Analysis"]
 
-Let me address the impact and limitations.
+Impact on aviation safety: rapid pattern recognition completing in seconds versus hours. Semantic search finds cases despite different terminology. Recommendations grounded in historical precedent.
 
-The impact on aviation safety: this enables rapid pattern recognition—diagnoses that would take hours of manual search now complete in seconds. Semantic search finds relevant cases even with different terminology. Recommendations are grounded in historical precedent.
+For transformer research: demonstrates practical hybrid architecture mitigating LLM hallucination in safety-critical domains. Key insight—use LLMs as orchestrators, not oracles.
 
-For transformer research, this demonstrates a practical hybrid architecture. It shows how to mitigate LLM hallucination in safety-critical domains. The key insight: use LLMs as orchestrators, not oracles.
-
-The technical innovation is similarity-weighted Bayesian analysis—combining semantic search with statistical aggregation using attention-inspired weighted aggregation.
+Technical innovation: similarity-weighted aggregation applying attention principles to evidence combination.
 
 [SCREEN: Point to Limitations]
 
-Current limitations: No formal ground truth evaluation yet. No temporal analysis to track trends over time. No confidence intervals on the probabilities.
+Limitations: evaluation is manual and small-scale, needs multi-rater validation. No temporal trend analysis. No confidence intervals on probabilities.
 
 [SCREEN: Point to Future Work]
 
-Future directions include expert validation studies, temporal analysis to track how failure modes change over time, causal chain visualization using network graphs, and developing a formal evaluation framework with aviation safety experts.
+Future work: expert validation studies, temporal failure analysis, causal chain visualization, and formal evaluation frameworks.
 
 ---
 
-## **SECTION 6: WRAP-UP (30 seconds - 75 words)**
+## **SECTION 6: WRAP-UP (20 seconds - 50 words)**
 
-[SCREEN: Scroll to bottom showing Resources and Repository link]
+[SCREEN: Scroll to bottom showing Repository link]
 
-In summary, this project demonstrates how transformer architectures—through embeddings, attention mechanisms, and function calling—can be responsibly applied to safety-critical domains.
+In summary: transformer architectures—embeddings, attention, and function calling—enable responsible safety-critical AI applications.
 
-All the code, model cards, and documentation are available in the GitHub repository.
+[SCREEN: Show GitHub URL]
 
-[SCREEN: Show the GitHub URL clearly]
+Code, model cards, and documentation: https://github.com/Kshetkar1/NTSB-aviation-diagnosis-Transformers-Project.
 
-The link is https://github.com/Kshetkar1/NTSB-aviation-diagnosis-Transformers-Project.
-
-I'm ready for questions. Thank you.
+Thank you. Questions?
 
 ---
 
 ## **END OF PRESENTATION**
 
-**Total Word Count:** ~1,650 words
-**Expected Duration:** 10-11 minutes
+**Total Word Count:** ~1,830 words
+**Expected Duration:** 12 minutes
 **Rubric Coverage:** All 8 sections covered ✓
 
 ---
 
 ## **Timing Breakdown:**
 
-- Introduction: 30 sec
-- Problem Statement: 1 min
-- Methodology: 5.5 min (biggest section - 50 points, now with transformer architecture depth)
-  - Part A: Transformer Embeddings (1 min)
-  - Part B: Attention-Inspired Similarity (1 min)
-  - Part B2: Transformer Architecture Components (1.5 min)
-  - Part C: Similarity-Weighted Aggregation (30 sec)
-  - Part D: LLM Function Calling (1.5 min)
-- Demo: 2 min
-- Evaluation: 1.5 min (now includes quantitative metrics)
-- Critical Analysis: 1 min
-- Wrap-up: 30 sec
-- **Total: 12 minutes**
-
-**Note:** Slightly over 11 min target, but extra time spent on methodology (50 pts) and evaluation (15 pts) - highest value sections.
+- Introduction: 25 sec (~60 words)
+- Problem Statement: 50 sec (~120 words)
+- Methodology: 4.5 min (~650 words) - HIGHEST VALUE (50 pts)
+  - Part A: Transformer Embeddings (50 sec - 120 words)
+  - Part B: Attention & Similarity (1 min - 140 words)
+  - Part B2: Multi-Head Attention (1 min - 140 words)
+  - Part C: Similarity-Weighted Aggregation (30 sec - 75 words)
+  - Part D: LLM Function Calling (1.5 min - 175 words)
+- Demo: 1.5 min (~210 words)
+- Evaluation: 1 min (~180 words) - HIGH VALUE (15 pts)
+- Critical Analysis: 50 sec (~120 words)
+- Wrap-up: 20 sec (~50 words)
+- **Total: ~12 minutes (1,830 words)**
 
 ---
 
