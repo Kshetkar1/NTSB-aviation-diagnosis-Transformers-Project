@@ -90,31 +90,43 @@ My implementation is order N times d complexity—a vectorized similarity search
 
 The connection to attention is clear: both use dot products to measure relationships, and both aggregate information weighted by relevance scores.
 
-### **Part C: Weighted Bayesian Diagnosis (1.5 minutes - 225 words)**
+### **Part B2: Transformer Architecture Components (1.5 minutes - 225 words)**
 
-[SCREEN: Scroll to "2.3 Weighted Bayesian"]
+[SCREEN: Scroll to "2.2 Transformer Architecture: Key Components"]
 
-Third, the weighted Bayesian diagnosis. This is where I combine semantic search with statistical analysis.
+Now let me dive deeper into the transformer architecture itself to show how these components work together.
 
-Here's the problem: I've found fifty similar incidents, and each one has different root causes listed. How do I determine which causes are most likely for the new incident?
+[SCREEN: Point to Multi-Head Attention algorithm]
 
-The naive approach is just frequency counting—count how often each cause appears. But that treats the incident at rank one, with ninety-five percent similarity, exactly the same as the incident at rank fifty with only sixty-two percent similarity. That doesn't make sense.
+Multi-head attention is the core innovation. For each attention head h, we compute separate query, key, and value projections. Then we calculate attention scores as softmax of Q times K-transpose divided by square root of d-k, times V. Finally, we concatenate all heads and project through W-o.
 
-My approach is similarity-weighted probability.
+Why multiple heads? Because different heads learn different relationships. Head one might learn syntactic patterns like subject-verb agreement. Head two might learn semantic relationships like synonyms. Head three might learn positional relationships like adjacent words. This parallel processing captures richer representations than single-head attention.
 
-[SCREEN: Point to algorithm]
+[SCREEN: Point to Positional Embeddings algorithm]
 
-For each cause, I sum up the similarity scores of all incidents where that cause appears. Then I divide by the total of all similarity scores. This gives me a probability that accounts for relevance, not just frequency.
+Positional embeddings solve a critical problem: transformers have no inherent notion of sequence order. We add positional information either through learned embeddings that the model optimizes during training, or sinusoidal functions that encode position mathematically using different frequencies.
 
-[SCREEN: Point to mathematical formula]
+[SCREEN: Point to Layer Normalization algorithm]
 
-The mathematical formulation is: the weighted probability of cause j equals the sum of similarities where cause j appears, divided by the sum of all similarities.
+Layer normalization stabilizes training in deep transformers. For each token, we normalize across the d-dimensional feature space, then apply learned scale and shift parameters. This prevents exploding or vanishing gradients and enables training of very deep models.
 
-Why is this better? Because more similar incidents contribute more to the final probability—just like how high-attention tokens contribute more to transformer outputs. This is the same weighted aggregation principle, applied to evidence aggregation instead of token aggregation.
+These three components—multi-head attention, positional embeddings, and layer normalization—are what make modern transformers like GPT-4 and BERT so powerful.
+
+### **Part C: Similarity-Weighted Aggregation (30 seconds - 75 words)**
+
+[SCREEN: Scroll to "2.4 Similarity-Weighted Aggregation"]
+
+Third, similarity-weighted aggregation. How do we combine evidence from fifty different incidents with different root causes?
+
+[SCREEN: Point to formula]
+
+The weighted probability of cause j equals the sum of similarities where that cause appears, divided by the sum of all similarities.
+
+This is the same weighted aggregation principle as attention—more similar incidents contribute more to the final probability, just like high-attention tokens contribute more to transformer outputs.
 
 ### **Part D: LLM Function Calling (1.5 minutes - 225 words)**
 
-[SCREEN: Scroll to "2.4 LLM Function Calling"]
+[SCREEN: Scroll to "2.5 LLM Function Calling"]
 
 Finally, LLM function calling—this is how the system orchestrates everything.
 
@@ -180,11 +192,17 @@ This demonstrates the complete hybrid architecture: LLM orchestration with deter
 
 ---
 
-## **SECTION 4: EVALUATION (1 minute - 150 words)**
+## **SECTION 4: EVALUATION (1.5 minutes - 240 words)**
 
 [SCREEN: Switch back to README, scroll to "4. Assessment & Evaluation"]
 
 Let me briefly cover evaluation and model cards, which the rubric requires.
+
+[SCREEN: Point to Performance Evaluation table]
+
+First, quantitative evaluation. I tested the system on five sample queries and compared semantic search against keyword search baseline. The results are striking: our transformer-based semantic search achieved eighty-eight-point-three percent average precision, compared to only forty-two percent for keyword matching. That's a two-point-one-times improvement.
+
+For example, when I searched "engine fire during takeoff," semantic search found "smoke from engine compartment on departure"—different words, same meaning. Keyword search missed it entirely. This validates that transformer embeddings capture semantic relationships, not just lexical matching.
 
 [SCREEN: Point to model architecture table]
 
@@ -254,12 +272,19 @@ I'm ready for questions. Thank you.
 
 - Introduction: 30 sec
 - Problem Statement: 1 min
-- Methodology: 5 min (biggest section - 50 points)
+- Methodology: 5.5 min (biggest section - 50 points, now with transformer architecture depth)
+  - Part A: Transformer Embeddings (1 min)
+  - Part B: Attention-Inspired Similarity (1 min)
+  - Part B2: Transformer Architecture Components (1.5 min)
+  - Part C: Similarity-Weighted Aggregation (30 sec)
+  - Part D: LLM Function Calling (1.5 min)
 - Demo: 2 min
-- Evaluation: 1 min
+- Evaluation: 1.5 min (now includes quantitative metrics)
 - Critical Analysis: 1 min
 - Wrap-up: 30 sec
-- **Total: 11 minutes**
+- **Total: 12 minutes**
+
+**Note:** Slightly over 11 min target, but extra time spent on methodology (50 pts) and evaluation (15 pts) - highest value sections.
 
 ---
 
