@@ -52,7 +52,7 @@ Now let me explain how transformer concepts enable this system. This is where th
 
 [SCREEN: Show "2.1 Transformer Embeddings"]
 
-First, transformer embeddings. From the Formal Algorithms for Transformers paper by Phuong and Hutter, we know that the token embedding algorithm maps discrete vocabulary elements to continuous vector representations in R to the d_e dimensions.
+First, transformer embeddings. From the Formal Algorithms for Transformers paper by Phuong and Hutter, we know that the token embedding algorithm maps discrete vocabulary elements to continuous vector representations in d-e dimensional real space.
 
 [SCREEN: Point to the algorithm pseudocode]
 
@@ -76,17 +76,17 @@ Second, attention-inspired similarity search. Let me connect this to the attenti
 
 [SCREEN: Point to Attention formula]
 
-Recall that attention is softmax of Q K-transpose over square root d_k times V. The key part is Q K-transpose—this dot product measures how related the query and key vectors are.
+Recall that attention is softmax of Q times K-transpose, divided by the square root of d-k, times V. The key part is Q times K-transpose—this dot product measures how related the query and key vectors are.
 
 I use the same mathematical concept with cosine similarity.
 
 [SCREEN: Point to cosine similarity formula]
 
-Cosine similarity equals q dot d over norm q times norm d. This is essentially a normalized dot product—exactly like attention scores, but applied at the document level instead of the token level.
+Cosine similarity equals q dot d, divided by the norm of q, times the norm of d. This is essentially a normalized dot product—exactly like attention scores, but applied at the document level instead of the token level.
 
 [SCREEN: Point to algorithm]
 
-My implementation is O of N times d—a vectorized similarity search using numpy. For each of the N incidents in the database, I compute the similarity with the query embedding, then return the top k matches.
+My implementation is order N times d complexity—a vectorized similarity search using numpy. For each of the N incidents in the database, I compute the similarity with the query embedding, then return the top k matches.
 
 The connection to attention is clear: both use dot products to measure relationships, and both aggregate information weighted by relevance scores.
 
@@ -108,7 +108,7 @@ For each cause, I sum up the similarity scores of all incidents where that cause
 
 [SCREEN: Point to mathematical formula]
 
-The mathematical formulation is: P weighted of cause j equals the sum of similarities where cause j appears, divided by the sum of all similarities.
+The mathematical formulation is: the weighted probability of cause j equals the sum of similarities where cause j appears, divided by the sum of all similarities.
 
 Why is this better? Because more similar incidents contribute more to the final probability—just like how high-attention tokens contribute more to transformer outputs. This is the same weighted aggregation principle, applied to evidence aggregation instead of token aggregation.
 
@@ -280,4 +280,4 @@ I'm ready for questions. Thank you.
    → Yes! Architecture is model-agnostic. Any model with embeddings + function calling works. Trade-offs: open-source (cost) vs. proprietary (quality).
 
 5. **"How scalable with millions of incidents?"**
-   → Current: O(N) brute-force search. Optimization: Approximate nearest neighbors (FAISS, Annoy). With ANN: Sub-linear search, handles millions efficiently.
+   → Current: Order N brute-force search. Optimization: Approximate nearest neighbors (FAISS, Annoy). With ANN: Sub-linear search, handles millions efficiently.
