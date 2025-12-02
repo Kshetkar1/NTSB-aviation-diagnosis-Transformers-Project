@@ -1,7 +1,7 @@
 # Presentation Script: Aviation Incident Diagnosis Engine
 ## 12 Minute Word-for-Word Script
 
-**Total Words:** ~1,896 (12:38 minutes at 150 words/min)
+**Total Words:** ~1,906 (12:42 minutes at 150 words/min)
 **Author:** Kanu Shetkar
 
 ---
@@ -60,27 +60,11 @@ Why does this work? Transformer self-attention learns semantic relationships dur
 
 My query "engine fire during takeoff" finds incidents with different wording—"fire in engine compartment," "smoke from engine"—all semantically related. Cosine similarity scores quantify closeness in vector space.
 
-### **Part B: Attention-Inspired Similarity (1 minute - 150 words)**
-
-[SCREEN: Scroll to "2.3 Attention-Inspired Similarity"]
-
-Second, attention-inspired similarity search. Let me connect this to the attention mechanism from Vaswani et al.'s "Attention Is All You Need."
-
-[SCREEN: Point to Attention formula]
-
-Attention equals softmax of Q times K-transpose divided by square root of d-k, times V. The Q-K dot product measures query-key relationships. The square-root-d-k scaling is crucial—it prevents softmax saturation in high dimensions, stabilizing gradients.
-
-I apply this same dot product principle with cosine similarity: q dot d divided by norms—a normalized dot product measuring document-level relationships, just like attention measures token-level relationships.
-
-[SCREEN: Point to algorithm]
-
-My implementation computes similarities for all N incidents, returning top-k matches. Both attention and my search use dot products to measure relationships and weight evidence by relevance.
-
-### **Part B2: Transformer Architecture Fundamentals (1 minute - 150 words)**
+### **Part B: Transformer Architecture Fundamentals (1 minute - 150 words)**
 
 [SCREEN: Scroll to "2.2 Transformer Architecture: Key Components"]
 
-Let me explain the transformer fundamentals that make my system possible.
+Second, let me explain the transformer architecture fundamentals that enable these embeddings.
 
 [SCREEN: Point to Multi-Head Attention algorithm]
 
@@ -92,11 +76,27 @@ This is exactly why text-embedding-3-small works for aviation safety—its multi
 
 Layer normalization stabilizes training in deep networks by normalizing activations across dimensions. Both GPT-4-o-mini and text-embedding-3-small are deep transformers with twenty-plus layers. Without layer norm preventing gradient vanishing, training these deep models would fail—the embeddings we rely on wouldn't exist.
 
-### **Part C: Similarity-Weighted Aggregation (30 seconds - 75 words)**
+### **Part C: Attention-Inspired Similarity Search (1 minute - 150 words)**
+
+[SCREEN: Scroll to "2.3 Attention-Inspired Similarity"]
+
+Third, how I apply attention principles to similarity search. Let me connect this to the attention mechanism from Vaswani et al.'s "Attention Is All You Need."
+
+[SCREEN: Point to Attention formula]
+
+Attention equals softmax of Q times K-transpose divided by square root of d-k, times V. The Q-K dot product measures query-key relationships. The square-root-d-k scaling is crucial—it prevents softmax saturation in high dimensions, stabilizing gradients.
+
+I apply this same dot product principle with cosine similarity: q dot d divided by norms—a normalized dot product measuring document-level relationships, just like attention measures token-level relationships.
+
+[SCREEN: Point to algorithm]
+
+My implementation computes similarities for all N incidents, returning top-k matches. Both attention and my search use dot products to measure relationships and weight evidence by relevance.
+
+### **Part D: Similarity-Weighted Aggregation (30 seconds - 75 words)**
 
 [SCREEN: Scroll to "2.4 Similarity-Weighted Aggregation"]
 
-Third, similarity-weighted aggregation. How do we combine evidence from fifty different incidents with different root causes?
+Fourth, similarity-weighted aggregation. How do we combine evidence from fifty different incidents with different root causes?
 
 [SCREEN: Point to formula]
 
@@ -104,7 +104,7 @@ The weighted probability of cause j equals the sum of similarities where that ca
 
 This is the same weighted aggregation principle as attention—more similar incidents contribute more to the final probability, just like high-attention tokens contribute more to transformer outputs.
 
-### **Part D: LLM Function Calling (1.5 minutes - 225 words)**
+### **Part E: LLM Function Calling (1.5 minutes - 225 words)**
 
 [SCREEN: Scroll to "2.5 LLM Function Calling"]
 
@@ -132,9 +132,11 @@ Why does this matter? Because it demonstrates separation of concerns. The LLM ha
 
 ## **SECTION 3: DEMO (1.5 minutes - 210 words)**
 
+Now let me demonstrate this system in action.
+
 [SCREEN: Switch to Streamlit app at localhost:8501]
 
-Let me demonstrate the system. I've built a Streamlit interface showing all three steps.
+I've built a Streamlit interface showing all three steps.
 
 [SCREEN: Enter query and click "Run Diagnostic Agent"]
 
@@ -238,8 +240,8 @@ Thank you. Questions?
 
 ## **END OF PRESENTATION**
 
-**Total Word Count:** ~1,830 words
-**Expected Duration:** 12 minutes
+**Total Word Count:** ~1,906 words
+**Expected Duration:** 12:42 minutes (at 150 wpm)
 **Rubric Coverage:** All 8 sections covered ✓
 
 ---
@@ -247,18 +249,20 @@ Thank you. Questions?
 ## **Timing Breakdown:**
 
 - Introduction: 25 sec (~60 words)
-- Problem Statement: 50 sec (~120 words)
-- Methodology: 4.5 min (~650 words) - HIGHEST VALUE (50 pts)
+- Problem Statement: 50 sec (~130 words)
+- Methodology: 4.5 min (~670 words) - HIGHEST VALUE (50 pts)
   - Part A: Transformer Embeddings (50 sec - 120 words)
-  - Part B: Attention & Similarity (1 min - 140 words)
-  - Part B2: Multi-Head Attention (1 min - 140 words)
-  - Part C: Similarity-Weighted Aggregation (30 sec - 75 words)
-  - Part D: LLM Function Calling (1.5 min - 175 words)
-- Demo: 1.5 min (~210 words)
+  - Part B: Transformer Architecture Fundamentals (1 min - 150 words)
+  - Part C: Attention-Inspired Similarity Search (1 min - 150 words)
+  - Part D: Similarity-Weighted Aggregation (30 sec - 75 words)
+  - Part E: LLM Function Calling (1.5 min - 225 words)
+- Demo: 1.5 min (~215 words)
 - Evaluation: 1 min (~180 words) - HIGH VALUE (15 pts)
-- Critical Analysis: 50 sec (~120 words)
+- Critical Analysis: 55 sec (~135 words)
 - Wrap-up: 20 sec (~50 words)
-- **Total: ~12 minutes (1,830 words)**
+- **Total: ~12:42 minutes (1,906 words)**
+
+**Note:** Within 10-13 minute target range. Methodology and evaluation are highest-value sections (65 pts combined).
 
 ---
 
