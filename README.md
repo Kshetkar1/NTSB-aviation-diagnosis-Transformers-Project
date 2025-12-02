@@ -57,11 +57,7 @@ This project solves this problem by creating a **smart partnership** between AI 
 
 ### How It Works: The System Flow
 
-The system follows a clear three-step process. See the detailed flowchart below (open `system_flowchart.drawio` in [draw.io](https://app.diagrams.net/) to view/edit):
-
-![System Flowchart](system_flowchart.drawio)
-
-**Note:** The flowchart file (`system_flowchart.drawio`) can be opened in draw.io or any compatible diagramming tool. It shows the complete flow from user input to final results, with color-coded components for easy understanding.
+The system follows a clear three-step process:
 
 **Step 1: Generate a Detailed Report**
 
