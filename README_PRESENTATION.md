@@ -25,36 +25,38 @@ Aviation safety analysts must search the **NTSB database (80,000+ aviation incid
 
 ### The Solution: Hybrid Transformer Architecture
 
+**Three-Step Workflow:**
+
 ```mermaid
-graph LR
-    A["🔍 User Query"] --> B["🤖 LLM Agent<br/>GPT-4o-mini"]
+graph TD
+    Query["🔍 User Query<br/>'engine fire during takeoff'"]
 
-    B --> C["1️⃣ Generate<br/>Report"]
-    C --> D["2️⃣ Call<br/>Tool"]
-    D --> E["🔧 Diagnostic<br/>Tool"]
+    Query --> Step1["<b>STEP 1: GENERATE</b><br/>🤖 LLM Agent<br/>Creates detailed incident report"]
 
-    E --> F["📊 Semantic<br/>Search"]
-    E --> G["📈 Weighted<br/>Bayesian"]
+    Step1 --> Step2["<b>STEP 2: DIAGNOSE</b><br/>🔧 Diagnostic Tool"]
 
-    F --> H["💾 NTSB Data<br/>1536-dim"]
-    G --> H
+    Step2 --> Search["📊 Semantic Search<br/>Find 50 similar incidents<br/>(transformer embeddings)"]
+    Search --> Data["💾 NTSB Database<br/>80,000 incidents<br/>1536-dim vectors"]
+    Data --> Bayes["📈 Weighted Bayesian<br/>Calculate cause probabilities<br/>(attention-inspired)"]
 
-    H --> I["📋 Results"]
-    I --> D
-    D --> J["3️⃣ Synthesize"]
-    J --> K["✅ Final<br/>Diagnosis"]
+    Bayes --> Step3["<b>STEP 3: SYNTHESIZE</b><br/>🤖 LLM Agent<br/>Explains results in plain English"]
 
-    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
-    style B fill:#fff3e0,stroke:#f57c00,stroke-width:3px
-    style C fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style D fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style E fill:#fce4ec,stroke:#c2185b,stroke-width:3px
-    style F fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-    style G fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-    style H fill:#e0f2f1,stroke:#00796b,stroke-width:3px
-    style J fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style K fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    Step3 --> Output["✅ Final Diagnosis<br/>Top causes + probabilities + evidence"]
+
+    style Query fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
+    style Step1 fill:#fff3e0,stroke:#f57c00,stroke-width:4px
+    style Step2 fill:#fce4ec,stroke:#c2185b,stroke-width:4px
+    style Step3 fill:#fff3e0,stroke:#f57c00,stroke-width:4px
+    style Search fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style Data fill:#e0f2f1,stroke:#00796b,stroke-width:3px
+    style Bayes fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style Output fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
 ```
+
+**Key Components:**
+- **LLM Agent (GPT-4o-mini):** Orchestrates workflow, generates & synthesizes
+- **Diagnostic Tool:** Executes semantic search & statistical analysis
+- **NTSB Database:** 80,000 pre-computed embeddings (1536 dimensions each)
 
 **Architecture Principles:**
 1. Transformers for semantic understanding (embeddings)
