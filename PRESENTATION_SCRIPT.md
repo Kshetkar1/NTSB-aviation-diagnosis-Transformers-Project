@@ -1,7 +1,7 @@
 # Presentation Script: Aviation Incident Diagnosis Engine
-## 10-11 Minute Word-for-Word Script
+## 12 Minute Word-for-Word Script
 
-**Total Words:** ~1,650 (11 minutes at 150 words/min)
+**Total Words:** ~1,896 (12:38 minutes at 150 words/min)
 **Author:** Kanu Shetkar
 
 ---
@@ -9,7 +9,7 @@
 ## Instructions:
 - Read this script word-for-word
 - Follow [SCREEN] directions to know what to show
-- Practice timing: Should be 10-11 minutes total
+- Practice timing: Should be 12 minutes total
 - Don't rush - clear articulation is important
 
 ---
@@ -24,17 +24,17 @@ This demonstrates how transformer architectures—embeddings, attention, and fun
 
 ---
 
-## **SECTION 1: PROBLEM STATEMENT (50 seconds - 120 words)**
+## **SECTION 1: PROBLEM STATEMENT (50 seconds - 130 words)**
 
 [SCREEN: Scroll to "1. Problem Statement & Overview"]
 
-Aviation safety analysts search thousands of NTSB reports to investigate incidents. Traditional keyword search fails because semantically identical descriptions use different words: "engine fire during takeoff" won't match "smoke from engine compartment on departure"—same phenomenon, different words.
+Aviation safety analysts must search the NTSB database—over eighty thousand aviation incidents since 1962—to investigate patterns. Manual analysis takes hours. Traditional keyword search fails because semantically identical descriptions use different words: "engine fire during takeoff" won't match "smoke from engine compartment on departure"—same phenomenon, different words.
 
 Why not just ask an LLM? LLMs hallucinate facts, generating plausible diagnoses not grounded in real data. For life-or-death aviation decisions, this is unacceptable.
 
 [SCREEN: Point to architecture diagram]
 
-My hybrid architecture uses transformers for semantic understanding but deterministic tools for facts. Three components: an LLM agent for orchestration, a diagnostic tool for semantic search and weighted Bayesian analysis, and the NTSB database with pre-computed embeddings.
+My hybrid architecture delivers diagnoses in seconds, not hours. It uses transformers for semantic understanding but deterministic tools for facts. Three components: an LLM agent for orchestration, a diagnostic tool for semantic search and weighted Bayesian analysis, and the NTSB database with pre-computed embeddings.
 
 ---
 
@@ -62,7 +62,7 @@ My query "engine fire during takeoff" finds incidents with different wording—"
 
 ### **Part B: Attention-Inspired Similarity (1 minute - 150 words)**
 
-[SCREEN: Scroll to "2.2 Attention-Inspired Similarity"]
+[SCREEN: Scroll to "2.3 Attention-Inspired Similarity"]
 
 Second, attention-inspired similarity search. Let me connect this to the attention mechanism from Vaswani et al.'s "Attention Is All You Need."
 
@@ -76,19 +76,21 @@ I apply this same dot product principle with cosine similarity: q dot d divided 
 
 My implementation computes similarities for all N incidents, returning top-k matches. Both attention and my search use dot products to measure relationships and weight evidence by relevance.
 
-### **Part B2: Multi-Head Attention in Practice (1 minute - 140 words)**
+### **Part B2: Transformer Architecture Fundamentals (1 minute - 150 words)**
 
 [SCREEN: Scroll to "2.2 Transformer Architecture: Key Components"]
 
-Let me explain why multi-head attention matters for my system.
+Let me explain the transformer fundamentals that make my system possible.
 
 [SCREEN: Point to Multi-Head Attention algorithm]
 
 Multi-head attention computes H parallel attention functions with different learned projections Q-h, K-h, V-h, then concatenates results. Why multiple heads? Different heads specialize: one captures syntactic patterns, another captures synonyms, another positional relationships.
 
-This is exactly why text-embedding-3-small works for aviation safety—its multi-head architecture learned during pre-training to capture diverse semantic relationships. When I embed "engine fire," different attention heads activate for combustion semantics, aircraft component relationships, and emergency terminology.
+This is exactly why text-embedding-3-small works for aviation safety—its multi-head architecture learned to capture diverse semantic relationships. When I embed "engine fire," different attention heads activate for combustion semantics, aircraft component relationships, and emergency terminology.
 
-The embedding model distills these multi-head representations into a single fifteen-hundred-thirty-six dimensional vector that encodes all these relationship types simultaneously.
+[SCREEN: Point to Layer Normalization]
+
+Layer normalization stabilizes training in deep networks by normalizing activations across dimensions. Both GPT-4-o-mini and text-embedding-3-small are deep transformers with twenty-plus layers. Without layer norm preventing gradient vanishing, training these deep models would fail—the embeddings we rely on wouldn't exist.
 
 ### **Part C: Similarity-Weighted Aggregation (30 seconds - 75 words)**
 
@@ -194,23 +196,29 @@ Complete model and data cards are in the README with licenses, documentation lin
 
 ---
 
-## **SECTION 5: CRITICAL ANALYSIS (50 seconds - 120 words)**
+## **SECTION 5: CRITICAL ANALYSIS (55 seconds - 135 words)**
 
 [SCREEN: Scroll to "6. Critical Analysis"]
 
-Impact on aviation safety: rapid pattern recognition completing in seconds versus hours. Semantic search finds cases despite different terminology. Recommendations grounded in historical precedent.
+Impact: diagnoses in seconds versus hours, grounded in historical data.
 
-For transformer research: demonstrates practical hybrid architecture mitigating LLM hallucination in safety-critical domains. Key insight—use LLMs as orchestrators, not oracles.
+Three key insights about transformers:
 
-Technical innovation: similarity-weighted aggregation applying attention principles to evidence combination.
+[SCREEN: Point to "What This Reveals"]
+
+First, transfer learning works. Transformers trained on general text transfer to specialized aviation domains without fine-tuning, suggesting they capture fundamental semantic structures.
+
+Second, the hallucination-accuracy tradeoff. LLM generation enables synthesis but risks hallucination. Embeddings enable factual retrieval without generation. Solution: use both—LLMs for orchestration, embeddings for grounding.
+
+Third, attention as a universal pattern. Weighted aggregation appears at token-level, document-level, and evidence-level, suggesting attention is fundamental to information processing.
 
 [SCREEN: Point to Limitations]
 
-Limitations: evaluation is manual and small-scale, needs multi-rater validation. No temporal trend analysis. No confidence intervals on probabilities.
+Limitations: small-scale evaluation, no temporal analysis, no uncertainty quantification.
 
 [SCREEN: Point to Future Work]
 
-Future work: expert validation studies, temporal failure analysis, causal chain visualization, and formal evaluation frameworks.
+Future work: expert validation with NTSB analysts, FAISS for scalability, temporal trend analysis.
 
 ---
 
