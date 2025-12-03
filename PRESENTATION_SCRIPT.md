@@ -222,27 +222,5 @@ Thank you. Questions?
 
 ## **END OF PRESENTATION**
 
-**Total Word Count:** ~1,259 words
-**Expected Duration:** 11:10 minutes (at 150 wpm)
-**Rubric Coverage:** All 8 sections covered ✓
-**Optimizations:** Removed incorrect "Bayesian" terminology, added mechanism depth, streamlined course review content
-
----
-
-## **Timing Breakdown:**
-
-- Introduction: 25 sec (~65 words) ⭐ REAL INCIDENT HOOK
-- Problem Statement: 50 sec (~130 words)
-- Methodology: 3:25 min (~602 words) - HIGHEST VALUE (50 pts)
-  - Part A: Transformer Embeddings (1:05 - 162 words) ⭐ ADDED HOW TRANSFORMERS LEARN
-  - Part B: Transformer Architecture Fundamentals (20 sec - 50 words) ⭐ STREAMLINED
-  - Part C: Attention-Inspired Similarity Search (20 sec - 50 words) ⭐ STREAMLINED
-  - Part D: Similarity-Weighted Aggregation (1:20 - 190 words) ⭐ ADDED WHY WEIGHTED AGGREGATION
-  - Part E: LLM Function Calling (1 min - 150 words) ⭐ STREAMLINED
-- Demo: 1 min (~150 words) ⭐ FOCUSED ON OUTPUT 2
-- Evaluation: 1:05 min (~187 words) - HIGH VALUE (15 pts) ⭐ ADDED STATISTICAL FRAMING
-- Critical Analysis: 30 sec (~75 words) ⭐ TWO KEY INSIGHTS
-- Wrap-up: 20 sec (~50 words)
-- **Total: ~11:10 minutes (1,259 words)**
-
-**Note:** Optimized for 11-minute target. Improvements: (1) Removed "Bayesian" terminology (incorrect), (2) Added depth on HOW transformers learn and WHY weighted aggregation, (3) Streamlined course review content to focus on novel contributions.
+**Total Duration:** ~11 minutes
+**Word Count:** ~1,259 words
