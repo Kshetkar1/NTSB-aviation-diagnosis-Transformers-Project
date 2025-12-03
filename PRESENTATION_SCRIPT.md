@@ -213,7 +213,7 @@ What surprised me: I expected embeddings to struggle with rare aviation terms li
 
 Current limitations: Three main ones. First, evaluation is small-scale with only five test queries—needs larger validation. Second, no temporal analysis of trends over time. Third, no uncertainty quantification for the probabilities.
 
-Future work has three priorities: short-term, validate with NTSB analysts. Medium-term, implement FAISS for scalability to millions of incidents. Long-term, add temporal trend analysis and predictive modeling for emerging risks.
+Future work has three priorities: short-term, validate with NTSB analysts. Medium-term, add temporal trend analysis and causal chain visualization. Long-term, implement predictive modeling for emerging risks and multi-modal analysis combining logs, sensor data, and weather.
 
 ---
 

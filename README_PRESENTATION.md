@@ -566,7 +566,6 @@ Why?
 
 **Short-term (3-6 months):**
 - Expert validation with NTSB analysts
-- FAISS for scalability (millions of incidents)
 
 **Medium-term (6-12 months):**
 - Temporal trend analysis (failure modes over time)
