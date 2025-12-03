@@ -36,28 +36,23 @@
 **Three-Step Workflow:**
 
 ```mermaid
-graph TD
+graph LR
     Query["🔍 User Query<br/>'engine fire during takeoff'"]
 
-    Query --> Step1["<b>STEP 1: GENERATE</b><br/>🤖 LLM Agent<br/>Creates detailed incident report"]
+    Step1["<b>STEP 1: GENERATE</b><br/>🤖 LLM Agent<br/>Creates detailed incident report"]
 
-    Step1 --> Step2["<b>STEP 2: DIAGNOSE</b><br/>🔧 Diagnostic Tool"]
+    Step2["<b>STEP 2: DIAGNOSE</b><br/>🔧 Diagnostic Tool<br/>• Semantic search (embeddings)<br/>• Weighted aggregation<br/>• Uses NTSB Database (80K incidents)"]
 
-    Step2 --> Search["📊 Semantic Search<br/>Find 50 similar incidents<br/>(transformer embeddings)"]
-    Search --> Data["💾 NTSB Database<br/>80,000 incidents<br/>1536-dim vectors"]
-    Data --> Aggregate["📈 Weighted Aggregation<br/>Calculate cause probabilities<br/>(attention-inspired)"]
+    Step3["<b>STEP 3: SYNTHESIZE</b><br/>🤖 LLM Agent<br/>Explains results in plain English"]
 
-    Aggregate --> Step3["<b>STEP 3: SYNTHESIZE</b><br/>🤖 LLM Agent<br/>Explains results in plain English"]
+    Output["✅ Final Diagnosis<br/>Top causes + probabilities"]
 
-    Step3 --> Output["✅ Final Diagnosis<br/>Top causes + probabilities + evidence"]
+    Query --> Step1 --> Step2 --> Step3 --> Output
 
     style Query fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
     style Step1 fill:#fff3e0,stroke:#f57c00,stroke-width:4px
-    style Step2 fill:#fce4ec,stroke:#c2185b,stroke-width:4px
+    style Step2 fill:#e8f5e9,stroke:#388e3c,stroke-width:4px
     style Step3 fill:#fff3e0,stroke:#f57c00,stroke-width:4px
-    style Search fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-    style Data fill:#e0f2f1,stroke:#00796b,stroke-width:3px
-    style Aggregate fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
     style Output fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
 ```
 
