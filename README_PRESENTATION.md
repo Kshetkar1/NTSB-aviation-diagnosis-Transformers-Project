@@ -12,9 +12,9 @@
 **Solution:** Hybrid architecture combining:
 - Transformer embeddings for semantic search
 - LLM function calling for orchestration
-- Weighted Bayesian analysis for diagnosis
+- Similarity-weighted aggregation for diagnosis
 
-**Key Innovation:** Similarity-weighted evidence aggregation (transformers + Bayesian reasoning)
+**Key Innovation:** Similarity-weighted evidence aggregation (attention-inspired probabilistic reasoning)
 
 ---
 
@@ -45,7 +45,7 @@ graph TD
 
     Step2 --> Search["📊 Semantic Search<br/>Find 50 similar incidents<br/>(transformer embeddings)"]
     Search --> Data["💾 NTSB Database<br/>80,000 incidents<br/>1536-dim vectors"]
-    Data --> Bayes["📈 Weighted Bayesian<br/>Calculate cause probabilities<br/>(attention-inspired)"]
+    Data --> Bayes["📈 Weighted Aggregation<br/>Calculate cause probabilities<br/>(attention-inspired)"]
 
     Bayes --> Step3["<b>STEP 3: SYNTHESIZE</b><br/>🤖 LLM Agent<br/>Explains results in plain English"]
 
@@ -263,17 +263,18 @@ graph TD
 **Simple counting:** "Pilot error" wins (10 > 5) ❌
 **Weighted approach:** "Pilot error" wins but with correct confidence (6.0 > 4.75) ✓
 
-**Solution:** Similarity-weighted Bayesian probability:
+**Solution:** Similarity-weighted probability estimation:
 
 ```
 P_weighted(cause_j) = Σ_{i: cause_j ∈ C_i} sim(q, d_i) / Σ_{i=1}^{n} sim(q, d_i)
 ```
 
-This computes **posterior probabilities** where:
-- More relevant incidents contribute more weight (like Bayesian priors)
+This computes **probability distributions** where:
+- Similarity scores act as confidence weights (evidence strength)
+- More relevant incidents contribute proportionally more
 - Similar incidents have higher influence (like attention weights)
 
-**Novel Contribution:** Combining transformer semantic similarity with Bayesian statistical reasoning.
+**Novel Contribution:** Adapting attention-style weighted aggregation to diagnostic reasoning with probabilistic output.
 
 **Connection to Transformers:** More similar incidents contribute more to final probability—same weighted aggregation principle as attention mechanism (high-attention tokens contribute more to outputs). This is attention at the **evidence level** rather than token level.
 
@@ -383,7 +384,7 @@ def calculate_weighted_diagnosis(scores, matches, top_n=50):
 
    Supporting Evidence: Shows which incidents contain each cause
    ```
-   - Demonstrates: Semantic search (embeddings) + Weighted Bayesian (attention-inspired aggregation)
+   - Demonstrates: Semantic search (embeddings) + Similarity-weighted aggregation (attention-inspired)
 
 4. **Output 3 - LLM Synthesis:**
    - Plain English interpretation of statistical results
@@ -505,7 +506,7 @@ def calculate_weighted_diagnosis(scores, matches, top_n=50):
 - Example of LLMs as orchestrators, not oracles
 
 **Technical Innovation:**
-- Similarity-weighted Bayesian combines semantic search with statistical aggregation
+- Similarity-weighted aggregation combines semantic search with probabilistic reasoning
 - Attention-inspired diagnosis applies transformer concepts outside model architecture
 
 ### What This Reveals
