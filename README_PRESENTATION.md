@@ -35,25 +35,21 @@
 
 **Three-Step Workflow:**
 
-```mermaid
-graph LR
-    Query["🔍 User Query<br/>'engine fire during takeoff'"]
+**🔍 User Query** → **STEP 1: Generate Report** (LLM) → **STEP 2: Diagnose** (Semantic Search + Weighted Aggregation) → **STEP 3: Synthesize** (LLM) → **✅ Final Diagnosis**
 
-    Step1["<b>STEP 1: GENERATE</b><br/>🤖 LLM Agent<br/>Creates detailed incident report"]
-
-    Step2["<b>STEP 2: DIAGNOSE</b><br/>🔧 Diagnostic Tool<br/>• Semantic search (embeddings)<br/>• Weighted aggregation<br/>• Uses NTSB Database (80K incidents)"]
-
-    Step3["<b>STEP 3: SYNTHESIZE</b><br/>🤖 LLM Agent<br/>Explains results in plain English"]
-
-    Output["✅ Final Diagnosis<br/>Top causes + probabilities"]
-
-    Query --> Step1 --> Step2 --> Step3 --> Output
-
-    style Query fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
-    style Step1 fill:#fff3e0,stroke:#f57c00,stroke-width:4px
-    style Step2 fill:#e8f5e9,stroke:#388e3c,stroke-width:4px
-    style Step3 fill:#fff3e0,stroke:#f57c00,stroke-width:4px
-    style Output fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
+**Visual Flow:**
+```
+┌─────────────┐      ┌──────────────────┐      ┌─────────────────────────┐
+│ User Query  │  →   │  STEP 1: GENERATE│  →   │  STEP 2: DIAGNOSE       │
+│ "engine     │      │  LLM creates     │      │  • Semantic search      │
+│  fire..."   │      │  incident report │      │  • Weighted aggregation │
+└─────────────┘      └──────────────────┘      └─────────────────────────┘
+                                                            ↓
+┌─────────────┐      ┌──────────────────┐                 │
+│ ✅ Final     │  ←   │  STEP 3: SYNTHESIZE │  ←──────────┘
+│  Diagnosis  │      │  LLM explains     │
+└─────────────┘      │  results          │
+                     └──────────────────┘
 ```
 
 **Key Components:**
