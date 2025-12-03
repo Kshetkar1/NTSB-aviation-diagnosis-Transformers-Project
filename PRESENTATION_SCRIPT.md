@@ -54,6 +54,8 @@ My hybrid architecture delivers diagnoses in seconds, not hours. It uses transfo
 
 **SAY THIS:**
 
+Let me explain how transformer concepts enable this system.
+
 First, transformer embeddings solve the core aviation safety problem. Traditional keyword search fails because "engine fire during takeoff" and "smoke from engine compartment on departure" share zero keywords, yet describe identical failure modes.
 
 I use text-embedding-3-small to convert incident narratives into fifteen-hundred-thirty-six dimensional semantic coordinates. Why does this work? The transformer's self-attention mechanism learned during pre-training that "fire," "smoke," and "combustion" are semantically related—and that "takeoff" and "departure" describe the same flight phase.

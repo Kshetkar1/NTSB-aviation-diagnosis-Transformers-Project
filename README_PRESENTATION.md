@@ -78,6 +78,8 @@ graph TD
 
 ## 2. Methodology: Transformers in Action (50 pts)
 
+📄 **[View Formal Algorithm Specifications](./algorithms_formal.pdf)** - All algorithms presented in publication-quality LaTeX format (Phuong & Hutter style)
+
 ### 2.1 Transformer Embeddings: Solving Aviation Safety Search
 
 **The Core Problem:** Traditional keyword search fails because "engine fire during takeoff" and "smoke from engine compartment on departure" share **zero keywords**, yet describe identical failure modes.
