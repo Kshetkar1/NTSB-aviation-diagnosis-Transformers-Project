@@ -27,7 +27,7 @@ I'm Kanu Shetkar. My Aviation Incident Diagnosis Engine does this search in seco
 
 ---
 
-## **SECTION 1: PROBLEM STATEMENT (50 seconds - 130 words)**
+## **SECTION 1: PROBLEM STATEMENT (55 seconds - 145 words)**
 
 **📺 SCREEN:**
 - Scroll to "1. Problem Statement & Overview"
@@ -39,7 +39,7 @@ Aviation safety analysts must search the NTSB database—over eighty thousand av
 
 Why not just ask an LLM? LLMs hallucinate facts, generating plausible diagnoses not grounded in real data. For life-or-death aviation decisions, this is unacceptable.
 
-My hybrid architecture delivers diagnoses in seconds, not hours. It uses transformers for semantic understanding but deterministic tools for facts. Three components: an LLM agent for orchestration, a diagnostic tool for semantic search and similarity-weighted aggregation, and the NTSB database with pre-computed embeddings.
+My hybrid architecture delivers diagnoses in seconds, not hours. As you can see in this workflow diagram, a query comes in, goes through three steps—generate, diagnose, synthesize—and outputs the final diagnosis. Three components power this: an LLM agent for orchestration, a diagnostic tool for semantic search and similarity-weighted aggregation, and the NTSB database with pre-computed embeddings.
 
 ---
 
@@ -228,5 +228,5 @@ Thank you. I'm happy to take questions.
 
 ## **END OF PRESENTATION**
 
-**Total Duration:** ~12:25 minutes
-**Word Count:** ~1,424 words
+**Total Duration:** ~12:30 minutes
+**Word Count:** ~1,439 words
