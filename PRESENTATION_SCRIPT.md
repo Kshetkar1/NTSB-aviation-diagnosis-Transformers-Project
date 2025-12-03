@@ -1,7 +1,7 @@
 # Presentation Script: Aviation Incident Diagnosis Engine
-## 12 Minute Word-for-Word Script
+## 13 Minute Word-for-Word Script
 
-**Total Words:** ~1,906 (12:42 minutes at 150 words/min)
+**Total Words:** ~1,943 (12:57 minutes at 150 words/min)
 **Author:** Kanu Shetkar
 
 ---
@@ -14,13 +14,13 @@
 
 ---
 
-## **INTRODUCTION (25 seconds - 60 words)**
+## **INTRODUCTION (25 seconds - 65 words)**
 
 [SCREEN: Show README_PRESENTATION.md title]
 
-Good morning. I'm Kanu Shetkar, presenting an Aviation Incident Diagnosis Engine that combines transformer embeddings with LLM agents for safety analysis.
+December 28th, 2016. American Airlines Flight 383 catches fire during takeoff at Chicago O'Hare. All passengers evacuate safely, but investigators face a challenge: searching eighty thousand historical incidents to find similar engine fire cases. This manual analysis takes hours.
 
-This demonstrates how transformer architectures—embeddings, attention, and function calling—enable real-world safety applications while mitigating LLM hallucination risks that make pure generation unreliable for critical systems.
+I'm Kanu Shetkar. My Aviation Incident Diagnosis Engine does this search in seconds using transformer embeddings and LLM agents, demonstrating how transformers enable safety-critical applications while mitigating hallucination risks.
 
 ---
 
@@ -38,7 +38,7 @@ My hybrid architecture delivers diagnoses in seconds, not hours. It uses transfo
 
 ---
 
-## **SECTION 2: METHODOLOGY (4.5 minutes - 650 words)**
+## **SECTION 2: METHODOLOGY (4.25 minutes - 695 words)**
 
 [SCREEN: Scroll to "2. Methodology"]
 
@@ -48,61 +48,57 @@ Let me explain how transformer concepts enable this system.
 
 [SCREEN: Show "2.1 Transformer Embeddings"]
 
-First, transformer embeddings. From Phuong and Hutter's Formal Algorithms paper, token embeddings map discrete vocabulary to continuous vector representations in d-e dimensional real space.
+First, transformer embeddings solve the core aviation safety problem. Traditional keyword search fails because "engine fire during takeoff" and "smoke from engine compartment on departure" share zero keywords, yet describe identical failure modes.
 
 [SCREEN: Point to code snippet]
 
-I extend this to document-level embeddings using text-embedding-3-small, producing fifteen-hundred-thirty-six dimensional vectors. One API call converts an incident narrative into semantic coordinates.
-
-Why does this work? Transformer self-attention learns semantic relationships during pre-training.
+I use text-embedding-3-small to convert incident narratives into fifteen-hundred-thirty-six dimensional semantic coordinates. Why does this work? The transformer's self-attention mechanism learned during pre-training that "fire," "smoke," and "combustion" are semantically related—and that "takeoff" and "departure" describe the same flight phase.
 
 [SCREEN: Point to example]
 
-My query "engine fire during takeoff" finds incidents with different wording—"fire in engine compartment," "smoke from engine"—all semantically related. Cosine similarity scores quantify closeness in vector space.
+My query "engine fire during takeoff" now finds incidents with completely different wording—"fire in engine compartment," "smoke from engine," "combustion event during climb"—because they're close in semantic vector space, not keyword space. This is the fundamental advantage: transformers capture meaning, not just words.
 
-### **Part B: Transformer Architecture Fundamentals (1 minute - 150 words)**
+### **Part B: Transformer Architecture Fundamentals (45 seconds - 110 words)**
 
-[SCREEN: Scroll to "2.2 Transformer Architecture: Key Components"]
+[SCREEN: Scroll to "2.2 Transformer Architecture: Why Transfer Learning Works"]
 
-Second, let me explain the transformer architecture fundamentals that enable these embeddings.
+Second, why does this transfer learning work without aviation-specific fine-tuning? The multi-head attention architecture is key.
 
 [SCREEN: Point to Multi-Head Attention algorithm]
 
-Multi-head attention computes H parallel attention functions with different learned projections Q-h, K-h, V-h, then concatenates results. Why multiple heads? Different heads specialize: one captures syntactic patterns, another captures synonyms, another positional relationships.
+When I embed "engine fire," different attention heads activate for different semantic dimensions—one captures combustion-related terms like "smoke" and "flame," another captures aircraft component relationships like "engine," "nacelle," "powerplant," and a third captures emergency terminology like "abort," "shutdown," "evacuation." This specialization happens automatically because the architecture learned to decompose meaning into multiple parallel representations.
 
-This is exactly why text-embedding-3-small works for aviation safety—its multi-head architecture learned to capture diverse semantic relationships. When I embed "engine fire," different attention heads activate for combustion semantics, aircraft component relationships, and emergency terminology.
+This is exactly why semantic search achieves eighty-eight percent precision versus forty-two percent for keywords—the architecture captures relationships that simple word matching cannot.
 
-[SCREEN: Point to Layer Normalization]
-
-Layer normalization stabilizes training in deep networks by normalizing activations across dimensions. Both GPT-4-o-mini and text-embedding-3-small are deep transformers with twenty-plus layers. Without layer norm preventing gradient vanishing, training these deep models would fail—the embeddings we rely on wouldn't exist.
-
-### **Part C: Attention-Inspired Similarity Search (1 minute - 150 words)**
+### **Part C: Attention-Inspired Similarity Search (40 seconds - 95 words)**
 
 [SCREEN: Scroll to "2.3 Attention-Inspired Similarity"]
 
-Third, how I apply attention principles to similarity search. Let me connect this to the attention mechanism from Vaswani et al.'s "Attention Is All You Need."
+Third, how I adapted attention principles for document-level similarity search. The attention mechanism uses dot products to measure token relationships—Q times K-transpose.
 
 [SCREEN: Point to Attention formula]
 
-Attention equals softmax of Q times K-transpose divided by square root of d-k, times V. The Q-K dot product measures query-key relationships. The square-root-d-k scaling is crucial—it prevents softmax saturation in high dimensions, stabilizing gradients.
-
-I apply this same dot product principle with cosine similarity: q dot d divided by norms—a normalized dot product measuring document-level relationships, just like attention measures token-level relationships.
+I adapt this core intuition to the document level with cosine similarity: query dot product incident divided by their norms. While attention uses softmax-weighted aggregation, my approach uses normalized dot products to measure how aligned two incident vectors are in semantic space.
 
 [SCREEN: Point to algorithm]
 
-My implementation computes similarities for all N incidents, returning top-k matches. Both attention and my search use dot products to measure relationships and weight evidence by relevance.
+My implementation computes cosine similarity against all eighty thousand NTSB incidents, then returns the top fifty matches ranked by relevance.
 
-### **Part D: Similarity-Weighted Aggregation (30 seconds - 75 words)**
+### **Part D: Similarity-Weighted Aggregation (1 minute - 145 words)**
 
 [SCREEN: Scroll to "2.4 Similarity-Weighted Aggregation"]
 
-Fourth, similarity-weighted aggregation. How do we combine evidence from fifty different incidents with different root causes?
+Fourth, similarity-weighted aggregation—this is my key innovation combining transformers with Bayesian reasoning.
+
+Here's the problem: I have fifty similar incidents, each with different root causes. How do I combine this evidence? Why not just count causes?
 
 [SCREEN: Point to formula]
 
-The weighted probability of cause j equals the sum of similarities where that cause appears, divided by the sum of all similarities.
+Because relevance matters more than frequency. Imagine ten incidents cite "pilot error" but they're only sixty percent similar to my query—that's a total weight of six-point-zero. Now imagine five incidents cite "mechanical failure" but they're ninety-five percent similar—that's a weight of four-point-seven-five.
 
-This is the same weighted aggregation principle as attention—more similar incidents contribute more to the final probability, just like high-attention tokens contribute more to transformer outputs.
+Simple counting would say "pilot error" is more likely because ten is greater than five. But my weighted approach correctly recognizes that the five highly-similar mechanical failures are more relevant evidence than ten loosely-similar pilot errors.
+
+This is weighted Bayesian reasoning: I'm computing posterior probabilities where more relevant incidents contribute more weight—exactly like attention mechanisms weight tokens by relevance. The formula is: weighted probability of cause j equals sum of similarities where that cause appears, divided by sum of all similarities.
 
 ### **Part E: LLM Function Calling (1.5 minutes - 225 words)**
 
@@ -198,7 +194,7 @@ Complete model and data cards are in the README with licenses, documentation lin
 
 ---
 
-## **SECTION 5: CRITICAL ANALYSIS (55 seconds - 135 words)**
+## **SECTION 5: CRITICAL ANALYSIS (1 minute 10 seconds - 172 words)**
 
 [SCREEN: Scroll to "6. Critical Analysis"]
 
@@ -213,6 +209,8 @@ First, transfer learning works. Transformers trained on general text transfer to
 Second, the hallucination-accuracy tradeoff. LLM generation enables synthesis but risks hallucination. Embeddings enable factual retrieval without generation. Solution: use both—LLMs for orchestration, embeddings for grounding.
 
 Third, attention as a universal pattern. Weighted aggregation appears at token-level, document-level, and evidence-level, suggesting attention is fundamental to information processing.
+
+What surprised me during this project: I expected embeddings to struggle with rare aviation terms like "nacelle" or "turbofan spool." But the model handled them perfectly because multi-head attention composes meaning from context, not just vocabulary. This validates compositional semantics over word memorization.
 
 [SCREEN: Point to Limitations]
 
@@ -240,29 +238,29 @@ Thank you. Questions?
 
 ## **END OF PRESENTATION**
 
-**Total Word Count:** ~1,906 words
-**Expected Duration:** 12:42 minutes (at 150 wpm)
+**Total Word Count:** ~1,943 words
+**Expected Duration:** 12:57 minutes (at 150 wpm)
 **Rubric Coverage:** All 8 sections covered ✓
 
 ---
 
 ## **Timing Breakdown:**
 
-- Introduction: 25 sec (~60 words)
+- Introduction: 25 sec (~65 words) ⭐ REAL INCIDENT HOOK
 - Problem Statement: 50 sec (~130 words)
-- Methodology: 4.5 min (~670 words) - HIGHEST VALUE (50 pts)
+- Methodology: 4.25 min (~695 words) - HIGHEST VALUE (50 pts)
   - Part A: Transformer Embeddings (50 sec - 120 words)
-  - Part B: Transformer Architecture Fundamentals (1 min - 150 words)
-  - Part C: Attention-Inspired Similarity Search (1 min - 150 words)
-  - Part D: Similarity-Weighted Aggregation (30 sec - 75 words)
+  - Part B: Transformer Architecture Fundamentals (45 sec - 110 words)
+  - Part C: Attention-Inspired Similarity Search (40 sec - 95 words) ⭐ FIXED PRECISION
+  - Part D: Similarity-Weighted Aggregation (1 min - 145 words) ⭐ EXPANDED
   - Part E: LLM Function Calling (1.5 min - 225 words)
 - Demo: 1.5 min (~215 words)
 - Evaluation: 1 min (~180 words) - HIGH VALUE (15 pts)
-- Critical Analysis: 55 sec (~135 words)
+- Critical Analysis: 1 min 10 sec (~172 words) ⭐ ADDED REFLECTION
 - Wrap-up: 20 sec (~50 words)
-- **Total: ~12:42 minutes (1,906 words)**
+- **Total: ~12:57 minutes (1,943 words)**
 
-**Note:** Within 10-13 minute target range. Methodology and evaluation are highest-value sections (65 pts combined).
+**Note:** Under 13-minute limit. Improvements: (1) Opening hook with AA383 incident, (2) Fixed cosine≠attention precision, (3) Added "what surprised me" reflection showing compositional semantics insight.
 
 ---
 
