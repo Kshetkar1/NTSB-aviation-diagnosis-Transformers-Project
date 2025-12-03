@@ -370,13 +370,16 @@ def calculate_weighted_diagnosis(scores, matches, top_n=50):
 
 3. **Output 2 - Diagnostic Tool Results (Factual Data):**
    ```
-   Top Probable Causes (from 50 similar historical incidents):
-   1. Fatigue/wear/corrosion: 32.4% (23 incidents, avg similarity: 0.81)
-   2. Inadequate maintenance: 18.7% (12 incidents, avg similarity: 0.79)
-   3. Design deficiency: 15.2% (9 incidents, avg similarity: 0.76)
+   Analysis based on 43 similar historical incidents:
+
+   1. Personnel issues-Task performance-Maintenance-Installation: 4.0% (3 incidents)
+   2. Engine turbine section-Failure: 4.0% (3 incidents)
+   3. Engine turbine section-Fatigue/wear/corrosion: 4.0% (3 incidents)
+   4. Personnel issues-Incorrect action performance: 2.7% (2 incidents)
+   5. Fan mid shaft fracture-Stress corrosion cracking: 2.7% (2 incidents)
    ...
 
-   Supporting Evidence: Shows incident IDs, similarity scores, narrative excerpts
+   Supporting Evidence: Shows which incidents contain each cause
    ```
    - Demonstrates: Semantic search (embeddings) + Weighted Bayesian (attention-inspired aggregation)
 

@@ -161,11 +161,11 @@ Step one: LLM-generated incident synopsis. Notice the detailed NTSB-style report
 
 Step two: diagnostic tool results—factual data from history, not LLM hallucinations.
 
-Top cause: "Fatigue, wear, corrosion" at thirty-two-point-four percent probability, based on twenty-three similar incidents with zero-point-eight-one average similarity.
+The system analyzed forty-three similar historical incidents. Notice the top three causes all have four percent probability: maintenance personnel installation issues, engine turbine section failure, and turbine section fatigue and corrosion—each found in three of the similar incidents.
 
 Each probability uses the weighted aggregation I explained. More similar incidents contribute more weight.
 
-This demonstrates three transformer concepts: embeddings enabled semantic search finding fifty similar incidents, attention-inspired similarity ranked them, weighted aggregation calculated probabilities.
+This demonstrates three transformer concepts: embeddings enabled semantic search finding forty-three similar incidents, attention-inspired similarity ranked them, weighted aggregation calculated probabilities.
 
 Step three: LLM synthesis. The LLM interprets statistical results in plain English, providing context but not inventing facts—everything is grounded in tool output.
 
