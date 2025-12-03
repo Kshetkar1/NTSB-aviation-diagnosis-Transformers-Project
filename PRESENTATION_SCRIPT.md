@@ -74,7 +74,7 @@ My query "engine fire during takeoff" now finds incidents with completely differ
 
 **SAY THIS:**
 
-Second, why does this transfer learning work without aviation-specific fine-tuning? Multi-head attention is key. Different attention heads specialize in different semantic dimensions—combustion terms, aircraft components, emergency terminology. This automatic decomposition of meaning explains why semantic search achieves eighty-eight percent precision versus forty-two percent for keywords.
+Second, why does this transfer learning work without aviation-specific fine-tuning? Multi-head attention is key—here's the formal algorithm. Different attention heads specialize in different semantic dimensions—combustion terms, aircraft components, emergency terminology. This automatic decomposition of meaning explains why semantic search achieves eighty-eight percent precision versus forty-two percent for keywords.
 
 ---
 
@@ -187,7 +187,7 @@ Complete model and data cards are in the README with licenses, documentation lin
 
 ---
 
-## **SECTION 5: CRITICAL ANALYSIS (30 seconds - 75 words)**
+## **SECTION 5: CRITICAL ANALYSIS (45 seconds - 115 words)**
 
 **📺 SCREEN:**
 - Scroll to "6. Critical Analysis"
@@ -200,7 +200,9 @@ Two key insights: First, transfer learning works—transformers trained on gener
 
 Second, the hallucination-accuracy tradeoff. LLM generation enables synthesis but risks hallucination. Embeddings enable factual retrieval. Solution: hybrid architecture—LLMs for orchestration, embeddings for grounding.
 
-Limitations: small-scale evaluation. Future work: expert validation, FAISS scalability.
+Current limitations: Three main ones. First, evaluation is small-scale with only five test queries—needs larger validation. Second, no temporal analysis of trends over time. Third, no uncertainty quantification for the probabilities.
+
+Future work has three priorities: short-term, validate with NTSB analysts. Medium-term, implement FAISS for scalability to millions of incidents. Long-term, add temporal trend analysis and predictive modeling for emerging risks.
 
 ---
 
@@ -222,5 +224,5 @@ Thank you. Questions?
 
 ## **END OF PRESENTATION**
 
-**Total Duration:** ~11 minutes
-**Word Count:** ~1,259 words
+**Total Duration:** ~11:25 minutes
+**Word Count:** ~1,299 words
