@@ -43,7 +43,16 @@ My hybrid architecture delivers diagnoses in seconds, not hours. As you can see 
 
 ---
 
-## **SECTION 2: METHODOLOGY (3 minutes 25 seconds - 602 words)**
+## **SECTION 2: METHODOLOGY (3 minutes 30 seconds - 615 words)**
+
+**📺 SCREEN:**
+- Note the formal algorithms link at top of section
+
+**SAY THIS (5 sec):**
+
+Before diving in, note that all formal algorithm specifications are available in the linked PDF document.
+
+---
 
 ### **Part A: Transformer Embeddings (1 minute 5 seconds - 162 words)**
 
@@ -78,15 +87,15 @@ Second, why does this transfer learning work without aviation-specific fine-tuni
 
 ---
 
-### **Part C: Attention-Inspired Similarity Search (20 seconds - 50 words)**
+### **Part C: Attention-Inspired Similarity Search (30 seconds - 75 words)**
 
 **📺 SCREEN:**
 - Scroll to "2.3 Attention-Inspired Similarity"
-- Point to algorithm when mentioned
+- Point to visual diagram when mentioned
 
 **SAY THIS:**
 
-Third, adapting attention principles for document-level similarity. Just as attention uses dot products—Q times K-transpose—I use cosine similarity to measure how aligned query and incident vectors are in semantic space. This computes similarity against all eighty thousand NTSB incidents, returning the top fifty ranked by relevance.
+Third, adapting attention principles for document-level similarity. This visual shows the process: the query embedding is compared against incident embeddings using cosine similarity—notice how fire-related incidents score high, point-eight-seven and point-eight-two, while unrelated ones score low, point-two-three. Just as attention uses dot products—Q times K-transpose—I use cosine similarity to measure how aligned query and incident vectors are in semantic space. This computes similarity against all eighty thousand NTSB incidents, returning the top fifty ranked by relevance.
 
 ---
 
@@ -228,5 +237,5 @@ Thank you. I'm happy to take questions.
 
 ## **END OF PRESENTATION**
 
-**Total Duration:** ~12:30 minutes
-**Word Count:** ~1,439 words
+**Total Duration:** ~12:45 minutes
+**Word Count:** ~1,464 words
