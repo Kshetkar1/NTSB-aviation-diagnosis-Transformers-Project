@@ -206,7 +206,7 @@ Future work has three priorities: short-term, validate with NTSB analysts. Mediu
 
 ---
 
-## **SECTION 6: WRAP-UP (20 seconds - 50 words)**
+## **SECTION 6: WRAP-UP (30 seconds - 75 words)**
 
 **📺 SCREEN:**
 - Scroll to bottom showing Repository link
@@ -214,15 +214,17 @@ Future work has three priorities: short-term, validate with NTSB analysts. Mediu
 
 **SAY THIS:**
 
-In summary: transformer architectures—embeddings, attention, and function calling—enable responsible safety-critical AI applications.
+Remember American Airlines Flight 383? What took investigators hours to analyze—searching eighty thousand incidents for similar engine fires—this system does in seconds. And unlike pure LLMs, every diagnosis is grounded in real historical data, not hallucinated.
 
-Code, model cards, and documentation: https://github.com/Kshetkar1/NTSB-aviation-diagnosis-Transformers-Project.
+Transformer architectures—embeddings, attention, and function calling—don't just enable AI applications. They enable responsible, verifiable, safety-critical AI.
 
-Thank you. Questions?
+All code, model cards, and documentation are available at the GitHub repository shown here.
+
+Thank you. I'm happy to take questions.
 
 ---
 
 ## **END OF PRESENTATION**
 
-**Total Duration:** ~11:25 minutes
-**Word Count:** ~1,299 words
+**Total Duration:** ~11:35 minutes
+**Word Count:** ~1,324 words
