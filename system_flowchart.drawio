@@ -1,106 +1,138 @@
-<mxfile host="app.diagrams.net">
+<mxfile host="app.diagrams.net" modified="2024-12-01T00:00:00.000Z" agent="5.0" version="21.0.0" etag="flowchart-smooth" type="device">
   <diagram name="System Flow" id="system-flow">
-    <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1600" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         
+        <!-- Title -->
+        <mxCell id="title" value="Aviation Incident Diagnosis Engine&#xa;Three-Step System Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=26;fontStyle=1;fontColor=#1a1a1a;" vertex="1" parent="1">
+          <mxGeometry x="400" y="30" width="600" height="60" as="geometry" />
+        </mxCell>
+        
         <!-- User Input -->
-        <mxCell id="user" value="User enters incident description&#xa;e.g., &quot;engine fire during takeoff&quot;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="440" y="40" width="280" height="60" as="geometry" />
+        <mxCell id="user" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;👤 User Input&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Enter incident description&lt;/span&gt;&lt;br&gt;&lt;i style=&quot;font-size: 12px; color: #666;&quot;&gt;e.g., &quot;engine fire during takeoff&quot;&lt;/i&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90E2;strokeColor=#2E5C8A;strokeWidth=3;fontColor=#FFFFFF;fontSize=14;fontStyle=0;verticalAlign=top;spacingTop=10;spacingLeft=12;spacingRight=12;spacingBottom=12;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="120" width="320" height="100" as="geometry" />
         </mxCell>
         
         <!-- Step 1: Generate Report -->
-        <mxCell id="step1" value="Step 1: Generate Report&#xa;LLM creates detailed incident synopsis" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;" vertex="1" parent="1">
-          <mxGeometry x="440" y="140" width="280" height="60" as="geometry" />
+        <mxCell id="step1" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;🤖 Step 1: Generate Report&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;LLM expands brief description into&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;detailed NTSB-style incident synopsis&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #666; font-style: italic;&quot;&gt;Demonstrates: LLM text generation&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD93D;strokeColor=#D4A017;strokeWidth=3;fontColor=#1a1a1a;fontSize=14;fontStyle=0;verticalAlign=top;spacingTop=10;spacingLeft=12;spacingRight=12;spacingBottom=12;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="260" width="320" height="120" as="geometry" />
         </mxCell>
         
-        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="user" target="step1">
+        <!-- Arrow 1 - Smooth curved -->
+        <mxCell id="arrow1" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#333333;curved=1;" edge="1" parent="1" source="user" target="step1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="570" y="120" as="sourcePoint" />
-            <mxPoint x="620" y="70" as="targetPoint" />
+            <mxPoint x="660" y="230" as="sourcePoint" />
+            <mxPoint x="710" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         
-        <!-- Step 2: Tool Call -->
-        <mxCell id="step2" value="Step 2: Analyze with Tool&#xa;LLM decides to call diagnostic tool" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;" vertex="1" parent="1">
-          <mxGeometry x="440" y="240" width="280" height="60" as="geometry" />
+        <!-- Step 2: Find Similar Cases -->
+        <mxCell id="step2_main" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;🔍 Step 2: Find Similar Historical Cases&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;System searches through thousands of&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;NTSB reports using semantic similarity&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;Calculates probabilities from 50+ similar incidents&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #666; font-style: italic;&quot;&gt;Demonstrates: Embeddings + Function Calling&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD93D;strokeColor=#D4A017;strokeWidth=3;fontColor=#1a1a1a;fontSize=14;fontStyle=0;verticalAlign=top;spacingTop=10;spacingLeft=12;spacingRight=12;spacingBottom=12;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="420" width="320" height="140" as="geometry" />
         </mxCell>
         
-        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step1" target="step2">
+        <!-- Arrow 2 - Smooth curved -->
+        <mxCell id="arrow2" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#333333;curved=1;" edge="1" parent="1" source="step1" target="step2_main">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="570" y="220" as="sourcePoint" />
-            <mxPoint x="620" y="170" as="targetPoint" />
+            <mxPoint x="660" y="390" as="sourcePoint" />
+            <mxPoint x="710" y="340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         
-        <!-- Diagnostic Tool -->
-        <mxCell id="tool" value="Diagnostic Tool&#xa;• Find similar incidents&#xa;• Calculate probabilities" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;align=left;" vertex="1" parent="1">
-          <mxGeometry x="120" y="340" width="200" height="80" as="geometry" />
+        <!-- Diagnostic Tool - Better positioned -->
+        <mxCell id="tool" value="&lt;b style=&quot;font-size: 15px;&quot;&gt;🔧 Diagnostic Tool&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;• Semantic search (embeddings)&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;• Weighted aggregation&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;• Probability calculation&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#6BCB77;strokeColor=#4A8C5A;strokeWidth=2;fontColor=#FFFFFF;fontSize=13;fontStyle=0;verticalAlign=top;spacingTop=8;spacingLeft=10;spacingRight=10;spacingBottom=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="150" y="450" width="220" height="110" as="geometry" />
         </mxCell>
         
-        <mxCell id="arrow3" value="Calls Tool" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="step2" target="tool">
+        <!-- Arrow: Step 2 calls tool - Smooth curved -->
+        <mxCell id="arrow_tool" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;LLM calls&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;(Function Calling)&lt;/span&gt;" style="endArrow=classic;html=1;rounded=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#6BCB77;fontSize=11;fontColor=#4A8C5A;dashed=1;dashPattern=8 8;curved=1;" edge="1" parent="1" source="step2_main" target="tool">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="440" y="270" as="sourcePoint" />
-            <mxPoint x="320" y="380" as="targetPoint" />
+            <mxPoint x="500" y="490" as="sourcePoint" />
+            <mxPoint x="370" y="505" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="490" />
+              <mxPoint x="420" y="505" />
+            </Array>
           </mxGeometry>
         </mxCell>
         
-        <!-- Database -->
-        <mxCell id="database" value="Historical NTSB Database&#xa;Pre-computed embeddings&#xa;of incident reports" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;align=left;" vertex="1" parent="1">
-          <mxGeometry x="40" y="480" width="200" height="80" as="geometry" />
+        <!-- Database - Better positioned -->
+        <mxCell id="database" value="&lt;b style=&quot;font-size: 15px;&quot;&gt;💾 NTSB Database&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Pre-computed embeddings&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Historical reports&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Cause statistics&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#A78BFA;strokeColor=#7C3AED;strokeWidth=2;fontColor=#FFFFFF;fontSize=13;fontStyle=0;verticalAlign=top;spacingTop=8;spacingLeft=10;spacingRight=10;spacingBottom=10;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="150" y="600" width="220" height="110" as="geometry" />
         </mxCell>
         
-        <mxCell id="arrow4" value="Query" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="tool" target="database">
+        <!-- Arrow: Tool queries database - Smooth -->
+        <mxCell id="arrow_query" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Query&lt;/b&gt;" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#6BCB77;fontSize=12;fontColor=#4A8C5A;curved=0.5;" edge="1" parent="1" source="tool" target="database">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="220" y="440" as="sourcePoint" />
-            <mxPoint x="140" y="480" as="targetPoint" />
+            <mxPoint x="260" y="570" as="sourcePoint" />
+            <mxPoint x="260" y="600" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         
-        <mxCell id="arrow5" value="Results" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="database" target="tool">
+        <!-- Arrow: Database returns results - Smooth -->
+        <mxCell id="arrow_results" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Results&lt;/b&gt;" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#A78BFA;fontSize=12;fontColor=#7C3AED;curved=0.5;" edge="1" parent="1" source="database" target="tool">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="140" y="480" as="sourcePoint" />
-            <mxPoint x="220" y="440" as="targetPoint" />
+            <mxPoint x="260" y="600" as="sourcePoint" />
+            <mxPoint x="260" y="570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        
+        <!-- Arrow: Tool returns to Step 2 - Smooth curved -->
+        <mxCell id="arrow_return" value="&lt;b style=&quot;font-size: 12px;&quot;&gt;Returns&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;Top causes + probabilities&lt;/span&gt;" style="endArrow=classic;html=1;rounded=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=2;strokeColor=#6BCB77;fontSize=11;fontColor=#4A8C5A;dashed=1;dashPattern=8 8;curved=1;" edge="1" parent="1" source="tool" target="step2_main">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="370" y="505" as="sourcePoint" />
+            <mxPoint x="500" y="490" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="420" y="505" />
+              <mxPoint x="420" y="490" />
+            </Array>
           </mxGeometry>
         </mxCell>
         
         <!-- Step 3: Synthesize -->
-        <mxCell id="step3" value="Step 3: Synthesize Results&#xa;LLM interprets tool results&#xa;and creates summary" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;align=left;" vertex="1" parent="1">
-          <mxGeometry x="440" y="340" width="280" height="80" as="geometry" />
+        <mxCell id="step3" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;📝 Step 3: Synthesize &amp; Explain&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;LLM takes statistical results and&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;creates human-readable summary&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #666; font-style: italic;&quot;&gt;Demonstrates: LLM synthesis &amp; interpretation&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFD93D;strokeColor=#D4A017;strokeWidth=3;fontColor=#1a1a1a;fontSize=14;fontStyle=0;verticalAlign=top;spacingTop=10;spacingLeft=12;spacingRight=12;spacingBottom=12;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="600" width="320" height="120" as="geometry" />
         </mxCell>
         
-        <mxCell id="arrow6" value="Returns Results" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="tool" target="step3">
+        <!-- Arrow 3 - Smooth curved -->
+        <mxCell id="arrow3" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#333333;curved=1;" edge="1" parent="1" source="step2_main" target="step3">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="320" y="380" as="sourcePoint" />
-            <mxPoint x="440" y="380" as="targetPoint" />
+            <mxPoint x="660" y="570" as="sourcePoint" />
+            <mxPoint x="710" y="520" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         
         <!-- Display Results -->
-        <mxCell id="results" value="Display Results to User&#xa;• Generated report&#xa;• Diagnosis summary&#xa;• Top 10 probable causes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;align=left;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="440" y="460" width="280" height="100" as="geometry" />
+        <mxCell id="results" value="&lt;b style=&quot;font-size: 17px;&quot;&gt;📊 Display Results to User&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;• Generated report&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;• Diagnosis summary&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 14px;&quot;&gt;• Top 10 probable causes&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#4A90E2;strokeColor=#2E5C8A;strokeWidth=3;fontColor=#FFFFFF;fontSize=14;fontStyle=0;verticalAlign=top;spacingTop=10;spacingLeft=12;spacingRight=12;spacingBottom=12;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="500" y="760" width="320" height="110" as="geometry" />
         </mxCell>
         
-        <mxCell id="arrow7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="step3" target="results">
+        <!-- Arrow 4 - Smooth curved -->
+        <mxCell id="arrow4" value="" style="endArrow=classic;html=1;rounded=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=3;strokeColor=#333333;curved=1;" edge="1" parent="1" source="step3" target="results">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="570" y="440" as="sourcePoint" />
-            <mxPoint x="620" y="390" as="targetPoint" />
+            <mxPoint x="660" y="730" as="sourcePoint" />
+            <mxPoint x="710" y="680" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         
-        <!-- Legend -->
-        <mxCell id="legend" value="Legend:&#xa;🔵 User Interface&#xa;🟡 LLM Processing&#xa;🟢 Deterministic Tool&#xa;🟣 Data Storage" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
-          <mxGeometry x="800" y="40" width="200" height="120" as="geometry" />
+        <!-- Legend - Better positioned -->
+        <mxCell id="legend" value="&lt;b style=&quot;font-size: 15px;&quot;&gt;Legend&lt;/b&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;background-color: #4A90E2; color: white; padding: 4px 12px; border-radius: 5px; display: inline-block; margin: 2px 0;&quot;&gt;User Interface&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;background-color: #FFD93D; color: black; padding: 4px 12px; border-radius: 5px; display: inline-block; margin: 2px 0;&quot;&gt;LLM Processing (3 Steps)&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;background-color: #6BCB77; color: white; padding: 4px 12px; border-radius: 5px; display: inline-block; margin: 2px 0;&quot;&gt;Deterministic Tool&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;background-color: #A78BFA; color: white; padding: 4px 12px; border-radius: 5px; display: inline-block; margin: 2px 0;&quot;&gt;Data Storage&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span style=&quot;font-size: 11px; color: #666;&quot;&gt;━━━ Dashed = Function calling&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8F9FA;strokeColor=#DEE2E6;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingTop=12;spacingLeft=15;spacingRight=15;spacingBottom=15;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="900" y="120" width="240" height="260" as="geometry" />
         </mxCell>
         
-        <!-- Title -->
-        <mxCell id="title" value="Aviation Incident Diagnosis Engine&#xa;System Flow" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=18;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="440" y="10" width="280" height="30" as="geometry" />
+        <!-- Key Insight Box - Better positioned -->
+        <mxCell id="insight" value="&lt;b style=&quot;font-size: 14px;&quot;&gt;💡 Key Insight&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;Step 2 demonstrates &lt;b&gt;LLM Function Calling&lt;/b&gt;:&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;The LLM &lt;i&gt;decides&lt;/i&gt; to call the tool,&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;then the tool performs the actual search.&lt;/span&gt;&lt;br&gt;&lt;span style=&quot;font-size: 12px;&quot;&gt;This shows LLM reasoning + tool use.&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF4E6;strokeColor=#FFA94D;strokeWidth=2;fontSize=12;align=left;verticalAlign=top;spacingTop=10;spacingLeft=12;spacingRight=12;spacingBottom=12;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="900" y="420" width="240" height="140" as="geometry" />
+        </mxCell>
+        
+        <!-- Subtle background gradient effect -->
+        <mxCell id="bg_gradient" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F0F4F8;strokeColor=#E1E8ED;strokeWidth=1;dashed=1;dashPattern=12 8;opacity=20;" vertex="1" parent="1">
+          <mxGeometry x="120" y="100" width="1160" height="800" as="geometry" />
         </mxCell>
         
       </root>
     </mxGraphModel>
   </diagram>
 </mxfile>
-

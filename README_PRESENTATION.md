@@ -45,9 +45,9 @@ graph TD
 
     Step2 --> Search["📊 Semantic Search<br/>Find 50 similar incidents<br/>(transformer embeddings)"]
     Search --> Data["💾 NTSB Database<br/>80,000 incidents<br/>1536-dim vectors"]
-    Data --> Bayes["📈 Weighted Aggregation<br/>Calculate cause probabilities<br/>(attention-inspired)"]
+    Data --> Aggregate["📈 Weighted Aggregation<br/>Calculate cause probabilities<br/>(attention-inspired)"]
 
-    Bayes --> Step3["<b>STEP 3: SYNTHESIZE</b><br/>🤖 LLM Agent<br/>Explains results in plain English"]
+    Aggregate --> Step3["<b>STEP 3: SYNTHESIZE</b><br/>🤖 LLM Agent<br/>Explains results in plain English"]
 
     Step3 --> Output["✅ Final Diagnosis<br/>Top causes + probabilities + evidence"]
 
@@ -57,7 +57,7 @@ graph TD
     style Step3 fill:#fff3e0,stroke:#f57c00,stroke-width:4px
     style Search fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
     style Data fill:#e0f2f1,stroke:#00796b,stroke-width:3px
-    style Bayes fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style Aggregate fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
     style Output fill:#e3f2fd,stroke:#1976d2,stroke-width:4px
 ```
 
