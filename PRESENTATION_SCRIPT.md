@@ -148,7 +148,7 @@ This demonstrates separation of concerns: the LLM handles orchestration and expl
 **📺 SCREEN:**
 - Switch to Streamlit app at localhost:8501
 - Enter query "engine fire during takeoff" and click "Run Diagnostic Agent"
-- Focus on Output 2 (diagnostic results)
+- Focus on Output 3 (detailed diagnostic data)
 
 **SAY THIS:**
 
@@ -156,13 +156,13 @@ Let me demonstrate this system in action. Query: "engine fire during takeoff."
 
 The Streamlit interface shows three outputs. Output one: LLM-generated NTSB-style incident synopsis.
 
-Output two—the critical diagnostic results—shows factual data from historical analysis, not hallucinations.
+Output two: LLM synthesis interpreting the statistics in plain English—contextualizing probabilities and explaining implications.
+
+Output three—the critical diagnostic results—shows factual data from historical analysis, not hallucinations.
 
 The system found forty-three similar historical incidents. The top three causes each have four percent probability: maintenance personnel installation issues, engine turbine section failure, and turbine section fatigue and corrosion—each appearing in three of the forty-three similar incidents.
 
 Each probability uses similarity-weighted aggregation—more similar incidents contribute more weight.
-
-Output three: LLM synthesis interpreting the statistics in plain English.
 
 This demonstrates the complete transformer pipeline: embeddings enabled semantic search finding forty-three relevant cases, attention-inspired similarity ranked them by relevance, and weighted aggregation calculated evidence-based probabilities. LLM orchestration with deterministic factual grounding.
 
