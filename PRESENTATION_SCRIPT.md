@@ -159,7 +159,7 @@ This demonstrates the complete transformer pipeline: embeddings enabled semantic
 
 ---
 
-## **SECTION 4: EVALUATION (1 minute 5 seconds - 187 words)**
+## **SECTION 4: EVALUATION (1 minute 25 seconds - 215 words)**
 
 **📺 SCREEN:**
 - Switch back to README, scroll to "4. Assessment & Evaluation"
@@ -177,17 +177,15 @@ I evaluated semantic search against keyword baseline using five test queries. Me
 
 Results: semantic search achieved eighty-eight-point-three percent average precision versus forty-two percent for keyword matching—a two-point-one-times improvement. This improvement was consistent across all test queries, suggesting systematic advantage rather than chance. For "engine fire during takeoff," semantic search found "smoke from engine compartment on departure"—keyword search missed it. This validates transformer embeddings capture semantics, not just lexical matching.
 
-Two models power this: GPT-4-o-mini for generation, orchestration, and synthesis, and text-embedding-3-small for semantic similarity with fifteen-hundred-thirty-six dimensions.
+Two models power this system. GPT-4-o-mini is a decoder-only transformer with one-hundred-twenty-eight-thousand token context, used for generation, orchestration, and synthesis. Text-embedding-3-small provides fifteen-hundred-thirty-six dimensional vectors for semantic similarity. The NTSB aviation database is public domain U.S. government data with thousands of incidents available at NTSB.gov. Complete model and data cards with licenses and documentation links are in the README.
 
 This system is appropriate for research, historical pattern analysis, and educational demonstration of hybrid AI. It's not intended for real-time flight operations or regulatory compliance without validation. It provides probabilities, not certainties—it supports expert analysis but doesn't replace it.
 
 Ethical considerations: The historical data may reflect reporting biases. My mitigation is the weighted approach that accounts for relevance. LLM hallucinations are mitigated because the diagnostic facts come from the tool, not generation. For safety-critical domains, this is educational use only and requires expert validation.
 
-Complete model and data cards are in the README with licenses, documentation links, and specifications.
-
 ---
 
-## **SECTION 5: CRITICAL ANALYSIS (45 seconds - 115 words)**
+## **SECTION 5: CRITICAL ANALYSIS (1 minute 15 seconds - 190 words)**
 
 **📺 SCREEN:**
 - Scroll to "6. Critical Analysis"
@@ -196,9 +194,13 @@ Complete model and data cards are in the README with licenses, documentation lin
 
 Impact: diagnoses in seconds versus hours, grounded in historical data.
 
-Two key insights: First, transfer learning works—transformers trained on general text transfer to aviation without fine-tuning, capturing fundamental semantic structures.
+Four key insights: First, transfer learning works—transformers trained on general text transfer to aviation without fine-tuning, capturing fundamental semantic structures.
 
 Second, the hallucination-accuracy tradeoff. LLM generation enables synthesis but risks hallucination. Embeddings enable factual retrieval. Solution: hybrid architecture—LLMs for orchestration, embeddings for grounding.
+
+Third, attention appears as a universal pattern. We see weighted aggregation by relevance at token-level in multi-head attention, document-level in cosine similarity, and evidence-level in similarity-weighted diagnosis. This suggests attention is a fundamental computational principle, not just a neural network technique.
+
+What surprised me: I expected embeddings to struggle with rare aviation terms like "nacelle" or "empennage." But the model handled them perfectly because multi-head attention composes meaning from context, not just vocabulary. This validates compositional semantics over word memorization.
 
 Current limitations: Three main ones. First, evaluation is small-scale with only five test queries—needs larger validation. Second, no temporal analysis of trends over time. Third, no uncertainty quantification for the probabilities.
 
@@ -226,5 +228,5 @@ Thank you. I'm happy to take questions.
 
 ## **END OF PRESENTATION**
 
-**Total Duration:** ~11:35 minutes
-**Word Count:** ~1,324 words
+**Total Duration:** ~12:25 minutes
+**Word Count:** ~1,424 words
