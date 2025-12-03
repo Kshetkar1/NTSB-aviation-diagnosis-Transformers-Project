@@ -39,17 +39,22 @@
 
 **Visual Flow:**
 ```
-┌─────────────┐      ┌──────────────────┐      ┌─────────────────────────┐
-│ User Query  │  →   │  STEP 1: GENERATE│  →   │  STEP 2: DIAGNOSE       │
-│ "engine     │      │  LLM creates     │      │  • Semantic search      │
-│  fire..."   │      │  incident report │      │  • Weighted aggregation │
-└─────────────┘      └──────────────────┘      └─────────────────────────┘
-                                                            ↓
-┌─────────────┐      ┌──────────────────┐                 │
-│ ✅ Final     │  ←   │  STEP 3: SYNTHESIZE │  ←──────────┘
-│  Diagnosis  │      │  LLM explains     │
-└─────────────┘      │  results          │
-                     └──────────────────┘
+┌──────────────┐       ┌──────────────────┐       ┌──────────────────────┐
+│ User Query   │  →    │ STEP 1: GENERATE │  →    │ STEP 2: DIAGNOSE     │
+│ "engine fire │       │ LLM creates      │       │ • Semantic search    │
+│  during..."  │       │ incident report  │       │ • Weighted agg.      │
+└──────────────┘       └──────────────────┘       └──────────────────────┘
+                                                              ↓
+                       ┌──────────────────┐                  │
+                       │ STEP 3: SYNTHESIZE│  ←──────────────┘
+                       │ LLM explains     │
+                       │ results          │
+                       └──────────────────┘
+                                ↓
+                       ┌──────────────────┐
+                       │ ✅ Final Diagnosis│
+                       │ (Causes + Probs) │
+                       └──────────────────┘
 ```
 
 **Key Components:**
