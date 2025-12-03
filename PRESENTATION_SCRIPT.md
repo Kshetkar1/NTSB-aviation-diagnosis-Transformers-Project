@@ -9,7 +9,7 @@
 ## Instructions:
 - Read only the "SAY THIS" sections word-for-word
 - Follow screen directions at the start of each section
-- Practice timing: Should be ~13 minutes total
+- Practice timing: Should be ~11 minutes total
 - Don't rush - clear articulation is important
 
 ---
@@ -246,24 +246,3 @@ Thank you. Questions?
 - **Total: ~11:10 minutes (1,259 words)**
 
 **Note:** Optimized for 11-minute target. Improvements: (1) Removed "Bayesian" terminology (incorrect), (2) Added depth on HOW transformers learn and WHY weighted aggregation, (3) Streamlined course review content to focus on novel contributions.
-
----
-
-## **Q&A Preparation:**
-
-**Likely Questions:**
-
-1. **"Why not fine-tune an LLM on NTSB data?"**
-   → Cost: Fine-tuning requires massive compute. Flexibility: Embeddings allow easy updates. Hallucination risk: Fine-tuned models still generate, not retrieve. My approach: Retrieval is deterministic and verifiable.
-
-2. **"How do you validate accuracy?"**
-   → Currently: Informal validation (results match domain knowledge). Transparency: Show supporting evidence (incident IDs, similarity scores). Future: Expert review study, ground truth comparison.
-
-3. **"Why weighted vs. simple counting?"**
-   → Accounts for relevance, not just frequency. More similar incidents contribute more (like attention weights). Example: 95% similar incident weighs more than 62% similar.
-
-4. **"Could this work with other models?"**
-   → Yes! Architecture is model-agnostic. Any model with embeddings + function calling works. Trade-offs: open-source (cost) vs. proprietary (quality).
-
-5. **"How scalable with millions of incidents?"**
-   → Current: Order N brute-force search. Optimization: Approximate nearest neighbors (FAISS, Annoy). With ANN: Sub-linear search, handles millions efficiently.
