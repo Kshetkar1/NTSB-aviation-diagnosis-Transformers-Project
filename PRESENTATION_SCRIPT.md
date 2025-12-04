@@ -1,7 +1,7 @@
 # Presentation Script: Aviation Incident Diagnosis Engine
-## 11 Minute Word-for-Word Script
+## 13 Minute Word-for-Word Script
 
-**Total Words:** ~1,259 (11:10 minutes at 150 words/min)
+**Total Words:** ~1,300 (13:00 minutes at 150 words/min)
 **Author:** Kanu Shetkar
 
 ---
@@ -9,7 +9,7 @@
 ## Instructions:
 - Read only the "SAY THIS" sections word-for-word
 - Follow screen directions at the start of each section
-- Practice timing: Should be ~11 minutes total
+- Practice timing: Should be ~13 minutes total
 - Don't rush - clear articulation is important
 
 ---
@@ -43,7 +43,7 @@ My hybrid architecture delivers diagnoses in seconds, not hours. As you can see 
 
 ---
 
-## **SECTION 2: METHODOLOGY (3 minutes 30 seconds - 615 words)**
+## **SECTION 2: METHODOLOGY (3 minutes 5 seconds - 500 words)**
 
 **📺 SCREEN:**
 - Note the formal algorithms link at top of section
@@ -54,7 +54,7 @@ Before diving in, note that all formal algorithm specifications are available in
 
 ---
 
-### **Part A: Transformer Embeddings (1 minute 5 seconds - 162 words)**
+### **Part A: Transformer Embeddings (45 seconds - 120 words)**
 
 **📺 SCREEN:**
 - Scroll to "2.1 Transformer Embeddings"
@@ -65,9 +65,7 @@ Before diving in, note that all formal algorithm specifications are available in
 
 Let me explain how transformer concepts enable this system.
 
-First, transformer embeddings solve the core aviation safety problem. Traditional keyword search fails because "engine fire during takeoff" and "smoke from engine compartment on departure" share zero keywords, yet describe identical failure modes.
-
-I use text-embedding-3-small to convert incident narratives into fifteen-hundred-thirty-six dimensional semantic coordinates. Why does this work? How did the transformer learn these semantic relationships?
+First, transformer embeddings. I use text-embedding-3-small to convert incident narratives into fifteen-hundred-thirty-six dimensional semantic coordinates. How did the transformer learn these semantic relationships?
 
 During pre-training on billions of text examples, the model learned to predict masked words. To correctly predict "fire" from surrounding context, it had to learn that "smoke," "combustion," and "flames" appear in similar contexts. This forces the architecture to position semantically related words close together in vector space—not through manual rules, but through statistical patterns in language.
 
@@ -87,7 +85,7 @@ Second, why does this transfer learning work without aviation-specific fine-tuni
 
 ---
 
-### **Part C: Attention-Inspired Similarity Search (30 seconds - 75 words)**
+### **Part C: Attention-Inspired Similarity Search (25 seconds - 60 words)**
 
 **📺 SCREEN:**
 - Scroll to "2.3 Attention-Inspired Similarity"
@@ -95,7 +93,7 @@ Second, why does this transfer learning work without aviation-specific fine-tuni
 
 **SAY THIS:**
 
-Third, adapting attention principles for document-level similarity. This visual shows the process: the query embedding is compared against incident embeddings using cosine similarity—notice how fire-related incidents score high, point-eight-seven and point-eight-two, while unrelated ones score low, point-two-three. Just as attention uses dot products—Q times K-transpose—I use cosine similarity to measure how aligned query and incident vectors are in semantic space. This computes similarity against all eighty thousand NTSB incidents, returning the top fifty ranked by relevance.
+Third, adapting attention principles for document-level similarity. This visual shows the process: the query embedding is compared against incident embeddings using cosine similarity—notice how fire-related incidents score high, point-eight-seven and point-eight-two, while unrelated ones score low, point-two-three. Just as attention uses dot products—Q times K-transpose—I use cosine similarity to measure how aligned query and incident vectors are in semantic space.
 
 ---
 
@@ -121,7 +119,7 @@ The formula: weighted probability of cause j equals sum of similarities where th
 
 ---
 
-### **Part E: LLM Function Calling (1 minute - 150 words)**
+### **Part E: LLM Function Calling (50 seconds - 110 words)**
 
 **📺 SCREEN:**
 - Scroll to "2.5 LLM Function Calling"
@@ -131,11 +129,11 @@ The formula: weighted probability of cause j equals sum of similarities where th
 
 Finally, LLM function calling—this orchestrates the system while preventing hallucination.
 
-My agent has three steps. Step one: the LLM generates a detailed NTSB-style incident report from the brief query, demonstrating generation capability.
+My agent has three steps. Step one: generate an NTSB-style incident report.
 
-Step two: the LLM calls my diagnostic tool for factual data. This is function calling—the LLM doesn't generate the diagnosis, it retrieves it. The tool executes the semantic search and similarity-weighted aggregation, returning statistical results from real historical data.
+Step two: call the diagnostic tool for factual data. This is function calling—the LLM retrieves the diagnosis, doesn't generate it. The tool executes semantic search and weighted aggregation.
 
-Step three: the LLM synthesizes these tool results into plain English. It interprets the statistics but doesn't invent facts—everything is grounded in tool output.
+Step three: synthesize results into plain English, grounded in tool output, not generated.
 
 Three API calls implement this: generation, tool call with diagnostic function defined, and synthesis.
 
@@ -168,7 +166,7 @@ This demonstrates the complete transformer pipeline: embeddings enabled semantic
 
 ---
 
-## **SECTION 4: EVALUATION (1 minute 25 seconds - 215 words)**
+## **SECTION 4: EVALUATION (1 minute - 140 words)**
 
 **📺 SCREEN:**
 - Switch back to README, scroll to "4. Assessment & Evaluation"
@@ -182,19 +180,17 @@ This demonstrates the complete transformer pipeline: embeddings enabled semantic
 
 Let me cover evaluation and model cards.
 
-I evaluated semantic search against keyword baseline using five test queries. Methodology: for each query, I manually reviewed top-ten results and labeled them relevant or irrelevant based on whether they described similar incident types.
+I evaluated semantic search against keyword baseline using five test queries, manually reviewing top-ten results. Semantic search achieved eighty-eight percent precision versus forty-two percent for keywords—a two-times improvement. This improvement was consistent across all test queries, suggesting systematic advantage. This validates transformer embeddings capture semantics, not just lexical matching.
 
-Results: semantic search achieved eighty-eight-point-three percent average precision versus forty-two percent for keyword matching—a two-point-one-times improvement. This improvement was consistent across all test queries, suggesting systematic advantage rather than chance. For "engine fire during takeoff," semantic search found "smoke from engine compartment on departure"—keyword search missed it. This validates transformer embeddings capture semantics, not just lexical matching.
+Two models power this system. GPT-4-o-mini for generation and orchestration, text-embedding-3-small for semantic similarity. The NTSB aviation database is public domain U.S. government data available at NTSB.gov. Complete model and data cards are in the README.
 
-Two models power this system. GPT-4-o-mini is a decoder-only transformer with one-hundred-twenty-eight-thousand token context, used for generation, orchestration, and synthesis. Text-embedding-3-small provides fifteen-hundred-thirty-six dimensional vectors for semantic similarity. The NTSB aviation database is public domain U.S. government data with thousands of incidents available at NTSB.gov. Complete model and data cards with licenses and documentation links are in the README.
+This system is for research and education, not real-time flight operations. It supports expert analysis but doesn't replace it.
 
-This system is appropriate for research, historical pattern analysis, and educational demonstration of hybrid AI. It's not intended for real-time flight operations or regulatory compliance without validation. It provides probabilities, not certainties—it supports expert analysis but doesn't replace it.
-
-Ethical considerations: The historical data may reflect reporting biases. My mitigation is the weighted approach that accounts for relevance. LLM hallucinations are mitigated because the diagnostic facts come from the tool, not generation. For safety-critical domains, this is educational use only and requires expert validation.
+Ethical considerations: Historical data may reflect biases, mitigated by weighted relevance. Diagnostic facts come from the tool, not generation, preventing hallucination.
 
 ---
 
-## **SECTION 5: CRITICAL ANALYSIS (1 minute 15 seconds - 190 words)**
+## **SECTION 5: CRITICAL ANALYSIS (1 minute - 150 words)**
 
 **📺 SCREEN:**
 - Scroll to "6. Critical Analysis"
@@ -211,9 +207,9 @@ Third, attention appears as a universal pattern. We see weighted aggregation by 
 
 What surprised me: I expected embeddings to struggle with rare aviation terms like "nacelle" or "empennage." But the model handled them perfectly because multi-head attention composes meaning from context, not just vocabulary. This validates compositional semantics over word memorization.
 
-Current limitations: Three main ones. First, evaluation is small-scale with only five test queries—needs larger validation. Second, no temporal analysis of trends over time. Third, no uncertainty quantification for the probabilities.
+Current limitations: small-scale evaluation with five test queries, no temporal trend analysis, and no uncertainty quantification.
 
-Future work has three priorities: short-term, validate with NTSB analysts. Medium-term, add temporal trend analysis and causal chain visualization. Long-term, implement predictive modeling for emerging risks and multi-modal analysis combining logs, sensor data, and weather.
+Future work: validate with NTSB analysts, add temporal trend analysis, and implement predictive modeling.
 
 ---
 
@@ -237,5 +233,5 @@ Thank you. I'm happy to take questions.
 
 ## **END OF PRESENTATION**
 
-**Total Duration:** ~12:45 minutes
-**Word Count:** ~1,464 words
+**Total Duration:** ~13:00 minutes
+**Word Count:** ~1,300 words
