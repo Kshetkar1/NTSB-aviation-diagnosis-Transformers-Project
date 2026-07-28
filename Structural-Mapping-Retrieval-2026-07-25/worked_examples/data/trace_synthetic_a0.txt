@@ -1,0 +1,60 @@
+================================================================================
+END-TO-END TRACE: A0 — synthetic engine-failure query (production mode)
+================================================================================
+[precompute_a0] Mode: PRODUCTION (full corpus, 2243 incidents)
+[precompute_a0] Diagnosis query: During cruise flight at FL340, the No. 2 engine experienced a sudden loss of pow...
+[precompute_a0] Prognosis query: During cruise flight at FL340, the No. 2 engine experienced a sudden loss of pow...
+[precompute_a0] Embedding diagnosis query...
+[precompute_a0] Retrieving top matches...
+[precompute_a0] Clustering top 50...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 50 incidents into 9 types
+   - 'engine fire due to component failures': 23 incidents
+   - 'flight crew procedure failures': 8 incidents
+   - 'multiple engine failures with fire': 6 incidents
+   - 'cabin fire and smoke incidents': 6 incidents
+   - 'electrical failures and hazards': 3 incidents
+   - 'aviation incidents in buenos aires': 1 incidents
+   - 'takeoff aborts due to emergencies': 1 incidents
+   - 'fatigue-induced engine component failures': 1 incidents
+   - 'severe turbulence encounters': 1 incidents
+[precompute_a0] Computing P(Cause|Cluster)...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 9 clusters
+[precompute_a0] Applying law of total probability...
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Skipped 2 cluster(s) with no recorded causes: ['aviation incidents in buenos aires', 'takeoff aborts due to emergencies']
+   Total Similarity Mass (Denominator): 31.4801
+✅ Calculated final probabilities for 68 causes
+  Σ P(C|Q) = 1.000000  (expect 1.0)
+[precompute_a0] Mapping to 54 codes...
+  Embedding 54 Zhang occurrence-code labels...
+[precompute_a0] Prognosis (truncated query)...
+
+🔮 Predicting future events (LTP over clusters) for: 'During cruise flight at FL340, the No. 2 engine experienced a sudden loss of power accompanied by elevated EGT, vibration, and an associated master caution.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 50 incidents into 10 types
+   - 'engine fire due to component failures': 26 incidents
+   - 'multiple engine failures with fire': 9 incidents
+   - 'flight crew procedure failures': 8 incidents
+   - 'engine failure and fire incidents': 1 incidents
+   - 'severe turbulence encounter during flight': 1 incidents
+   - 'cabin fire and smoke incidents': 1 incidents
+   - 'flight crew checklist compliance issues': 1 incidents
+   - 'fatigue-induced engine component failures': 1 incidents
+   - 'severe turbulence encounters': 1 incidents
+   - 'loss of control during takeoff': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 10 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 8 cluster(s) with no post-defining next events: ['flight crew procedure failures', 'engine failure and fire incidents', 'severe turbulence encounter during flight', 'multiple engine failures with fire', 'cabin fire and smoke incidents', 'flight crew checklist compliance issues', 'severe turbulence encounters', 'loss of control during takeoff']
+   Total Similarity Mass (Denominator): 17.3192
+✅ Calculated final probabilities for 6 next events
+✅ Prognosis LTP: 8 sequences with post-defining next events, 6 distinct next-event labels
+[precompute_a0] Saved /Users/kanushetkar/Desktop/Vanderbilt_University/Internships/RRR/Current_Projects/NTSB/NTSB_Shivy/Worked_Examples/data/a0.json

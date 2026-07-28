@@ -1,0 +1,309 @@
+done 308
+S: 379
+TABLES: 14
+================================================================================
+[0] (Normal) Master Draft NTSB Paper 7/22/26
+[1] (Normal) Kanu Shetkar, Sankaran Mahadevan, Jesse Spencer-Smith
+[2] (Normal) Vanderbilt University
+[3] (Normal) Modeling unstructured data narratives for risk, resilience, and reliability assessment of aviation safety. (Too broad? Title should state what the paper is about)
+[4] (Normal) Abstract
+[5] (List Paragraph) Introduction
+[7] (List Paragraph) Motivation
+[8] (Normal) Aviation safety protects human life, maintains public confidence in air travel, and ensures global economic stability. The International Air Transport Association (IATA) is expecting commercial airline carriers to transport 5.1 billion passengers in 2026 [1]. The aviation industry’s commitment to safety has significantly evolved over the years, driven by technological advancements and lessons learned from incident and accident reports. These events have underscored the critical need to identify, assess, and mitigate risks. Safety assessments are a worthy investment as aviation connects people, cultures, and businesses across the world.
+[9] (List Paragraph) The NTSB, its database, structured vs unstructured data
+[10] (Normal) The National Transportation Safety Board (NTSB) is an independent U.S. federal agency created in 1967. Its mission is to investigate transportation accidents across aviation, rail, marine, highway, and pipelines. In this study, we focused on aviation safety and risks. The NTSB’s database contains civil aviation data from 1962 to present [2], but in this paper, we are looking at 2,243 accidents from FAR 121, between 1982-2019 [3]. Their database consists of two types of data: structured and unstructured. Structured data are the coded fields about the accidents. The unstructured data consists of texts about the accidents. These are the contexts related to the accidents and what happened on the flight and after the flight.
+[11] (List Paragraph) Narrative file + the LLM opportunity (with NLP for aviation citation)
+[12] (Normal) In the unstructured data, there is a narrative file. This file consists of the pilot’s description of what happened during the accident, the investigators’ description of what happened after the accident, and the actual cause of what caused an accident to happen if it was discoverable. This file consists of the context of the accidents that can be useful to achieve insight into the incidents. Earlier Bayesian network analyses relied on the coded fields rather than the text narratives [4]. Traditional aviation relied on event trees, fault trees, and Bayesian networks, which are reviewed in Section 3.
+[13] (Normal) The rise of Large Language Models (LLMs) within the umbrella of AI more recently creates new opportunities to utilize the unstructured text with efficiency.
+[14] (List Paragraph) The initial full LLM attempt and why it failed
+[15] (Normal) When initially attempting this research, the LLM approach was created to read the accident reports and produce the probabilities itself. After running the approach, here are the results. First, LLM probabilities are not grounded in data, and they hallucinate on the probabilities [5]. Second, it was too confident in its probability outputs, and they don’t back it up with real incidents. Third, a small adjustment to the same query completely changes the predicted probabilities. LLMs are good at retrieving and structuring text, but reliable probabilities have to be grounded in the real data. Therefore, we utilize the LLM only to interpret text, while the probabilities are data grounded probabilistic and can be calculated from the database.
+[16] (List Paragraph) Zhang and Mahadevan’s work
+[17] (Normal) The inspiration for this alternative aviation safety assessment utilizing unstructured text narratives derives from the Bayesian network modeling of accident investigation reports for aviation safety assessment [4]. They structured an end-to-end approach to automatically construct a Bayesian network from the event sequences in the NTSB aviation accident database.
+[18] (Normal) Through four methodical steps, Zhang and Mahadevan developed a Bayesian network that assessed embedded causal relationships in the sequence of these accidents.  Initially, streamlined visualizations of the escalation of initiating events into aviation accidents were presented through a graphical representation. Next, they developed a Bayesian network representation that consisted of all the accidents by aggregating the accident-wise graphical representations together.  This reflected the causal and dependent relationships of contributory factors and outcomes in terms of aircraft damage and personnel injury. Through accident occurrence times and the aircraft departure data from the Bureau of Transportation Statistics (BTS), prior probabilities were estimated. They then developed a monotonically increasing function - parameters are calibrated using the probability information on single events in the available data - to estimate the conditional probabilities in the Bayesian network [4]. (Correct way to reference?)
+[19] (Normal) Zhang and Mahadevan developed a computer program to automate the generation of the Bayesian network with the XML format compliance used in the commercial GeNIe modeler. The Bayesian network constructed was fed into the GeNIe modeler for accident analysis. Compatibility was established for both backward and forward inference utilizing several accident cases. Bayesian network mapping contributed to supporting accident investigations and risk analysis.
+[21] (List Paragraph) Breadth paragraph (BNs in transportation safety, ML for aviation risk)
+[22] (Normal) -analyses of risks of transportation safety and what can happen using a Bayesian network?
+[23] (List Paragraph) Numbered contribution list
+[24] (Normal) -list Jesse’s structural mapping and several other authors
+[25] (List Paragraph) Roadmap paragraph (section 2 describes it)
+[26] (Normal) -outline/description of various sections that are presented in this paper
+[28] (List Paragraph) NTSB accident investigation data
+[29] (List Paragraph) The Database and the merged dataset (REFERENCE HERE WHAT TO NAME IT)
+[30] (Normal) The NTSB database consists of 2,243 accidents from the time period between 1982-2019. The data was collected, scraped, and retrieved from Zhang’s GitHub for a total of 14 files [ ]. Some of the data were presented in Excel format and the rest in text file format. We utilized eight files: engine, injury, narratives, sequence of events, code dictionary, aircraft, findings, and event files. The Engine file lists the details about the engine and its status. The injury file consists of the number of fatalities and injuries in each accident.  (Does Zhang specifically talk about what is in his file/check?)
+[31] (Normal) To organize this, all files are merged on EV_ID. It is a unique identifier data column that represents a particular accident. These files are merged into a new dataset JSON file to allow for faster retrieval. There can be multiple findings, engines, sequence of events, etc., but EV_ID numbers are unique for an accident. The result is a dataset of 2,243 accidents with all their related data.
+[32] (List Paragraph) Coded records vs narratives (cite the NTSB aviation coding manual (26)
+[33] (Normal) The narrative file consists of the unstructured text containing the pilot’s point of view, investigators report, and the probable cause. The event sequences contain all the sequence of events for each accident that were recorded. The code dictionary consists of the coded language represented as numerical values that signify specific scenarios that can happen during a flight []. Accidents also contain coded data: occurrence codes that explain what happened, and finding codes that explain why are taken from the NTSB vocabulary. Aircraft damage and injury fields are categorical fields. The coded data are created by the investigators and may take days to process, while the narratives are from the initial report.
+[36] (List Paragraph) Build window and held out set (1,742 in 1982-2006; held out from 2007-2019)
+[37] (Normal) (??)
+[38] (List Paragraph) Background
+[40] (List Paragraph) Fault Trees, event trees, and Bayesian network (NASA procedure guides REF 28)
+[42] (List Paragraph) In aviation safety, traditional risk analyses include fault trees, event trees, and Bayesian networks. A fault tree is a graphical diagram used to analyze the root causes of a system failure. Event trees are complementary methods to fault trees. Fault trees reason backwards while event trees reason forward from the initiating event to its outcome.  An event tree is a risk assessment that maps possible scenarios, protective barriers, and outcomes resulting from a single initiating event. It maps out the specific events, hardware failures, or human errors that cascade to cause a major, undesired event, helping engineers identify and fix systems [ ].
+[43] (Normal) (cite Pearl 1988 (the standard BN reference zhang 36)
+[44] (Normal) Bayesian networks are a third method. They are probabilistic graphical models that analyze complex relationships between events [ ]. They are critical in risk assessment, safety management, and decision support because they can calculate the likelihood of an outcome even when dealing with incomplete and noisy data.  Unlike fault trees and event trees, a Bayesian network supports both forward and backward inference.
+[45] (List Paragraph) Vector embedding and cosine similarity (REF 24 from the checklist)
+[46] (Normal) We used OpenAI’s text-embedding-3-small model. It has 1,536 dimensions. We compare two embeddings using cosine similarity, where the value near 1 means the texts are nearly identical and the values near 0 means they are unrelated. The range goes between -1(unrelated) to 1(identical). Embedding turns words, images, or audio into numerical vectors. Foundational components for artificial intelligence and semantic search are achieved by positioning similar items in proximity in a multi-dimensional space.
+[47] (List Paragraph) Equation: sim (q, i) = (q x i) / (||q|| x ||i||)
+[54] (List Paragraph) K means clustering (Macqueen 1967 (the original k means paper) and Pedregosa et al. 2011
+[55] (Normal (Web)) K-means clustering is an unsupervised learning algorithm used for data clustering. This process groups unlabeled data points into groups, which means the data points don’t have a defined classification structure and partitions a dataset into similar groups based on the distance between their centroids.
+[57] (Normal) (Need to add more based on other authors)
+[58] (List Paragraph) Law of Total Probability
+[59] (Normal) The Law of Total Probability computes the overall probability of an event by summing its conditional probabilities from a set of mutually exclusive scenarios. Each weight is weighted by how likely that scenario is. In our methodology, the scenarios are our clusters, so we use that to combine all the cluster probabilities into a final probability for each cause (diagnosis) or next event (prognosis).
+[60] (List Paragraph) Equation: P(C | Q) = _j P(C | K_j) x P(K_j | Q)
+[62] (List Paragraph) Design rationale: why not an LLM only pipeline?
+[63] (Normal) (I am thinking more about this)
+[64] (List Paragraph) Proposed Methodology
+[65] (List Paragraph) Reproducing Zhang’s Bayesian network construction
+[66] (List Paragraph) Zhang’s methodology
+[67] (List Paragraph) Coded data records are recreated through a small, directed graph (findings  occurrences  severity)
+[68] (List Paragraph) All per accidents graphs are aggregated into one network
+[69] (List Paragraph) Priors = event count / 184,517,128 flights, his Equation 6. Fire example 102 occurrences leads to 5.52 x 10 ^-7
+[70] (List Paragraph) The edge strength is co-occurrence ratio, and it’s capped at 0.95 (this is the beta cdf
+[71] (List Paragraph) Conditional probability tables: 0 are active parents, (I DON’T GET THIS PART)
+[72] (List Paragraph) Our implementation
+[73] (List Paragraph) Built using pyAgrum (cite Decump 2020), on the merged dataset, same 1982-2006
+[74] (List Paragraph) 0 inputs from his files, we use his published numbers for comparison
+[75] (List Paragraph) The network is frozen after we create it, the query time evidence never changes it
+[76] (List Paragraph) Deterministic tie break in parent pruning (his is random)  exactly reproducible builds
+[77] (Normal) We build all the above in an pyAgrum, an open-source python library. We did not use Zhang’s already created file. Once we built it, we froze the network. When difference we added in our recreation was on ties. His code randomly picked between the two, while our picks by a fixed rule, so our build comes out identical every time it runs and Zhang’s doesn’t.
+[78] (List Paragraph) Person finding nodes
+[79] (List Paragraph) Problem: findings are attached to persons (pilot, crew, ATC) get no nodes  pilot error queries unanswerable)
+[80] (List Paragraph) Fix: add the person  finding subject edge his own semantics imply, using the person description on every finding now
+[81] (List Paragraph) Result: human factors queries become answerable
+[82] (List Paragraph) Testing our implementation, 9705
+[83] (List Paragraph) we found that the person nodes were not getting used. To fix this, we corrected our code to include the subject edge to use person description on every finding. This resulted in the human factor queries becoming answerable.
+[84] (List Paragraph) Multi state severity
+[85] (List Paragraph) Problem: Zhang’s work Boolean injury/damage leaves force P(no injury) = 0, empirically its ~0.82
+[86] (List Paragraph) Fix: one injury node (fatal/serious/minor/none) + one damage node (destroyed/substantial/minor/none) states sum to 1
+[87] (List Paragraph) Parents = last occurrences nodes (his attachment, capped at 12 by support)
+[88] (List Paragraph) 0 active parents  all mass on none; k active  support weighted mix of parents empirical severity distribution (counted from data)
+[89] (List Paragraph) Injury label per accident follows his own derivation from his released code (worst level per person)
+[90] (List Paragraph) Closer
+[91] (List Paragraph) One pointer sentence: fidelity validated value by value in section 5.1
+[93] (List Paragraph) Narrative retrieval and the counting path
+[94] (Normal) In this section, counting path is discussed. It answers the probability of one condition at a time. This is done by weighted counting over similar accidents. The network path is discussed in section 4.3-4.4 that handles multiple facts at once.
+[95] (List Paragraph) Embedding (cite open AI’s model)
+[96] (Normal) The narratives, codes/findings, and code dictionary are converted into embeddings to find how close each narrative was to the query embedding.  Each text was embedded using OpenAI’s text_embedding_3_small model that creates 1,536-dimensional vectors [ ] . Each of these categories describe different parts of the incident. The narratives describe the full story, codes/findings show the contributing factors, and the code dictionary is a master list of all aviation event types.
+[97] (List Paragraph) Similarity search
+[98] (Normal) When a query for an accident is written, it is embedded with the same model (text_embedding_3_small). We compare the query embedding to every embedding in the corpus using cosine similarity. Cosine similarity measures the angles between two vectors. The smaller the angles, the more similar the text are to one another. We take all of most similar incidents, and that gets passed to the next step.
+[99] (List Paragraph) Clustering (I think I need to add more here and reinforce some of these sentences - still not strong)
+[100] (Normal) We group the incident embeddings into clusters using K-means. This is run once offline and not at query time. The random seed = 42 so we can reproduce the results. Each cluster is named from the LLM (gpt-4o-mini), using the five narratives closest to the cluster center as context. At query time, the top 50 retrieved incidents are grouped by their cluster labels, and the results show clusters failure themes for that query.
+[101] (List Paragraph) Diagnosis
+[102] (Normal) Diagnosis mode predicts what the likely cause is given the query. After the user types in their query and the embeddings are created and tested against the full NTSB embedding space and clusters are created, then the diagnosis part happens. We take the probability of each cluster given the query P(K | Q). We compute the similarity weights. Each weight is the average similarity times the number of incidents in the cluster. Then the cluster that is both similar to the query with many related incidents gets more weight.
+[103] (Normal) Formula: P(K|Q) = (Average similarity_K x n_K) / sum of that weight over all active clusters.
+[104] (Normal) Then we perform P(C | K) which is the probability of a cause given a cluster. This part is a frequency count. We count how often a cause appears and divide it by the total causes in that cluster. P(C | K) is the count of the causes in the cluster divided by the total causes in the cluster. P(C | Q) is the final probability result using the law of total probability.
+[105] (Normal) Formula: P(C | Q) = _K  P(C | K) x P( K | Q)
+[106] (Normal) We sum each of the causes across all the clusters and then rank the causes by the P(C | Q). The output is the top-N cause with their probabilities.
+[107] (List Paragraph) Prognosis
+[108] (Normal) Prognosis predicts the most likely next event given the query. It uses the same math as diagnosis but has a different target. The anchor is the defining event. Each incident’s sequence of events has the defining event (the anchor event in the timeline of the incident). The next event is the event that comes immediately after the defining event in that incident sequence. We only use the incidents that have an event after the defining event. The probabilities are parallel to diagnosis mode. We use P(K | Q) the same similarity weighted cluster.
+[109] (Normal) Then what is different is that we compute the P (Next event | K). We do a frequency count on how often each next event appears and divide by the total next events in that cluster. Then we perform the law of total probability on P (Next event | Q).
+[110] (Normal) Formula: P(Next event | Q) = _K  P(Next event | K) x P(K | Q)
+[111] (List Paragraph) The narrative to evidence parser
+[112] (Normal) Waiting for coded data may take a long time to process and letting an LLM fully implement the probabilities result in results may not be trustworthy. Instead, the LLM only reads the text. The first step is the deterministic parser that does not use an LLM. This step looks for the exact words/phrases from the NTSB code dictionary in the narratives. Once found, a number between 0-1 is given to that number to signify how similar those words/phrases are to the NTSB code dictionary. The next step only happens if the first step is not able to find any words/phrase. This step utilizes the LLM to look at the 100 most similar past accidents to see if this fact actually appears in the coded records. The LLM reads the data, but the data decides whether to use it or not. From testing against Zhang’s sentences, 11/11 matched exactly, and on 10/11 on the LLM never ran.
+[113] (List Paragraph) How evidence enters the network
+[114] (Normal) This section demonstrates three ways to enter specific situations into the network without allowing the LLM to set any probabilities. Hard evidence is the first way where the text matches the NTSB vocabulary exactly. Here the node is set to the observed state directly. Soft evidence is mapped as a second mode when the text is a described fact to a node, and the data is measured less than 1. Stated severity is the third way where the narrative directly mentions an outcome: injury or damage. This is treated as evidence for injury or damage nodes. The multi-state nodes are used here from section 4.1.
+[118] (List Paragraph) Summary
+[119] (Normal) This proposed methodology implements Zhang’s network with a narrative, query pipeline approach. The steps are summarized below.
+[120] (List Paragraph) Network Construction (Section 4.1):
+[121] (List Paragraph) This step builds the Bayesian network from the coded data utilizing the same time period with the extension of person finding nodes and multi state injury/damage nodes.
+[122] (List Paragraph) Narrative index (Section 4.2):
+[123] (List Paragraph) Here the narratives are embedded, then clustered, and precomputed structures used at query time for the counting path and for measuring the soft evidence strength.
+[124] (List Paragraph) Narrative parsing (Section 4.3):
+[125] (List Paragraph) For each query, the two parsers are run. The deterministic parser is the first one ran that matches the vocabulary to the coded data. If there are not matching text, then the second parser runs where the LLM maps the described narrative to official nodes. Each fact receives a strength score measured from similar historical accidents.
+[126] (List Paragraph) Evidence entry (Section 4.4):
+[127] (List Paragraph) The parse facts go through the process of hard evidence, soft evidence, or stated severity on the network.
+[128] (List Paragraph) Two query approach (Section 4.2 & 4.4): (check numbering process)
+[129] (List Paragraph) Single condition questions (ex: P (cause | fire)) using the counting path (similarity, clusters, law of total probability). Multi-fact or severity focused questions use the network path (parse, evidence, inference).
+[130] (List Paragraph) Computational results (Graphs, etc)
+[131] (List Paragraph) Reproduction results
+[132] (List Paragraph) Parser validation
+[133] (List Paragraph) Held out evaluation on 296 unseen accidents
+[134] (List Paragraph) Scenario analyses
+[135] (List Paragraph) Counting path
+[136] (List Paragraph) Network path
+[137] (List Paragraph) Ablations
+[138] (List Paragraph) LLM only front door vs the tiered parser
+[139] (List Paragraph) Structural reranking
+[141] (List Paragraph) Discussion
+[142] (List Paragraph) Contributions
+[143] (List Paragraph) Limitations
+[144] (List Paragraph) Future work
+[146] (Normal) Declarations
+[148] (Normal) References
+[150] (Normal) Appendix A
+[152] (Normal) (Old version)
+[153] (Normal) Master Draft NTSB Paper 7/21/26
+[154] (Normal) Kanu Shetkar, Sankaran Mahadevan, Jesse Spencer-Smith
+[155] (Normal) Vanderbilt University
+[156] (Normal) Working Title: Modeling unstructured data narratives for risk, resilience, and reliability assessment of aviation safety.
+[157] (Normal) Abstract:
+[158] (Normal) Aviation safety is a critical concern for global air transportation systems. In this paper, we analyze aviation incident reports from 1982-2016 from the NTSB (National Transportation Safety Board). Two similar methodologies are created to capture the backward inference and forward inference of an incident report provided by a pilot or investigator. Initially, the user enters a query for their specific incident. Next, these narratives turn into embeddings to locate the distance between the query incident and other incidents using cosine similarity. Then, the top 50 most related incidents are grouped by their precomputed K-means clusters (clustering is run offline on the full corpus), each cluster labeled by an LLM. We utilize the law of total probability to determine the final probability for the cause of that queried incident. In prognosis mode, we repeat the same steps to reach the clustering pool. We then analyze the sequence of events data to determine the defining event. Once identified, we apply the law of total probability to get the top next events and probabilities. Another process for reranking the embeddings is also created for comparison to gauge that the pipeline is not displaying the causes based on related text, but by what caused the incident. To visualize this, we develop a computer program utilizing a streamlit application to build interactive web apps. These findings may help pilots and investigators use historical accident reports to receive probabilistic reasoning for specific query-based incidents. This study proposes that by searching through NTSB’s historical aviation database and utilizing their unstructured text, our methodology can predict the upstream causes of incidents and downstream next events. The inspiration for this alternative aviation safety assessment utilizing unstructured text narratives derives from the “Bayesian network modeling of accident investigation reports for aviation safety assessment” pioneered by Zhang and Mahadevan, 2021.
+[160] (List Paragraph) Introduction
+[161] (Normal) Aviation safety protects human life, maintain public confident in air travel, and ensure global economic stability. The International Air Transport Association (IATA) is expecting commercial airline carriers to transport 5.1 billion passengers in 2026 [1]. The aviation industry’s commitment to safety has significantly evolved over the years, driven by technological advancements and lessons learned from incident and accident reports. These events have underscored the critical need to identify, assess, and mitigate risks. Safety assessments are a worthy investment as aviation connects people, cultures, and businesses across the world.
+[162] (Normal) The National Transportation Safety Board (NTSB) is an independent U.S. federal agency created in 1967. Their mission is to investigate transportation accidents across aviation, rail, marine, highway, and pipelines. In this study, we focused on aviation safety and risks. The NTSB’s database contains civil aviation data from 1962 to present [2], but in this paper, we are looking at 2,243 accidents from FAR 121, between 1982-2019 [3]. Their database consists of two types of data: structured and unstructured. Structured data are the numerical data about the accidents. The unstructured data consists of texts about the accidents. These are the contexts related to the accidents and what happened on the flight and after the flight if the data was available.
+[163] (Normal) In the unstructured data, there is a narrative file. This file consists of the pilot’s description of what happened during the accident, the investigators’ description of what happened after the accident, and the actual cause of what caused an accident to happen if it was discoverable. This file consists of the context of the incident that can be useful to achieve insight into the incidents. Earlier Bayesian network analyses relied on the coded fields rather than the text narratives [4]. The rise of Large Language Models (LLMs) within the umbrella of AI more recently creates new opportunities to utilize the unstructured text with efficiency.
+[164] (Normal) In aviation safety, traditional risk analyses include fault trees, event trees, and Bayesian networks. System failures may be diagnosed with a graphical diagram such as a fault tree. Causes are identified through backward failure analyses. Event trees are complementary methods to fault trees. Fault trees are backward inferencing whilst event trees are forward inferencing. An event tree is a risk assessment that maps possible scenarios, protective barriers, and outcomes resulting from a single initiating event. A fault tree is a graphical diagram used to analyze the root causes of a system failure. It maps out the specific events, hardware failures, or human errors that cascade to cause a major, undesired event, helping engineers identify and fix systems [5].
+[165] (Normal) Another risk analysis used is Bayesian networks. A Bayesian network can handle both forward and backward inference dynamically. They are probabilistic graphical models that analyze complex relationships between events. They are critical in risk assessment, safety management, and decision support because they can calculate the likelihood of an outcome even when dealing with incomplete and noisy data.  In aviation history, Bayesian networks were used to predict these causes. Bayesian networks are probabilistic models that represent relationships and allow for reasoning for uncertainty. (re)
+[166] (Normal) When initially attempting this research, a full LLM approach was created to observe if Artificial Intelligence could handle creating this process. After running the results, the observations include:
+[167] (List Paragraph) LLMs probabilities are not grounded in data, and they hallucinate on the probabilities.
+[168] (List Paragraph) It’s too confident in its probability outputs, and they don’t back it up with real incidents.
+[169] (List Paragraph) A small adjustment to a sentence can completely change the answer.
+[170] (Normal) LLMs are good at retrieving and structuring text, but reliable probabilities have to be grounded in the real data. Therefore, we provide a probabilistic grounded approach that does not hallucinate on the probabilities. (re)
+[172] (List Paragraph) Related Work
+[174] (List Paragraph) Accident Analysis
+[175] (Normal) The inspiration for this alternative aviation safety assessment utilizing unstructured text narratives derives from the “Bayesian network modeling of accident investigation reports for aviation safety assessment” pioneered by Zhang and Mahadevan, 2021.  They structured an end-to-end approach to automatically construct a Bayesian network from the event sequences in the NTSB aviation accident database.
+[176] (Normal) Through four methodical steps, Zhang and Mahadevan developed a Bayesian network that assessed embedded causal relationships in the sequence of these accidents.  Initially, streamlined visualizations of the escalation of initiating events into aviation accidents were presented through a graphical representation. Next, they developed a Bayesian network representation that consisted of all the accidents by aggregating the accident-wise graphical representations together.  This reflected the causal and dependent relationships of contributory factors and outcomes in terms of aircraft damage and personnel injury. Through accident occurrence times and the aircraft departure data from the Bureau of Transportation Statistics (BTS), prior possible probabilities were estimated. They then developed a monotonically increasing function - parameters are calibrated using the probability information on single events in the available data - to estimate the conditional probabilities in the Bayesian network.
+[177] (Normal) To close the loop, Zhang and Mahadevan developed a computer program to automate the generation of the Bayesian network with the XML format compliance used in the commercial GeNIe modeler. The Bayesian network they constructed was fed into the GeNIe modeler for accident analysis. Compatibility was established for both backward and forward inference utilizing several accident cases. In conclusion, Bayesian network mapping contributed to supporting accident investigations and risk analysis.
+[179] (List Paragraph) Structural Mapping Logic
+[180] (Normal) Our structural mapping approach was motivated by Gentner’s structural mapping theory of analogy (Gentner, 1983) and by Falkenhainer, Forbus, and Gentner’s Structural mapping engine that created the scoring alignment based on the structural evidence (Falkenhainer, Forbus, and Gentner, 1989).  Then, Spencer-Smith and Goldstone discuss weighting the matched features (Spencer-Smith and Goldstone, 1997), and Goldstone shows that similarity and structural mapping interact instead of acting independently (Goldstone, 1994). We applied Needleman-Wunsch sequence alignment algorithm for aligning the casual chains that had different lengths (Needleman & Wunsch, 1970). Finally, we retrieved and reranked our embeddings from Nogueira and Cho (2019). Details of each of the steps are in Section 7.
+[182] (List Paragraph) NTSB Accident Investigation Data
+[183] (Normal) The NTSB is an independent federal agency that covers all modes of transportation. In this study, we focus on FAR 121 aircraft. Our datasets consist of 2,243 incidents from the time period between 1982-2016. The data was collected, scraped, and retrieved from Zhang’s GitHub for a total of 14 files. Some of the data were presented in Excel format and the rest in text file format. We utilized 8 files- engine, injury, narratives, sequence of events, code dictionary, aircraft, findings, and event files-in different roles. The Engine file listed the details about the engine and its status. The injury file consists of the number of fatalities and injuries during that incident.
+[184] (Normal) The Narrative files consisted of the unstructured text containing the pilot narratives, investigators narratives, and the probable cause narratives. The event sequences contained all the sequence of events for each incident that had recovered. The code dictionary consisted of the coded language represented as numerical values that signified specific scenarios that could happen.  The aircraft file listed the details about the aircraft. The Finding file consisted of the causes labeled in a coded format. The event files recorded the dates, places, weather, and injury severity during the event.
+[185] (List Paragraph) Background Concepts
+[186] (Normal) 4.1 Vector Embedding and Cosine Similarity
+[187] (Normal) We used OpenAI’s text-embedding-3-small model. It has 1,536 dimensions. We compare two embeddings using cosine similarity, where the value near1 means the texts are nearly identical and the values near 0 means they are unrelated. The range goes between 0 (unrelated) to 1(identical). Embedding turns words, images, or audio into numerical vectors. Foundational components for artificial intelligence and semantic search are achieved by positioning similar items in proximity in a multi-dimensional mode.
+[188] (Normal) Equation: sim (q, i) = (q, i) / (||q|| x ||i||)
+[189] (List Paragraph) K-Means Clustering
+[190] (Normal (Web)) K-means clustering is an unsupervised learning algorithm used for data clustering. This process groups unlabeled data points into groups, which means the data points don’t have a defined classification structure and partitions a dataset into similar groups based on the distance between their centroids. ((https://www.ibm.com/think/topics/k-means-clustering#2142864944))
+[192] (List Paragraph) Law of Total Probability
+[193] (Normal) The law of total probability computes the overall probability of an event by summing its conditional probabilities from a set of mutually exclusive scenarios. Each weight is weighted by how likely that scenario is. In our methodology, the scenarios are our clusters, so we use that to combine all the cluster probabilities into a final probability for each cause (diagnosis) or next event (prognosis).
+[194] (Normal) Equation: P(C | Q) = _j P(C | K_j) x P(K_j | Q)
+[195] (List Paragraph) Needleman-Wunsch Sequence Alignment
+[196] (Normal) The Needleman-Wunsch algorithm is a dynamic method that was originally developed in bioinformatics to align protein or nucleotide sequences (Needleman & Wunsch, 1970). This compares the sequences that could have different lengths, by allowing for gaps and scoring the possible alignment to find the highest overall score.
+[197] (List Paragraph) Initial LLM Only Approach
+[199] (List Paragraph) 5.1 Pipeline
+[200] (Normal) The first step in our pipeline is the user types in their incident query. This is the description of what happened. The next step was retrieving similar cases. This was a hybrid approach. We utilized vector embeddings and keyword extraction to match the NTSB event codes, and the cases that were retrieved show their narratives and their codes. The following step was analyzing the context. Here we prompted an LLM to read the queries and retrieve all the narratives with the contextual factors (weather, human factors, flight phase, or maintenance). The next step was implementing the diagnosis mode to identify the upstream candidate causes, rank them by frequency in similar cases, and input preventative strategies based on the LLM’s knowledge.
+[201] (Normal) For implementing prognosis mode, we started from the precursor and built the probabilistic progression chain with intervention points. At the end, for both diagnosis and prognosis paths, we utilized an LLM to recommend preventative actions in the moment and in the future and created a cause-and-effect mermaid diagram chain for the users to see the progression.
+[204] (Normal) The next step is retrieval. We utilize an LLM and implement prompting to look at all 14 files and decide what incidents were similar based on keywords. The following step was factor extraction. The LLM read through all the narratives and retrieved all the context from the narratives like contributing factors, weather, and personnel issues using prompting.
+[205] (List Paragraph) 5.2 Limitations
+[207] (List Paragraph) With this Approach, there were a few issues that were unearthed. The first limitation is that the LLM does not calculate probabilities in that structured way. It infers from learned language patterns. The second limitation is that the outputs that sound confident are not supported by the data. It hallucinates. Even when retrieved, there is still overconfidence. The last limitation is how sensitive the phrasing is in the pipeline. Changing a single word can change the whole pipeline.
+[209] (List Paragraph) 5.3 Lesson
+[211] (List Paragraph) The main takeaway is that the LLM implemented the scoring and produced the probabilities itself but were ungrounded and unreproducible. We needed to ground our probabilities and data, so we were not getting hallucinated data that we could rely on. The lessons learned here are what helped mold the new methodology in Section 6 and Section 7.
+[213] (Normal) 6 Proposed Methodology
+[214] (Normal) 6.1 Merged Dataset
+[215] (Normal) The data is scattered into eight different files: Aircraft, sequence of events, engines, findings, injury, events, narratives, and the code dictionary. To organize this, all files are merged on EV_ID, a data column that represents a particular incident, the files are merged into a new dataset JSON file. This allows for faster retrieval. The data has many mentions of the same EV_ID. This is to show that there can be multiple findings, engines, sequence of events, etc., but EV_ID numbers are unique for an incident. This merged dataset created 2,243 incidents with all related data to each incident.
+[216] (Normal) 6.2 Embeddings
+[217] (Normal) The narratives, codes/findings, and code dictionary were turned into Embeddings to find how close each narrative was to the query embedding.  Each text was embedded using OpenAI’s text_embedding_3_small model that creates 1,536-dimensional vectors. Each of these categories describe different parts of the incident. The narratives describe the full story, codes/findings show the contributing factors, and the code dictionary is a master list of all aviation event types.
+[219] (Normal) 6.3 Similarity Search
+[220] (Normal) When a query for an incident is written, it gets embedded with the same model (text_embedding_3_small). We compare the query embedding to every embedding in the corpus using cosine similarity. Cosine similarity measures the angles between two vectors. The smaller the angles, the more similar the text are to one another. We take the top 50 most similar incidents, and those top 50 get passed to the next step.
+[221] (Normal) 6.4 Clustering
+[222] (Normal) We group the incident embeddings into 50 clusters using K-means. This is run once offline and not at query time. The random seed = 42 so we can reproduce the results. Each cluster is named from the LLM (gpt-4o-mini), using the five narratives closest to the cluster center as context. At query time, the top 50 retrieved incidents are grouped by their cluster labels, and the results show clusters failure themes for that query.
+[223] (Normal) 6.5 Diagnosis
+[224] (Normal) Diagnosis mode predicts what the likely cause was given the query. After the user types in their query and the embeddings are created and tested against the full NTSB embedding space and clusters are created, then the diagnosis part happens. We take the probability of each cluster given the query P(K | Q). We compute the similarity weights. Each weight is the average similarity times the number of incidents in the cluster. Then the cluster that is both similar to the query with many related incidents gets more weight.
+[225] (Normal) Formula: P(K|Q) = (Average similarity_K x n_K) / sum of that weight over all active clusters.
+[226] (Normal) Then we perform P(C | K) which is the probability of a cause given a cluster. This part is a frequency count. We count how often a cause appears and divide it by the total causes in that cluster. P(C | K) is the count of the causes in the cluster divided by the total causes in the cluster. P(C | Q) is the final probability result using the law of total probability.
+[227] (Normal) Formula: P(C | Q) = _K  P(C | K) x P( K | Q)
+[228] (Normal) We sum each of the causes across all the clusters and then rank the causes by the P(C | Q). The output is the top-N cause with their probabilities.
+[229] (Normal) 6.6 Prognosis
+[230] (Normal) Prognosis predicts the most likely next event given the query. It uses the same math as diagnosis but has a different target. The anchor is the defining event. Each incident’s sequence of events has the defining event (the anchor event in the timeline of the incident). The next event is the event that comes immediately after the defining event in that incident sequence. We only use the incidents that have an event after the defining event. The probabilities are parallel to diagnosis mode. We use P(K | Q) the same similarity weighted cluster.
+[231] (Normal) Prognosis differs from Diagnosis in that we compute the P (Next event | K). We do a frequency count on how often each next event appears and divide by the total next events in that cluster. Then we perform the law of total probability on P (Next event | Q).
+[232] (Normal) Formula: P(Next event | Q) = _K  P(Next event | K) x P(K | Q)
+[234] (Normal) 7  Structural Mapping Extension
+[235] (Normal) 7.1 Motivation
+[236] (Normal) Our approach utilizing embeddings only, might only match on surface words. Two incidents with “engine”, “oil”, or “failure” score a high similarity score, but their actual failure mechanism could be completely different. Furthermore, a maintenance error causing oil starvation and a fatigue crack causing an engine fire can look nearly identical to embeddings but are structurally very different incidents. To validate that our methodology doesn’t just match surface words, but actually are matching by the causes, we create a structural mapping approach that looks at two incidents and examines each part of these two incidents.
+[237] (Normal) Embeddings similarity matches how similar texts are on the surface level. Two incidents can use similar verbiages of text but have completely different meanings. We want incidents whose causal structure matches the query, not just incidents that share similar texts. Structural mapping is a reranking of these embeddings to check the causal structure of each incident.
+[238] (Normal) 7.2 Causal chain schema
+[239] (Normal) An incident is represented as a causal chain. Each step has three fields: role, system, and mechanism. Role is where the step sits in the failure progression. System is looking at what exact part or system of the aircraft is this particular incident talking about. Mechanism is what happens as a result of the cause.
+[240] (Normal) 7.3 LLM extraction
+[241] (Normal) The causal chains are extracted by an LLM (gpt-4o-mini) from the incidents. Every step should have the same three fields (role, system, and mechanism). The query causal cause is also extracted the same way so they can compare between the incidents and the query. This process is cached, so the same chain is reused on later runs. We cache to keep the results reproducible, and we prevent them from increasing the LLM cost on every single run.
+[245] (Normal) 7.4 Step Similarity
+[246] (Normal) This step compares the query to the same step from the incident chain. We get a score between 0 and 1 for how similar these two steps are to one another. The score is then a weighted sum of the three fields.
+[247] (Normal) Formula: sim (a, b) = 0.50 x role (a, b) + 0.30 x mechanism (a, b) + 0.20 x system (a, b)
+[248] (Normal) The role step is weighted highest because this is where the step is in the failure progression matters the most. The mechanism step is the next highest weight because we find how the failure occurred. System is the last step that shows what failed. Each of the fields produces their own score between 0 to 1. An exact match would equal 1.0, related is partial match, and unrelated is not a match.
+[249] (Normal) 7.5 Chain Alignment
+[250] (Normal) The lengths of these causal chains have different lengths and are ordered differently. We need to figure out which step in the query chain lines up with the right step in the incident chain. So, we align the first two chains first and then score how well the alignment is. We use Needleman-Wunsch, a sequence alignment algorithm to find the best way to line up the two chains end to end. This algorithm also allows for gaps that the counterpart doesn’t have. Each gap is a penalty of subtracting 0.05. Lining up two steps is the step similarity score from section 7.4. The algorithm fills a grid: matching the two steps (add their step similarity) or take a gap in either chain (subtract 0.05).
+[251] (Normal) The recurrence Formula 2:
+[252] (Normal) D[i] [j] = max {
+[253] (Normal) D[i-1] [j-1] + sim (a_i, b_j)		(match step i with step j)
+[254] (Normal) D[i-1] [j] + gap penalty		(skip step i in chain A)
+[255] (Normal) D[i] [j-1] + gap penalty		(skip step j in chain B)
+[256] (Normal) }
+[257] (Normal) *Sim (a_i, b_j) is the step similarity from section 7.4 and the gap penalty is subtraction 0.05
+[258] (Normal) Formula 3 is scoring the alignment. Once aligned, we sort the matched parts by quality. Strong would mean that the chains are aligned with step similarity greater than or equal to 0.70. Partial means that the chains are aligned with the similarity greater than or equal to 0.35 and less than 0.70. Unmapped means both chains left with gaps. The total is the combined length of both chains.
+[259] (Normal) Formula 3: Chain score = (Strong + 0.5 x Partial) / total – 0.10 x (unmapped / total)
+[260] (Normal) *The results can be from 0-1.
+[261] (Normal) * This structural similarity is between the query and that one incident. It’s what feeds into the fusion formula in section 7.6.
+[262] (Normal) 7.6 Score Fusion
+[263] (Normal) Now we have two similarity signals one from the embedding cosine score from section 6.3 explaining the surface/wording similarity and the structure similarity score from section 7.5 explaining the causal structure similarity. This section combines them into a new ranked score.
+[264] (Normal) The Fusion Formula (Formula 4): new score = max (0, cosine) x exp(  x structure similarity), with  = 2.0
+[265] (Normal) We take the cosine score and multiply by the exp(  x structure similarity). The structural similarity is between 0 and 1. The  equals 2.0 is controlling how strongly structural mapping matters. When structural similarity is equal to 0, exponent (0) equals 1, so the new score equals cosine A2(structural mapping) reduces exactly to A0 (the embedding baseline). Structural mapping can only boost an incident; it can’t put below its raw cosine score. Incidents whose causal structures match the query rise in the rerank. Next, we compute the new score for all top 50 retrieved incidents and rerank them by the new score. The reranked list feeds to the same clustering plus law of total probability step from section 6.
+[267] (Normal) 8. Worked Examples
+[268] (Normal) We demonstrated the pipeline on two incident types: an engine fire and a landing gear malfunction. For both incident types, we run two query styles: during incident query and after incident query. After incident query is the full investigator’s narrative written after the events occurred. The during incident query is a short, real-time incident from the pilot or flight crew.
+[269] (Normal) 8.1 Engine fire
+[270] (Heading 3) 8.1.1 After-incident query (diagnosis only)
+[271] (Normal) Query: "On January 11, 2010, an Aerospatiale ATR72 experienced a No. 1 (left) engine fire during takeoff. The pilot declared an emergency, shut down the No. 1 engine, discharged both fire bottles, performed an air turn-back, and landed approximately 11 minutes later..."
+[272] (Normal) NTSB probable cause: Engine fuel and control - fuel distribution - failure.
+[273] (Normal) Top failure clusters:
+[275] (Normal) Top causes:
+[277] (Normal) The pipeline finds the incident to the engine fire due to component failures cluster with 53.5% probability.  The individual causes are smaller probabilities because the NTSB cause taxonomy is large and the probabilities spread across many different, specific, codes.
+[278] (Normal) The cluster probability identifies where the problem is, while the ranked causes are the specific items to check within that area.
+[279] (Heading 3) 8.1.2 During-incident query (diagnosis + prognosis)
+[280] (Normal) Query: "I just got a left-engine fire warning on takeoff. I can see flames. What could be causing this?"
+[281] (Normal) Diagnosis - clusters:
+[283] (Normal) Diagnosis - causes:
+[285] (Normal) Prognosis - most likely next-event area:
+[287] (Normal) The pipeline can essentially get to the same top cluster with only a short pilot report, showing that the method can identify causes while the incident occurs. Prognosis demonstrates the like next event, the forward-looking information which is useful while the incident is still developing.
+[288] (Heading 3) Worked calculation:
+[289] (Normal) Step 1 - Retrieve. Embed the query and retrieve the 50 most similar past incidents by similarity score.
+[290] (Normal) Step 2 - Group into precomputed clusters. The 50 retrieved incidents go into the clusters. For each cluster we record how many of the 50 it holds (n) and its average similarity to the query:
+[292] (Normal) (Note: the similarity here is the fused structural-plus-cosine score from Section 7, which is why it can slightly exceed 1.)
+[293] (Normal) Step 3 - Cluster probability P(K|Q) = weight / sum of weights:
+[294] (Normal) P (engine fire | Q) = 21.28 / 39.64 = 0.537 (53.7%)
+[295] (Normal) P (multiple mechanical | Q) = 3.15 / 39.64 = 0.079 (7.9%)
+[296] (Normal) Step 4 - Cause probability within a cluster, P(C|K), is a frequency count of how often a cause appears in that cluster. The cause "turbine section failure" appears in two clusters:
+[297] (Normal) in engine fire due to component failures:  P(C|K) = 0.0286
+[298] (Normal) in multiple contributing mechanical failures:  P(C|K) = 0.1176
+[300] (Normal) Step 5 - Law of total probability. The final cause probability sums across all clusters in which the cause appears:
+[301] (Normal) P(C|Q) = sum over K of P(C|K) x P(K|Q)
+[302] (Normal) P (turbine section failure | Q) = (0.0286 x 0.537) + (0.1176 x 0.079)
+[303] (Normal) = 0.0153 + 0.0093 = 0.0247 (2.47%)
+[305] (Normal) Step 6 - Rank. Repeating Step 5 for every cause and ranking produces the cause table above.
+[306] (Normal) Interpreting 53.7% vs 2.5%: the cluster probability (53.7%) localizes the failure area with high confidence. A specific cause is that area's confidence multiplied by the cause's share within the clusters it appears in, then summed, so it comes out smaller (2.5%). The cluster says where the problem is; the ranked causes say what to check inside it.
+[308] (Normal) 8.2 Landing gear
+[309] (Heading 3) 8.2.1 After-incident query (diagnosis only)
+[310] (Normal) Query: "On November 16, 2008, deHavilland DHC-8-311 operated by Piedmont Airlines..."
+[311] (Normal) NTSB probable cause: Landing gear system - gear extension and retraction - capability exceeded.
+[314] (Normal) Top causes:
+[316] (Normal) This is a weaker result. The top cluster is only 18.1%, and the leading causes go towards turbulence rather than landing gear. The after-incident narrative is long and mentions weather, injuries, and other events, which diminishes retrieval away from the landing-gear failure. As shown next, the focused during-incident query corrects this. We include this case rather than excluding it; to show the method's behavior is not strong and it depends on the query.
+[317] (Heading 3) 8.2.2 During-incident query (diagnosis + prognosis)
+[318] (Normal) Query: "I just got an unsafe nose-gear indication on approach. Three greens on the mains but nothing on the nose. What could be wrong?"
+[319] (Normal) Diagnosis - clusters:
+[321] (Normal) Diagnosis - causes:
+[324] (Normal) Prognosis - next event:
+[326] (Normal) The focused query gears strongly to the nose-landing-gear area (40.7%, with landing-gear structural failures next at 23.9%, together about 65% on landing gear). This is why we report all causes rather than only the first: the top cause here is "cause not determined," which is not actionable, but the next entries (nose/tail gear failure, actuator failure, fatigue failure) are useful candidates. Showing the full ranked list lets the user skip entries.
+[328] (Normal) 8.3 Summary table
+[331] (Normal) Across the during-incident queries, the pipeline identifies the correct failure area. The one weak case is the long landing-gear after-incident narrative, consistent with the observation that focused, failure-centered queries retrieve more accurately than long narratives.
+[333] (Normal) 9. Aggregate Validation
+[334] (Normal) The examples worked in section 8 only cover two incidents. This section tests the pipeline on all 77 test incidents. We run both the embedding baseline (A0) and the structural mapping embedding (A2) on every test incident, comparing the top predicted cause against the NTSB probable causes. Then we report where the predictions land and how A2 compares to A0.
+[335] (Normal) 9.1 Setup
+[336] (Normal) We utilized a training and testing split of the NTSB data. From the subset of the incidents, we have both a complete narrative and probable cause findings of 254 incidents. We use 177 to train and build the retrieval index and 77 are held out for testing. For each of the test incidents, we use the narratives as the query and run the whole pipeline on both A0 (embedding only) and A2 (structural mapping), so the two pipelines are compared on the same incidents.
+[337] (Normal) 9.2 Metric definition
+[338] (Normal) The ground truth for an incident is the NTSB cause. For each prediction we take the top predicted cause, embed it, and measure cosine similarity to the NTSB probable-cause text; match percentage is that similarity times 100. In section 9.3 we report on our metrics.
+[339] (List Bullet) Top-1 accuracy - the top prediction clears the match threshold (match percentage >= 75, i.e. cosine >= 0.75).
+[340] (List Bullet) Recall@5 - a matching cause appears anywhere in the top 5 predictions.
+[341] (List Bullet) Avg match% - mean similarity of the top prediction across all cases (a threshold-free view).
+[342] (Normal) 9.3 Aggregate results table
+[345] (Normal) Figure 9.1. Top-1 accuracy, Recall@5, and average match percentage for A0 versus A2 on the 77-test set, with 95% confidence intervals. A2 is marginally higher on each metric.
+[347] (Normal) A2 (structural reranking) is marginally better than A0 on every metric, but the gains are small, and the confidence intervals overlap. The conclusion for A2(structural reranking), is that it doesn’t negatively impact our current embeddings.
+[349] (Normal) 9.4 A2 Vs A0
+[350] (Normal) We compare both A0(embedding only) and A2 (structural mapping) with McNemar paired test on the top-1 hit outcomes.
+[354] (Normal) Figure 9.2. Paired flip table of per-incident hit/miss outcomes. The pipelines agree on 76 of 77 cases and disagree on 1 (McNemar exact p = 1.000).
+[356] (Normal) Both pipelines hit on 25 incidents and miss on 51; they disagree on only 1 case (A2 wins 1, A0 wins 0). The McNemar exact two-sided p-value is 1.000, so the difference is not statistically significant at this sample size, but further testing with larger sample size can be done to test this theory further.
+[357] (Normal) 9.5 Limitations of the Metric
+[358] (Normal) The validation has several limitations. First, the hit threshold (cosine 0.75) is a modeling choice rather than a standard, so we report recall@5 and mean match percentage to keep the result from hinging on a single cutoff. Next, the same embedding model is used to retrieve incidents and for scoring predictions against the NTSB text. Furthermore, the test set is small (77 incidents). Having more test cases can help validate this process. Finally, this validation covers diagnosis only, prognosis is not validated because there are too few retrieved incidents that carry a recorded next event to support our metric, so prognosis is demonstrated qualitatively in the worked examples instead.
+[360] (Normal) 10. Discussion
+[361] (Normal) Below are a few observations from the tests. The first observation is that the cluster is at the right level to report a probability. The P(C | Q) probabilities come out small because the taxonomy is large. The probability is spread thin. The cluster probabilities are useful to see what area the issue has occurred in and help with decision making. The second observation is that the query length affects retrieval. Shorter failure focused queries retrieve better causes. The third observation is that the structural rerank is a small consistent positive. Looking at the data tested, the two pipelines showed similar results and agreed on 76 cases and disagreed on one, so we conclude that the structural mapping does not hurt the overall while keeping the causal chain alignment intact.
+[362] (Normal) 10.1 Conclusion
+[363] (Normal) We get close to what the causes are – the general area – like clustering is in the right direction of the cause-but the specific causes that are given are not fully current and the probabilities are low – which would not make pilots act on these probabilities. Having more incidents data would allow us to have a library of information to better understand the possible causes.
+[364] (Normal) 10.2 Contributions
+[365] (Normal) Using unstructured data as context to find more information to find more accurate results to find out what causes these incidents.  Previously coded data was used to do this, but it did not have enough context to address certain causes. Unstructured data allows for more questioning of what happened during the incident – how the details of what happened to show what could lead to a cause- and we utilized an LLM to look at all the incidences retrieved and create related labels to reflect the different types of incidents related to the queries.
+[366] (Normal) 10.3 Limitations
+[367] (Normal) Several limitations were discovered while completing the project. The test set was small- 77 test cases. LLM extraction errors propagate into structural similarity which is a misleading step in the structural score. Alpha =2 was set from initial experiments and not formally tuned. There is also a sparsity in the prognosis data. There are not many incidents after the defining event.
+[368] (Normal) 10.4 Future Work
+[369] (Normal) Some future work to be done is validate the during incident query style against more real pilot transcripts.  Evaluate A2 (Structural mapping) on the prognosis pipeline. Then also the step similarity weight from data instead of fixed numbers with specific numbers we chose. One other version of this project is now that LLM’s have grown since starting this project, having an LLM take the narratives and turn them into coded data and then have an LLM create a skill to create a Bayesian network and run the coded data through this and compare from Zhang’s and Mahadevan work.
+[370] (Normal) References
+[371] (Normal) [1] Middle East Disruptions and High Fuel Prices Halve Airlines Industry profitable. 2026, https://www.faa.gov/air_traffic/by_the_numbers, Accessed 20 June 2026.
+[372] (Normal) [2] National Transportation Safety Board. 2026, https://www.ntsb.gov/Pages/AviationQueryV2.aspx, Accessed 20 June 2026.
+[373] (Normal) [3] Regularly Scheduled Air Carriers (part 121). 2026, https://www.faa.gov/hazmat/air_carriers/operations/part_121, Accessed 20 June 2026.
+[374] (Normal) [4] Bayesian network modeling of accident investigation reports for aviation safety assessment. 2021, https://www.sciencedirect.com/science/article/abs/pii/S0951832020308607?casa_token=bPRp7qplvxMAAAAA:QcNJIfz3twHY_1dU5Mz0PTsWCFxoa4bt41PK8vECHoNtfbJNzHfPRK-fJ_QBp3FfMeyL4kcg, Accessed May 2025.
+[375] (Normal) [] Survey of Hallucination in Natural Language Generation. 2023, https://dl.acm.org/doi/10.1145/3571730, Accessed Jully 21,2026.
+[376] (Normal) [] Stamatelatos M, Dezfuli H, et al. Probabilistic risk assessment procedures guide for NASA managers and practitioners. NASA/SP-2001-3421. 2nd ed. NASA, 2011. https://ntrs.nasa.gov/api/citations/20120001369/downloads/20120001369.pdf.

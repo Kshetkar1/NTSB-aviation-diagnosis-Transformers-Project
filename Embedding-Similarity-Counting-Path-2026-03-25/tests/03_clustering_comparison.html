@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clustering Comparison: K-Means vs GMM</title>
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:'Segoe UI',Arial,sans-serif; background:#0d1117;
+            color:#c9d1d9; padding:32px; max-width:1000px; margin:0 auto; }
+    h1   { color:#58a6ff; font-size:20px; margin-bottom:6px; }
+    .sub { color:#8b949e; font-size:13px; margin-bottom:28px; line-height:1.7; }
+    h2   { color:#e6edf3; font-size:15px; margin:28px 0 12px; }
+    table { width:100%; border-collapse:collapse; margin-bottom:32px; }
+    th { padding:10px 14px; background:#161b22; color:#58a6ff;
+          font-size:12px; text-align:left; border-bottom:2px solid #30363d; }
+    td { padding:12px 14px; border-bottom:1px solid #21262d;
+          vertical-align:middle; font-size:13px; }
+    tr:hover td { background:#161b22; }
+    .verdict {
+      padding:18px 22px; border-radius:6px; border-left:4px solid #f39c12;
+      background:#161b22; margin-top:8px;
+    }
+    .verdict-title { font-size:16px; font-weight:bold; color:#f39c12;
+                      margin-bottom:6px; }
+    .verdict-body  { font-size:13px; color:#c9d1d9; line-height:1.6; }
+    .note { background:#161b22; border-radius:6px; padding:14px 18px;
+             font-size:12px; color:#8b949e; line-height:1.7; margin-top:24px; }
+  </style>
+</head>
+<body>
+  <h1>Clustering Method Comparison: K-Means vs GMM</h1>
+  <p class="sub">
+    Both methods use <b>K = 50 clusters</b> on the same dataset of
+    <b>1,817 NTSB incident embeddings</b>.<br>
+    Embeddings are PCA-reduced to <b>100 dimensions</b> (explains
+    <b>71.6%</b> of variance) for a fair, numerically stable comparison.<br>
+    All metrics are computed in the same PCA-100 space.
+  </p>
+
+  <h2>Cluster Quality Metrics</h2>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:40%">Metric</th>
+        <th style="width:20%;text-align:center">
+          <span style="color:#f39c12">K-Means</span>
+          <span style="font-size:10px;color:#8b949e"> (production)</span>
+        </th>
+        <th style="width:20%;text-align:center">
+          <span style="color:#58a6ff">GMM</span>
+          <span style="font-size:10px;color:#8b949e"> (alternative)</span>
+        </th>
+        <th style="width:20%;text-align:center">Winner</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <td>
+        <b>Silhouette Score</b><br>
+        <span style="font-size:11px;color:#8b949e">Measures how similar each point is to its own cluster vs. other clusters. Range: −1 to 1. Higher is better.</span>
+      </td>
+      <td style="text-align:center">
+        <code style="color:#f39c12">0.0819</code><br>
+        <div style="background:#21262d;border-radius:4px;width:160px;height:14px;display:inline-block"><div style="background:#2ecc71;width:159px;height:14px;border-radius:4px"></div></div>
+      </td>
+      <td style="text-align:center">
+        <code style="color:#58a6ff">0.0648</code><br>
+        <div style="background:#21262d;border-radius:4px;width:160px;height:14px;display:inline-block"><div style="background:#e74c3c;width:0px;height:14px;border-radius:4px"></div></div>
+      </td>
+      <td style="text-align:center"><span style="color:#2ecc71;font-weight:bold">K-Means ✓</span></td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Davies-Bouldin Index</b><br>
+        <span style="font-size:11px;color:#8b949e">Average similarity between each cluster and its most similar neighbour. Lower is better.</span>
+      </td>
+      <td style="text-align:center">
+        <code style="color:#f39c12">2.5612</code><br>
+        <div style="background:#21262d;border-radius:4px;width:160px;height:14px;display:inline-block"><div style="background:#2ecc71;width:160px;height:14px;border-radius:4px"></div></div>
+      </td>
+      <td style="text-align:center">
+        <code style="color:#58a6ff">2.6281</code><br>
+        <div style="background:#21262d;border-radius:4px;width:160px;height:14px;display:inline-block"><div style="background:#e74c3c;width:0px;height:14px;border-radius:4px"></div></div>
+      </td>
+      <td style="text-align:center"><span style="color:#2ecc71;font-weight:bold">K-Means ✓</span></td>
+    </tr>
+
+    <tr>
+      <td>
+        <b>Calinski-Harabasz Score</b><br>
+        <span style="font-size:11px;color:#8b949e">Ratio of between-cluster dispersion to within-cluster dispersion. Higher is better.</span>
+      </td>
+      <td style="text-align:center">
+        <code style="color:#f39c12">29.1</code><br>
+        <div style="background:#21262d;border-radius:4px;width:160px;height:14px;display:inline-block"><div style="background:#2ecc71;width:159px;height:14px;border-radius:4px"></div></div>
+      </td>
+      <td style="text-align:center">
+        <code style="color:#58a6ff">28.1</code><br>
+        <div style="background:#21262d;border-radius:4px;width:160px;height:14px;display:inline-block"><div style="background:#e74c3c;width:0px;height:14px;border-radius:4px"></div></div>
+      </td>
+      <td style="text-align:center"><span style="color:#2ecc71;font-weight:bold">K-Means ✓</span></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h2>Cluster Size Distribution</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Stat</th>
+        <th style="text-align:center;color:#f39c12">K-Means</th>
+        <th style="text-align:center;color:#58a6ff">GMM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:#8b949e;font-size:12px">Min cluster size</td><td style="text-align:center"><code style="color:#f39c12">8</code></td><td style="text-align:center"><code style="color:#58a6ff">9</code></td></tr><tr><td style="color:#8b949e;font-size:12px">Max cluster size</td><td style="text-align:center"><code style="color:#f39c12">109</code></td><td style="text-align:center"><code style="color:#58a6ff">95</code></td></tr><tr><td style="color:#8b949e;font-size:12px">Mean cluster size</td><td style="text-align:center"><code style="color:#f39c12">36.3</code></td><td style="text-align:center"><code style="color:#58a6ff">36.3</code></td></tr><tr><td style="color:#8b949e;font-size:12px">Empty clusters</td><td style="text-align:center"><code style="color:#f39c12">0</code></td><td style="text-align:center"><code style="color:#58a6ff">0</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2>GMM Soft-Assignment Entropy</h2>
+  <p style="font-size:13px;margin-bottom:12px;color:#c9d1d9">
+    GMM assigns each incident a probability distribution over all 50 clusters.
+    Entropy measures how uncertain these assignments are.
+    Low entropy = the model is confident. High entropy = the incident could belong to many clusters.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th style="text-align:center">Value</th>
+        <th>Interpretation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Average assignment entropy</td>
+        <td style="text-align:center"><code style="color:#58a6ff">0.009</code></td>
+        <td style="font-size:12px;color:#8b949e">
+          out of max possible 3.912 (uniform over 50 clusters) —
+          0% of maximum uncertainty
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Verdict</h2>
+  <div class="verdict">
+    <div class="verdict-title">K-Means wins 3–0 on standard cluster quality metrics.</div>
+    <div class="verdict-body">K-Means is the stronger choice for this dataset. It also has the practical advantage of hard cluster assignments, which plug directly into the Law of Total Probability used in the Bayesian diagnosis framework.</div>
+  </div>
+
+  <div class="note">
+    <b>Note on methodology:</b> K-Means in production runs on full 1,536-dim unit-normalized
+    embeddings (equivalent to spherical K-Means optimizing cosine similarity).
+    GMM requires PCA reduction for numerical stability in high dimensions.
+    Both are evaluated here in the same PCA-100 space for a fair metric comparison.
+    The slight disadvantage this introduces for K-Means means the production K-Means
+    performance is likely <i>at least as good</i> as shown here.
+  </div>
+</body>
+</html>

@@ -1,0 +1,686 @@
+🧠 Loading knowledge base (TRAIN-ONLY index (NTSB_USE_TRAIN_INDEX=1))...
+✅ Knowledge base loaded successfully!
+  Embedding 54 Zhang occurrence-code labels...
+========================================================================
+ZHANG TABLE 9 — Loss of Engine Power (A0 embedding-only)
+========================================================================
+Evidence                         Outcome                   Zhang     Ours    Ratio
+------------------------------------------------------------------------
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.25s]    DEBUG: Embedding done. Finding matches...
+[0.27s]    DEBUG: Matches found.
+[0.27s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 28 incidents into 11 types
+   - 'engine fire due to component failures': 9 incidents
+   - 'undetected fatigue cracks in engine': 4 incidents
+   - 'multiple contributing mechanical failures': 4 incidents
+   - 'improper pitch control during landing': 2 incidents
+   - 'ground vehicle collision incidents': 2 incidents
+   - 'fatigue-induced engine component failures': 2 incidents
+   - 'ground handling collision incidents': 1 incidents
+   - 'tcas-related maneuvering errors': 1 incidents
+   - 'nose landing gear malfunctions': 1 incidents
+   - 'landing gear tire failures': 1 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+[0.27s]    DEBUG: Clustering done. 11 clusters.
+[0.27s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 11 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 14.2271
+✅ Calculated final probabilities for 59 causes
+[0.27s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'The aircraft experienced inoperative engine instruments during flight. The engine instruments failed and were not providing accurate readings.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 28 incidents into 11 types
+   - 'engine fire due to component failures': 9 incidents
+   - 'undetected fatigue cracks in engine': 4 incidents
+   - 'multiple contributing mechanical failures': 4 incidents
+   - 'improper pitch control during landing': 2 incidents
+   - 'ground vehicle collision incidents': 2 incidents
+   - 'fatigue-induced engine component failures': 2 incidents
+   - 'ground handling collision incidents': 1 incidents
+   - 'tcas-related maneuvering errors': 1 incidents
+   - 'nose landing gear malfunctions': 1 incidents
+   - 'landing gear tire failures': 1 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 11 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 5 cluster(s) with no post-defining next events: ['ground handling collision incidents', 'tcas-related maneuvering errors', 'nose landing gear malfunctions', 'improper pitch control during landing', 'ground vehicle collision incidents']
+   Total Similarity Mass (Denominator): 10.6474
+✅ Calculated final probabilities for 12 next events
+✅ Prognosis LTP: 19 sequences with post-defining next events, 12 distinct next-event labels
+Inoperative engine instruments   Loss of engine power     0.9500   0.0926     0.10x
+Inoperative engine instruments   Forced landing           0.1357   0.1404     1.03x
+Inoperative engine instruments   No injury                0.9431   0.2654     0.28x
+
+  Top-5 diagnosis causes (evidence 1):
+    1.  7.16% — aircraft-aircraft power plant-engine (turbine/turboprop)-turbine secti
+    2.  5.24% — personnel issues-action/decision-info processing/decision-decision mak
+    3.  4.80% — a contributing factor was the inadequate diffuser and hpt case inspect
+    4.  4.80% — aircraft-aircraft power plant-engine (turbine/turboprop)-combustion se
+    5.  4.80% — the return to service of overhauled airplane engine parts with undetec
+
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.24s]    DEBUG: Embedding done. Finding matches...
+[0.25s]    DEBUG: Matches found.
+[0.25s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 49 incidents into 9 types
+   - 'engine fire due to component failures': 24 incidents
+   - 'fatigue-induced engine component failures': 7 incidents
+   - 'undetected fatigue cracks in engine': 5 incidents
+   - 'landing gear structural failures': 5 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'structural integrity failures': 2 incidents
+   - 'nose landing gear malfunctions': 1 incidents
+   - 'landing gear tire failures': 1 incidents
+   - 'electrical failures and hazards': 1 incidents
+[0.25s]    DEBUG: Clustering done. 9 clusters.
+[0.25s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 28.0363
+✅ Calculated final probabilities for 84 causes
+[0.25s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'The aircraft experienced a combustion liner failure during flight. The combustion assembly liner in the engine cracked and failed.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 49 incidents into 9 types
+   - 'engine fire due to component failures': 24 incidents
+   - 'fatigue-induced engine component failures': 7 incidents
+   - 'undetected fatigue cracks in engine': 5 incidents
+   - 'landing gear structural failures': 5 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'structural integrity failures': 2 incidents
+   - 'nose landing gear malfunctions': 1 incidents
+   - 'landing gear tire failures': 1 incidents
+   - 'electrical failures and hazards': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 3 cluster(s) with no post-defining next events: ['landing gear structural failures', 'structural integrity failures', 'nose landing gear malfunctions']
+   Total Similarity Mass (Denominator): 23.6491
+✅ Calculated final probabilities for 14 next events
+✅ Prognosis LTP: 34 sequences with post-defining next events, 14 distinct next-event labels
+Combustion liner failure         Loss of engine power     0.5000   0.0803     0.16x
+Combustion liner failure         Forced landing           0.0714   0.1407     1.97x
+Combustion liner failure         No injury                0.9978   0.1564     0.16x
+
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.22s]    DEBUG: Embedding done. Finding matches...
+[0.22s]    DEBUG: Matches found.
+[0.22s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 47 incidents into 10 types
+   - 'engine fire due to component failures': 24 incidents
+   - 'multiple contributing mechanical failures': 6 incidents
+   - 'undetected fatigue cracks in engine': 4 incidents
+   - 'nose landing gear malfunctions': 4 incidents
+   - 'landing gear tire failures': 2 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'fatigue-induced engine component failures': 2 incidents
+   - 'improper pitch control during landing': 1 incidents
+   - 'flight crew procedure failures': 1 incidents
+   - 'ground vehicle collision incidents': 1 incidents
+[0.22s]    DEBUG: Clustering done. 10 clusters.
+[0.22s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 10 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 25.0333
+✅ Calculated final probabilities for 100 causes
+[0.22s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'The aircraft had improper oil usage. The engine oil was of improper grade or contaminated, affecting engine performance.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 47 incidents into 10 types
+   - 'engine fire due to component failures': 24 incidents
+   - 'multiple contributing mechanical failures': 6 incidents
+   - 'undetected fatigue cracks in engine': 4 incidents
+   - 'nose landing gear malfunctions': 4 incidents
+   - 'landing gear tire failures': 2 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'fatigue-induced engine component failures': 2 incidents
+   - 'improper pitch control during landing': 1 incidents
+   - 'flight crew procedure failures': 1 incidents
+   - 'ground vehicle collision incidents': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 10 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 3 cluster(s) with no post-defining next events: ['tailwind landing misjudgments', 'improper pitch control during landing', 'ground vehicle collision incidents']
+   Total Similarity Mass (Denominator): 22.8332
+✅ Calculated final probabilities for 16 next events
+✅ Prognosis LTP: 31 sequences with post-defining next events, 16 distinct next-event labels
+Improper oil usage               Loss of engine power     0.9500   0.0812     0.09x
+Improper oil usage               Forced landing           0.1357   0.2182     1.61x
+Improper oil usage               No injury                0.9958   0.2559     0.26x
+
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.18s]    DEBUG: Embedding done. Finding matches...
+[0.18s]    DEBUG: Matches found.
+[0.18s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 43 incidents into 9 types
+   - 'engine fire due to component failures': 24 incidents
+   - 'undetected fatigue cracks in engine': 5 incidents
+   - 'multiple contributing mechanical failures': 5 incidents
+   - 'fatigue-induced engine component failures': 3 incidents
+   - 'nose landing gear malfunctions': 2 incidents
+   - 'ground handling collision incidents': 1 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+   - 'landing gear tire failures': 1 incidents
+   - 'improper pitch control during landing': 1 incidents
+[0.18s]    DEBUG: Clustering done. 9 clusters.
+[0.18s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 22.4375
+✅ Calculated final probabilities for 86 causes
+[0.18s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'The aircraft experienced both inoperative engine instruments and improper oil usage. The engine instruments failed while the engine oil was also contaminated or of improper grade.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 43 incidents into 9 types
+   - 'engine fire due to component failures': 24 incidents
+   - 'undetected fatigue cracks in engine': 5 incidents
+   - 'multiple contributing mechanical failures': 5 incidents
+   - 'fatigue-induced engine component failures': 3 incidents
+   - 'nose landing gear malfunctions': 2 incidents
+   - 'ground handling collision incidents': 1 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+   - 'landing gear tire failures': 1 incidents
+   - 'improper pitch control during landing': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 4 cluster(s) with no post-defining next events: ['nose landing gear malfunctions', 'ground handling collision incidents', 'tailwind landing misjudgments', 'improper pitch control during landing']
+   Total Similarity Mass (Denominator): 19.8468
+✅ Calculated final probabilities for 12 next events
+✅ Prognosis LTP: 29 sequences with post-defining next events, 12 distinct next-event labels
+Inop. instruments + Improper oil Loss of engine power     0.9900   0.0916     0.09x
+Inop. instruments + Improper oil Forced landing           0.1471   0.1112     0.76x
+Inop. instruments + Improper oil No injury                0.9429   0.3201     0.34x
+
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.24s]    DEBUG: Embedding done. Finding matches...
+[0.25s]    DEBUG: Matches found.
+[0.25s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 48 incidents into 7 types
+   - 'engine fire due to component failures': 33 incidents
+   - 'undetected fatigue cracks in engine': 5 incidents
+   - 'fatigue-induced engine component failures': 4 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+   - 'ground handling collision incidents': 1 incidents
+   - 'nose landing gear malfunctions': 1 incidents
+[0.25s]    DEBUG: Clustering done. 7 clusters.
+[0.25s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 7 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 27.2089
+✅ Calculated final probabilities for 78 causes
+[0.25s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'The aircraft experienced loss of engine power due to multiple causes: inoperative engine instruments, combustion liner failure, and improper oil usage all contributed to the engine failure.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 48 incidents into 7 types
+   - 'engine fire due to component failures': 33 incidents
+   - 'undetected fatigue cracks in engine': 5 incidents
+   - 'fatigue-induced engine component failures': 4 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+   - 'ground handling collision incidents': 1 incidents
+   - 'nose landing gear malfunctions': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 7 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 3 cluster(s) with no post-defining next events: ['tailwind landing misjudgments', 'ground handling collision incidents', 'nose landing gear malfunctions']
+   Total Similarity Mass (Denominator): 25.6325
+✅ Calculated final probabilities for 12 next events
+✅ Prognosis LTP: 35 sequences with post-defining next events, 12 distinct next-event labels
+All three causes                 Loss of engine power     1.0000   0.0949     0.09x
+All three causes                 Forced landing           0.1429   0.0583     0.41x
+All three causes                 No injury                0.9899   0.2124     0.21x
+
+========================================================================
+ZHANG FIG 12 — Pilot error propagation (A0)
+========================================================================
+
+--- After pilot error ---
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.21s]    DEBUG: Embedding done. Finding matches...
+[0.21s]    DEBUG: Matches found.
+[0.21s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 50 incidents into 13 types
+   - 'inadequate clearance awareness': 16 incidents
+   - 'improper pitch control during landing': 6 incidents
+   - 'ground vehicle collision incidents': 4 incidents
+   - 'tcas-related maneuvering errors': 4 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'tailwind landing misjudgments': 3 incidents
+   - 'landing gear tire failures': 3 incidents
+   - 'weather-related turbulence incidents': 3 incidents
+   - 'turbulence-related flight attendant injuries': 2 incidents
+   - 'taxiway collision due to misjudged clearance': 2 incidents
+   - 'ground handling collision incidents': 2 incidents
+   - 'ramp and taxiway incursions': 1 incidents
+   - 'cabin crew safety incidents': 1 incidents
+[0.21s]    DEBUG: Clustering done. 13 clusters.
+[0.21s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 13 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 27.3236
+✅ Calculated final probabilities for 106 causes
+[0.21s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'The pilot in command made an error during the approach phase of flight. The pilot's actions were erroneous and contributed to the incident.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 50 incidents into 13 types
+   - 'inadequate clearance awareness': 16 incidents
+   - 'improper pitch control during landing': 6 incidents
+   - 'ground vehicle collision incidents': 4 incidents
+   - 'tcas-related maneuvering errors': 4 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'tailwind landing misjudgments': 3 incidents
+   - 'landing gear tire failures': 3 incidents
+   - 'weather-related turbulence incidents': 3 incidents
+   - 'turbulence-related flight attendant injuries': 2 incidents
+   - 'taxiway collision due to misjudged clearance': 2 incidents
+   - 'ground handling collision incidents': 2 incidents
+   - 'ramp and taxiway incursions': 1 incidents
+   - 'cabin crew safety incidents': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 13 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 4 cluster(s) with no post-defining next events: ['ground vehicle collision incidents', 'ramp and taxiway incursions', 'ground handling collision incidents', 'cabin crew safety incidents']
+   Total Similarity Mass (Denominator): 22.9926
+✅ Calculated final probabilities for 13 next events
+✅ Prognosis LTP: 29 sequences with post-defining next events, 13 distinct next-event labels
+  Hard landing       Zhang=  0.0599  Ours=  0.9545  (15.94x)
+  No injury          Zhang=  0.9700  Ours=  0.0455  (0.05x)
+
+--- After PE + unstable approach ---
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.58s]    DEBUG: Embedding done. Finding matches...
+[0.58s]    DEBUG: Matches found.
+[0.58s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 49 incidents into 14 types
+   - 'inadequate clearance awareness': 10 incidents
+   - 'improper pitch control during landing': 7 incidents
+   - 'tailwind landing misjudgments': 6 incidents
+   - 'ground vehicle collision incidents': 5 incidents
+   - 'multiple contributing mechanical failures': 4 incidents
+   - 'tcas-related maneuvering errors': 4 incidents
+   - 'turbulence-related flight attendant injuries': 3 incidents
+   - 'landing gear tire failures': 2 incidents
+   - 'ground handling collision incidents': 2 incidents
+   - 'weather-related turbulence incidents': 2 incidents
+   - 'ramp and taxiway incursions': 1 incidents
+   - 'horizontal stabilizer control failures': 1 incidents
+   - 'cabin crew safety incidents': 1 incidents
+   - 'unexpected turbulence encounters': 1 incidents
+[0.58s]    DEBUG: Clustering done. 14 clusters.
+[0.58s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 14 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 26.9583
+✅ Calculated final probabilities for 114 causes
+[0.58s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'The pilot in command made an error during the approach phase, resulting in an unstabilized approach. The approach was not maintained stable in terms of speed, descent rate, and flight path, leading to a dangerous situation.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 49 incidents into 14 types
+   - 'inadequate clearance awareness': 10 incidents
+   - 'improper pitch control during landing': 7 incidents
+   - 'tailwind landing misjudgments': 6 incidents
+   - 'ground vehicle collision incidents': 5 incidents
+   - 'multiple contributing mechanical failures': 4 incidents
+   - 'tcas-related maneuvering errors': 4 incidents
+   - 'turbulence-related flight attendant injuries': 3 incidents
+   - 'landing gear tire failures': 2 incidents
+   - 'ground handling collision incidents': 2 incidents
+   - 'weather-related turbulence incidents': 2 incidents
+   - 'ramp and taxiway incursions': 1 incidents
+   - 'horizontal stabilizer control failures': 1 incidents
+   - 'cabin crew safety incidents': 1 incidents
+   - 'unexpected turbulence encounters': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 14 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 4 cluster(s) with no post-defining next events: ['ground vehicle collision incidents', 'ramp and taxiway incursions', 'cabin crew safety incidents', 'unexpected turbulence encounters']
+   Total Similarity Mass (Denominator): 22.7378
+✅ Calculated final probabilities for 14 next events
+✅ Prognosis LTP: 24 sequences with post-defining next events, 14 distinct next-event labels
+  Hard landing       Zhang=  0.0599  Ours=  0.9767  (16.31x)
+  No injury          Zhang=  0.6130  Ours=  0.0233  (0.04x)
+
+========================================================================
+TABLE 4 STYLE — Multi-evidence fire scenarios (A0)
+  (Zhang refs are illustrative CPT values from meeting, not Table 9)
+========================================================================
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.24s]    DEBUG: Embedding done. Finding matches...
+[0.24s]    DEBUG: Matches found.
+[0.24s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 46 incidents into 8 types
+   - 'nose landing gear malfunctions': 14 incidents
+   - 'landing gear tire failures': 11 incidents
+   - 'landing gear structural failures': 10 incidents
+   - 'electrical failures and hazards': 4 incidents
+   - 'engine fire due to component failures': 3 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'multiple contributing mechanical failures': 1 incidents
+[0.24s]    DEBUG: Clustering done. 8 clusters.
+[0.24s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 8 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 26.6976
+✅ Calculated final probabilities for 71 causes
+[0.24s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'Landing gear normal brake system is worn out and the electrical system is overheating. I observe fire on the aircraft.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 46 incidents into 8 types
+   - 'nose landing gear malfunctions': 14 incidents
+   - 'landing gear tire failures': 11 incidents
+   - 'landing gear structural failures': 10 incidents
+   - 'electrical failures and hazards': 4 incidents
+   - 'engine fire due to component failures': 3 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'multiple contributing mechanical failures': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 8 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 2 cluster(s) with no post-defining next events: ['landing gear structural failures', 'structural integrity failures']
+   Total Similarity Mass (Denominator): 20.2687
+✅ Calculated final probabilities for 10 next events
+✅ Prognosis LTP: 20 sequences with post-defining next events, 10 distinct next-event labels
+
+[worn_yes_overheat_yes] Zhang ref P(fire)≈0.99
+  Query: Landing gear normal brake system is worn out and the electrical system is overheating. I o...
+  Our matched P(fire): 0.2672
+  Top-3 diagnosis:
+    1.  3.21% — aircraft-fluids/misc hardware-fluids-hydraulic fluid-fluid condit
+    2.  3.19% — aircraft-aircraft systems-landing gear system-brake-damaged/degra
+    3.  3.19% — aircraft-aircraft systems-landing gear system-brake-failure - c
+  Top-3 prognosis:
+    1. 26.32% — After landing - Landing gear not configured
+    2. 15.30% — Landing-landing roll - Part(s) separation from AC
+    3. 13.16% — Landing - Landing gear not configured
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.26s]    DEBUG: Embedding done. Finding matches...
+[0.27s]    DEBUG: Matches found.
+[0.27s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 46 incidents into 9 types
+   - 'nose landing gear malfunctions': 14 incidents
+   - 'landing gear tire failures': 11 incidents
+   - 'landing gear structural failures': 11 incidents
+   - 'electrical failures and hazards': 3 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'engine fire due to component failures': 2 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'multiple contributing mechanical failures': 1 incidents
+   - 'ground handling collision incidents': 1 incidents
+[0.27s]    DEBUG: Clustering done. 9 clusters.
+[0.27s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 26.7732
+✅ Calculated final probabilities for 73 causes
+[0.27s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'Landing gear normal brake system is worn out but the electrical system is not overheating. I observe fire on the aircraft.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 46 incidents into 9 types
+   - 'nose landing gear malfunctions': 14 incidents
+   - 'landing gear tire failures': 11 incidents
+   - 'landing gear structural failures': 11 incidents
+   - 'electrical failures and hazards': 3 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'engine fire due to component failures': 2 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'multiple contributing mechanical failures': 1 incidents
+   - 'ground handling collision incidents': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 3 cluster(s) with no post-defining next events: ['landing gear structural failures', 'structural integrity failures', 'ground handling collision incidents']
+   Total Similarity Mass (Denominator): 19.2146
+✅ Calculated final probabilities for 9 next events
+✅ Prognosis LTP: 19 sequences with post-defining next events, 9 distinct next-event labels
+
+[worn_yes_overheat_no] Zhang ref P(fire)≈0.93
+  Query: Landing gear normal brake system is worn out but the electrical system is not overheating....
+  Our matched P(fire): 0.2092
+  Top-3 diagnosis:
+    1.  3.23% — aircraft-fluids/misc hardware-fluids-hydraulic fluid-fluid condit
+    2.  3.20% — aircraft-aircraft systems-landing gear system-brake-damaged/degra
+    3.  3.20% — aircraft-aircraft systems-landing gear system-brake-failure - c
+  Top-3 prognosis:
+    1. 28.05% — After landing - Landing gear not configured
+    2. 16.23% — Landing-landing roll - Part(s) separation from AC
+    3. 14.02% — Landing - Landing gear not configured
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.25s]    DEBUG: Embedding done. Finding matches...
+[0.25s]    DEBUG: Matches found.
+[0.25s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 46 incidents into 9 types
+   - 'nose landing gear malfunctions': 14 incidents
+   - 'landing gear tire failures': 11 incidents
+   - 'landing gear structural failures': 11 incidents
+   - 'electrical failures and hazards': 3 incidents
+   - 'engine fire due to component failures': 2 incidents
+   - 'multiple contributing mechanical failures': 2 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+   - 'ground handling collision incidents': 1 incidents
+[0.25s]    DEBUG: Clustering done. 9 clusters.
+[0.25s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 26.2120
+✅ Calculated final probabilities for 74 causes
+[0.25s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'Landing gear normal brake system is not worn out but the electrical system is overheating. I observe fire on the aircraft.'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 46 incidents into 9 types
+   - 'nose landing gear malfunctions': 14 incidents
+   - 'landing gear tire failures': 11 incidents
+   - 'landing gear structural failures': 11 incidents
+   - 'electrical failures and hazards': 3 incidents
+   - 'engine fire due to component failures': 2 incidents
+   - 'multiple contributing mechanical failures': 2 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'tailwind landing misjudgments': 1 incidents
+   - 'ground handling collision incidents': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 9 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 4 cluster(s) with no post-defining next events: ['landing gear structural failures', 'structural integrity failures', 'electrical failures and hazards', 'ground handling collision incidents']
+   Total Similarity Mass (Denominator): 17.2342
+✅ Calculated final probabilities for 9 next events
+✅ Prognosis LTP: 18 sequences with post-defining next events, 9 distinct next-event labels
+
+[worn_no_overheat_yes] Zhang ref P(fire)≈0.95
+  Query: Landing gear normal brake system is not worn out but the electrical system is overheating....
+  Our matched P(fire): 0.1364
+  Top-3 diagnosis:
+    1.  3.22% — aircraft-fluids/misc hardware-fluids-hydraulic fluid-fluid condit
+    2.  3.21% — aircraft-aircraft systems-landing gear system-brake-damaged/degra
+    3.  3.21% — aircraft-aircraft systems-landing gear system-brake-failure - c
+  Top-3 prognosis:
+    1. 30.53% — After landing - Landing gear not configured
+    2. 17.78% — Landing-landing roll - Part(s) separation from AC
+    3. 15.26% — Landing - Landing gear not configured
+
+[0.00s] 🎓 START Diagnosis
+[0.00s]    DEBUG: Calling OpenAI Embedding...
+[0.22s]    DEBUG: Embedding done. Finding matches...
+[0.22s]    DEBUG: Matches found.
+[0.22s]    DEBUG: Clustering incidents...
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 48 incidents into 13 types
+   - 'engine fire due to component failures': 18 incidents
+   - 'bird strike during takeoff': 7 incidents
+   - 'electrical failures and hazards': 5 incidents
+   - 'undetected fatigue cracks in engine': 4 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'landing gear tire failures': 2 incidents
+   - 'weather-related turbulence incidents': 2 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'inadequate cable inspection issues': 1 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'cabin crew safety incidents': 1 incidents
+   - 'unexpected turbulence encounters': 1 incidents
+   - 'ground vehicle collision incidents': 1 incidents
+[0.22s]    DEBUG: Clustering done. 13 clusters.
+[0.22s]    DEBUG: Calculating probabilities...
+
+🧮 Calculating P(Cause|Cluster) for each cluster...
+✅ Calculated cause probabilities for 13 clusters
+
+⚗️  Applying law of total probability: P(Cause|Query) = Σ P(Cause|Cluster) × P(Cluster|Query)
+   Total Similarity Mass (Denominator): 24.2331
+✅ Calculated final probabilities for 81 causes
+[0.23s] ✅ DONE Diagnosis
+
+🔮 Predicting future events (LTP over clusters) for: 'I observe fire on the aircraft during flight. What caused the fire?'
+
+🔄 Clustering top 50 incidents by type...
+✅ Clustered 48 incidents into 13 types
+   - 'engine fire due to component failures': 18 incidents
+   - 'bird strike during takeoff': 7 incidents
+   - 'electrical failures and hazards': 5 incidents
+   - 'undetected fatigue cracks in engine': 4 incidents
+   - 'multiple contributing mechanical failures': 3 incidents
+   - 'landing gear tire failures': 2 incidents
+   - 'weather-related turbulence incidents': 2 incidents
+   - 'tailwind landing misjudgments': 2 incidents
+   - 'inadequate cable inspection issues': 1 incidents
+   - 'structural integrity failures': 1 incidents
+   - 'cabin crew safety incidents': 1 incidents
+   - 'unexpected turbulence encounters': 1 incidents
+   - 'ground vehicle collision incidents': 1 incidents
+
+🧮 Calculating P(Next Event|Cluster) for each cluster...
+✅ Calculated next-event probabilities for 13 clusters
+
+⚗️  Applying law of total probability: P(Next Event|Query) = Σ P(Next Event|Cluster) × P(Cluster|Query)
+   Skipped 5 cluster(s) with no post-defining next events: ['inadequate cable inspection issues', 'cabin crew safety incidents', 'weather-related turbulence incidents', 'unexpected turbulence encounters', 'ground vehicle collision incidents']
+   Total Similarity Mass (Denominator): 21.2977
+✅ Calculated final probabilities for 11 next events
+✅ Prognosis LTP: 26 sequences with post-defining next events, 11 distinct next-event labels
+
+[fire_only_diagnosis] Zhang ref P(fire)≈n/a
+  Query: I observe fire on the aircraft during flight. What caused the fire?...
+  Our matched P(fire): 0.3841
+  Top-3 diagnosis:
+    1.  4.00% — environmental issues-physical environment-object/animal/substance
+    2.  2.72% — a contributing factor was the inadequate diffuser and hpt case in
+    3.  2.72% — aircraft-aircraft power plant-engine (turbine/turboprop)-combusti
+  Top-3 prognosis:
+    1. 15.97% — Enroute-climb to cruise - Powerplant sys/comp malf/fail
+    2. 14.41% — Initial climb - Engine shutdown
+    3. 12.75% — Landing - Fire/smoke (non-impact)

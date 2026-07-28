@@ -1,0 +1,16 @@
+# personal credentials
+pysmile_license.py
+
+# pysmile binary (~6 MB native) — install via pip from BayesFusion index
+pysmile.so
+PYSMILE_README.txt
+
+# python artifacts
+__pycache__/
+*.pyc
+
+# generated outputs (regenerable; uncomment to track)
+# outputs/
+
+# OS
+.DS_Store

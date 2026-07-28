@@ -54,3 +54,26 @@ Thumbs.db
 # Logs
 *.log
 
+# Repo-specific
+.env
+.venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+.DS_Store
+.cursor/state/
+archive/docs_*_legacy/
+
+# Large artifacts (keep small JSON results in git if needed)
+shared/data/processed/*.npy
+shared/data/processed/**/*.npy
+shared/data/processed/modernbert/
+shared/data/processed/openai/
+Frozen-BN-Narrative-Evidence-2026-07-20/outputs/*.npy
+
+# Large caches and raw NTSB exports (regenerate locally)
+**/cache_refined/*.jsonl
+**/step_code_emb_cache.jsonl
+**/emb_cache_final.jsonl
+Zhang-Replication-Foundation-2026-06-04/reference/data/narratives.xlsx
+shared/data/raw/**/*.xlsx

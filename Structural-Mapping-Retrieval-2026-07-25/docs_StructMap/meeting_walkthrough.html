@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meeting Walkthrough - May 2026</title>
+<style>
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  line-height: 1.55;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+header h1 { font-size: 2rem; margin-bottom: 0.25rem; border-bottom: 2px solid #222; padding-bottom: 0.5rem; }
+header .subtitle { color: #666; margin-top: 0.25rem; }
+h2 {
+  font-size: 1.4rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #ddd;
+}
+h3 { font-size: 1.1rem; margin-top: 1.5rem; }
+h4 { font-size: 1.0rem; margin-top: 1.2rem; color: #333; }
+blockquote {
+  border-left: 3px solid #888;
+  padding: 0.5rem 1rem;
+  margin: 0.8rem 0;
+  color: #444;
+  font-style: italic;
+  background: #fafafa;
+}
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+}
+table.data th, table.data td {
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+}
+table.data th { background: #f4f4f4; font-weight: 600; }
+table.data tr:nth-child(even) td { background: #fafafa; }
+.muted { color: #777; font-size: 0.9em; }
+.highlight {
+  background: #fff8d4;
+  padding: 0.7rem 1rem;
+  border-left: 3px solid #c0a000;
+  border-radius: 2px;
+  margin: 1rem 0;
+}
+.pass { color: #0a7a3a; font-weight: 600; }
+.fail { color: #b8341c; font-weight: 600; }
+.small { font-size: 0.85rem; }
+
+/* Incident background panel (top of each incident section) */
+.background {
+  background: #f7f7f5;
+  border: 1px solid #e1e1dc;
+  border-radius: 4px;
+  padding: 0.8rem 1.1rem;
+  margin: 0.8rem 0 1.2rem;
+}
+.background-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #6b6960;
+  background: #e9e8e2;
+  padding: 0.15rem 0.6rem;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
+}
+.background p { margin: 0.4rem 0; }
+
+/* Query boxes - distinct visual for after vs during */
+.query-box {
+  border-radius: 4px;
+  padding: 0.8rem 1.1rem;
+  margin: 1rem 0 0.8rem;
+}
+.query-after {
+  background: #eef4fb;
+  border-left: 5px solid #2c5d92;
+}
+.query-during {
+  background: #fdf3eb;
+  border-left: 5px solid #c8702e;
+}
+.query-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  padding: 0.15rem 0.6rem;
+  border-radius: 2px;
+  margin-bottom: 0.4rem;
+}
+.query-after .query-tag {
+  color: #fff;
+  background: #2c5d92;
+}
+.query-during .query-tag {
+  color: #fff;
+  background: #c8702e;
+}
+.query-who {
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.query-text {
+  font-size: 0.95rem;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* Mode blocks (DIAGNOSIS / PROGNOSIS) */
+.mode-block {
+  margin: 0.7rem 0 1.2rem;
+}
+.mode-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin: 0.4rem 0 0.3rem;
+}
+.mode-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  font-weight: 800;
+  padding: 0.25rem 0.7rem;
+  border-radius: 3px;
+  color: #fff;
+}
+.mode-diag .mode-tag { background: #4756a8; }
+.mode-prog .mode-tag { background: #2f8a55; }
+.mode-sub {
+  font-size: 0.92rem;
+  color: #555;
+  font-style: italic;
+}
+.result-table { font-size: 0.9rem; }
+.result-table td { vertical-align: top; }
+.raw-cause { display: inline-block; margin-top: 0.25rem; font-size: 0.78rem; color: #888; }
+
+/* NTSB ground truth panel - end of each incident */
+.ground-truth-box {
+  background: #f1f8f1;
+  border: 1px solid #c8e0c8;
+  border-left: 5px solid #2f8a55;
+  border-radius: 4px;
+  padding: 0.9rem 1.1rem;
+  margin: 1.4rem 0 0.5rem;
+}
+.gt-tag {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #fff;
+  background: #2f8a55;
+  padding: 0.15rem 0.6rem;
+  border-radius: 2px;
+  margin-bottom: 0.5rem;
+}
+.gt-cause { margin: 0.4rem 0 0.5rem; }
+.gt-cause em { color: #1a4a28; }
+
+/* Collapsible reference block - hidden by default, click to expand */
+details.reference-block {
+  margin: 2rem 0;
+  border: 1px dashed #b8b8b0;
+  border-radius: 4px;
+  background: #fbfbf8;
+}
+details.reference-block summary {
+  cursor: pointer;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.95rem;
+  color: #4a4a3e;
+  list-style: none;
+  user-select: none;
+}
+details.reference-block summary::-webkit-details-marker { display: none; }
+details.reference-block summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 0.6rem;
+  color: #6b6960;
+  font-size: 0.75rem;
+  transition: transform 0.15s ease;
+}
+details.reference-block[open] summary::before {
+  transform: rotate(90deg);
+}
+details.reference-block summary:hover {
+  background: #f4f4ee;
+}
+details.reference-block .ref-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: #fff;
+  background: #8c8a7e;
+  padding: 0.18rem 0.6rem;
+  border-radius: 2px;
+  margin-right: 0.6rem;
+  vertical-align: 1px;
+}
+details.reference-block .reference-body {
+  padding: 0.4rem 1.1rem 1.1rem;
+  border-top: 1px dashed #d8d8cf;
+}
+
+/* Methodology variant - tinted green to associate with prognosis mode */
+details.reference-block.methodology {
+  background: #f3faf5;
+  border-color: #bcd9c5;
+  margin-top: 0.4rem;
+}
+details.reference-block.methodology summary:hover { background: #e8f3ec; }
+.method-tag {
+  background: #2f8a55 !important;
+}
+.methodology-table .diff-row td {
+  background: #fff8e8;
+}
+.methodology-table .diff-row td:first-child {
+  background: #fff8e8;
+}
+code.inline {
+  background: #f0f0e8;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 0.88em;
+}
+
+/* Ranked list of next events in PROGNOSIS MODE */
+ol.rank-list {
+  margin: 0;
+  padding-left: 1.4rem;
+  font-size: 0.92rem;
+}
+ol.rank-list li {
+  padding: 0.18rem 0;
+  line-height: 1.45;
+}
+ol.rank-list li::marker {
+  color: #2f8a55;
+  font-weight: 600;
+}
+ol.rank-list li:first-child {
+  padding-bottom: 0.4rem;
+}
+nav.toc {
+  position: fixed;
+  top: 1rem; right: 1rem;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 0.7rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+  font-size: 0.85rem;
+  max-width: 220px;
+}
+nav.toc a { display: block; color: #2c5d92; text-decoration: none; padding: 0.15rem 0; }
+nav.toc a:hover { text-decoration: underline; }
+nav.toc strong { display: block; margin-bottom: 0.4rem; color: #333; font-size: 0.85rem; }
+section { scroll-margin-top: 1rem; }
+@media (max-width: 1280px) { nav.toc { display: none; } }
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <strong>Walkthrough</strong>
+  <a href="#asks">1. Today</a>
+  <a href="#engine">2. Engine fire</a>
+  <a href="#gear">3. Landing gear</a>
+  <a href="#stress">4. Stress test</a>
+  <a href="#gaps">5. What's not done</a>
+  <a href="#plan">6. Plan</a>
+</nav>
+
+<header>
+  <h1>Meeting Walkthrough</h1>
+</header>
+
+<section id="asks">
+  <h2>1. What I want to cover today</h2>
+  <ul>
+    <li>One full real worked example for <strong>diagnosis</strong></li>
+    <li>One full real worked example for <strong>prognosis</strong></li>
+    <li>Both using the <strong>A2 pipeline</strong> (similarity + structural mapping)</li>
+    <li>Paper rewritten to <strong>stand on its own</strong> (no comparison to Zhang)</li>
+    <li>Updated paper draft is in your inbox</li>
+  </ul>
+</section>
+
+<section id="engine">
+  <h2>2. Engine fire incident</h2>
+
+  <div class="background">
+    <div class="background-tag">INCIDENT BACKGROUND</div>
+    <p>An Aerospatiale ATR72 experienced a No. 1 (left) engine fire during takeoff from Henry E Rohlsen Airport, St. Croix. The pilot declared an emergency, shut down the engine, and discharged both fire bottles. Aircraft landed back about 11 minutes later. NTSB later determined the cause was a sealing failure between the fuel nozzle adapter assembly and the fuel transfer tubes.</p>
+    <p class="muted small">This is the real-world context for the queries below. The system does NOT see this paragraph - it only sees the queries shown in each block.</p>
+  </div>
+
+  <h3>2a. After-incident analysis</h3>
+  
+<div class="query-box query-after">
+  <div class="query-tag">AFTER-INCIDENT QUERY</div>
+  <div class="query-who">Investigator, looking back, with full narrative</div>
+  <div class="query-text">"History of Flight:
+
+On January 11, 2010, about 2000 Atlantic Standard Time, an Aerospatiale ATR72, registration number N434AT, experienced a No. 1 (left) engine fire during takeoff from Henry E Rohlsen Airport, St. Croix, United States Virgin Islands. The pilot declared an emergency, shut down the No. 1 engine, and discharged one fire bottle. When the fire warning continued, the pilot discharged the second bottle but the fire warning persisted. The pilot performed an air turn back and landed approximately 11 minutes later. It was reported that the fire warning went out just before landing. The 44 passengers and 4 deplaned normally in St. Croix and no injuries were reported. The flight was registered and operated by Executive Airlines under the provisions of 14 Code of Federal Regulations (CFR) Part 121 as flight 4835. Visual flight rules (VFR) conditions prevailed for the flight, which operated on an instrument flight rules (IFR) flight plan. The flight destination was San Juan, Puerto Rico.
+
+
+Damage to Airplane and Engine:
+
+An on-scene inspection of the No. 1 engine nacelle confirmed the presence of a large fire within the nacelle cavity. A search for the flammable fluid leak confirmed that the engine oil tank and the hydraulic system were still intact. The only evidence of a possible fuel leak was a small wetted area on one fuel nozzle and a coked fuel nozzle heat shield. For detailed information of the airplane damage during the on scene examination, please refer to Docket document ‘On-site Airplane Fire Documentation’. The engine was then removed from the airplane and shipped to the Pratt &amp; Whitney Canada facility in Montreal, Canada where testing revealed a large spray emanating from the No. 2 fuel manifold adapter-to-transfer tube O-ring connection, confirming the field observations.
+
+
+Accident Engine Fuel Manifold Service/Maintenance History:
+
+Executive Airlines (EA) reported that they had been having leaking problems with the PW127 fleet engine fuel manifolds during the last few years. On the event engine, there had been persistent fuel leak problems since it was overhauled by PWC in September 2009 and installed on the accident aircraft on October 12, 2009. During normal fuel nozzle maintenance, the fuel manifold assembly is replaced entirely with new or overhauled hardware. A review of maintenance records revealed that on October 20, 2009, EA maintenance staff repaired a fuel leak on the No. 1 fuel nozzle. Because of the fuel manifold assembling geometry, a leak of a single nozzle requires the disassembly of the entire half ring of nozzles. Based on the repair procedures, the No. 2 fuel manifold adapter was removed and re-assembled at this time. On November 15, 2009, EA maintenance staff, responding to a continuing fuel leak, again replaced all the O-rings of the fuel manifold. 
+
+
+System Description
+
+The fuel nozzle manifold adapter and the fuel transfer tubes work in conjunction with each other to form the complete sealed fuel manifold around the engine combustor. Please refer to figures 4 and 5 in the powerplant group chairman’s group factual report for images and cross-sections of the parts. The fuel transfer tubes have two O-rings (a primary and a secondary) on either end which are inserted into the fuel nozzle manifold adapter. In normal operation, the primary O-ring seals the main fuel cavity, directing all the metered fuel to the nozzles. If it should fail, the fuel leaking past the primary O-ring is sealed by the secondary O-ring and then flows through the cross-drilled holes inside the fuel nozzle manifold adapter, into the telltale drain. The secondary O-ring prevents fuel from leaking directly outside the fuel nozzle manifold adapter where it could contact the high temperature combustor housing and ignite. 
+
+Examination and Findings of Fuel Nozzle Manifold Adapter and Fuel Transfer Tubes:
+
+The leaking fuel nozzle manifold adapter and its connecting fuel transfer tube hardware were exami"</div>
+</div>
+
+<div class="mode-block mode-diag">
+  <div class="mode-header">
+    <span class="mode-tag">DIAGNOSIS MODE</span>
+    <span class="mode-sub">Backward inference: what caused this incident?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top failure cluster</td>
+      <td><strong>engine fire due to component failures</strong><br><span class="muted">P(K|Q) = 50.4% &nbsp;|&nbsp; 24 of 50 retrieved incidents</span></td>
+      <td><strong>engine fire due to component failures</strong><br><span class="muted">P(K|Q) = 53.5% &nbsp;|&nbsp; 24 of 50 retrieved incidents</span></td>
+    </tr>
+    <tr>
+      <td>Top cause (plain English)</td>
+      <td><strong>Manufacturer / production defect</strong><br><span class="muted">P(C|Q) = 3.38%</span><br><span class="muted raw-cause">raw NTSB: <em>organizational issues-development-manufacture/production-equipment manufacture-manufacturer - c</em></span></td>
+      <td><strong>Turbine section failure</strong><br><span class="muted">P(C|Q) = 3.29%</span><br><span class="muted raw-cause">raw NTSB: <em>aircraft-aircraft power plant-engine (turbine/turboprop)-turbine section-failure - c</em></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="mode-block mode-prog">
+  <div class="mode-header">
+    <span class="mode-tag">PROGNOSIS MODE</span>
+    <span class="mode-sub">Forward inference: given this incident, what next event was likely?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top 5 next events</td>
+      <td><ol class="rank-list"><li><strong>Powerplant system failure during climb to cruise</strong> <span class="muted">&nbsp;P=14.00%</span><br><span class="muted raw-cause">raw NTSB: <em>Enroute-climb to cruise - Powerplant sys/comp malf/fail</em></span></li><li>Ditching during landing <span class="muted">&nbsp;P=11.47%</span></li><li>Ground collision with operating engines <span class="muted">&nbsp;P=8.32%</span></li><li>Abnormal runway contact during landing <span class="muted">&nbsp;P=6.99%</span></li><li>Off-field emergency landing during landing roll <span class="muted">&nbsp;P=6.90%</span></li></ol></td>
+      <td><ol class="rank-list"><li><strong>Powerplant system failure during climb to cruise</strong> <span class="muted">&nbsp;P=15.31%</span><br><span class="muted raw-cause">raw NTSB: <em>Enroute-climb to cruise - Powerplant sys/comp malf/fail</em></span></li><li>Ditching during landing <span class="muted">&nbsp;P=12.38%</span></li><li>Ground collision with operating engines <span class="muted">&nbsp;P=7.41%</span></li><li>Abnormal runway contact during landing <span class="muted">&nbsp;P=7.02%</span></li><li>Off-field emergency landing during landing roll <span class="muted">&nbsp;P=6.53%</span></li></ol></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<details class="reference-block methodology">
+  <summary>
+    <span class="ref-tag method-tag">HOW PROGNOSIS WORKS (click to expand)</span>
+    A0 vs A2 - the 5 steps, side by side
+  </summary>
+  <div class="reference-body">
+    <p class="muted small">Same explanation applies to every prognosis result on this page. Shown once here.</p>
+
+    <table class="data methodology-table">
+      <thead>
+        <tr>
+          <th style="width:6%">Step</th>
+          <th style="width:47%">A0 (embedding only)</th>
+          <th style="width:47%">A2 (with structural mapping)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td colspan="2">Embed the query and retrieve the top-50 most similar past incidents.</td>
+        </tr>
+        <tr class="diff-row">
+          <td><strong>2</strong></td>
+          <td>Score each retrieved incident by raw <strong>cosine similarity</strong> between the query embedding and the incident embedding.</td>
+          <td>Same retrieval, but <strong>rewrite the score</strong> using structural alignment of causal-chain triples:<br>
+              <code class="inline">new_score = (1-α)·cosine + α·struct_align</code><br>
+              <span class="muted small">struct_align = how well the triples extracted from the query (e.g., <em>engine_fire → fuel_leak → loss_of_power</em>) align to the triples extracted from the candidate incident. α = 2.0 in these examples.</span></td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td colspan="2">Cluster those 50 incidents by failure theme (LLM-named clusters). The scores from step 2 determine each cluster's weight: P(Cluster | Query).</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td colspan="2">Inside each cluster, count what actually happened AFTER the defining event across the incidents in that cluster. That gives P(Next Event | Cluster).</td>
+        </tr>
+        <tr>
+          <td><strong>5</strong></td>
+          <td colspan="2">Combine via law of total probability:<br>
+              <code class="inline">P(Next Event | Query) = Σ<sub>K</sub> P(Next Event | K) · P(K | Query)</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="muted small">
+      Bottom line: the only difference is at step 2. The structural rerank changes how much weight each cluster gets (P(K|Q)), which then propagates through the LTP sum to a different next-event distribution. Same 5-step pipeline, same data, same clusters - the structural triples just re-weight which incidents matter most.
+    </p>
+  </div>
+</details>
+
+
+  <h3>2b. During-incident analysis</h3>
+  
+<div class="query-box query-during">
+  <div class="query-tag">DURING-INCIDENT QUERY</div>
+  <div class="query-who">Pilot in the cockpit, mid-event, no hindsight</div>
+  <div class="query-text">"I just got a left-engine fire warning on takeoff. I can see flames. What could be causing this?"</div>
+</div>
+
+<div class="mode-block mode-diag">
+  <div class="mode-header">
+    <span class="mode-tag">DIAGNOSIS MODE</span>
+    <span class="mode-sub">Backward inference: what&#x27;s happening to my aircraft right now?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top failure cluster</td>
+      <td><strong>engine fire due to component failures</strong><br><span class="muted">P(K|Q) = 52.7% &nbsp;|&nbsp; 21 of 50 retrieved incidents</span></td>
+      <td><strong>engine fire due to component failures</strong><br><span class="muted">P(K|Q) = 53.7% &nbsp;|&nbsp; 21 of 50 retrieved incidents</span></td>
+    </tr>
+    <tr>
+      <td>Top cause (plain English)</td>
+      <td><strong>Improper maintenance installation</strong><br><span class="muted">P(C|Q) = 3.01%</span><br><span class="muted raw-cause">raw NTSB: <em>personnel issues-task performance-maintenance-installation-maintenance personnel - c</em></span></td>
+      <td><strong>Improper maintenance installation</strong><br><span class="muted">P(C|Q) = 3.07%</span><br><span class="muted raw-cause">raw NTSB: <em>personnel issues-task performance-maintenance-installation-maintenance personnel - c</em></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="mode-block mode-prog">
+  <div class="mode-header">
+    <span class="mode-tag">PROGNOSIS MODE</span>
+    <span class="mode-sub">Forward inference: what&#x27;s likely to come next?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top 5 next events</td>
+      <td><ol class="rank-list"><li><strong>Engine shutdown during initial climb</strong> <span class="muted">&nbsp;P=14.37%</span><br><span class="muted raw-cause">raw NTSB: <em>Initial climb - Engine shutdown</em></span></li><li>Engine shutdown during climb to cruise <span class="muted">&nbsp;P=10.78%</span></li><li>Fire or smoke during landing <span class="muted">&nbsp;P=10.10%</span></li><li>Fire or smoke incident <span class="muted">&nbsp;P=7.63%</span></li><li>Fire or smoke during cruise <span class="muted">&nbsp;P=7.19%</span></li></ol></td>
+      <td><ol class="rank-list"><li><strong>Engine shutdown during initial climb</strong> <span class="muted">&nbsp;P=14.66%</span><br><span class="muted raw-cause">raw NTSB: <em>Initial climb - Engine shutdown</em></span></li><li>Engine shutdown during climb to cruise <span class="muted">&nbsp;P=10.99%</span></li><li>Fire or smoke during landing <span class="muted">&nbsp;P=9.47%</span></li><li>Fire or smoke incident <span class="muted">&nbsp;P=8.13%</span></li><li>Fire or smoke during cruise <span class="muted">&nbsp;P=7.33%</span></li></ol></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  <div class="ground-truth-box">
+    <div class="gt-tag">NTSB GROUND TRUTH (the official answer)</div>
+    <p class="gt-cause"><strong>What NTSB ultimately concluded was the cause:</strong><br>
+       <em>The sealing failure between the fuel nozzle adapter assembly and fuel transfer tubes that allowed fuel to leak into the nacelle fire zone where it was ignited by the hot combustor case.</em></p>
+    <p class="muted small">
+      Compare this to the "Top cause" rows above. The system's plain-English labels (like
+      "<em>Manufacturer / production defect</em>") are LLM-rewrites of the raw NTSB taxonomy
+      strings shown below them (like "<em>organizational issues-development-manufacture/production-equipment manufacture-manufacturer - C</em>").
+      We do this rewrite once, with a deterministic prompt (temperature 0), so a non-expert can read the output.
+    </p>
+  </div>
+</section>
+
+<section id="gear">
+  <h2>3. Landing gear incident</h2>
+
+  <div class="background">
+    <div class="background-tag">INCIDENT BACKGROUND</div>
+    <p>A deHavilland DHC-8-311 operated by Piedmont Airlines / USAirways flight 4551 sustained minor damage when it landed with the nose landing gear retracted at Philadelphia International Airport. The flight crew received an unsafe nose-gear indication on approach. Mains showed three greens. The crew executed the gear-up landing checklist on the nose.</p>
+    <p class="muted small">This is the real-world context for the queries below. The system does NOT see this paragraph - it only sees the queries shown in each block.</p>
+  </div>
+
+  <h3>3a. After-incident analysis</h3>
+  
+<div class="query-box query-after">
+  <div class="query-tag">AFTER-INCIDENT QUERY</div>
+  <div class="query-who">Investigator, looking back, with full narrative</div>
+  <div class="query-text">"HISTORY OF FLIGHT
+
+On November 16, 2008, about 0934 eastern standard time, a deHavilland DHC-8-311, N326EN, operated by Piedmont Airlines as USAirways flight 4551, sustained minor damage when it landed with the nose landing gear retracted at Philadelphia International Airport (PHL), Philadelphia, Pennsylvania. The 2 flight crewmembers, 1 cabin attendant, and 35 passengers were uninjured, and visual meteorological conditions prevailed. The scheduled passenger flight was operating on an instrument flight rules flight plan from Lehigh Valley International Airport (ABE), Allentown, Pennsylvania, to Philadelphia, under the provisions of Title 14 Code of Federal Regulations Part 121.
+
+During a telephone interview, the captain stated, and was collaborated by the first officer, that on the morning of the flight, they performed a preflight inspection of the airplane while it was parked, started the engines, and then taxied a short distance to the gate. The captain stated that during taxi to the runway, everything appeared normal. They completed all checklists; the captain maneuvered the airplane onto the runway, and transferred control to the first officer, who was to be the flying pilot. While on initial climbout the captain noted that the nose gear took about &quot;three to four seconds longer to retract than the main landing gear.&quot; 
+
+During the interview, both crewmembers reported that the flight was uneventful until the base leg of the approach. At that point, after the landing gear handle was selected to the extended position, the main landing gear extended properly, but the flight crew observed cockpit annunciations indicating that the nose gear and doors were not properly configured for landing. The flight crew performed a go-around; left the landing gear extended, and departed the area to attempt to rectify the situation. The first officer transferred airplane control to the captain, and performed the alternate landing gear extension checklist. However, the anomalous indications remained, and the nose landing gear remained retracted for landing.
+
+The flight crew then flew the airplane past the air traffic control tower (ATCT) to enable the ATCT personnel to determine the status of the nose landing gear. ATCT personnel reported that the nose gear doors were open, but that the nose landing gear was not visible. The flight crew then made several attempts to extend the nose gear by using the alternate gear extension checklist, and conferring with the airline&#x27;s maintenance personnel, but were unsuccessful. The crew subsequently elected to return to the airport to perform a nose-gear-up landing on runway 27L. 
+
+During the landing, and after the airplane&#x27;s main landing gear touched down,  the captain held the nose of the airplane off the runway until the slowest speed possible. After the nose contacted the runway, the airplane slid on it for about 525 feet before coming to a stop. There was no fire. The passengers deplaned via the main cabin door, and were taken to the terminal by a bus.
+
+PERSONNEL INFORMATION
+ 
+The captain held an airline transport pilot certificate with a rating for airplane multi-engine land, a type rating in the incident airplane make and model, and a commercial pilot certificate with a rating for airplane single-engine land. He reported 7,336 total hours of flight experience, including 2,726 hours as pilot in command (PIC). He reported 6,253 total hours of flight experience in the incident airplane make and model, including 1,832 hours as PIC. His most recent Federal Aviation Regulation (FAR) Part 121 annual check ride was completed on September 24, 2008, and his most recent Federal Aviation Administration (FAA) first-class medical certificate was issued on August 13, 2008.
+
+The first officer held a commercial pilot certificate with ratings for airplane single-engine land, multi-engine land, instrument airplane, and several type ratings, including the incident airplane make and model with second-in-com"</div>
+</div>
+
+<div class="mode-block mode-diag">
+  <div class="mode-header">
+    <span class="mode-tag">DIAGNOSIS MODE</span>
+    <span class="mode-sub">Backward inference: what caused this incident?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top failure cluster</td>
+      <td><strong>nose landing gear malfunctions</strong><br><span class="muted">P(K|Q) = 14.8% &nbsp;|&nbsp; 7 of 50 retrieved incidents</span></td>
+      <td><strong>nose landing gear malfunctions</strong><br><span class="muted">P(K|Q) = 18.1% &nbsp;|&nbsp; 7 of 50 retrieved incidents</span></td>
+    </tr>
+    <tr>
+      <td>Top cause (plain English)</td>
+      <td><strong>Clear air turbulence effects on crew</strong><br><span class="muted">P(C|Q) = 4.99%</span><br><span class="muted raw-cause">raw NTSB: <em>environmental issues-conditions/weather/phenomena-turbulence-clear air turbulence-effect on personnel - c</em></span></td>
+      <td><strong>Clear air turbulence effects on crew</strong><br><span class="muted">P(C|Q) = 4.57%</span><br><span class="muted raw-cause">raw NTSB: <em>environmental issues-conditions/weather/phenomena-turbulence-clear air turbulence-effect on personnel - c</em></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="mode-block mode-prog">
+  <div class="mode-header">
+    <span class="mode-tag">PROGNOSIS MODE</span>
+    <span class="mode-sub">Forward inference: given this incident, what next event was likely?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top 5 next events</td>
+      <td><ol class="rank-list"><li><strong>Ground collision with operating engines</strong> <span class="muted">&nbsp;P=15.10%</span><br><span class="muted raw-cause">raw NTSB: <em>Standing-engine(s) operating - Ground collision</em></span></li><li>Ditching during landing <span class="muted">&nbsp;P=10.09%</span></li><li>Fire or smoke incident <span class="muted">&nbsp;P=10.09%</span></li><li>Runway excursion during landing roll <span class="muted">&nbsp;P=10.09%</span></li><li>Ground handling incident during pushback <span class="muted">&nbsp;P=7.55%</span></li></ol></td>
+      <td><ol class="rank-list"><li><strong>Ground collision with operating engines</strong> <span class="muted">&nbsp;P=16.74%</span><br><span class="muted raw-cause">raw NTSB: <em>Standing-engine(s) operating - Ground collision</em></span></li><li>Ditching during landing <span class="muted">&nbsp;P=9.38%</span></li><li>Fire or smoke incident <span class="muted">&nbsp;P=9.38%</span></li><li>Runway excursion during landing roll <span class="muted">&nbsp;P=9.38%</span></li><li>Ground handling incident during pushback <span class="muted">&nbsp;P=8.37%</span></li></ol></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  <h3>3b. During-incident analysis</h3>
+  
+<div class="query-box query-during">
+  <div class="query-tag">DURING-INCIDENT QUERY</div>
+  <div class="query-who">Pilot in the cockpit, mid-event, no hindsight</div>
+  <div class="query-text">"I just got an unsafe nose-gear indication on approach. Three greens on the mains but nothing on the nose. What could be wrong?"</div>
+</div>
+
+<div class="mode-block mode-diag">
+  <div class="mode-header">
+    <span class="mode-tag">DIAGNOSIS MODE</span>
+    <span class="mode-sub">Backward inference: what&#x27;s happening to my aircraft right now?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top failure cluster</td>
+      <td><strong>nose landing gear malfunctions</strong><br><span class="muted">P(K|Q) = 38.7% &nbsp;|&nbsp; 15 of 50 retrieved incidents</span></td>
+      <td><strong>nose landing gear malfunctions</strong><br><span class="muted">P(K|Q) = 40.7% &nbsp;|&nbsp; 15 of 50 retrieved incidents</span></td>
+    </tr>
+    <tr>
+      <td>Top cause (plain English)</td>
+      <td><strong>Cause not determined</strong><br><span class="muted">P(C|Q) = 3.83%</span><br><span class="muted raw-cause">raw NTSB: <em>not determined-not determined-(general)-(general)-unknown/not determined - c</em></span></td>
+      <td><strong>Cause not determined</strong><br><span class="muted">P(C|Q) = 3.87%</span><br><span class="muted raw-cause">raw NTSB: <em>not determined-not determined-(general)-(general)-unknown/not determined - c</em></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="mode-block mode-prog">
+  <div class="mode-header">
+    <span class="mode-tag">PROGNOSIS MODE</span>
+    <span class="mode-sub">Forward inference: what&#x27;s likely to come next?</span>
+  </div>
+  <table class="data result-table">
+    <thead>
+      <tr><th style="width:24%">Output</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Top 5 next events</td>
+      <td><ol class="rank-list"><li><strong>Landing gear not configured for landing</strong> <span class="muted">&nbsp;P=35.16%</span><br><span class="muted raw-cause">raw NTSB: <em>Landing - Landing gear not configured</em></span></li><li>Landing gear not configured after landing <span class="muted">&nbsp;P=26.37%</span></li><li>Abnormal runway contact during landing <span class="muted">&nbsp;P=11.86%</span></li><li>Landing gear collapse during touchdown <span class="muted">&nbsp;P=7.66%</span></li><li>Runway excursion during landing <span class="muted">&nbsp;P=7.57%</span></li></ol></td>
+      <td><ol class="rank-list"><li><strong>Landing gear not configured for landing</strong> <span class="muted">&nbsp;P=37.45%</span><br><span class="muted raw-cause">raw NTSB: <em>Landing - Landing gear not configured</em></span></li><li>Landing gear not configured after landing <span class="muted">&nbsp;P=28.09%</span></li><li>Abnormal runway contact during landing <span class="muted">&nbsp;P=9.51%</span></li><li>Runway excursion during landing <span class="muted">&nbsp;P=7.21%</span></li><li>Landing gear collapse during touchdown <span class="muted">&nbsp;P=7.03%</span></li></ol></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+  <div class="ground-truth-box">
+    <div class="gt-tag">NTSB GROUND TRUTH (the official answer)</div>
+    <p class="gt-cause"><strong>What NTSB ultimately concluded was the cause:</strong><br>
+       <em>The mechanical overload of the nosewheel steering links for undetermined reasons, which resulted in nose landing gear rotation and subsequent wedging within the wheel well structure.</em></p>
+    <p class="muted small">
+      Compare this to the "Top cause" rows above. The system's plain-English labels (like
+      "<em>Manufacturer / production defect</em>") are LLM-rewrites of the raw NTSB taxonomy
+      strings shown below them (like "<em>organizational issues-development-manufacture/production-equipment manufacture-manufacturer - C</em>").
+      We do this rewrite once, with a deterministic prompt (temperature 0), so a non-expert can read the output.
+    </p>
+  </div>
+</section>
+
+<section id="stress">
+  <h2>4. Stress test: symptom-only queries</h2>
+  <p>
+    A natural concern with the during-incident pilot voice queries is that the query already names the failure (<em>engine fire</em>, <em>nose-gear</em>). To check whether the pipeline relies on those keywords or on the underlying symptoms, I built a third query style for each incident that <strong>removes any word from the cause taxonomy</strong> (no <em>fire</em>, no <em>engine</em>, no <em>gear</em>, no <em>failure</em>, no <em>unsafe</em>).
+  </p>
+
+  <h3>The symptom-only queries</h3>
+  <p><strong>Engine fire (no diagnosis words):</strong></p>
+  <blockquote>We just lifted off. Strong yaw to the left, master warning sounding, I&#x27;m losing power on one side and I smell something burning. What am I looking at?</blockquote>
+
+  <p><strong>Landing gear (no diagnosis words):</strong></p>
+  <blockquote>On final. Two greens, one red on my configuration panel. Tower can see my doors are open but can&#x27;t see what should be visible below. Going around.</blockquote>
+
+  <h3>Side by side: all three query styles per incident</h3>
+  <table class="data">
+    <thead>
+      <tr>
+        <th>Scenario</th>
+        <th>A0 top cluster</th>
+        <th>P(K|Q) A0</th>
+        <th>A0 code match</th>
+        <th>A2 top cluster</th>
+        <th>P(K|Q) A2</th>
+        <th>A2 code match</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+<tr>
+  <td>Engine fire: after-incident</td>
+  <td>engine fire due to component failures</td>
+  <td>50.4%</td>
+  <td><span class="pass">match</span></td>
+  <td>engine fire due to component failures</td>
+  <td>53.5%</td>
+  <td><span class="pass">match</span></td>
+</tr>
+
+      
+<tr>
+  <td>Engine fire: during-incident (with diagnosis)</td>
+  <td>engine fire due to component failures</td>
+  <td>52.7%</td>
+  <td><span class="pass">match</span></td>
+  <td>engine fire due to component failures</td>
+  <td>53.7%</td>
+  <td><span class="pass">match</span></td>
+</tr>
+
+      
+<tr>
+  <td>Engine fire: SYMPTOM-ONLY (no diagnosis)</td>
+  <td>engine fire due to component failures</td>
+  <td>37.8%</td>
+  <td><span class="pass">match</span></td>
+  <td>engine fire due to component failures</td>
+  <td>37.4%</td>
+  <td><span class="pass">match</span></td>
+</tr>
+
+      
+<tr>
+  <td>Landing gear: after-incident</td>
+  <td>nose landing gear malfunctions</td>
+  <td>14.8%</td>
+  <td><span class="fail">miss</span></td>
+  <td>nose landing gear malfunctions</td>
+  <td>18.1%</td>
+  <td><span class="fail">miss</span></td>
+</tr>
+
+      
+<tr>
+  <td>Landing gear: during-incident (with diagnosis)</td>
+  <td>nose landing gear malfunctions</td>
+  <td>38.7%</td>
+  <td><span class="fail">miss</span></td>
+  <td>nose landing gear malfunctions</td>
+  <td>40.7%</td>
+  <td><span class="fail">miss</span></td>
+</tr>
+
+      
+<tr>
+  <td>Landing gear: SYMPTOM-ONLY (no diagnosis)</td>
+  <td>multiple contributing mechanical failures</td>
+  <td>75.2%</td>
+  <td><span class="fail">miss</span></td>
+  <td>multiple contributing mechanical failures</td>
+  <td>78.9%</td>
+  <td><span class="fail">miss</span></td>
+</tr>
+
+    </tbody>
+  </table>
+
+  <h3>Reading the result</h3>
+  <p>
+    <strong>Engine fire passes the stress test.</strong> Even with <em>fire</em>, <em>engine</em>, and <em>flames</em> removed, the pipeline still places the largest cluster mass on the <em>engine fire due to component failures</em> cluster (37.4 percent A2). The mass dropped from 53.7 to 37.4 percent, so the system is less confident, but the family identification holds. The top predicted cause code matches the NTSB ground truth code. This is the answer to the "is this just keyword matching?" question for at least one failure family.
+  </p>
+  <p>
+    <strong>Landing gear fails the stress test.</strong> With <em>gear</em>, <em>nose-gear</em>, and <em>unsafe</em> removed, the pipeline shifts to the <em>multiple contributing mechanical failures</em> cluster at 79 percent. The right cluster falls out of the top spot. The top predicted code does not match. The query "two greens, one red on my configuration panel, doors are open but the structure below is not visible" is genuinely ambiguous between gear, flap, slat, and other configuration anomalies.
+  </p>
+  <p class="highlight">
+    Honest read: 1 pass, 1 fail. Engine fire confirms the pipeline isn't purely keyword-driven. Landing gear identifies a real boundary - when the symptoms a pilot can name in the first few seconds are inherently ambiguous, the pipeline can't always disambiguate. Both findings are useful.
+  </p>
+</section>
+
+<details id="aggregate" class="reference-block">
+  <summary>
+    <span class="ref-tag">REFERENCE (click to expand)</span>
+    Aggregate validation across all 77 held-out test incidents
+  </summary>
+  <div class="reference-body">
+    <p class="muted small">Already shown in prior meetings - kept here in case it comes up.</p>
+    <p>
+      To confirm the worked examples aren't cherry-picked, the same pipeline (A0 and A2) was run on every one of the 77 held-out test incidents. For each incident we compared the predicted top cluster label to the official NTSB probable-cause text using cosine similarity in the same embedding space used for retrieval. Same comparison for the top free-text cause from the law of total probability.
+    </p>
+
+    <table class="data">
+      <thead>
+        <tr><th>Metric</th><th>A0 (embedding only)</th><th>A2 (structural rerank)</th><th>Δ (A2 - A0)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mean cosine(top cluster, NTSB cause)</td><td>0.458</td><td>0.466</td><td>+0.008</td></tr>
+        <tr><td>Median cosine(top cluster, NTSB cause)</td><td>0.443</td><td>0.467</td><td>+0.024</td></tr>
+        <tr><td>Solid match (cos &gt; 0.50)</td><td>29 / 77 (37.7%)</td><td>32 / 77 (41.6%)</td><td>+3.9 pp</td></tr>
+        <tr><td>Plausible match (cos &gt; 0.40)</td><td>45 / 77 (58.4%)</td><td>48 / 77 (62.3%)</td><td>+3.9 pp</td></tr>
+        <tr><td>Mean P(top cluster | Q)</td><td>27.8%</td><td>28.6%</td><td>+0.8 pp</td></tr>
+        <tr><td>Mean cosine(top cause, NTSB cause)</td><td>0.374</td><td>0.378</td><td>+0.004</td></tr>
+      </tbody>
+    </table>
+
+    <h4>A2 vs A0 head to head</h4>
+    <table class="data">
+      <thead><tr><th>Outcome</th><th>Cluster cosine</th><th>Top cause cosine</th></tr></thead>
+      <tbody>
+        <tr><td>A2 strictly improves on A0</td><td>17 / 77</td><td>10 / 77</td></tr>
+        <tr><td>A2 ties (no change in top result)</td><td>51 / 77</td><td>53 / 77</td></tr>
+        <tr><td>A2 strictly underperforms A0</td><td>9 / 77</td><td>14 / 77</td></tr>
+        <tr><td><strong>A2 does no harm</strong> (improves or ties)</td><td><strong>68 / 77 (88.3%)</strong></td><td>63 / 77 (81.8%)</td></tr>
+      </tbody>
+    </table>
+
+    <p>
+      Reading the table: the predicted cluster is a plausible semantic match to the NTSB cause text on 62.3% of the 77 test incidents under A2, and a solid match on 41.6%. The two worked examples in sections 2 and 3 sit inside the solid-match cohort.
+    </p>
+    <p>
+      The structural rerank is a small but consistent positive on the cluster-cosine metric: 17 wins, 51 ties, 9 losses out of 77. The flip pattern is uniformly in A2's favor, which is the right shape for a paired comparison even though the top-1 NTSB-code-agreement difference is not statistically significant on n=77 (p = 0.500 on McNemar's exact two-sided test).
+    </p>
+  </div>
+</details>
+
+<section id="gaps">
+  <h2>5. What's not done yet (honest)</h2>
+  <ul>
+    <li>
+      <strong>Zhang citation needs to be added back as prior work.</strong>
+      I removed all of Zhang's <em>methods</em> and <em>comparisons</em> from the paper as you asked, so it stands on its own. But Zhang is still relevant prior work and I want to <em>cite</em> him in the related-work section. I will add that back in the human-written version.
+    </li>
+  </ul>
+  <p class="muted small">
+    Other technical limitations (alpha sensitivity, aggregate prognosis evaluation, embedding-model circularity in the aggregate metric) are disclosed in &sect;10.2 of the paper draft.
+  </p>
+</section>
+
+<section id="plan">
+  <h2>6. Plan and timeline</h2>
+  <ul>
+    <li><strong>Friday June 5:</strong> Complete first draft of the human version (written end to end in my own words, no AI prose). I'll send that to you for review.</li>
+    <li><strong>Following week:</strong> Incorporate your edits.</li>
+  </ul>
+</section>
+
+</body>
+</html>

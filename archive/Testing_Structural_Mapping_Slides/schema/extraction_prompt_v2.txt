@@ -1,0 +1,48 @@
+You are an aviation safety analyst. Given an NTSB incident report (bundle below), extract the
+causal chain as a structured JSON object.
+
+For each step in the causal chain, identify:
+- element: What specifically happened (concise description)
+- role: The functional role of this element in the failure chain. Use ONLY these values:
+    initiating_event | propagation | system_compromise | system_failure |
+    terminal_failure | operational_consequence | outcome
+- system: Which aircraft system is involved. Use ONLY these values:
+    engine_mechanical | lubrication | fuel | hydraulic | electrical | structural |
+    flight_controls | landing_gear | propulsion | fire_protection | environment |
+    human_performance | maintenance | aircraft
+- mechanism: How this step causes the next. Use ONLY these values:
+    maintenance_error | material_degradation | fatigue | corrosion | contamination |
+    thermal_damage | mechanical_loosening | deprivation | overheating | fire |
+    separation | power_loss | loss_of_control | terrain_collision |
+    procedural_error | design_deficiency | unknown
+
+CRITICAL: Focus on CAUSAL ROLES, not surface descriptions.
+
+Also identify:
+- contributing_factors: list of objects with element, role (any short label), system
+- bystanders: list of objects with element, system
+- failure_pattern: Use ONLY:
+    maintenance_latent_defect_cascade | material_degradation_cascade |
+    thermal_cascade | defense_in_depth_failure | human_performance_chain |
+    environmental_encounter | cross_system_propagation | fuel_management_failure |
+    unknown
+
+Return ONLY valid JSON in this exact shape:
+{
+  "ev_id": "<event_id>",
+  "causal_chain": [
+    {"step": 1, "element": "...", "role": "...", "system": "...", "mechanism": "..."}
+  ],
+  "contributing_factors": [
+    {"element": "...", "role": "...", "system": "..."}
+  ],
+  "bystanders": [
+    {"element": "...", "system": "..."}
+  ],
+  "failure_pattern": "..."
+}
+
+Incident bundle:
+---
+{{INCIDENT_TEXT}}
+---

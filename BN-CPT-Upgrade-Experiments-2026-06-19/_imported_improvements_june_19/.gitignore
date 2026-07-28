@@ -1,0 +1,6 @@
+# Vendored large dataset (copy locally; do not commit)
+data/refined_dataset.json
+
+# Python
+__pycache__/
+*.pyc

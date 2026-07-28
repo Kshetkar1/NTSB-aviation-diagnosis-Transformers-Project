@@ -1,0 +1,5 @@
+electrical_wiring,fuel_system,count_ratio,n,denom,our_raw_count,our_beta_cdf,our_095_cap,zhang_table4_illustrative,zhang_estimator_recreated
+Yes,Yes,1/1,1,1,1.0000,1.0000,0.9500,0.99,0.3929
+Yes,No,10/21,10,21,0.4762,0.7169,0.4762,0.93,0.3929
+No,Yes,23/45,23,45,0.5111,0.7534,0.5111,0.95,0.3529
+No,No,68/1675,68,1675,0.0406,0.0710,0.0406,≈0,0.0000

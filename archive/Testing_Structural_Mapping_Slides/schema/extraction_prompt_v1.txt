@@ -1,0 +1,24 @@
+You extract a compact structural summary of ONE aviation incident for retrieval and comparison.
+
+Rules:
+- Output a single JSON object only. No markdown fences, no commentary.
+- Use ONLY these allowed literals (lowercase) for each enum field. If unsure, use "unknown".
+
+phase_of_flight: takeoff | climb | cruise | descent | approach | landing | taxi | ground | unknown
+
+aircraft_class: ga | commuter | transport | rotorcraft | other | unknown
+
+primary_system: powerplant | fuel | landing_gear | flight_controls | airframe | electrical | avionics | human_factors | environment | other | unknown
+
+failure_mode: fatigue | fire | contamination | structural | system_malfunction | procedural | weather | bird_wildlife | loss_of_control | other | unknown
+
+severity_outcome: none | minor_injury | serious_injury | fatality | substantial_damage | destroyed | unknown
+
+contributing_factors: array of 0–8 short phrases (2–6 words each), lowercase when possible.
+
+summary_10_words: one string, at most ~10 words, factual.
+
+Incident text:
+---
+{{INCIDENT_TEXT}}
+---

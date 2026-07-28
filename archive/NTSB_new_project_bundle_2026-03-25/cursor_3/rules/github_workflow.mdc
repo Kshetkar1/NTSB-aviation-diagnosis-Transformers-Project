@@ -1,0 +1,142 @@
+---
+description: >
+  GitHub workflow verification and PR management rules for rl_sc_cluster repository.
+  Defines the standard process for pushing branches, creating PRs, and verifying CI/CD setup.
+alwaysApply: true
+---
+
+# 🔄 GitHub Workflow Verification Protocol
+
+> Apply this workflow when the user asks to "push", "create PR", "verify GitHub", or similar GitHub operations.
+
+## Workflow Overview
+
+When the user requests GitHub operations (push, PR creation, verification), follow this standardized process:
+
+### 1) Pre-Push Checklist
+
+Before committing and pushing, verify:
+- [ ] All tests pass locally (`make test` or `pytest`)
+- [ ] Code is formatted (`make format`)
+- [ ] Linting passes (`make lint`)
+- [ ] Pre-commit hooks are installed and working (`pre-commit run --all-files`)
+- [ ] Documentation builds successfully (`make docs`)
+- [ ] All relevant files are staged (`git status`)
+
+### 2) Commit and Push Process
+
+When user asks to push:
+1. **Check current branch**: Confirm which branch we're on (`git branch --show-current`)
+2. **Stage changes**: Add all relevant files (`git add .` or specific files)
+3. **Create commit**: Use descriptive commit messages that can auto-close issues:
+   - Use keywords: `fixes #X`, `closes #Y`, `resolves #Z` to auto-close issues
+   - Format: `feat: description` or `fix: description` or `docs: description`
+4. **Push to remote**: `git push origin <branch-name>`
+5. **Confirm push success**: Verify with `git status` or `git log`
+
+### 3) Pull Request Creation
+
+When user asks to create a PR:
+1. **Verify branch is pushed**: Ensure all commits are on remote
+2. **Check base branch**: Typically `main` or `feature/rl_environment` for stage branches
+3. **Create PR using GitHub CLI**:
+   ```bash
+   gh pr create --title "Descriptive Title" --body "PR description" --base <base-branch>
+   ```
+4. **Include in PR body**:
+   - Summary of changes
+   - Related issue numbers (e.g., "Closes #X")
+   - Testing notes
+   - Any breaking changes
+
+### 4) Post-Push Verification
+
+After pushing or creating PR, verify the following using GitHub CLI/API:
+
+#### A) GitHub Actions CI Status
+- **Check workflow runs**: `gh run list --branch <branch-name>`
+- **Verify test job**: Confirm `test` job passes
+- **Verify docs job**: Confirm `docs` job passes
+- **Check for failures**: `gh run view <run-id>` for details
+
+#### B) Issue Auto-Closing
+- **Note**: Issues are closed when PRs are merged, not on push
+- **After PR merge**: Check commit messages in the merged PR for `fixes #X`, `closes #Y`, etc.
+- **Verify issue status**: `gh issue view <issue-number>` to confirm it's closed after merge
+- **Check workflow**: Confirm `.github/workflows/close-issues.yml` ran successfully on PR merge
+
+#### C) Pre-commit Hooks (if applicable)
+- **Check commit status**: Verify hooks ran successfully
+- **Review any auto-fixes**: Check if pre-commit made formatting changes
+
+### 5) Verification Commands
+
+Use these commands to verify everything works:
+
+```bash
+# Check GitHub Actions status
+gh run list --branch <branch-name> --limit 5
+
+# View specific workflow run
+gh run view <run-id> --log
+
+# Check if issues were closed
+gh issue list --state closed --limit 10
+
+# View PR status
+gh pr view <pr-number>
+
+# Check PR checks
+gh pr checks <pr-number>
+```
+
+### 6) Branch Naming Conventions
+
+Follow these conventions for feature branches:
+- **Stage branches**: `feature/rl_environment-stage<N>` (e.g., `feature/rl_environment-stage1`)
+- **Feature branches**: `feature/rl_environment/<feature-name>`
+- **Base branch**: `feature/rl_environment` (for all RL environment work)
+
+### 7) Commit Message Best Practices
+
+- **Use conventional commits**: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`
+- **Reference issues**: Include `fixes #X` or `closes #Y` when applicable
+- **Be descriptive**: Explain what and why, not just what
+- **Keep focused**: One logical change per commit
+
+### 8) Expected GitHub Actions Behavior
+
+When pushing to `feature/rl_environment*` branches or creating PRs to `feature/rl_environment`:
+- **CI workflow** (`.github/workflows/ci.yml`) should:
+  - Run `make test` on Python 3.12
+  - Run `make docs` to build documentation
+  - Both jobs should pass
+  
+- **Issue closing workflow** (`.github/workflows/close-issues.yml`) should:
+  - Parse commit messages for keywords (`fixes #X`, `closes #Y`, etc.)
+  - Automatically close referenced issues **when PRs are merged** (not on push)
+  - Only process PRs merged to `feature/rl_environment` or `main`
+  - Run on `pull_request` events with `type: closed` and `merged: true`
+
+### 9) Troubleshooting
+
+If verification fails:
+1. **Check GitHub Actions logs**: `gh run view <run-id> --log`
+2. **Verify workflow files**: Ensure `.github/workflows/*.yml` are correct
+3. **Check branch protection**: Verify branch allows pushes
+4. **Review commit messages**: Ensure they match expected format
+5. **Check permissions**: Verify GitHub token has necessary permissions
+
+### 10) Summary Report
+
+After completing push/PR/verification, provide a summary:
+- ✅ Branch pushed successfully
+- ✅ PR created (if applicable)
+- ✅ GitHub Actions: test job status
+- ✅ GitHub Actions: docs job status
+- ✅ Issues closed (if any)
+- ⚠️ Any warnings or failures
+
+---
+
+> **Note**: This workflow ensures consistency and reliability when working with GitHub operations. Always verify CI/CD status after pushing to catch issues early.

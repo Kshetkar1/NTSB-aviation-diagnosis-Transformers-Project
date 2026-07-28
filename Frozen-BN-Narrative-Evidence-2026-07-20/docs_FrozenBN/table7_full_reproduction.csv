@@ -1,0 +1,86 @@
+cause,zhang_prob,zhang_n_implied,our_prob,our_n,diff,match
+"Fuel system, nozzle",0.01960,2,0.01961,2,+0.00001,YES
+"Exhaust system, stack",0.00980,1,0.00980,1,+0.00000,YES
+"Fuel system, drain",0.01960,2,0.01961,2,+0.00001,YES
+"Fuel system, fuel control",0.01960,2,0.01961,2,+0.00001,YES
+"Maintenance, service of aircraft/equipment",0.01960,2,0.01961,2,+0.00001,YES
+"Miscellaneous, bolt/nut/fastener/clamp/spring",0.00980,1,0.00980,1,+0.00000,YES
+"Electrical system, fuse",0.00980,1,0.00980,1,+0.00000,YES
+Evacuation,0.00980,1,0.00980,1,+0.00000,YES
+"Ignition system, exciter",0.00980,1,0.00980,1,+0.00000,YES
+"Aircraft/equipment, inadequate design",0.00980,1,0.00980,1,+0.00000,YES
+"Electrical system, circuit breaker",0.01960,2,0.01961,2,+0.00001,YES
+"Maintenance, service bulletin/letter",0.02941,3,0.02941,3,+0.00000,YES
+"Aircraft/equipment inadequate, aircraft component",0.00980,1,0.00980,1,+0.00000,YES
+"Engine accessories, engine starter",0.01960,2,0.01961,2,+0.00001,YES
+Condition(s)/step(s) insufficiently defined,0.00980,1,0.00980,1,+0.00000,YES
+Panic,0.00980,1,0.00980,1,+0.00000,YES
+Unknown quantity,0.01960,2,0.01961,2,+0.00001,YES
+Engine compartment,0.02941,3,0.02941,3,+0.00000,YES
+Passenger compartment light(s),0.00980,1,0.00980,1,+0.00000,YES
+"Aircraft/equipment, inadequate standard/requirement",0.00980,1,0.00980,1,+0.00000,YES
+"Fluid, hydraulic",0.00980,1,0.00980,1,+0.00000,YES
+Overrun,0.00980,1,0.00980,1,+0.00000,YES
+"Anti-ice/deice system, windshield",0.00980,1,0.00980,1,+0.00000,YES
+"Inadequate substantiation process, Insufficient review",0.00980,1,0.00980,1,+0.00000,YES
+Loss of engine power (total) - mechanical failure/malfunction,0.08823,9,0.08824,9,+0.00001,YES
+Landing gear,0.00980,1,0.00980,1,+0.00000,YES
+Portable electrical equipment,0.00980,1,0.00980,1,+0.00000,YES
+Hazardous material (HAZMAT),0.00980,1,0.00980,1,+0.00000,YES
+Miscellaneous/other,0.01960,2,0.01961,2,+0.00001,YES
+"Engine assembly, other",0.00980,1,0.00980,1,+0.00000,YES
+Smoke detector(s),0.00980,1,0.00980,1,+0.00000,YES
+"Fire extinguisher, portable",0.00980,1,0.00980,1,+0.00000,YES
+"Ignition system, ignition harness",0.01960,2,0.01961,2,+0.00001,YES
+"Maintenance, installation",0.03921,4,0.03922,4,+0.00001,YES
+Emergency procedure,0.00980,1,0.00980,1,+0.00000,YES
+Airframe/component/system failure/malfunction,0.31372,32,0.31373,32,+0.00001,YES
+"Fire warning system, lavatory",0.00980,1,0.00980,1,+0.00000,YES
+"Electrical system, generator",0.00980,1,0.00980,1,+0.00000,YES
+"Fluid, fuel",0.05882,6,0.05882,6,+0.00000,YES
+Engine assembly,0.00980,1,0.00980,1,+0.00000,YES
+Auxiliary power unit (APU),0.04901,5,0.04902,5,+0.00001,YES
+"Landing gear, tire",0.01960,2,0.01961,2,+0.00001,YES
+"Fire extinguisher, powerplant",0.01960,2,0.01961,2,+0.00001,YES
+Starting procedure,0.00980,1,0.00980,1,+0.00000,YES
+Electrical system,0.00980,1,0.00980,1,+0.00000,YES
+"Compressor assembly, blade",0.00980,1,0.00980,1,+0.00000,YES
+"Fuselage, cabin",0.00980,1,0.00980,1,+0.00000,YES
+Overheat warning system,0.00980,1,0.00980,1,+0.00000,YES
+Procedure inadequate,0.03921,4,0.03922,4,+0.00001,YES
+"Fire extinguisher, cargo",0.01960,2,0.01961,2,+0.00001,YES
+"Miscellaneous equipment/furnishings, lavatories",0.00980,1,0.00980,1,+0.00000,YES
+"Ignition system, igniter plug",0.00980,1,0.00980,1,+0.00000,YES
+Maintenance,0.02941,3,0.02941,3,+0.00000,YES
+"Maintenance, overhaul",0.00980,1,0.00980,1,+0.00000,YES
+"Insufficient standards/requirements, Aircraft",0.00980,1,0.00980,1,+0.00000,YES
+"Combustion assembly, combustion liner",0.00980,1,0.00980,1,+0.00000,YES
+Fire/explosion,0.00980,1,0.00980,1,+0.00000,YES
+"Fuel system, line fitting",0.01960,2,0.01961,2,+0.00001,YES
+Powerplant,0.00980,1,0.00980,1,+0.00000,YES
+Insufficient standards/requirements,0.00980,1,0.00980,1,+0.00000,YES
+Loss of engine power (partial) - mechanical failure/malfunction,0.03921,4,0.03922,4,+0.00001,YES
+"Window, flight compartment window/windshield",0.00980,1,0.00980,1,+0.00000,YES
+"Hydraulic system, line",0.00980,1,0.00980,1,+0.00000,YES
+Hazardous materials leak/spill,0.01960,2,0.01961,2,+0.00001,YES
+Brakes (normal),0.01960,2,0.01961,2,+0.00001,YES
+"Maintenance, approved airworthiness inspection program (AAIP)/progressive program",0.00980,1,0.00980,1,+0.00000,YES
+"Fuel system, tank",0.00980,1,0.00980,1,+0.00000,YES
+"Maintenance, alignment",0.00980,1,0.00980,1,+0.00000,YES
+Miscellaneous,0.00980,1,0.00980,1,+0.00000,YES
+Wing,0.00980,1,0.00980,1,+0.00000,YES
+Reason for occurrence undetermined,0.01960,2,0.01961,2,+0.00001,YES
+"Maintenance, compliance with airworthiness directive (AD)",0.00980,1,0.00980,1,+0.00000,YES
+On ground/water collision with object,0.00980,1,0.00980,1,+0.00000,YES
+"Maintenance, inspection",0.00980,1,0.00980,1,+0.00000,YES
+"Maintenance, modification",0.01960,2,0.01961,2,+0.00001,YES
+Cargo/baggage,0.02941,3,0.02941,3,+0.00000,YES
+"Electrical system, auxiliary power unit (APU)",0.00980,1,0.00980,1,+0.00000,YES
+"Electrical system, electric wiring",0.08823,9,0.08824,9,+0.00001,YES
+Loss of engine power,0.01960,2,0.01961,2,+0.00001,YES
+"Lubricating system, oil line",0.00980,1,0.00980,1,+0.00000,YES
+"Fuel system, fuel flow divider/distributor",0.00980,1,0.00980,1,+0.00000,YES
+Procedures/directives,0.01960,2,0.01961,2,+0.00001,YES
+Loss of engine power (total) - nonmechanical,0.00980,1,0.00980,1,+0.00000,YES
+"Fuel system, primer system",0.00980,1,0.00980,1,+0.00000,YES
+Weather condition,0.00980,1,0.00980,1,+0.00000,YES

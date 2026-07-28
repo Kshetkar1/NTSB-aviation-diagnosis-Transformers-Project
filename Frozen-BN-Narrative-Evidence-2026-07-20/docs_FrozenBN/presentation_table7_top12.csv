@@ -1,0 +1,13 @@
+cause,count_fmt,zhang_prob_fmt,our_prob_fmt,diff_fmt,match
+Airframe/component/system failure/malfunction,32/102,0.31372,0.31373,+0.00001,YES
+Loss of engine power (total) - mechanical failure/malfunction,9/102,0.08823,0.08824,+0.00001,YES
+"Electrical system, electric wiring",9/102,0.08823,0.08824,+0.00001,YES
+"Fluid, fuel",6/102,0.05882,0.05882,+0.00000,YES
+Auxiliary power unit (APU),5/102,0.04901,0.04902,+0.00001,YES
+"Maintenance, installation",4/102,0.03921,0.03922,+0.00001,YES
+Procedure inadequate,4/102,0.03921,0.03922,+0.00001,YES
+Loss of engine power (partial) - mechanical failure/malfunction,4/102,0.03921,0.03922,+0.00001,YES
+"Maintenance, service bulletin/letter",3/102,0.02941,0.02941,+0.00000,YES
+Engine compartment,3/102,0.02941,0.02941,+0.00000,YES
+Maintenance,3/102,0.02941,0.02941,+0.00000,YES
+Cargo/baggage,3/102,0.02941,0.02941,+0.00000,YES
