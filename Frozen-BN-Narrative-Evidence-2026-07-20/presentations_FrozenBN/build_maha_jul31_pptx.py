@@ -199,11 +199,11 @@ add_table(s, [
     ["Method", "Top-1", "Rank quality (MRR)"],
     ["Always guess the most common category", "45.8%", "0.685"],
     ["Facts parsed from the text \u2192 network", "57.7%", "0.759"],
-    ["Similar-accidents vote (OURS)", "83.8%", "0.912"],
+    ["Similar-accidents vote (OURS)", "84.2%", "0.915"],
     ["Trained model on the same text (comparison)", "88.1%", "0.936"],
 ], 0.9, 2.15, 11.4, 2.6, col_widths=[7.0, 1.8, 2.6], font_size=14, bold_row=3)
 add_takeaway(s, "Balanced across Personnel/Aircraft/Environment (68/62/72% recall). Disclosed: "
-                "trained model +4 pts (p=0.03); nobody catches the rare Organizational class.",
+                "trained model +4 pts (p=0.04); nobody catches the rare Organizational class.",
              top=5.15, size=14)
 add_footer(s, "outputs/diagnosis_heldout_eval.md  -  outputs/diagnosis_emb_lr.md")
 

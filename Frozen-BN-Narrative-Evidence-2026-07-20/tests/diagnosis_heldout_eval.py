@@ -139,6 +139,19 @@ def categorize_legacy(subject: str, person: str = "") -> str | None:
     s = str(subject or "").lower().strip()
     if not s:
         return None
+    # First-author adjudication of the 75-row mapping audit (2026-07-29),
+    # recorded in outputs/mapping_audit_sample.csv:
+    #  - "reason for occurrence undetermined" is not a cause; excluded
+    #    (previously fell through to the PERSONNEL person-fallback).
+    #  - "maintenance, service bulletin/letter" attributed to an
+    #    organizational actor is ORGANIZATIONAL, consistent with the
+    #    "procedure inadequate" + management row (previously PERSONNEL via
+    #    the "maintenance" keyword).
+    if "reason for occurrence undetermined" in s:
+        return None
+    if ("service bulletin" in s and
+            any(k in str(person or "").lower() for k in _ORG_PERSONS)):
+        return "ORGANIZATIONAL"
     for k in _ORG_KEYS:
         if k in s:
             return "ORGANIZATIONAL"

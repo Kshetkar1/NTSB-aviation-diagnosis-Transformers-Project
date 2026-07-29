@@ -1,4 +1,4 @@
-# Diagnosis mapping audit — verdict summary
+# Diagnosis mapping audit — verdict summary (adjudicated)
 
 Second-coder review of the 75-row stratified sample in
 `mapping_audit_sample.csv` (50 legacy 1982-2006 subject+person rows weighted
@@ -8,53 +8,64 @@ sample as the anchor (their prefix IS the category, so they define how the
 taxonomy treats each situation type).
 
 Coding was performed by an AI assistant acting as an independent second
-coder; the verdicts and notes are in the CSV for the first author to confirm
-or dispute. Any row the first author overturns should be re-tallied here.
+coder. **The first author adjudicated all 75 verdicts on 2026-07-29**; the
+final verdicts and per-row adjudication notes are in the CSV. Two rows were
+overturned and the mapping rules were corrected; the evaluation was rerun.
 
-## Tally
+## Tally (first-author adjudicated)
 
 | Verdict | Legacy rows | CICTT rows | Total | Affected window findings |
 |---|---|---|---|---|
 | ok | 43 | 25 | 68 (90.7%) | -- |
-| wrong | 2 | 0 | 2 (2.7%) | 60 (1.2% of 5,062) |
-| unsure | 5 | 0 | 5 (6.7%) | 256 (5.1% of 5,062) |
+| wrong -> corrected | 2 | 0 | 2 (2.7%) | 60 (1.2% of 5,062) |
+| unsure -> confirmed as mapped | 5 | 0 | 5 (6.7%) | 256 (5.1% of 5,062) |
 
-## The two "wrong" rows
+## The two "wrong" rows — overturned and fixed
 
-1. **`maintenance, service bulletin/letter` + Company/operator management ->
-   PERSONNEL** (22 findings). The attached person is *management*; the
-   sample's own `procedure inadequate` + management row maps to
-   ORGANIZATIONAL. The two rows are inconsistent; this one should be
-   ORGANIZATIONAL.
-2. **`reason for occurrence undetermined` + (unspecified person) ->
-   PERSONNEL** (38 findings). "Undetermined" is not a personnel cause; the
-   finding should be excluded from truth sets, not defaulted.
+1. **`maintenance, service bulletin/letter` + Company/operator management**
+   (22 findings). Was PERSONNEL via the "maintenance" keyword; the attached
+   person is *management*, and the sample's own `procedure inadequate` +
+   management row maps to ORGANIZATIONAL. **Adjudication: ORGANIZATIONAL.**
+2. **`reason for occurrence undetermined` + (unspecified person)**
+   (38 findings). Was PERSONNEL via the person-attribution fallback;
+   "undetermined" is not a personnel cause. **Adjudication: excluded from
+   cause mapping.**
 
-## The five "unsure" rows
+Both corrections are implemented at the top of `categorize_legacy` in
+`tests/diagnosis_heldout_eval.py` (commented with this audit's date).
 
-`flight into known adverse weather` (15), `ifr separation standards` (32),
-`inadequate training` (12), `miscellaneous`+Unknown (29), and
-`procedures/directives`+(unspecified person) (168). Each sits on a genuine
-CICTT boundary (Personnel decision vs Environmental encounter; person
-non-compliance vs Organizational procedure deficiency). The mapping's choice
-is defensible in every case, but the 168-count `procedures/directives` row
-carries the most mass and deserves a first-author decision.
+## The five "unsure" rows — confirmed as mapped
 
-## Impact bound on the evaluation
+`flight into known adverse weather` -> ENVIRONMENT (15; CICTT
+condition-response convention), `ifr separation standards` -> PERSONNEL (32),
+`inadequate training` -> PERSONNEL (12), `miscellaneous`+Unknown -> PERSONNEL
+(29), and `procedures/directives`+(unspecified person) -> PERSONNEL (168).
+Each sits on a genuine CICTT boundary; the first author reviewed each and
+confirmed the mapping's choice.
 
-The two wrong rows plus all five unsure rows together touch at most
-316 / 5,062 window C/F findings (6.2%). Because an accident's truth is the
-SET of categories over all its findings, a mis-mapped finding changes an
-accident's truth set only when it is the sole finding in that category, so
-the effect on top-1 accuracy is strictly smaller than 6.2 percentage points
-and in the same direction for every predictor (truth sets shrink or shift
-identically for freq, retrieval, and BN arms). The headline ordering
-(retrieval >> bn-post > bn-lift ~ freq) is insensitive to these rows; the
-absolute accuracies carry a <=2-3 pp mapping uncertainty, which should be
-stated in the paper.
+## Measured impact of the corrections (rerun 2026-07-29)
+
+| Quantity | Before | After |
+|---|---|---|
+| Window mapping coverage | 4977/5062 (98.3%) | 4939/5062 (97.6%) |
+| retrieval top-1 | 83.8% | 84.2% (MRR 0.915) |
+| bn-post top-1 | 57.7% | 57.7% |
+| bn-lift top-1 | 50.2% | 50.2% |
+| freq top-1 | 45.8% | 45.8% |
+| emb-lr top-1 | 88.1% | 88.1% |
+| emb-lr vs retrieval (exploratory) | +4.3 pp, p = 0.027 | +3.9 pp, p = 0.041 |
+
+The corrections moved retrieval by +0.4 pp and nothing else — consistent with
+the pre-adjudication impact bound (all seven contested rows together touch
+316/5,062 window C/F findings, 6.2%, worst case <= 2-3 pp, same direction for
+every predictor). The headline ordering (retrieval >> bn-post > bn-lift ~
+freq) was insensitive to the audit, as predicted. The remaining "unsure" mass
+(256 findings, 5.1%) is confirmed-but-boundary; the paper states a residual
+mapping uncertainty of <= 2 pp on absolute accuracies.
 
 ## Provenance
 
 Sample generated by `tests/diagnosis_mapping_audit_sample.py`; mapping rules
 live in `tests/diagnosis_heldout_eval.py` (`categorize_legacy`,
-`categorize_cictt`).
+`categorize_cictt`); rerun artifacts: `diagnosis_heldout_eval.md/.json`,
+`diagnosis_emb_lr.md/.json`.

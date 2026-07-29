@@ -87,11 +87,11 @@ prediction is right if its top category is among the coded causes (n=253).
 |---|---|---|
 | Always guess the most common category | 45.8% | 0.685 |
 | Facts parsed from the text -> network | 57.7% | 0.759 |
-| Similar-accidents vote (OURS) | 83.8% | 0.912 |
+| Similar-accidents vote (OURS) | 84.2% | 0.915 |
 | Trained model on the same text (comparison) | 88.1% | 0.936 |
 
 - Balanced: 68/62/72% recall on Personnel/Aircraft/Environment.
-- Disclosed: trained model is 4 points better (p=0.03) - the price of
+- Disclosed: trained model is 4 points better (p=0.04) - the price of
   needing no labels; and no method catches the rare Organizational class.
 
 Footer: outputs/diagnosis_heldout_eval.md, outputs/diagnosis_emb_lr.md

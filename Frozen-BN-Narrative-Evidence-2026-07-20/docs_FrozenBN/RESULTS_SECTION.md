@@ -114,11 +114,13 @@ impossible by design. We therefore evaluate at the level CICTT itself
 defines: the four top-level cause categories (Personnel, Aircraft,
 Environment, Organizational). Held-out truth is the category set of an
 accident's coded cause findings; legacy-era findings are mapped by
-auditable keyword rules covering 98.3% of window cause findings. A
-dual-coded audit of a 75-row stratified mapping sample found 68 rows
-correct, 2 wrong, and 5 genuinely ambiguous, bounding the mapping
-uncertainty at 2-3 accuracy points without affecting any ordering
-(mapping_audit_summary.md). A prediction is correct if its top-ranked
+auditable keyword rules covering 97.6% of window cause findings. A
+dual-coded audit of a 75-row stratified mapping sample, adjudicated row by
+row by the first author, found 68 rows correct, 2 wrong (both corrected in
+the rules; the rerun moved retrieval by +0.4 points and no other predictor),
+and 5 genuinely ambiguous boundary rows confirmed as mapped, bounding the
+residual mapping uncertainty at roughly 2 accuracy points without affecting
+any ordering (mapping_audit_summary.md). A prediction is correct if its top-ranked
 category is in the truth set (n = 253); per-category recall, which is
 stricter (exact top-1 match per category), is reported separately.
 
@@ -126,15 +128,15 @@ stricter (exact top-1 match per category), is reported separately.
 |---|---|---|---|
 | Category frequency baseline | 45.8% | [39.5, 52.2] | 0.685 |
 | Frozen BN, event evidence | 57.7% | [51.4, 63.6] | 0.759 |
-| **Narrative retrieval (zero-parameter)** | **83.8%** | **[79.1, 88.1]** | **0.912** |
+| **Narrative retrieval (zero-parameter)** | **84.2%** | **[79.4, 88.5]** | **0.915** |
 | Supervised LR (embedding) | 88.1% | [84.2, 91.7] | 0.936 |
 
 Retrieval nearly doubles the frequency baseline (Holm-adjusted p < 1e-4;
 the three baseline comparisons are the designated primary family) and
 is balanced across the three common categories (68/62/72% recall); no
 predictor recovers the rare Organizational class (25 cases). The
-supervised embedding model is 4.3 points better than retrieval
-(p = 0.027, exploratory) -- the expected price of zero training -- while
+supervised embedding model is 3.9 points better than retrieval
+(p = 0.041, exploratory) -- the expected price of zero training -- while
 the BN event path alone reaches 57.7%, significantly above baseline
 (Holm p = 0.0007) but well below the narrative readouts. We also report a negative result:
 ranking categories by posterior lift instead of posterior probability

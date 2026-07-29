@@ -110,12 +110,14 @@ NTSB switched taxonomies in 2008 (legacy subject codes -> CICTT), so exact
 code matching across the split is impossible by design. We roll BOTH eras
 up to CICTT's four top-level cause categories (Personnel / Aircraft /
 Environment / Organizational); legacy subjects map by auditable keyword
-rules (98.3% coverage; audited sample with verdicts:
+rules (97.6% coverage; audited sample with adjudicated verdicts:
 `outputs/mapping_audit_sample.csv`, summary
-`outputs/mapping_audit_summary.md` -- 68/75 ok, worst-case impact 2-3 pp,
-ordering unaffected). A prediction is correct if its top category is among
-the accident's coded cause categories. Results (n=253): frequency baseline
-45.8%, retrieval 83.8%, supervised emb-LR 88.1%, BN event path 57.7%.
+`outputs/mapping_audit_summary.md` -- 68/75 ok, 2 wrong rows overturned by
+the first author and corrected in the rules, rerun moved retrieval +0.4 pp
+only, ordering unaffected). A prediction is correct if its top category is
+among the accident's coded cause categories. Results (n=253): frequency
+baseline 45.8%, retrieval 84.2%, supervised emb-LR 88.1%, BN event path
+57.7%.
 Baseline gaps significant by McNemar with Holm correction.
 
 ## "A linear model beats you -- why is your architecture justified?"
@@ -128,7 +130,7 @@ numerically best on injury, we are numerically best on damage); we're
 better on damage severe-recall (75.3% vs 67.9% emb / 58.0% tfidf
 sensitivity), and we significantly beat the parsed-feature LR
 (85.5%/60.1%; Holm p=0.006 / p<0.0001). Diagnosis: emb-LR 88.1% does beat
-retrieval 83.8% (p=0.027) -- we disclose it. The answer:
+retrieval 84.2% (p=0.041) -- we disclose it. The answer:
 the supervised model needs coded labels to train and outputs an opaque
 score; our chain needs zero training and every prediction decomposes into
 named evidence on a validated causal network. Close-to-parity with zero

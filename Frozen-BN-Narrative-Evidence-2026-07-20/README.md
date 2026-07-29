@@ -84,8 +84,9 @@ _llm` to refresh under the current protocol; requires `OPENAI_API_KEY`.)
 
 NTSB switched coding taxonomies in 2008, so exact-code matching across the
 split is impossible by design; both eras are rolled up to CICTT top-level
-cause categories (98.3% of window C/F findings mapped by auditable rules;
-dual-coded audit: 68/75 sample rows ok, worst-case impact 2-3 pp,
+cause categories (97.6% of window C/F findings mapped by auditable rules;
+dual-coded audit adjudicated by the first author 2026-07-29: 68/75 rows ok,
+2 overturned rows corrected in the rules, rerun moved retrieval +0.4 pp only,
 `outputs/mapping_audit_summary.md`). Truth = the category set of the
 accident's C/F findings; metric definitions (set-membership top-1 vs strict
 per-category recall) are spelled out in `outputs/diagnosis_heldout_eval.md`.
@@ -93,8 +94,8 @@ per-category recall) are spelled out in `outputs/diagnosis_heldout_eval.md`.
 | Predictor | Top-1 | MRR | Notes |
 |-----------|-------|-----|-------|
 | frequency baseline | 45.8% | 0.685 | always guesses Personnel |
-| **narrative retrieval (primary, zero-parameter)** | **83.8%** | **0.912** | vs freq: Holm p<0.0001 |
-| emb-LR (supervised, needs coded labels) | 88.1% | 0.936 | beats retrieval p=0.027 (exploratory) |
+| **narrative retrieval (primary, zero-parameter)** | **84.2%** | **0.915** | vs freq: Holm p<0.0001 |
+| emb-LR (supervised, needs coded labels) | 88.1% | 0.936 | beats retrieval p=0.041 (exploratory) |
 | BN event path (posterior) | 57.7% | 0.759 | beats freq (Holm p=0.0007) |
 | BN event path (lift) | 50.2% | 0.723 | negative result: max-lift is noisy |
 

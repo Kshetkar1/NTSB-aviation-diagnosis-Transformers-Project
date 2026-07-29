@@ -1,54 +1,10 @@
 {
  "n": 253,
- "summary": {
-  "freq": {
-   "top1": 0.45849802371541504,
-   "mrr": 0.6851119894598154,
-   "ci": [
-    0.3952569169960474,
-    0.5217391304347826
-   ]
-  },
-  "retrieval": {
-   "top1": 0.841897233201581,
-   "mrr": 0.9146903820816864,
-   "ci": [
-    0.7944664031620553,
-    0.8853754940711462
-   ]
-  },
-  "bn-post": {
-   "top1": 0.5770750988142292,
-   "mrr": 0.7585638998682478,
-   "ci": [
-    0.5138339920948617,
-    0.6363636363636364
-   ]
-  },
-  "bn-lift": {
-   "top1": 0.5019762845849802,
-   "mrr": 0.72266139657444,
-   "ci": [
-    0.43873517786561267,
-    0.5612648221343873
-   ]
-  }
- },
- "window_mapping": {
-  "total": 5062,
-  "unmapped": 123,
-  "counts": {
-   "AIRCRAFT": 1413,
-   "PERSONNEL": 2205,
-   "ORGANIZATIONAL": 335,
-   "ENVIRONMENT": 986
-  }
- },
- "freq_ranking": [
-  "PERSONNEL",
-  "AIRCRAFT",
-  "ENVIRONMENT",
-  "ORGANIZATIONAL"
+ "emb_lr_top1": 0.8814229249011858,
+ "emb_lr_mrr": 0.9361001317523057,
+ "ci": [
+  0.841897233201581,
+  0.9169960474308301
  ],
  "items": [
   {
@@ -87,6 +43,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT",
+    "AIRCRAFT"
    ]
   },
   {
@@ -125,6 +89,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -165,6 +137,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -203,6 +183,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -242,6 +230,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -280,6 +276,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -319,6 +323,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -358,6 +370,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -395,6 +415,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -435,6 +463,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -473,6 +509,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -512,6 +556,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -551,6 +603,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -589,6 +649,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -626,6 +694,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.3333333333333333,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -666,6 +742,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -705,6 +789,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -742,6 +834,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -781,6 +881,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -820,6 +928,14 @@
     "ENVIRONMENT",
     "ORGANIZATIONAL",
     "PERSONNEL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -858,6 +974,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -896,6 +1020,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -935,6 +1067,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -973,6 +1113,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1011,6 +1159,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -1052,6 +1208,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1091,6 +1255,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1129,6 +1301,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1170,6 +1350,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1210,6 +1398,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1248,6 +1444,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -1286,6 +1490,14 @@
     "ENVIRONMENT",
     "ORGANIZATIONAL",
     "PERSONNEL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1325,6 +1537,14 @@
     "AIRCRAFT",
     "ORGANIZATIONAL",
     "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1362,6 +1582,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.3333333333333333,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -1403,6 +1631,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1441,6 +1677,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -1479,6 +1723,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1518,6 +1770,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1556,6 +1816,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1592,6 +1860,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -1635,6 +1911,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1673,6 +1957,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
     "ORGANIZATIONAL"
    ]
   },
@@ -1713,6 +2005,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -1750,6 +2050,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -1789,6 +2097,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1827,6 +2143,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -1864,6 +2188,14 @@
    "bn-lift:rank": [
     "PERSONNEL",
     "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -1904,6 +2236,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -1941,6 +2281,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -1980,6 +2328,14 @@
     "ORGANIZATIONAL",
     "PERSONNEL",
     "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2017,6 +2373,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -2056,6 +2420,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2094,6 +2466,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2129,6 +2509,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -2171,6 +2559,14 @@
     "PERSONNEL",
     "ORGANIZATIONAL",
     "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2209,6 +2605,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2247,6 +2651,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2281,6 +2693,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -2323,6 +2743,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2360,6 +2788,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -2399,6 +2835,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2435,6 +2879,14 @@
    "bn-lift:rank": [
     "PERSONNEL",
     "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -2476,6 +2928,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2513,6 +2973,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
     "ORGANIZATIONAL"
    ]
   },
@@ -2552,6 +3020,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2589,6 +3065,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -2628,6 +3112,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2664,6 +3156,14 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
    ]
@@ -2705,6 +3205,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2743,6 +3251,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2783,6 +3299,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2820,6 +3344,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -2859,6 +3391,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -2896,6 +3436,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -2935,6 +3483,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -2970,6 +3526,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ENVIRONMENT",
@@ -3012,6 +3576,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -3046,6 +3618,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -3088,6 +3668,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3127,6 +3715,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -3165,6 +3761,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3199,6 +3803,14 @@
    "bn-lift:top1": 0.0,
    "bn-lift:mrr": 0.5,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -3241,6 +3853,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -3279,6 +3899,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -3313,6 +3941,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -3356,6 +3992,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -3394,6 +4038,14 @@
     "PERSONNEL",
     "ORGANIZATIONAL",
     "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.3333333333333333,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -3430,6 +4082,14 @@
    "bn-lift:rank": [
     "PERSONNEL",
     "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -3470,6 +4130,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3507,6 +4175,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -3546,6 +4222,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3584,6 +4268,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3618,6 +4310,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -3660,6 +4360,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3699,6 +4407,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3737,6 +4453,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -3776,6 +4500,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT",
+    "AIRCRAFT"
    ]
   },
   {
@@ -3812,6 +4544,14 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL"
    ]
@@ -3853,6 +4593,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT",
+    "AIRCRAFT"
    ]
   },
   {
@@ -3891,6 +4639,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -3925,6 +4681,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -3967,6 +4731,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -4005,6 +4777,14 @@
     "PERSONNEL",
     "ORGANIZATIONAL",
     "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -4043,6 +4823,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -4081,6 +4869,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -4121,6 +4917,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4159,6 +4963,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4195,6 +5007,14 @@
    "bn-lift:rank": [
     "PERSONNEL",
     "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -4235,6 +5055,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -4272,6 +5100,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -4312,6 +5148,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4349,6 +5193,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
     "ORGANIZATIONAL"
    ]
   },
@@ -4388,6 +5240,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -4422,6 +5282,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -4464,6 +5332,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -4503,6 +5379,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -4537,6 +5421,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -4579,6 +5471,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -4618,6 +5518,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -4656,6 +5564,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -4694,6 +5610,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4732,6 +5656,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -4772,6 +5704,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4808,6 +5748,14 @@
    "bn-lift:rank": [
     "PERSONNEL",
     "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -4848,6 +5796,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4882,6 +5838,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -4925,6 +5889,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4963,6 +5935,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.3333333333333333,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "AIRCRAFT",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4997,6 +5977,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -5039,6 +6027,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -5077,6 +6073,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -5114,6 +6118,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -5153,6 +6165,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -5187,6 +6207,14 @@
    "bn-lift:top1": 0.0,
    "bn-lift:mrr": 0.5,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -5229,6 +6257,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5267,6 +6303,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -5306,6 +6350,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5343,6 +6395,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -5382,6 +6442,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -5420,6 +6488,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -5457,6 +6533,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -5497,6 +6581,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -5536,6 +6628,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5574,6 +6674,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5609,6 +6717,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -5653,6 +6769,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5690,6 +6814,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -5729,6 +6861,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5767,6 +6907,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5803,6 +6951,14 @@
    "bn-lift:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -5844,6 +7000,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -5882,6 +7046,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5919,6 +7091,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -5959,6 +7139,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5996,6 +7184,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -6036,6 +7232,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -6070,6 +7274,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -6112,6 +7324,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -6148,6 +7368,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ENVIRONMENT",
@@ -6190,6 +7418,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.3333333333333333,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6229,6 +7465,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6263,6 +7507,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -6305,6 +7557,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.3333333333333333,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6339,6 +7599,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -6382,6 +7650,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6417,6 +7693,14 @@
    "bn-lift:top1": 0.0,
    "bn-lift:mrr": 0.5,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -6460,6 +7744,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -6498,6 +7790,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6535,6 +7835,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -6575,6 +7883,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -6613,6 +7929,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -6650,6 +7974,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -6689,6 +8021,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6723,6 +8063,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -6767,6 +8115,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -6805,6 +8161,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -6839,6 +8203,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -6881,6 +8253,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -6918,6 +8298,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -6957,6 +8345,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6995,6 +8391,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -7029,6 +8433,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -7071,6 +8483,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7105,6 +8525,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -7147,6 +8575,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7186,6 +8622,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -7225,6 +8669,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7259,6 +8711,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -7302,6 +8762,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -7339,6 +8807,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -7378,6 +8854,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7415,6 +8899,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -7454,6 +8946,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7488,6 +8988,14 @@
    "bn-lift:top1": 0.0,
    "bn-lift:mrr": 0.5,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -7530,6 +9038,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7567,6 +9083,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
     "ORGANIZATIONAL"
    ]
   },
@@ -7608,6 +9132,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -7646,6 +9178,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -7683,6 +9223,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -7723,6 +9271,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -7761,6 +9317,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -7798,6 +9362,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
     "ORGANIZATIONAL"
    ]
   },
@@ -7838,6 +9410,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7875,6 +9455,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -7914,6 +9502,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -7949,6 +9545,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
@@ -7992,6 +9596,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8026,6 +9638,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -8068,6 +9688,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8106,6 +9734,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8142,6 +9778,14 @@
    "bn-lift:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -8183,6 +9827,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8221,6 +9873,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.3333333333333333,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8255,6 +9915,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -8297,6 +9965,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8335,6 +10011,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8369,6 +10053,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -8411,6 +10103,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8449,6 +10149,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8486,6 +10194,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -8528,6 +10244,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8562,6 +10286,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -8604,6 +10336,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8638,6 +10378,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -8680,6 +10428,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8719,6 +10475,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -8757,6 +10521,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8791,6 +10563,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -8833,6 +10613,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8871,6 +10659,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -8909,6 +10705,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -8945,6 +10749,14 @@
    "bn-lift:rank": [
     "PERSONNEL",
     "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
     "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
@@ -8985,6 +10797,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -9023,6 +10843,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -9060,6 +10888,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
     "ORGANIZATIONAL"
    ]
   },
@@ -9101,6 +10937,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -9140,6 +10984,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -9174,6 +11026,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -9216,6 +11076,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -9254,6 +11122,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -9288,6 +11164,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "AIRCRAFT",
     "PERSONNEL",
     "ORGANIZATIONAL",
@@ -9330,6 +11214,14 @@
     "ENVIRONMENT",
     "AIRCRAFT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -9368,6 +11260,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -9407,6 +11307,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 0.0,
+   "emb-lr:mrr": 0.5,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -9444,6 +11352,14 @@
     "AIRCRAFT",
     "ENVIRONMENT",
     "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -9483,6 +11399,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -9521,6 +11445,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -9560,6 +11492,14 @@
     "PERSONNEL",
     "ENVIRONMENT",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -9598,6 +11538,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -9635,6 +11583,14 @@
     "PERSONNEL",
     "AIRCRAFT",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   },
@@ -9674,6 +11630,14 @@
     "ENVIRONMENT",
     "PERSONNEL",
     "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
    ]
   },
   {
@@ -9708,6 +11672,14 @@
    "bn-lift:top1": 1.0,
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
     "ENVIRONMENT",
     "PERSONNEL",
     "AIRCRAFT",
@@ -9749,6 +11721,14 @@
     "AIRCRAFT",
     "PERSONNEL",
     "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "emb-lr:top1": 1.0,
+   "emb-lr:mrr": 1.0,
+   "emb-lr:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
     "ORGANIZATIONAL"
    ]
   }

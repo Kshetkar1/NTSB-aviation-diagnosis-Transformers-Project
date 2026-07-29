@@ -86,13 +86,15 @@ python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_emb_lr_baseline.p
 Outputs: `outputs/diagnosis_heldout_eval.md`, `outputs/diagnosis_emb_lr.md`.
 253 held-out accidents with C/F cause findings; both coding eras rolled up
 to CICTT top-level categories (legacy subjects mapped by keyword rules,
-98.3% coverage). Headline: narrative retrieval **83.8%** top-1 / 0.912 MRR
+97.6% coverage). Headline: narrative retrieval **84.2%** top-1 / 0.915 MRR
 vs frequency baseline 45.8% (McNemar, Holm-corrected p<0.0001); supervised
-emb-LR 88.1% (beats retrieval p=0.027 -- disclosed; retrieval needs zero
+emb-LR 88.1% (beats retrieval p=0.041 -- disclosed; retrieval needs zero
 training). BN event path 57.7% (beats baseline, Holm p=0.0007); lift
-ranking 50.2% (disclosed negative result). Mapping rules audited:
+ranking 50.2% (disclosed negative result). Mapping rules audited and
+adjudicated by the first author (2026-07-29):
 `outputs/mapping_audit_sample.csv` + `outputs/mapping_audit_summary.md`
-(68/75 ok, worst-case mapping uncertainty <=2-3 pp, ordering unaffected).
+(68/75 ok; 2 overturned rows corrected in the rules, rerun moved retrieval
++0.4 pp only; residual mapping uncertainty ~2 pp, ordering unaffected).
 
 ## 2b. Leakage + robustness audits
 
