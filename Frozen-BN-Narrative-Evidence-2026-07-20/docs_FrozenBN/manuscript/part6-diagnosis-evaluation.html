@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 6 — Evaluating Diagnosis: Cause Categories Across a Taxonomy Break</title>
+<style>
+  :root { --ink:#1a1a2e; --muted:#5c5c72; --accent:#2b4c7e; --bg:#fbfaf7; --card:#ffffff;
+          --line:#e3e0d8; --code-bg:#f0eee8; --good:#2e6b46; --bad:#a03030; --warn:#8a6d1a; }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--bg); color:var(--ink);
+         margin:0; line-height:1.65; }
+  .wrap { max-width:860px; margin:0 auto; padding:48px 28px 96px; }
+  h1 { font-size:1.7rem; margin:0 0 4px; color:var(--accent); }
+  h2 { font-size:1.25rem; margin-top:2.2em; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  .crumb { font-size:0.85rem; color:var(--muted); margin-bottom:2em; }
+  .crumb a { color:var(--accent); }
+  code { font-family:'SF Mono', Menlo, Consolas, monospace; font-size:0.86em;
+         background:var(--code-bg); padding:1px 5px; border-radius:3px; }
+  pre { background:var(--code-bg); padding:12px 16px; border-radius:6px; overflow-x:auto;
+        font-size:0.85rem; line-height:1.5; }
+  table { border-collapse:collapse; width:100%; margin:1em 0; font-size:0.92rem; }
+  th, td { border:1px solid var(--line); padding:7px 11px; text-align:left; vertical-align:top; }
+  th { background:var(--code-bg); }
+  .hl td { background:#eef3f9; font-weight:bold; }
+  .vocab { background:#eef3f9; border-left:4px solid var(--accent); padding:12px 16px; margin:1.2em 0;
+           border-radius:0 6px 6px 0; }
+  .vocab b:first-child { color:var(--accent); }
+  .why { background:#f2f7f0; border-left:4px solid var(--good); padding:12px 16px; margin:1.2em 0;
+         border-radius:0 6px 6px 0; }
+  .why b:first-child { color:var(--good); }
+  .fail { background:#faf0f0; border-left:4px solid var(--bad); padding:12px 16px; margin:1.2em 0;
+          border-radius:0 6px 6px 0; }
+  .fail b:first-child { color:var(--bad); }
+  .verify { background:#faf6ea; border-left:4px solid var(--warn); padding:12px 16px; margin:1.2em 0;
+            border-radius:0 6px 6px 0; }
+  .verify b:first-child { color:var(--warn); }
+  .src { font-size:0.83rem; color:var(--muted); }
+</style>
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 6 of 7 ·
+<a href="part5-severity-evaluation.html">← Part 5</a></p>
+<h1>Part 6 — Evaluating Diagnosis: Cause Categories Across a Taxonomy Break</h1>
+
+<h2>6.1 The problem nobody warned us about: NTSB changed its language in 2008</h2>
+<div class="vocab"><b>Vocabulary — the two coding eras.</b> Through 2007, NTSB coded causes with a
+<b>legacy</b> system: a "subject" (e.g. <em>directional control</em>, <em>weather condition</em>)
+optionally attached to a person (<em>Pilot-in-command</em>, <em>Company/operator management</em>).
+From 2008, it switched to <b>CICTT</b> (the CAST/ICAO Common Taxonomy Team system): hierarchical
+codes like <em>Personnel issues → Task performance → Use of equip/info → Aircraft control →
+Copilot</em>. The two vocabularies do not map code-to-code. Our network is built on legacy-era
+data and our test years are CICTT-era — so naive cause matching across the split is impossible
+<em>by design of the data itself</em>.</div>
+<div class="why"><b>Why we solved it with a rollup instead of giving up.</b> CICTT's own top level
+already defines four broad categories — <b>Personnel, Aircraft, Environment, Organizational</b> —
+and every CICTT code names its category in its prefix. So the fair comparison level is the level
+the modern taxonomy itself declares: roll both eras up to the four categories. CICTT-era findings
+map trivially (read the prefix); legacy findings map through explicit keyword rules
+(<code>categorize_legacy</code> in <code>tests/diagnosis_heldout_eval.py</code>) covering 97.6% of
+the window's cause/factor findings. We call this the <b>era-fair</b> evaluation.</div>
+
+<h2>6.2 Trust, but audit: the mapping audit</h2>
+<p>Hand-written mapping rules are a place bias can hide, so the rules were audited: a stratified
+75-row sample (50 legacy subject+person rows weighted by frequency, 25 CICTT rows as the anchor —
+their prefix IS the category, so they define the reference standard) was independently
+dual-coded, and every verdict was then adjudicated row by row by the first author (2026-07-29).</p>
+<table>
+  <tr><th>Adjudicated verdict</th><th>Rows</th><th>Outcome</th></tr>
+  <tr><td>ok</td><td>68 / 75 (90.7%)</td><td>Mapping agrees with CICTT conventions; accepted.</td></tr>
+  <tr><td>wrong → corrected</td><td>2</td><td>Overturned by the first author and fixed in the rules:
+      the management-attributed service-bulletin finding now maps to Organizational, and
+      "reason for occurrence undetermined" is excluded from cause mapping.</td></tr>
+  <tr><td>unsure → confirmed</td><td>5</td><td>Genuine CICTT boundary cases (person non-compliance vs
+      organizational procedure deficiency); the first author reviewed each and kept the mapping.</td></tr>
+</table>
+<p>The corrections were then <em>measured</em>: rerunning the evaluation moved retrieval from 83.8%
+to 84.2% and left every other predictor unchanged — consistent with the pre-adjudication bound
+(the contested rows touch 316 of 5,062 window findings, 6.2%, worst case ≤ 2–3 points, same
+direction for every predictor). Sample with adjudication notes:
+<code>outputs/mapping_audit_sample.csv</code>; tally and impact:
+<code>outputs/mapping_audit_summary.md</code>; sample generator (with a guard so it never
+overwrites filled-in verdicts): <code>tests/diagnosis_mapping_audit_sample.py</code>.</p>
+
+<h2>6.3 The task and the metric, stated precisely</h2>
+<div class="vocab"><b>Vocabulary — truth sets and set-membership top-1.</b> An accident usually
+has several coded findings, so its truth is a <em>set</em> of categories (e.g. {Personnel,
+Environment}). Our headline metric: the prediction is correct if the model's top-ranked category
+is in the truth set — the decision-relevant question "is the top suggestion a coded cause?" This
+is a lenient criterion, so we also publish the strict view (exact per-category recall) alongside
+it, plus <b>MRR</b> (mean reciprocal rank: 1/rank of the first correct answer, averaged — 1.0
+means the top answer is always right). Definitions are printed inside the results file itself,
+<code>outputs/diagnosis_heldout_eval.md</code>, so no reader has to guess.</div>
+<p><b>Cohort:</b> the 253 of the 296 held-out accidents that carry cause findings
+(<code>outputs/cohort_manifest.json</code> proves it is a subset).</p>
+
+<h2>6.4 The results (n = 253)</h2>
+<table>
+  <tr><th>Predictor</th><th>Top-1</th><th>95% CI</th><th>MRR</th><th>Notes</th></tr>
+  <tr><td>Category-frequency baseline</td><td>45.8%</td><td>[39.5, 52.2]</td><td>0.685</td>
+      <td>Always guesses the most common category (Personnel).</td></tr>
+  <tr><td>Frozen BN, event evidence (posterior)</td><td>57.7%</td><td>[51.4, 63.6]</td><td>0.759</td>
+      <td>Parsed events → network → cause-category posterior. Beats the baseline,
+      Holm p = 0.0007.</td></tr>
+  <tr class="hl"><td>Narrative retrieval (zero-parameter)</td><td>84.2%</td><td>[79.4, 88.5]</td><td>0.915</td>
+      <td>Categories of the 100 most similar accidents. Holm p &lt; 10⁻⁴ vs baseline.</td></tr>
+  <tr><td>Supervised emb-LR</td><td>88.1%</td><td>[84.2, 91.7]</td><td>0.936</td>
+      <td>Needs coded labels to train. Beats retrieval by 3.9 pts (p = 0.041, exploratory).</td></tr>
+  <tr><td>Frozen BN, event evidence (lift ranking)</td><td>50.2%</td><td>—</td><td>0.723</td>
+      <td><b>Negative result</b>, reported deliberately: ranking by posterior lift is noisy.</td></tr>
+</table>
+<p>Recall balance: retrieval is even across the three common categories (Personnel 68% / Aircraft
+62% / Environment 72%) — it is not just parroting "Personnel." No predictor recovers the rare
+Organizational class (0 of 25) — same class-rarity failure mode as fatal injuries in Part 5, and
+disclosed the same way.</p>
+<div class="why"><b>How to read this table.</b> Three findings. (1) Narratives carry strong
+diagnostic signal — retrieval nearly doubles the frequency baseline with zero training.
+(2) A supervised model buys ~4 more points — the measured price of zero training, disclosed, not
+hidden. (3) The network's <em>event-evidence path</em> reaching 57.7% is the genuinely interesting
+scientific result: parsed narrative facts propagate through Zhang's CPTs to a node the pipeline
+was never pointed at, significantly above baseline. That is cross-node inference — the thing only
+a joint probabilistic model can do — measurably working.</div>
+<div class="fail"><b>What we tried that did not work (and kept in the paper).</b> Ranking cause
+categories by <em>lift</em> (posterior ÷ prior, "which category increased most") sounded cleverer
+than ranking by posterior. It scores 50.2% — barely above the baseline — because lift amplifies
+noise on small priors. We report it because negative ablations are how a reader learns the design
+was chosen by measurement, not taste (the same lesson as bn-fused in Part 4).</div>
+
+<div class="verify"><b>Verify it yourself.</b>
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_heldout_eval.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_emb_lr_baseline.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_mapping_audit_sample.py</pre>
+Outputs: <code>outputs/diagnosis_heldout_eval.md</code> (full report with metric definitions,
+Holm-corrected primary comparisons, per-category recall),
+<code>outputs/diagnosis_emb_lr.md</code>, and the audit CSV. The rollup rules you would audit are
+the two functions <code>categorize_legacy</code> / <code>categorize_cictt</code> in
+<code>tests/diagnosis_heldout_eval.py</code> — deliberately plain keyword rules, so anyone can
+read them.</div>
+
+<p class="crumb"><a href="part7-leakage-and-honesty.html">Next: Part 7 — Leakage, audits, and honest claims →</a></p>
+</div></body>
+</html>

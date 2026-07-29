@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 1 — Background and Vocabulary</title>
+<style>
+  :root { --ink:#1a1a2e; --muted:#5c5c72; --accent:#2b4c7e; --bg:#fbfaf7; --card:#ffffff;
+          --line:#e3e0d8; --code-bg:#f0eee8; --good:#2e6b46; --bad:#a03030; --warn:#8a6d1a; }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--bg); color:var(--ink);
+         margin:0; line-height:1.65; }
+  .wrap { max-width:860px; margin:0 auto; padding:48px 28px 96px; }
+  h1 { font-size:1.7rem; margin:0 0 4px; color:var(--accent); }
+  h2 { font-size:1.25rem; margin-top:2.2em; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  h3 { font-size:1.05rem; margin-top:1.6em; }
+  .crumb { font-size:0.85rem; color:var(--muted); margin-bottom:2em; }
+  .crumb a { color:var(--accent); }
+  code { font-family:'SF Mono', Menlo, Consolas, monospace; font-size:0.86em;
+         background:var(--code-bg); padding:1px 5px; border-radius:3px; }
+  pre { background:var(--code-bg); padding:12px 16px; border-radius:6px; overflow-x:auto;
+        font-size:0.85rem; line-height:1.5; }
+  table { border-collapse:collapse; width:100%; margin:1em 0; font-size:0.93rem; }
+  th, td { border:1px solid var(--line); padding:7px 11px; text-align:left; vertical-align:top; }
+  th { background:var(--code-bg); }
+  .vocab { background:#eef3f9; border-left:4px solid var(--accent); padding:12px 16px; margin:1.2em 0;
+           border-radius:0 6px 6px 0; }
+  .vocab b:first-child { color:var(--accent); }
+  .why { background:#f2f7f0; border-left:4px solid var(--good); padding:12px 16px; margin:1.2em 0;
+         border-radius:0 6px 6px 0; }
+  .why b:first-child { color:var(--good); }
+  .verify { background:#faf6ea; border-left:4px solid var(--warn); padding:12px 16px; margin:1.2em 0;
+            border-radius:0 6px 6px 0; }
+  .verify b:first-child { color:var(--warn); }
+  .src { font-size:0.83rem; color:var(--muted); }
+</style>
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 1 of 7</p>
+<h1>Part 1 — Background and Vocabulary</h1>
+<p>This part gives you everything you need to read the rest: what the data is, what a Bayesian
+network is, and the handful of machine-learning and statistics terms the project depends on.
+Nothing here assumes prior knowledge.</p>
+
+<h2>1.1 The data: what NTSB records look like</h2>
+<p>The National Transportation Safety Board (NTSB) investigates every civil aviation accident in
+the United States. For each accident it publishes a record with two very different kinds of
+content:</p>
+<table>
+  <tr><th>Content</th><th>What it is</th><th>Example</th></tr>
+  <tr><td><b>Coded fields</b></td>
+      <td>Structured, machine-readable facts chosen from fixed menus by trained investigators:
+      occurrence types, flight phase, findings/causes, injury level, damage level.</td>
+      <td><code>damage = SUBS</code> (substantial), <code>injury = SERS</code> (serious),
+      finding = "landing gear, main gear strut"</td></tr>
+  <tr><td><b>Narrative</b></td>
+      <td>Free-text prose describing what happened, written by the investigator.</td>
+      <td>"During the landing roll, the right main landing gear collapsed and the airplane
+      veered off the runway…"</td></tr>
+</table>
+<div class="vocab"><b>Vocabulary — coded vs. free text.</b> "Coded" data is what statistical models
+are traditionally built from, because every accident answers the same questions the same way.
+The narrative contains far richer detail, but historically it was unusable by probability models
+because no two narratives are structured alike. <em>This project is about closing exactly that
+gap.</em></div>
+<p class="src">Where the data lives in this repository: the merged, cleaned dataset is
+<code>shared/data/processed/refined_dataset.json</code> (all years), and
+<code>shared/data/processed/refined_dataset_1982_2006.json</code> is the 1,742-accident window
+used to build the network (more on that window in Part 2). Path configuration:
+<code>shared/code/config.py</code>.</p>
+
+<h2>1.2 The model: what a Bayesian network is</h2>
+<div class="vocab"><b>Vocabulary — Bayesian network (BN).</b> A directed graph where each
+<b>node</b> is a variable (e.g. "Fire", "Flight phase", "Injury level"), each node has a small set
+of <b>states</b> (Fire: yes/no; Injury: fatal/serious/minor/none), and arrows encode which
+variables directly influence which. Attached to every node is a <b>conditional probability table
+(CPT)</b>: the probability of each of its states given each combination of its parents' states.
+Multiply all the CPTs together and you get a full joint probability distribution over every
+variable at once.</div>
+<div class="vocab"><b>Vocabulary — prior and posterior.</b> The <b>prior</b> is what the network
+believes before you tell it anything about a specific accident — essentially historical base
+rates (e.g. "42.6% of accidents in this data have damage = NONE"). When you feed in facts about a
+specific case, the network updates every probability; the updated numbers are the
+<b>posterior</b>. The updating process is called <b>inference</b>.</div>
+<div class="vocab"><b>Vocabulary — evidence.</b> Anything you tell the network about a specific
+case. <b>Hard evidence</b> pins a node to one state with certainty ("there WAS a fire").
+<b>Soft / virtual evidence</b> expresses partial confidence ("70% sure the phase was landing") —
+the mechanism for this, due to Judea Pearl, attaches a temporary "observation" node whose CPT
+encodes your confidence. This distinction matters enormously later, because narrative-derived
+facts are rarely certain.</div>
+<p>Why would anyone want this instead of a normal machine-learning classifier? Because a BN is a
+<em>model of the whole situation</em>, not a single input→output function. One network answers
+every question — P(fire)? P(severe injury | icing + night)? What changes if we assume the gear had
+not collapsed? — and every answer decomposes into human-readable probability tables estimated from
+real accidents. A trained classifier answers exactly one question and shows you nothing.</p>
+<p class="src">Our network-construction code: 
+<code>Frozen-BN-Narrative-Evidence-2026-07-20/code/bn_upgraded.py</code> (builds the multi-state
+network from the coded window data, using the pyAgrum library). The original network it follows is
+from Zhang &amp; Mahadevan, <em>Reliability Engineering &amp; System Safety</em> 209 (2021) 107371.</p>
+
+<h2>1.3 The two tasks: prognosis and diagnosis</h2>
+<table>
+  <tr><th>Task</th><th>Question</th><th>Our target variables</th></tr>
+  <tr><td><b>Prognosis (severity)</b></td>
+      <td>Given the facts of an accident, how bad are the outcomes?</td>
+      <td>Injury level (fatal / serious / minor / none) and aircraft damage
+          (destroyed / substantial / minor / none) — a 4-way choice each.</td></tr>
+  <tr><td><b>Diagnosis (causes)</b></td>
+      <td>Which broad category of cause was involved?</td>
+      <td>The four official top-level cause categories: Personnel, Aircraft,
+          Environment, Organizational.</td></tr>
+</table>
+<div class="vocab"><b>Vocabulary — a caution about the word "prognosis".</b> NTSB narratives are
+written <em>after</em> the investigation, so nobody has this text before the outcome is known. Our
+severity task is therefore not real-time prediction; it is a test of whether the text's
+<em>mechanism description</em> carries the outcome signal — useful for triage of incoming reports,
+coding assistance, and consistency checking. We say this precisely in the paper
+(<code>docs_FrozenBN/RESULTS_SECTION.md</code>) because sloppy wording here is the kind of thing
+reviewers reject.</div>
+
+<h2>1.4 The text machinery: embeddings and retrieval</h2>
+<div class="vocab"><b>Vocabulary — embedding.</b> A function that turns a piece of text into a
+long list of numbers (a vector) such that texts with similar <em>meaning</em> get vectors that
+point in similar directions. We use an OpenAI text-embedding model (configured in
+<code>shared/code/config.py</code>, used in <code>shared/code/main_app.py</code>). Two narratives
+about gear collapses on landing end up close together even if they share few exact words.</div>
+<div class="vocab"><b>Vocabulary — cosine similarity and k-NN retrieval.</b> Cosine similarity
+measures the angle between two vectors — 1.0 means "same direction" (very similar meaning).
+<b>Retrieval</b> means: embed a new narrative, compare it against the pre-computed embeddings of
+all ~1,700 historical window narratives, and return the top-k most similar accidents (we use
+k = 100 by default). Those k accidents are the "nearest neighbors" (k-NN) of the new one.</div>
+<div class="vocab"><b>Vocabulary — TF-IDF.</b> A much older, simpler text representation: count
+each word (and word pair), weighted so that rare words count more. No neural network involved.
+It matters in this project because a TF-IDF model turned out to be a surprisingly strong
+competitor — see Part 5 and Part 7.</div>
+<p class="src">Embedding + retrieval implementation: <code>shared/code/main_app.py</code>
+(functions <code>get_embedding</code> — with a disk cache at
+<code>shared/data/processed/query_emb_cache.npz</code> so reruns are deterministic and free — and
+<code>find_top_matches</code>). The pre-computed window index:
+<code>shared/data/processed/embeddings_1982_2006.npy</code> with its map
+<code>embeddings_map_1982_2006.json</code>.</p>
+
+<h2>1.5 The evaluation vocabulary: how you prove any of this works</h2>
+<div class="vocab"><b>Vocabulary — held-out evaluation.</b> The cardinal rule of testing a model:
+score it on data it has never seen. Our network and retrieval index are built ONLY from 1982–2006
+accidents; all testing happens on 2007–2019 accidents (296 of them for severity). If you test on
+the data you built from, you are grading a student on questions they memorized.</div>
+<div class="vocab"><b>Vocabulary — leakage.</b> Any way test-set information sneaks into the
+system. The most dangerous kind here: NTSB narratives often <em>state the outcome in the text</em>
+("the airplane was destroyed", "the passenger received fatal injuries"). A model reading that
+sentence isn't predicting — it's copying the answer. Part 7 is entirely about how we found,
+removed, and audited this.</div>
+<div class="vocab"><b>Vocabulary — baseline.</b> A deliberately simple competitor that defines
+what "good" means. Ours range from trivial (always guess the most common outcome) to strong
+(supervised logistic regression on embeddings). A result only matters relative to baselines.</div>
+<div class="vocab"><b>Vocabulary — supervised vs. zero-parameter.</b> A <b>supervised</b> model is
+fitted to labeled examples (narrative → known severity) — it needs coded labels to exist. Our chain
+is <b>zero-parameter</b> for this task: nothing anywhere is fitted to narrative→severity pairs; the
+network's tables come from coded data alone and the retrieval step just measures similarity. That
+asymmetry is the fair-fight caveat we state whenever we compare against supervised baselines.</div>
+
+<h2>1.6 The cast of characters in the code</h2>
+<table>
+  <tr><th>File</th><th>Role</th></tr>
+  <tr><td><code>shared/code/main_app.py</code></td><td>Embeddings, retrieval index, similarity search.</td></tr>
+  <tr><td><code>shared/code/config.py</code></td><td>All paths; selects the 1982–2006 window index (environment
+      variables can switch it, which is why the evaluation scripts lock them — Part 7).</td></tr>
+  <tr><td><code>Frozen-BN-…/code/bn_upgraded.py</code></td><td>Builds the frozen multi-state network from window data.</td></tr>
+  <tr><td><code>Frozen-BN-…/code/query_to_bn.py</code></td><td>The heart of the approach: turns narrative text into
+      network evidence (parser, retrieval facts, redaction, severity virtual evidence).</td></tr>
+  <tr><td><code>Frozen-BN-…/code/prognosis.py</code></td><td>Dataset loading, Zhang's injury-code derivation, severity helpers.</td></tr>
+  <tr><td><code>Frozen-BN-…/tests/</code></td><td>Every evaluation and audit script. Tests are the proof; the
+      docs only summarize them.</td></tr>
+  <tr><td><code>Frozen-BN-…/outputs/</code></td><td>The generated results files every number in this manuscript
+      traces to.</td></tr>
+  <tr><td><code>Frozen-BN-…/apps/frozenbn_streamlit_diagnosis_prognosis_demo.py</code></td>
+      <td>Interactive demo: paste a narrative, watch it become evidence and posteriors.</td></tr>
+</table>
+
+<div class="verify"><b>Verify it yourself.</b> The single most useful orientation command — list
+which accidents are in which cohort and confirm the train/test split has zero overlap:
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/build_cohort_manifest.py</pre>
+Output: <code>Frozen-BN-Narrative-Evidence-2026-07-20/outputs/cohort_manifest.json</code> — 296
+severity IDs, 253 diagnosis IDs, and cross-checks that all evaluation scripts scored the identical
+accidents (all <code>true</code>, window overlap 0).</div>
+
+<p class="crumb"><a href="part2-reproducing-zhang.html">Next: Part 2 — Reproducing Zhang →</a></p>
+</div></body>
+</html>

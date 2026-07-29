@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuscript — Narratives as Evidence for a Frozen Bayesian Network</title>
+<style>
+  :root { --ink:#1a1a2e; --muted:#5c5c72; --accent:#2b4c7e; --bg:#fbfaf7; --card:#ffffff;
+          --line:#e3e0d8; --code-bg:#f0eee8; --good:#2e6b46; --bad:#a03030; --warn:#8a6d1a; }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--bg); color:var(--ink);
+         margin:0; line-height:1.65; }
+  .wrap { max-width:860px; margin:0 auto; padding:48px 28px 96px; }
+  h1 { font-size:2rem; margin:0 0 4px; color:var(--accent); }
+  h2 { font-size:1.3rem; margin-top:2.2em; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  .subtitle { color:var(--muted); font-size:1.05rem; margin-bottom:2em; }
+  code { font-family:'SF Mono', Menlo, Consolas, monospace; font-size:0.86em;
+         background:var(--code-bg); padding:1px 5px; border-radius:3px; }
+  a { color:var(--accent); }
+  table { border-collapse:collapse; width:100%; margin:1em 0; font-size:0.95rem; }
+  th, td { border:1px solid var(--line); padding:8px 12px; text-align:left; vertical-align:top; }
+  th { background:var(--code-bg); font-family:Georgia, serif; }
+  .part { background:var(--card); border:1px solid var(--line); border-radius:8px;
+          padding:18px 22px; margin:14px 0; }
+  .part h3 { margin:0 0 6px; font-size:1.1rem; }
+  .part p { margin:6px 0; color:var(--muted); font-size:0.97rem; }
+  .tag { display:inline-block; font-family:Menlo, monospace; font-size:0.72rem; padding:2px 8px;
+         border-radius:10px; border:1px solid var(--line); color:var(--muted); margin-right:6px; }
+  .timeline td:first-child { white-space:nowrap; font-family:Menlo, monospace; font-size:0.85rem; }
+  .status-accepted { color:var(--good); font-weight:bold; }
+  .status-rejected { color:var(--bad); }
+  .status-foundation { color:var(--accent); }
+  .status-superseded { color:var(--warn); }
+</style>
+</head>
+<body><div class="wrap">
+
+<h1>Narratives as Evidence for a Frozen Bayesian Network</h1>
+<p class="subtitle">A start-to-finish manuscript of the approach — written for a reader who is new
+to the field. Every claim cites the file in this repository where it lives, and every number cites
+the test that produced it.</p>
+
+<h2>What this project is, in three sentences</h2>
+<p>Zhang &amp; Mahadevan (2021) built a <em>Bayesian network</em> — a probabilistic model of how
+aviation accidents unfold — from NTSB's hand-coded accident records for 1982–2006. We reproduce
+that network exactly, <strong>freeze it</strong> (never retrain it), and then show that the
+free-text <em>narrative</em> of a brand-new accident can be converted into evidence the frozen
+network understands — so the network can predict injury and damage severity and suggest cause
+categories for accidents it has never seen, with <strong>zero training</strong>. On 296 held-out
+accidents from 2007–2019, this chain reaches 90.9% injury / 77.4% damage accuracy — statistically
+tied with supervised machine-learning models trained on labeled data — while keeping everything a
+trained black box cannot offer: full probabilistic reasoning, what-if queries, and explanations
+that trace back to real historical accidents.</p>
+
+<h2>The parts</h2>
+
+<div class="part">
+  <h3><a href="part1-background-and-vocabulary.html">Part 1 — Background and vocabulary</a></h3>
+  <p>What NTSB data looks like, what a Bayesian network is, and every term you need
+  (nodes, CPTs, priors, posteriors, evidence, embeddings, held-out testing, leakage) explained
+  from zero.</p>
+</div>
+
+<div class="part">
+  <h3><a href="part2-reproducing-zhang.html">Part 2 — Reproducing Zhang: the foundation</a></h3>
+  <p>Why we spent weeks reproducing someone else's 2021 paper to the digit before doing anything
+  new: 102 fire accidents, P(fire) = 5.527942×10⁻⁷, and all 85 rows of his Table 7 — plus the
+  85-vs-113 lesson in honest claiming.</p>
+</div>
+
+<div class="part">
+  <h3><a href="part3-the-journey.html">Part 3 — The journey: what we tried first and why we switched</a></h3>
+  <p>Four earlier approaches, in order, each with the reason it was superseded or rejected:
+  embedding-counting (March), CPT upgrades (June), the LLM-first parser (July), and structural
+  re-ranking. The dated folders in this repository are the receipts.</p>
+</div>
+
+<div class="part">
+  <h3><a href="part4-the-pipeline.html">Part 4 — The pipeline: how a narrative becomes evidence</a></h3>
+  <p>The accepted architecture, step by step: redaction, the deterministic parser (hard evidence),
+  retrieval of similar accidents (soft evidence), the k-NN severity readout (virtual evidence),
+  and why fusing everything at once backfires (the double-counting negative result).</p>
+</div>
+
+<div class="part">
+  <h3><a href="part5-severity-evaluation.html">Part 5 — Evaluating severity: the numbers and what they mean</a></h3>
+  <p>The held-out experiment design, every metric explained (accuracy, Macro-F1, Brier, McNemar,
+  Holm, bootstrap CIs, sensitivity/specificity), the three supervised baselines we attack
+  ourselves with, and the full results table.</p>
+</div>
+
+<div class="part">
+  <h3><a href="part6-diagnosis-evaluation.html">Part 6 — Evaluating diagnosis: cause categories across a taxonomy break</a></h3>
+  <p>NTSB changed its coding system in 2008, making naive comparison impossible. The era-fair
+  rollup to four cause categories, the mapping audit, and the results — including the negative
+  result we report on purpose.</p>
+</div>
+
+<div class="part">
+  <h3><a href="part7-leakage-and-honesty.html">Part 7 — Leakage, audits, and honest claims</a></h3>
+  <p>The most important chapter for trusting everything else: how outcome text leaked into early
+  numbers (93/81 → 90.9/77.4), the redaction protocol and its precise scope, the leak probe that
+  became a baseline, and the limitations we disclose instead of hide.</p>
+</div>
+
+<h2>Project timeline (the dated folders are the history)</h2>
+<table class="timeline">
+  <tr><th>Date / folder</th><th>Status</th><th>What happened</th></tr>
+  <tr><td><code>Embedding-Similarity-Counting-Path-2026-03-25/</code></td>
+      <td class="status-superseded">SUPERSEDED</td>
+      <td>First idea: embed narratives, find similar accidents by cosine similarity, count their
+      outcomes. Worked, but produced counts, not a probabilistic model — no reasoning layer.</td></tr>
+  <tr><td><code>Zhang-Replication-Foundation-2026-06-04/</code></td>
+      <td class="status-foundation">FOUNDATION</td>
+      <td>Reproduced Zhang &amp; Mahadevan (2021) exactly: the dataset window, the network, the
+      published tables. This is the validated model everything else stands on.</td></tr>
+  <tr><td><code>BN-CPT-Upgrade-Experiments-2026-06-19/</code></td>
+      <td class="status-rejected">REJECTED</td>
+      <td>Tried improving Zhang's probability tables (sparse CPTs, envelopes). Rejected: modifying
+      the validated network undermines the reason for using it.</td></tr>
+  <tr><td><code>LLM-Narrative-Parser-Experiments-2026-07-15/</code></td>
+      <td class="status-rejected">REJECTED</td>
+      <td>LLM-first narrative parsing (~69% injury accuracy vs 90.9% for the current chain).
+      Survives only as an optional tier-2 fallback text reader.</td></tr>
+  <tr><td><code>Frozen-BN-Narrative-Evidence-2026-07-20/</code></td>
+      <td class="status-accepted">ACCEPTED</td>
+      <td>The current approach and the paper: frozen Zhang network + query-time narrative
+      evidence. Everything in this manuscript lives here unless stated otherwise.</td></tr>
+  <tr><td><code>Structural-Mapping-Retrieval-2026-07-25/</code></td>
+      <td class="status-rejected">EXPLORATORY</td>
+      <td>Structure-aware re-ranking of retrieved accidents. Not part of the main evaluation;
+      kept for appendix worked examples.</td></tr>
+</table>
+<p>Source: <code>PROJECT_MAP.md</code> at the repository root, which is the authoritative map of
+which folder is which.</p>
+
+<h2>How to read this manuscript</h2>
+<p>Read the parts in order — each assumes the vocabulary of the previous ones. Every part has
+three recurring elements:</p>
+<table>
+  <tr><th>Box</th><th>Meaning</th></tr>
+  <tr><td><strong>Vocabulary</strong></td><td>A term defined in plain language before it is used.</td></tr>
+  <tr><td><strong>Why we did this</strong></td><td>The decision and its justification — including what we
+      did before and why it failed.</td></tr>
+  <tr><td><strong>Verify it yourself</strong></td><td>The exact command that regenerates the number just
+      claimed, and the output file it writes.</td></tr>
+</table>
+<p>All commands run from the repository root with
+<code>/Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11</code>. The complete
+run-everything list is in <code>Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md</code>.</p>
+
+</div></body>
+</html>

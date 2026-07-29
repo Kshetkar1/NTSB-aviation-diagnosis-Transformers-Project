@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 4 — The Pipeline: How a Narrative Becomes Evidence</title>
+<style>
+  :root { --ink:#1a1a2e; --muted:#5c5c72; --accent:#2b4c7e; --bg:#fbfaf7; --card:#ffffff;
+          --line:#e3e0d8; --code-bg:#f0eee8; --good:#2e6b46; --bad:#a03030; --warn:#8a6d1a; }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--bg); color:var(--ink);
+         margin:0; line-height:1.65; }
+  .wrap { max-width:860px; margin:0 auto; padding:48px 28px 96px; }
+  h1 { font-size:1.7rem; margin:0 0 4px; color:var(--accent); }
+  h2 { font-size:1.25rem; margin-top:2.2em; border-bottom:1px solid var(--line); padding-bottom:6px; }
+  .crumb { font-size:0.85rem; color:var(--muted); margin-bottom:2em; }
+  .crumb a { color:var(--accent); }
+  code { font-family:'SF Mono', Menlo, Consolas, monospace; font-size:0.86em;
+         background:var(--code-bg); padding:1px 5px; border-radius:3px; }
+  pre { background:var(--code-bg); padding:12px 16px; border-radius:6px; overflow-x:auto;
+        font-size:0.85rem; line-height:1.5; }
+  table { border-collapse:collapse; width:100%; margin:1em 0; font-size:0.93rem; }
+  th, td { border:1px solid var(--line); padding:7px 11px; text-align:left; vertical-align:top; }
+  th { background:var(--code-bg); }
+  .vocab { background:#eef3f9; border-left:4px solid var(--accent); padding:12px 16px; margin:1.2em 0;
+           border-radius:0 6px 6px 0; }
+  .vocab b:first-child { color:var(--accent); }
+  .why { background:#f2f7f0; border-left:4px solid var(--good); padding:12px 16px; margin:1.2em 0;
+         border-radius:0 6px 6px 0; }
+  .why b:first-child { color:var(--good); }
+  .fail { background:#faf0f0; border-left:4px solid var(--bad); padding:12px 16px; margin:1.2em 0;
+          border-radius:0 6px 6px 0; }
+  .fail b:first-child { color:var(--bad); }
+  .verify { background:#faf6ea; border-left:4px solid var(--warn); padding:12px 16px; margin:1.2em 0;
+            border-radius:0 6px 6px 0; }
+  .verify b:first-child { color:var(--warn); }
+  .src { font-size:0.83rem; color:var(--muted); }
+  .step { border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:12px 0;
+          background:var(--card); }
+  .step h3 { margin:0 0 6px; font-size:1.02rem; color:var(--accent); }
+</style>
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 4 of 7 ·
+<a href="part3-the-journey.html">← Part 3</a></p>
+<h1>Part 4 — The Pipeline: How a Narrative Becomes Evidence</h1>
+<p>This is the accepted architecture, one step at a time. Nearly all of it lives in a single file
+— <code>Frozen-BN-Narrative-Evidence-2026-07-20/code/query_to_bn.py</code> — with retrieval
+support from <code>shared/code/main_app.py</code> and the network from
+<code>code/bn_upgraded.py</code>.</p>
+
+<div class="step"><h3>Step 0 — Redact the outcome sentences (before anything else touches the text)</h3>
+<p>NTSB narratives frequently state the final outcome ("the airplane was destroyed", "the
+passenger was fatally injured"). Predicting an outcome from text that states the outcome is not
+prediction (Part 1 called this <em>leakage</em>). So the very first operation on every narrative
+is <code>redact_severity_phrases()</code> in <code>code/query_to_bn.py</code> — a deterministic
+list of regular expressions that strips stated injury/damage phrases, death and medical wording,
+and NTSB's full-report boilerplate. Every downstream consumer — embedding, retrieval, both parsers
+— receives only the redacted text.</p>
+<div class="fail"><b>What we did earlier that was wrong.</b> Originally we redacted only before
+<em>embedding</em>; the deterministic parser still read the raw text. Fixed during the July review
+pass so all parsing happens on redacted text — the rerun left every headline number unchanged,
+which itself became evidence that no predictor was feeding on the stated outcomes. Part 7 tells
+the full leakage story, including exactly what redaction can and cannot remove.</div></div>
+
+<div class="step"><h3>Step 1 — The deterministic parser: hard evidence</h3>
+<p><code>parse_query_to_bn_evidence()</code> scans the redacted narrative for NTSB's own
+vocabulary — occurrence types, flight phases, event keywords — with rule-based matching. When it
+finds "fire" or "gear collapsed", it produces evidence for the matching network nodes. This is
+tier 1 of the parser: no model, no randomness, auditable line by line, and sufficient for 176 of
+the 296 held-out narratives. An optional tier 2 (an LLM reader, Part 3.4, code in
+<code>code/llm_evidence.py</code>) handles narratives the rules cannot, with its outputs assigned
+data-measured strengths rather than trusted directly.</p></div>
+
+<div class="step"><h3>Step 2 — Retrieval: soft evidence from similar accidents</h3>
+<p>The redacted narrative is embedded (<code>get_embedding()</code> in
+<code>shared/code/main_app.py</code>, disk-cached for determinism) and compared against the
+~1,700 pre-computed window narrative embeddings. From the top-100 most similar historical
+accidents, <code>retrieval_facts()</code> in <code>code/query_to_bn.py</code> reads which coded
+events those neighbors actually had, and with what frequency. If 71 of 100 neighbors had a landing
+phase code, "phase = landing" becomes a piece of <em>soft</em> evidence with strength 0.71.</p>
+<div class="vocab"><b>Vocabulary — why the strengths are honest.</b> The confidence attached to
+each soft fact is an <b>empirical retrieval frequency</b> — the fraction of neighbors exhibiting
+the code — not a tuned dial. Nothing is fitted; the number is a measurement of the historical
+record. (Early drafts called this "calibrated", which suggests a fitting procedure that does not
+exist; the wording was corrected during review — a small example of claim hygiene.)</div></div>
+
+<div class="step"><h3>Step 3 — The k-NN severity readout: virtual evidence on the outcome nodes</h3>
+<p>The same 100 neighbors have coded injury and damage outcomes. Their outcome distribution
+(e.g. 62% substantial / 21% minor / …) enters the network as <b>virtual evidence</b> on the injury
+and damage nodes — Pearl's mechanism from Part 1, implemented via pyAgrum's evidence API. This
+predictor is called <b>bn-sev</b> and it is the primary severity predictor of the paper.</p>
+<div class="vocab"><b>Vocabulary — what the network does with it (and does not).</b> When virtual
+evidence on a node faces no competing evidence, the posterior reproduces the input distribution —
+the network mediates the signal <em>losslessly</em>. A self-test inside the evaluation script
+asserts this to four decimals before any scoring is allowed to run
+(<code>selftest_virtual_evidence</code> in
+<code>tests/frozenbn_heldout_narrative_bn_eval.py</code>). Consequence, stated in the paper
+without embarrassment: bn-sev's <em>accuracy</em> equals the raw k-NN readout's accuracy
+(0 of 296 predictions differ). The network adds no accuracy — it adds the reasoning layer: joint
+posteriors over all nodes, evidence composition, what-if queries, per-node explanations.</div></div>
+
+<div class="step"><h3>Step 4 — Inference and output</h3>
+<p>With evidence loaded, the network computes posteriors for every node
+(<code>posteriors()</code> in the evaluation script; the demo app
+<code>apps/frozenbn_streamlit_diagnosis_prognosis_demo.py</code> shows the same thing
+interactively). The top-1 predicted state of the injury and damage nodes is what gets scored in
+Part 5; the full distributions feed the probabilistic metrics (Brier score).</p></div>
+
+<h2>4.1 The negative result we report on purpose: bn-fused</h2>
+<div class="fail"><b>What happens if you fuse everything at once.</b> The "obvious" architecture
+is to load the event evidence (Steps 1–2) AND the k-NN severity evidence (Step 3) into one
+inference and let the network combine them. We built that predictor — <b>bn-fused</b> — and it
+collapses: 38.5% injury / 41.9% damage, worse than the majority-class baseline on injury. The
+reason is <b>double counting</b>: the event evidence and the severity evidence are both derived
+from the <em>same narrative</em>, so the network treats one signal as two independent
+confirmations and over-updates — a textbook violation of the independence assumption behind
+evidence combination. The fix is the architecture itself: event evidence answers diagnosis
+questions; the severity readout answers severity questions; they are not fused for the severity
+task. We publish bn-fused's failure as an ablation because it justifies the design.</div>
+<div class="vocab"><b>Vocabulary — ablation.</b> An experiment that removes or rearranges one
+component to show what that component contributes. The paper's ablations: retrieval-sev (remove
+the network → same accuracy, proving where the signal lives), bn-fused (fuse everything → collapse,
+proving why the paths stay separate), hard/soft/hard+soft (parser-only paths → 82.4%/50.7% at
+best, proving retrieval carries the severity signal).</div>
+
+<h2>4.2 The evidence ladder, summarized</h2>
+<table>
+  <tr><th>Predictor</th><th>Evidence used</th><th>Question it answers</th></tr>
+  <tr><td><code>prior</code></td><td>None</td><td>What does history alone say?</td></tr>
+  <tr><td><code>hard</code></td><td>Deterministic parse only</td><td>How far do explicit text matches get you?</td></tr>
+  <tr><td><code>soft-only</code> / <code>hard+soft</code> / <code>soft-priority</code></td>
+      <td>Retrieval facts (± parse)</td><td>How much do similar accidents' <em>events</em> tell you?</td></tr>
+  <tr><td><b><code>bn-sev</code></b></td><td>k-NN severity as virtual evidence</td>
+      <td><b>The primary severity predictor.</b></td></tr>
+  <tr><td><code>retrieval-sev</code></td><td>k-NN severity, no network</td><td>Ablation: is the BN losing anything? (No — identical.)</td></tr>
+  <tr><td><code>bn-fused</code></td><td>Everything at once</td><td>Ablation: why not fuse? (Double counting.)</td></tr>
+</table>
+<p class="src">All predictors are computed in one script —
+<code>tests/frozenbn_heldout_narrative_bn_eval.py</code> — in a single pass over the 296 held-out
+accidents, so every comparison is on identical inputs.</p>
+
+<div class="verify"><b>Verify it yourself.</b>
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py</pre>
+Runs the virtual-evidence self-test first (aborts if evidence does not propagate exactly), then
+scores all predictors on 296 accidents, printing progress and writing
+<code>outputs/heldout_narrative_bn_eval.json</code> (summary) and
+<code>outputs/heldout_per_item.json</code> (every accident's predictions — the file all
+statistics in Part 5 are computed from). Expect: 0 parse failures, 0 silent fallbacks, bn-sev
+90.9% / 77.4%. For a single-accident walkthrough with visible intermediate steps, run the demo:
+<pre>streamlit run Frozen-BN-Narrative-Evidence-2026-07-20/apps/frozenbn_streamlit_diagnosis_prognosis_demo.py</pre></div>
+
+<p class="crumb"><a href="part5-severity-evaluation.html">Next: Part 5 — Evaluating severity →</a></p>
+</div></body>
+</html>
