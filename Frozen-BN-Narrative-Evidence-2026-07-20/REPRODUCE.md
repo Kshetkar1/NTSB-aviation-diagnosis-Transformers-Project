@@ -46,6 +46,19 @@ frozen BN, Jul 2026):
 - Binary severe screening: severe injury 93.5% sens / 96.8% spec;
   severe damage 75.3% / 89.8%
 
+LLM-tier ablation (needs API key; writes `*_llm.json` so the canonical
+outputs above are untouched):
+
+```bash
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py --llm gpt-4.1 --tag _llm
+```
+
+Expected: llm-tier 68.9% / 51.4%, llm-first 69.9% / 57.8% (both below
+bn-sev -- the LLM reads text, it is not the predictive signal); tier usage
+176 deterministic / 120 LLM / 0 failures. Query embeddings are disk-cached
+(`shared/data/processed/query_emb_cache.npz`), so re-runs are
+deterministic and cost no embedding API calls.
+
 The eval self-tests that severity virtual evidence propagates (hard failure
 otherwise). `bn-fused` (event evidence + severity evidence together) is a
 NEGATIVE ablation: both signals derive from the same narrative, so

@@ -103,7 +103,7 @@ supervised embedding model is 4.3 points better than retrieval
 path alone reaches 57.7%, significantly above baseline (p = 4e-4) but
 well below the narrative readouts. We also report a negative result:
 ranking categories by posterior lift instead of posterior probability
-degrades top-1 to 49.8%, because lift amplifies low-prior nodes.
+degrades top-1 to 50.2%, because lift amplifies low-prior nodes.
 
 ### 5.5 Reproducibility
 

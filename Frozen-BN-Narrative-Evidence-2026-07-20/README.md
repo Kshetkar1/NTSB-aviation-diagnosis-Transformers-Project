@@ -39,6 +39,13 @@ specificity 96.8%; severe damage 75.3% / 89.8%. All 3 fatal accidents are
 flagged severe (at 4-class granularity they land on the adjacent SERS class;
 per-class recall disclosed in `outputs/heldout_significance.md`).
 
+LLM parsing tiers under the same leak-safe protocol (`--llm gpt-4.1`,
+outputs `*_llm.json`): tiered parser 68.9% / 51.4%, LLM-first 69.9% /
+57.8% -- both far below bn-sev, confirming the LLM is a text reader, not
+the predictive signal. Tier usage on 296 narratives: 176 deterministic,
+120 LLM fallback, 0 hard failures; redaction leaves 0 stated-severity
+detections.
+
 ## Diagnosis (cause-category, era-fair; 253 held-out)
 
 NTSB switched coding taxonomies in 2008, so exact-code matching across the
@@ -52,7 +59,7 @@ Truth = the category set of the accident's C/F findings.
 | **narrative retrieval (primary, zero-parameter)** | **83.8%** | **0.912** | vs freq: McNemar p<0.0001 |
 | emb-LR (supervised, needs coded labels) | 88.1% | 0.936 | beats retrieval p=0.027 |
 | BN event path (posterior) | 57.7% | 0.759 | beats freq (p=0.0004) |
-| BN event path (lift) | 49.8% | 0.721 | negative result: max-lift is noisy |
+| BN event path (lift) | 50.2% | 0.723 | negative result: max-lift is noisy |
 
 Narratives carry strong diagnostic signal: both readouts crush the
 frequency baseline; a supervised readout adds ~4 pp over zero-parameter
