@@ -109,8 +109,9 @@ network's value is reasoning" has three supervised witnesses instead of two.</di
   <tr><td>Redaction probe</td><td>Does redacted text still state outcomes? (No — mechanism tokens
       only.)</td>
       <td><code>tests/redaction_leak_probe.py</code> → <code>outputs/redaction_leak_probe.md</code></td></tr>
-  <tr><td>Mapping audit</td><td>Are the diagnosis rollup rules sound? (68/2/5 on 75 rows,
-      impact ≤ 2–3 pp.)</td>
+  <tr><td>Mapping sensitivity<br><span class="src">(not an audit — see below)</span></td>
+      <td>How much could the diagnosis rollup rules move the results? (Contested mass 316/5,062
+      findings = 6.2% → ≤ 2 pp, same direction for every predictor; observed +0.4 pp.)</td>
       <td><code>tests/diagnosis_mapping_audit_sample.py</code> →
           <code>outputs/mapping_audit_sample.csv</code> + <code>mapping_audit_summary.md</code></td></tr>
   <tr><td>Hyperparameter sweep</td><td>Was k tuned on test data? (No — flat plateau, k=25 ablation
@@ -125,6 +126,17 @@ network's value is reasoning" has three supervised witnesses instead of two.</di
       <td>Top of <code>tests/frozenbn_heldout_narrative_bn_eval.py</code> and
           <code>tests/lr_baseline_heldout.py</code></td></tr>
 </table>
+<div class="fail"><b>Why the mapping row is deliberately not called an audit.</b> Every other row in
+that table <em>measures a fact</em>: an ID either is or is not in the index, a probe either does or
+does not recover outcome words. The category mapping is different — it is a judgement about
+taxonomy, and the only defensible check on a judgement is a coder who is not you. Our 75-row review
+pass was an AI assistant with the rows then checked by the first author, which is self-review with
+extra steps; calling that an "audit" or "dual coding" would be an overclaim, so we do not. What we
+publish instead is the bound (Part 6.2): the contested rows are 6.2% of the mapped mass, they move
+absolute accuracy by at most 2 points in the same direction for every predictor, and every ordering
+the paper claims survives that by more than an order of magnitude. The rules themselves are two
+short keyword functions in the repository, so a reader who disagrees with a specific rule can change
+it and recompute.</div>
 
 <h2>7.5 The limitations we disclose (because no audit can remove them)</h2>
 <table>
@@ -149,15 +161,36 @@ network's value is reasoning" has three supervised witnesses instead of two.</di
   <tr><td>Retrospective text</td>
       <td>Narratives are written after investigation — this is not real-time prediction.</td>
       <td>Framed as triage/coding-assist/what-if analysis throughout (Part 1.3).</td></tr>
+  <tr><td>The network adds no severity accuracy</td>
+      <td><em>By construction</em>, not by accident: <code>bn-sev</code> and
+      <code>retrieval-sev</code> are identical on all 296 accidents (0 discordant), because the
+      network faithfully mediates the k-NN evidence rather than adding information to it.</td>
+      <td>Stated in the results, the README, and Part 5 — the contribution claimed is the reasoning
+      layer at zero accuracy cost, never predictive lift.</td></tr>
+  <tr><td>Four-category diagnosis granularity</td>
+      <td>The 2008 taxonomy break means legacy and CICTT codes share no vocabulary below CICTT's top
+      level, so the rollup to four categories is forced by the data, and the rollup itself rests on a
+      keyword rule set that no independent coder has checked.</td>
+      <td>Rules published in full; influence bounded at ≤ 2 pp, order-preserving (Part 6.2). Nothing
+      finer than category level is scored, and Part 6.5 says so.</td></tr>
+  <tr><td>Residual disagreement with Zhang</td>
+      <td>12 of the 93 published BN numbers still differ after the network upgrades (48 exact, 29
+      close).</td>
+      <td>Each is attributed, not hidden: a build-variance envelope quantifies how much tie-jitter in
+      Zhang's own construction moves cells, and his released <code>NTSB.xdsl</code> does not
+      reproduce his published Table 8 either (<code>outputs/bn_posterior_parity.json</code>).</td></tr>
 </table>
 
 <h2>7.6 What remains open, honestly</h2>
 <table>
   <tr><th>Item</th><th>Status</th></tr>
-  <tr><td>First-author confirmation of the 75 mapping-audit verdicts</td>
-      <td><b>Done (2026-07-29)</b> — all 75 rows adjudicated; 2 overturned rows corrected in
-      <code>categorize_legacy</code> and the evaluation rerun (retrieval 83.8% → 84.2%, nothing
-      else moved). Verdicts and notes: <code>outputs/mapping_audit_sample.csv</code>.</td></tr>
+  <tr><td>Independent coding of the category mapping</td>
+      <td><b>Not done, and reframed rather than promised.</b> The 75-row consistency review is
+      complete (2 rule defects corrected, evaluation rerun: retrieval 83.8% → 84.2%, nothing else
+      moved — <code>outputs/mapping_audit_sample.csv</code>), but it was self-review, so the paper
+      claims a sensitivity bound (≤ 2 pp, order-preserving) instead of a validated mapping. A truly
+      independent coder would upgrade this from "bounded" to "validated"; nothing else about the
+      paper depends on it.</td></tr>
   <tr><td>One-shot 2020–2024 confirmation run</td>
       <td>Planned; requires pulling and processing post-2019 NTSB data. The single strongest
       remaining upgrade to the evidence.</td></tr>
@@ -174,8 +207,10 @@ network's value is reasoning" has three supervised witnesses instead of two.</di
 <h2>7.7 The habit to take away</h2>
 <div class="why"><b>The pattern behind every fix in this part.</b> Each problem was found by
 asking "what would a hostile reviewer check first?" and then <em>running that check ourselves,
-before they could</em>. Leakage → probe it. Baseline fairness → build the attacker. Mapping rules
-→ audit a sample. Prose claims → recompute them from the per-item files (that is how a false
+before they could</em>. Leakage → probe it. Baseline fairness → build the attacker. Judgement calls
+you cannot independently verify (the category mapping) → bound how much they could possibly matter,
+and say plainly that a bound is not a validation. Prose claims → recompute them from the per-item
+files (that is how a false
 "all 3 fatal accidents are flagged severe" sentence was caught — the raw data said 1 of 3).
 The discipline generalizes far beyond this project: your results are only as strong as the
 strongest attack they have already survived.</div>

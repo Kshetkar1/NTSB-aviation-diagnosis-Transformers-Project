@@ -17,6 +17,8 @@ export PYTHONPATH="shared/code:Frozen-BN-Narrative-Evidence-2026-07-20/code:${PY
 
 ## 1. Foundation (Zhang reproduction)
 
+Convenience wrapper: `./scripts/reproduce_foundation.sh` (runs the three commands below).
+
 ```bash
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/reproduce_all_examples.py
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/zhang_conditional_method.py
@@ -90,11 +92,14 @@ to CICTT top-level categories (legacy subjects mapped by keyword rules,
 vs frequency baseline 45.8% (McNemar, Holm-corrected p<0.0001); supervised
 emb-LR 88.1% (beats retrieval p=0.041 -- disclosed; retrieval needs zero
 training). BN event path 57.7% (beats baseline, Holm p=0.0007); lift
-ranking 50.2% (disclosed negative result). Mapping rules audited and
-adjudicated by the first author (2026-07-29):
-`outputs/mapping_audit_sample.csv` + `outputs/mapping_audit_summary.md`
-(68/75 ok; 2 overturned rows corrected in the rules, rerun moved retrieval
-+0.4 pp only; residual mapping uncertainty ~2 pp, ordering unaffected).
+ranking 50.2% (disclosed negative result). The legacy-to-category rollup is a
+published keyword rule set; a 75-row stratified sample was reviewed for
+internal consistency (2 rule defects corrected, 5 boundary rows kept) and the
+contested mass (316/5,062 findings, 6.2%) bounds the mapping's effect at
+<= 2 pp in the same direction for every predictor, so the ordering is
+insensitive to mapping choices; observed effect was retrieval +0.4 pp only.
+Not independent dual coding, and not claimed as such -- see
+`outputs/mapping_audit_sample.csv` + `outputs/mapping_audit_summary.md`.
 
 ## 2b. Leakage + robustness audits
 

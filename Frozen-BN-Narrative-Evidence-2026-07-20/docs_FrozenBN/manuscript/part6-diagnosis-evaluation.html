@@ -60,29 +60,54 @@ map trivially (read the prefix); legacy findings map through explicit keyword ru
 (<code>categorize_legacy</code> in <code>tests/diagnosis_heldout_eval.py</code>) covering 97.6% of
 the window's cause/factor findings. We call this the <b>era-fair</b> evaluation.</div>
 
-<h2>6.2 Trust, but audit: the mapping audit</h2>
-<p>Hand-written mapping rules are a place bias can hide, so the rules were audited: a stratified
-75-row sample (50 legacy subject+person rows weighted by frequency, 25 CICTT rows as the anchor —
-their prefix IS the category, so they define the reference standard) was independently
-dual-coded, and every verdict was then adjudicated row by row by the first author (2026-07-29).</p>
+<h2>6.2 The rollup is a rule set, and its influence is bounded</h2>
+<p>Hand-written mapping rules are a place bias can hide, so the honest question is not "were the
+rules blessed by a reviewer?" but "how much could the rules be wrong by, and would that change any
+conclusion?" We answer the second question, because it is the one we can actually answer.</p>
+<p>A stratified 75-row sample of the rule set's decisions (50 legacy subject+person rows weighted by
+frequency, 25 CICTT rows as the anchor — their prefix IS the category, so they define the reference
+standard) was reviewed for internal consistency against CICTT's own conventions.</p>
 <table>
-  <tr><th>Adjudicated verdict</th><th>Rows</th><th>Outcome</th></tr>
-  <tr><td>ok</td><td>68 / 75 (90.7%)</td><td>Mapping agrees with CICTT conventions; accepted.</td></tr>
-  <tr><td>wrong → corrected</td><td>2</td><td>Overturned by the first author and fixed in the rules:
-      the management-attributed service-bulletin finding now maps to Organizational, and
-      "reason for occurrence undetermined" is excluded from cause mapping.</td></tr>
-  <tr><td>unsure → confirmed</td><td>5</td><td>Genuine CICTT boundary cases (person non-compliance vs
-      organizational procedure deficiency); the first author reviewed each and kept the mapping.</td></tr>
+  <tr><th>Review outcome</th><th>Rows</th><th>What happened</th></tr>
+  <tr><td>consistent with CICTT conventions</td><td>68 / 75 (90.7%)</td>
+      <td>Rule agrees with how the modern taxonomy treats that situation type.</td></tr>
+  <tr><td>rule defect → corrected</td><td>2</td><td>Fixed in the rules: the management-attributed
+      service-bulletin finding now maps to Organizational, and "reason for occurrence undetermined"
+      is excluded from cause mapping.</td></tr>
+  <tr><td>taxonomy boundary → mapping kept</td><td>5</td><td>Genuine CICTT boundary cases (person
+      non-compliance vs organizational procedure deficiency) where the taxonomy admits both
+      readings. These are the residual contested mass.</td></tr>
 </table>
-<p>The corrections were then <em>measured</em>: rerunning the evaluation moved retrieval from 83.8%
-to 84.2% and left every other predictor unchanged — consistent with the pre-adjudication bound
-(the contested rows touch 316 of 5,062 window findings, 6.2%, worst case ≤ 2–3 points, same
-direction for every predictor). Sample with adjudication notes:
-<code>outputs/mapping_audit_sample.csv</code>; tally and impact:
-<code>outputs/mapping_audit_summary.md</code>; sample generator (with a guard so it never
-overwrites filled-in verdicts): <code>tests/diagnosis_mapping_audit_sample.py</code>.</p>
+<div class="fail"><b>What this review is not.</b> The review pass was an AI assistant and the rows
+were then checked by the first author. That is <em>self-review with extra steps</em>, not
+independent dual coding, and we make no inter-rater claim from it. It found and fixed two real rule
+defects, which is worth something; it is not validation. The evidence that carries the paper's
+robustness claim is the bound in the next paragraph.</div>
+<div class="why"><b>The sensitivity bound — the actual evidence.</b> All seven contested rows
+together (2 corrected + 5 boundary) touch 316 of 5,062 window cause findings, <b>6.2% of the mapped
+mass</b>. Reassigning a category perturbs the retrieval neighborhood and the network's node scores
+in the <em>same direction for every predictor</em>, so the worst case a full reassignment of that
+mass could produce is <b>≤ 2 percentage points on absolute accuracy, identically signed across
+predictors</b>. Every gap the paper claims is far larger than that — retrieval over the BN event
+path is 26.5 points, the BN event path over the frequency baseline is 11.9 — so no admissible
+re-reading of the contested rows can reorder them. The measured effect of the two corrections
+confirms the scale: retrieval moved 83.8% → 84.2% and nothing else moved at all. Absolute
+accuracies therefore carry a residual mapping uncertainty of ≤ 2 points, and that is how they are
+stated.</div>
+<p class="src">Sample and per-row notes: <code>outputs/mapping_audit_sample.csv</code>; rule set,
+review outcome, and sensitivity bound: <code>outputs/mapping_audit_summary.md</code>; sample
+generator (with a guard so it never overwrites filled-in rows):
+<code>tests/diagnosis_mapping_audit_sample.py</code>. The file names retain the original "audit"
+wording; the framing above is the accurate description of what they contain.</p>
 
 <h2>6.3 The task and the metric, stated precisely</h2>
+<p>Remember from Part 4 that diagnosis is not a second system: the BN predictors below take the
+<em>same</em> parsed narrative evidence as the severity pipeline and read the <em>upstream</em>
+side of the same joint posterior — <code>tests/diagnosis_heldout_eval.py</code> queries
+P(node = Yes | evidence) for every candidate cause, finding, and person node in the network
+(evidence nodes excluded, so the parser cannot grade its own input), then ranks the four
+categories by their best node. What changes between Part 5 and Part 6 is only <em>which nodes
+get scored</em>.</p>
 <div class="vocab"><b>Vocabulary — truth sets and set-membership top-1.</b> An accident usually
 has several coded findings, so its truth is a <em>set</em> of categories (e.g. {Personnel,
 Environment}). Our headline metric: the prediction is correct if the model's top-ranked category
@@ -113,18 +138,34 @@ means the top answer is always right). Definitions are printed inside the result
 62% / Environment 72%) — it is not just parroting "Personnel." No predictor recovers the rare
 Organizational class (0 of 25) — same class-rarity failure mode as fatal injuries in Part 5, and
 disclosed the same way.</p>
-<div class="why"><b>How to read this table.</b> Three findings. (1) Narratives carry strong
-diagnostic signal — retrieval nearly doubles the frequency baseline with zero training.
-(2) A supervised model buys ~4 more points — the measured price of zero training, disclosed, not
-hidden. (3) The network's <em>event-evidence path</em> reaching 57.7% is the genuinely interesting
-scientific result: parsed narrative facts propagate through Zhang's CPTs to a node the pipeline
-was never pointed at, significantly above baseline. That is cross-node inference — the thing only
-a joint probabilistic model can do — measurably working.</div>
+<div class="why"><b>How to read this table.</b> Three findings, in the order of their strength.
+(1) The headline readout is <b>retrieval at 84.2%</b> — narratives carry strong diagnostic signal,
+nearly doubling the frequency baseline with zero training. (2) A supervised model beats it by 3.9
+points (88.1%, p = 0.041) — the measured price of needing no labels, disclosed, not hidden. (3) The
+network's <em>event-evidence path</em> at 57.7% is a <b>structured-inference result and a partial
+negative result at the same time, and it is not a headline</b>. Positive: parsed narrative facts
+propagate through Zhang's CPTs to nodes the pipeline was never pointed at and land significantly
+above baseline (Holm p = 0.0007) — cross-node inference, the thing only a joint probabilistic model
+can do, measurably working. Negative: it loses to plain retrieval by 26.5 points, so as a
+<em>predictor</em> of cause category it is not competitive, and we do not present it as one.</div>
 <div class="fail"><b>What we tried that did not work (and kept in the paper).</b> Ranking cause
 categories by <em>lift</em> (posterior ÷ prior, "which category increased most") sounded cleverer
 than ranking by posterior. It scores 50.2% — barely above the baseline — because lift amplifies
 noise on small priors. We report it because negative ablations are how a reader learns the design
 was chosen by measurement, not taste (the same lesson as bn-fused in Part 4).</div>
+
+<h2>6.5 What this evaluation does — and does not yet — cover</h2>
+<div class="fail"><b>The honest scope statement.</b> The pipeline <em>computes</em> posteriors for
+every individual upstream node (hundreds of specific findings, occurrences, and persons — the
+demo shows them for any narrative), but what is <em>quantitatively scored</em> here is only the
+four-category rollup. Finding-level or occurrence-level diagnosis accuracy is not evaluated —
+partly forced by the data (the 2008 taxonomy break means held-out truth labels do not share a
+vocabulary with the network's legacy-era nodes below the category level), and partly simply not
+yet done. One designed-but-not-yet-run experiment would sharpen the cross-node claim at a single
+specific node: feed only parsed event evidence, read the network's posterior on the <em>fire</em>
+node, and score it against the coded fire field (Part 7.6 lists it as open work). Until such
+results exist, the precise claim is: narratives demonstrably drive diagnosis at the category
+level (this part), and drive node-level posteriors that are demonstrated but not yet scored.</div>
 
 <div class="verify"><b>Verify it yourself.</b>
 <pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_heldout_eval.py
@@ -132,8 +173,8 @@ python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_emb_lr_baseline.p
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_mapping_audit_sample.py</pre>
 Outputs: <code>outputs/diagnosis_heldout_eval.md</code> (full report with metric definitions,
 Holm-corrected primary comparisons, per-category recall),
-<code>outputs/diagnosis_emb_lr.md</code>, and the audit CSV. The rollup rules you would audit are
-the two functions <code>categorize_legacy</code> / <code>categorize_cictt</code> in
+<code>outputs/diagnosis_emb_lr.md</code>, and the mapping-sample CSV. The rollup rules you would
+check are the two functions <code>categorize_legacy</code> / <code>categorize_cictt</code> in
 <code>tests/diagnosis_heldout_eval.py</code> — deliberately plain keyword rules, so anyone can
 read them.</div>
 
