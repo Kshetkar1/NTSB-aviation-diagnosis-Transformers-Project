@@ -5,17 +5,61 @@
 **Modes:** Diagnosis **and** prognosis (injury + damage)  
 **Readiness:** Phase C — repo paths + `./scripts/reproduce_paper.sh` verified (Jul 2026)
 
-Reproduce Zhang & Mahadevan (2021) BN from coded NTSB 1982–2006, **freeze** it, then at query time map free-text narratives to hard / soft / stated evidence on existing BN nodes (no retraining).
+Reproduce Zhang & Mahadevan (2021) BN from coded NTSB 1982–2006, **freeze**
+it, then at query time map free-text narratives to evidence on the network
+(no retraining).
 
-## Key results (296 held-out, 2007–2019)
+## The architecture (one sentence)
 
-| Predictor | Injury | Damage |
-|-----------|--------|--------|
-| prior | ~58.4% | ~42.6% |
-| full BN + narrative | ~88.5% | ~64.2% |
-| LR (train on build set) | ~87.5% | ~64.5% |
+Narrative → leak-safe redaction → (a) event evidence via deterministic parse +
+retrieval soft facts, and (b) k-NN severity likelihoods from the 100 most
+similar training accidents → **both enter the frozen BN** (Pearl virtual
+evidence / Jeffrey conditioning) → posteriors for diagnosis (causes) and
+prognosis (injury + damage).
 
-See `outputs/heldout_significance.md`.
+**Primary severity predictor: `bn-sev`** — the k-NN severity distribution
+enters the frozen network as virtual evidence on the multi-state severity
+nodes (per-target Jeffrey conditioning) and the posterior is read out of the
+BN. Verified lossless: the BN-mediated posterior reproduces the k-NN evidence
+distribution exactly (self-test in the eval, 0/296 discordant vs `retrieval-sev`).
+
+## Key results (296 held-out, 2007–2019; leak-safe)
+
+| Predictor | Injury top-1 | Damage top-1 | Notes |
+|-----------|--------|--------|-------|
+| majority class / BN prior | 58.4% | 42.6% | baseline |
+| soft-priority (BN event path) | 89.9% | 55.4% | diagnosis evidence only |
+| **bn-sev (primary)** | **90.9%** | **77.4%** | k-NN severity through frozen BN |
+| LR on parsed features (supervised) | 87.8% | 64.2% | McNemar vs bn-sev p=0.02 / p<0.001 |
+| LR on narrative embedding (supervised) | 91.6% | 74.0% | vs bn-sev p=0.50 / p=0.11 (n.s.) |
+| bn-fused (event + severity evidence) | 38.5% | 41.9% | **negative ablation** — same-narrative double counting |
+
+Binary severe-outcome screening (bn-sev): severe injury sensitivity 93.5% /
+specificity 96.8%; severe damage 75.3% / 89.8%. All 3 fatal accidents are
+flagged severe (at 4-class granularity they land on the adjacent SERS class;
+per-class recall disclosed in `outputs/heldout_significance.md`).
+
+## Leakage protocol (Jesse's audit, all measured)
+
+1. **Train/test:** 0 of 296 held-out IDs in the BN window or embedding index
+   (`tests/heldout_leak_audit.py`).
+2. **Outcome-in-text:** stated injury/damage phrases, death/medical wording,
+   AND NTSB full-report boilerplate (which marks fatal investigations) are
+   stripped before any embedding (`query_to_bn.redact_severity_phrases`).
+3. **Residual leak probe:** TF-IDF diagnostic on redacted text
+   (`tests/redaction_leak_probe.py`) — remaining predictive tokens are
+   crash-mechanism words (turbulence, landing gear, postcrash fire), not
+   outcome statements.
+4. Stated-severity readout exists only as an OFF-by-default ablation
+   (`LEAK_SAFE_SEVERITY`).
+
+## Free parameters / "what is trained?"
+
+Nothing in the primary pipeline is fitted; see
+`docs_FrozenBN/FREE_PARAMETERS.md` for the full inventory (frozen /
+calibrated / selected / fitted) and `outputs/hyperparam_sensitivity.md` for
+the internal-validation sweep (results stable across top_k 25–200; k=25
+variant: 89.9% / 77.7%, see `outputs/heldout_significance_k25.md`).
 
 ## Start here
 
@@ -25,7 +69,7 @@ See `outputs/heldout_significance.md`.
 
 ## Depends on `shared/`
 
-- `shared/code/main_app.py` — soft evidence neighbors  
+- `shared/code/main_app.py` — embeddings + retrieval  
 - `shared/code/config.py` — paths  
 - `shared/data/processed/` — embeddings + merged JSON  
 

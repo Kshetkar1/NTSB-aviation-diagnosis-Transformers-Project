@@ -80,6 +80,10 @@ USE_ZHANG_WINDOW = _window_ready and not USE_FULL_CORPUS and not USE_TRAIN_INDEX
 APPLY_CALIBRATION = not _env_truthy("NTSB_NO_CALIBRATION")
 GATE_DIAGNOSIS_BY_DEFAULT = not _env_truthy("NTSB_NO_GATING")
 
+# When True (default), never use stated injury/damage phrases or embed them for
+# retrieval — prevents outcome-in-text leakage on severity prediction.
+LEAK_SAFE_SEVERITY = not _env_truthy("NTSB_ALLOW_STATED_SEVERITY")
+
 CALIBRATION_RESULTS_PATH = (
     FROZEN_BN_DIR / "docs_FrozenBN" / "calibration_results.json"
 )

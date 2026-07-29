@@ -760,36 +760,25 @@ def render_bn_section(seed_evidence=None, query=None):
             rows.append(row)
         return pd.DataFrame(rows)
 
-    # ---- narrative severity readout -------------------------------------------
-    # What the narrative ITSELF says about severity: the similarity-weighted
-    # injury/damage distribution among the 100 most-similar accidents (same
-    # retrieval pool as the soft facts), sharpened by the stated-severity
-    # confusion likelihood when the narrative states the level outright
-    # ("...sustained substantial damage"). Held-out 2007-2019 (n=296):
-    # injury 93% / damage 81% top-1 accuracy -- beats the LR baseline on both.
+    # ---- narrative severity readout (leak-safe) --------------------------------
+    # Similarity-weighted injury/damage among neighbors; outcome phrases are
+    # stripped before embedding. Stated severity shown for transparency only.
     narr_sev = {}
+    stated_info = {}
     if query:
         try:
             import numpy as np
             import query_to_bn as qb
+            stated_info = qb.severity_statements(query)
             rdist = qb.severity_retrieval_distributions(
-                query, main_app.refined_dataset)
+                query, main_app.refined_dataset, leak_safe=True)
             if rdist:
-                stated = qb.severity_statements(query)
-                sev_lik = qb.severity_virtual_evidence(
-                    query, main_app.refined_dataset)
                 ni = np.array(rdist["injury"])
                 nd = np.array(rdist["damage"])
-                if "injury" in sev_lik:
-                    v = ni * np.array(sev_lik["injury"])
-                    ni = v / v.sum()
-                if "damage" in sev_lik:
-                    v = nd * np.array(sev_lik["damage"])
-                    nd = v / v.sum()
                 narr_sev = {
                     "injury": dict(zip(bu.INJ_STATES, ni.tolist())),
                     "damage": dict(zip(bu.DMG_STATES, nd.tolist())),
-                    "stated": stated,
+                    "stated": stated_info,
                 }
         except Exception:
             narr_sev = {}

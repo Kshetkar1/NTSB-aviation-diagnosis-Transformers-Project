@@ -37,7 +37,7 @@ What we built instead
   • LLM reads the story → frozen network (built from coded data) does the math
 
 What we proved
-  • Reproduce Zhang's tables; predict injury on 296 unseen accidents (~93%)
+  • Reproduce Zhang's tables; predict injury on 296 unseen accidents (~91%, leak-safe)
 
 What we tested for you
   • Structural mapping in every form we could think of — it never beat the baseline
@@ -133,17 +133,23 @@ Evidence types → frozen network
 
 ## Slide 7 — Does it work? Held-out 296 (~1.5 min)
 
-*Accidents 2007–2019 — never used to build the network.*
+*Accidents 2007–2019 — never used to build the network. **Leak-safe numbers**
+(outcome phrases stripped before embedding; stated-severity readout OFF —
+supersedes the pre-audit 93%/81% figures, which read severity wording
+from the text).*
 
 | Method | Injury accuracy | Damage accuracy |
 |--------|-----------------|-----------------|
-| Network prior alone (no narrative) | 58% | 43% |
-| Full narrative → BN | 89% | 64% |
-| Best readout (narr-sev) | **93%** | **81%** |
-| Supervised logistic regression | 88% | 65% |
-| LLM-only front door (no Tier 1) | 69% | 58% |
+| Network prior alone (no narrative) | 58.4% | 42.6% |
+| Event evidence → frozen BN (soft-priority) | 89.9% | 55.4% |
+| k-NN severity via frozen BN (bn-sev, primary) | **90.9%** | **77.4%** |
+| Supervised LR, parsed features | 87.8% | 64.2% |
+| Supervised LR, narrative embedding | 91.6% | 74.0% |
 
-**Takeaway:** *Narrative + frozen network matches/beats a supervised baseline on injury; LLM-only front door is worse.*
+**Takeaway:** *With zero trained parameters, the leak-safe pipeline beats the
+parsed-feature supervised baseline (McNemar p=0.02 injury / p<0.001 damage)
+and statistically ties the embedding LR (p=0.50 / 0.11). Severe-outcome
+screening: 93.5% sensitivity / 96.8% specificity on injury.*
 
 *SAY:* "Coded labels arrive late; narratives exist early — this is the practical win."
 
@@ -194,7 +200,9 @@ Your proposal (reasonable!)
 | Struct-first all accidents (V4) | No win on diagnosis; **catastrophic on severity** |
 | Hybrid embedding (V5) | Converges back to cosine — no gain |
 
-**Severity (296 held-out — same task as Slide 7)**
+**Severity (296 held-out — same task as Slide 7; run PRE-redaction, so the
+baseline reads 92.9%/81.4% — paired comparison is still valid because every
+struct variant saw the same text)**
 
 | Method | Injury | Damage |
 |--------|--------|--------|
@@ -292,7 +300,7 @@ Question for you
 → Agreed that's the remaining escape — but oracle bound on fixed pool was +0.4 pp max; ρ≈0.01 says the bottleneck is representation, not fusion formula.
 
 **"What's the actual contribution then?"**  
-→ Day-one narratives drive Zhang's frozen BN at ~93% injury on held-out data; LLM-only and struct-mapping paths falsified with evidence.
+→ Day-one narratives drive Zhang's frozen BN at ~91% injury / ~77% damage on leak-safe held-out data; LLM-only and struct-mapping paths falsified with evidence.
 
 ---
 

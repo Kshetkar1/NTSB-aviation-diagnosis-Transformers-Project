@@ -29,15 +29,41 @@ Expected: prior ~5.53e-7, Table 7 85/85, Section 4.3 brake/wiring in ~1–11% ba
 
 ```bash
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/lr_baseline_heldout.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/embedding_lr_baseline.py
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/heldout_significance.py
 ```
 
 Results: `Frozen-BN-Narrative-Evidence-2026-07-20/outputs/heldout_significance.md`
 
-Headline (full BN + narrative evidence):
-- Injury top-1 ~88.5% vs prior ~58.4%
-- Damage top-1 ~64.2% vs prior ~42.6%
-- LR baseline (trained on build set only): injury ~87.5%, damage ~64.5%
+Headline (leak-safe **bn-sev** = k-NN severity as virtual evidence through the
+frozen BN, Jul 2026):
+- Injury top-1 **90.9%** (CI 87.5–93.9%) vs parsed-LR **87.8%** (McNemar p=0.02)
+- Damage top-1 **77.4%** (CI 72.6–82.1%) vs parsed-LR **64.2%** (p<0.001)
+- vs embedding-LR (strongest supervised baseline, 91.6% / 74.0%): not
+  significantly different (p=0.50 injury, p=0.11 damage)
+- BN prior alone: injury 58.4%, damage 42.6%
+- Binary severe screening: severe injury 93.5% sens / 96.8% spec;
+  severe damage 75.3% / 89.8%
+
+The eval self-tests that severity virtual evidence propagates (hard failure
+otherwise). `bn-fused` (event evidence + severity evidence together) is a
+NEGATIVE ablation: both signals derive from the same narrative, so
+product-of-experts fusion double-counts and collapses to 38.5% / 41.9%.
+Outcome phrases and NTSB report boilerplate are stripped before any
+embedding; stated-severity evidence is off by default.
+
+## 2b. Leakage + robustness audits
+
+```bash
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/heldout_leak_audit.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/redaction_leak_probe.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/retrieval_hyperparam_sensitivity.py
+```
+
+Outputs: `heldout_leak_audit.md`, `redaction_leak_probe.md`,
+`hyperparam_sensitivity.md`. Free-parameter inventory (the "what is
+trained?" answer): `docs_FrozenBN/FREE_PARAMETERS.md`.
 
 ## 3. Streamlit demo
 

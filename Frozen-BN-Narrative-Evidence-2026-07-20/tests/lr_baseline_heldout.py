@@ -35,14 +35,14 @@ for _p in (_SHARED, _FROZEN_CODE):
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
 ROOT = REPO_ROOT
-sys.path.insert(0, str(ROOT / "tests"))
+sys.path.insert(0, str(FROZEN_DIR / "tests"))
 
 import numpy as np  # noqa: E402
 from sklearn.linear_model import LogisticRegression  # noqa: E402
 
 import prognosis as pg  # noqa: E402
 import query_to_bn as qb  # noqa: E402
-from heldout_narrative_bn_eval import truth_states, brier  # noqa: E402
+from frozenbn_heldout_narrative_bn_eval import truth_states, brier  # noqa: E402
 from bn_upgraded import build_upgraded, INJ_NODE, DMG_NODE  # noqa: E402
 
 

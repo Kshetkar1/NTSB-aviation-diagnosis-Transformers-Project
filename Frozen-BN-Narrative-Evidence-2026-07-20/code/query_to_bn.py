@@ -179,7 +179,7 @@ def _incident_bn_labels(inc: dict) -> set:
 def retrieval_facts(query: str, names, dataset: dict,
                     top_k: int = 100, min_fq: float = 0.15,
                     min_lift: float = 3.0, top_m: int = 3,
-                    max_conf: float = 0.95):
+                    max_conf: float = 0.95, leak_safe: bool = True):
     """Soft facts suggested by the narrative, via the SAME embedding retrieval
     the counting pipeline uses.
 
@@ -200,7 +200,7 @@ def retrieval_facts(query: str, names, dataset: dict,
     support = _label_support(dataset)
     n_total = len(dataset)
 
-    emb = main_app.get_embedding(query)
+    emb = main_app.get_embedding(inference_query(query, leak_safe=leak_safe))
     scores, matches = main_app.find_top_matches(emb)
     pool, seen = [], set()
     for s, m in zip(scores, matches):
@@ -255,16 +255,50 @@ DMG_CODES = ["DEST", "SUBS", "MINR", "NONE"]   # same order as bn_upgraded.DMG_S
 INJ_CODES = ["FATL", "SERS", "MINR", "NONE"]   # same order as bn_upgraded.INJ_STATES
 
 _DMG_STATED = [  # priority: worst level first
-    ("DEST", re.compile(r"\bwas destroyed\b|\bdestroyed the (airplane|aircraft|helicopter)\b|\b(airplane|aircraft|helicopter)\b[^.]{0,60}\bdestroyed\b")),
-    ("SUBS", re.compile(r"\bsubstantial(ly)? damage(d)?\b|\bsustained substantial\b")),
-    ("MINR", re.compile(r"\bminor damage\b")),
-    ("NONE", re.compile(r"\bwas not damaged\b|\bno damage\b|\bundamaged\b")),
+    ("DEST", re.compile(r"\bwas destroyed\b|\bdestroyed the (airplane|aircraft|helicopter)\b|\b(airplane|aircraft|helicopter)\b[^.]{0,60}\bdestroyed\b", re.I)),
+    ("SUBS", re.compile(r"\bsubstantial(ly)? damage(d)?\b|\bsustained substantial\b", re.I)),
+    ("MINR", re.compile(r"\bminor damage\b", re.I)),
+    ("NONE", re.compile(r"\bwas not damaged\b|\bno damage\b|\bundamaged\b", re.I)),
 ]
 _INJ_STATED = [
-    ("FATL", re.compile(r"\bfatal(ly)? injur|\bwas killed\b|\bwere killed\b|\bfatalit")),
-    ("SERS", re.compile(r"\bserious(ly)? injur|\bsustained serious\b")),
-    ("MINR", re.compile(r"\bminor injur")),
-    ("NONE", re.compile(r"\bwas not injured\b|\bwere not injured\b|\bno injur|\buninjured\b|\bnot injured\b")),
+    ("FATL", re.compile(r"\bfatal(ly)? injur\w*|\bwas killed\b|\bwere killed\b|\bfatalit\w*", re.I)),
+    ("SERS", re.compile(r"\bserious(ly)? injur\w*|\bsustained serious\b", re.I)),
+    ("MINR", re.compile(r"\bminor injur\w*", re.I)),
+    ("NONE", re.compile(r"\bwas not injured\b|\bwere not injured\b|\bno injur\w*|\buninjured\b|\bnot injured\b", re.I)),
+]
+
+# Redaction-only patterns: outcome-adjacent wording that must not survive
+# leak-safe inference, but is too unreliable to COUNT as a stated severity
+# level (e.g. "hospitalized" does not always mean coded serious injury).
+# These are stripped by redact_severity_phrases but never used as evidence.
+_REDACT_ONLY = [
+    # death without the word "injury": "the pilot died", "pronounced dead"
+    re.compile(r"\b(died|dies|dying|perished|deceased|succumbed(\s+to\s+\w+(\s+\w+)?\s+injur\w+)?)\b", re.I),
+    re.compile(r"\bfatal(ly)?\b", re.I),    # "fatal accident", "fatally wounded"
+    re.compile(r"\bpronounced dead\b|\bdead at the scene\b|\bkilled\b", re.I),
+    # post-mortem procedures only happen after a death
+    re.compile(r"\bautopsy\b|\bpost[- ]?mortem\b|\btoxicolog\w+\b|\bmedical examiner\b|\bcoroner\b", re.I),
+    # medical-response wording that encodes injury severity
+    re.compile(r"\blife[- ]threatening\b|\bhospitali[sz]ed\b|\bairlifted\b|"
+               r"\bmedevac(ed)?\b|\bair ambulance\b|"
+               r"\btransported to (a |the )?(local )?hospital\b", re.I),
+    # aircraft end-state wording that encodes the damage level
+    re.compile(r"\bwreckage\b|\bdemolished\b|\bdisintegrated\b|"
+               r"\bconsumed by (the )?(post[- ]?crash |post[- ]?impact )?fire\b", re.I),
+    # NTSB full-report boilerplate: only MAJOR (usually fatal) accidents get a
+    # full AAR, so citations of it leak severity through narrative style
+    # (probe found "ntsb aar", "report ... available", ntsb.gov URLs as top
+    # fatal/destroyed predictors). Exact phrasing: "The Safety Board's full
+    # report is available at http://... The Aircraft Accident Report number
+    # is NTSB/AAR-15/01."
+    re.compile(r"https?://\S+|\bwww\.\S+|\b\S+\.gov\S*|\b\S+\.aspx\b|\b\S+\.htm\S*", re.I),
+    re.compile(r"\b(the )?(safety board|national transportation safety board|"
+               r"ntsb|board)(['\u2019]s)?\s+(full |final )?(accident )?report"
+               r"[^.]*", re.I),
+    re.compile(r"\b(aircraft )?accident report (number )?is[^.]*", re.I),
+    re.compile(r"\b(this|the) (accident )?report (number )?(is|are|will be)"
+               r"\s+available[^.]*", re.I),
+    re.compile(r"\bntsb[/ ]?aar\S*|\baar[- ]?\d\d\S*", re.I),
 ]
 
 
@@ -279,6 +313,33 @@ def severity_statements(query: str) -> dict:
                 return code
         return None
     return {"damage": first(_DMG_STATED), "injury": first(_INJ_STATED)}
+
+
+def redact_severity_phrases(text: str) -> str:
+    """Remove explicit injury/damage level phrases for leak-free inference.
+
+    NTSB factual narratives often state the final severity ("substantial damage",
+    "fatal injuries"). Using those phrases to predict coded injury/damage is
+    outcome leakage. Strip them before embedding / stated-severity evidence.
+    """
+    out = text
+    for _, pat in _DMG_STATED + _INJ_STATED:
+        out = pat.sub(" ", out)
+    for pat in _REDACT_ONLY:
+        out = pat.sub(" ", out)
+    return " ".join(out.split())
+
+
+def inference_query(query: str, *, leak_safe: bool = True) -> str:
+    """Text safe for retrieval embedding and severity readout."""
+    try:
+        import config
+        if leak_safe and getattr(config, "LEAK_SAFE_SEVERITY", True):
+            return redact_severity_phrases(query)
+    except ImportError:
+        if leak_safe:
+            return redact_severity_phrases(query)
+    return query
 
 
 _SEV_CAL_CACHE: dict[int, dict] = {}
@@ -329,7 +390,8 @@ def severity_likelihoods(dataset: dict, alpha: float = 0.5) -> dict:
 
 
 def severity_retrieval_distributions(query: str, dataset: dict,
-                                     top_k: int = 100, alpha: float = 0.5):
+                                     top_k: int = 100, alpha: float = 0.5,
+                                     leak_safe: bool = True):
     """Similarity-weighted injury/damage distributions among the top_k accidents
     most similar to the narrative -- the SAME retrieval pool the soft-fact pass
     uses, aggregated over the severity outcomes instead of the event labels.
@@ -342,7 +404,7 @@ def severity_retrieval_distributions(query: str, dataset: dict,
     import main_app
     import prognosis as pg
 
-    emb = main_app.get_embedding(query)
+    emb = main_app.get_embedding(inference_query(query, leak_safe=leak_safe))
     scores, matches = main_app.find_top_matches(emb)
     pool, seen = [], set()
     for s, m in zip(scores, matches):
@@ -371,10 +433,80 @@ def severity_retrieval_distributions(query: str, dataset: dict,
     return {"injury": [x / si for x in inj], "damage": [x / sd for x in dmg]}
 
 
-def severity_virtual_evidence(query: str, dataset: dict) -> dict:
-    """Virtual-evidence likelihood vectors for the severity nodes, from what the
-    narrative STATES. Returns {} when nothing is stated, else a subset of
-    {"injury": [4 floats], "damage": [4 floats]} in network state order."""
+def merge_evidence_soft_priority(hard_conf: dict, softonly_conf: dict,
+                                 *, person_only: bool = True) -> dict:
+    """Combine retrieval soft facts with deterministic parse.
+
+    Soft retrieval wins on every node it covers. Hard evidence fills gaps:
+    by default only ``person:`` nodes (high precision); event nodes at
+    confidence 1.0 often mis-parse and hurt severity posteriors.
+    """
+    merged = dict(softonly_conf)
+    for node, c in hard_conf.items():
+        if person_only and not node.startswith("person: "):
+            continue
+        if node not in merged:
+            merged[node] = c
+    return merged
+
+
+def retrieval_severity_virtual_evidence(query: str, dataset: dict, bn,
+                                        leak_safe: bool = True,
+                                        rdist: dict | None = None) -> dict:
+    """Leak-safe k-NN severity as virtual evidence on multi-state nodes.
+
+    Similarity-weighted injury/damage frequencies among the top-k neighbors
+    are turned into likelihood vectors L(j) ∝ f_q(j) / p0(j) so Jeffrey
+    conditioning moves the network's severity posteriors toward f_q.
+
+    Pass a precomputed ``rdist`` (from severity_retrieval_distributions) to
+    avoid a redundant embedding + retrieval call.
+    """
+    import pyagrum as gum
+    from bn_upgraded import INJ_NODE, DMG_NODE, INJ_STATES, DMG_STATES
+
+    if rdist is None:
+        rdist = severity_retrieval_distributions(query, dataset,
+                                                 leak_safe=leak_safe)
+    if not rdist:
+        return {}
+    ie = gum.LazyPropagation(bn)
+    ie.addTarget(INJ_NODE)
+    ie.addTarget(DMG_NODE)
+    ie.makeInference()
+    out = {}
+    for key, node, states, fq in (
+            ("injury", INJ_NODE, INJ_STATES, rdist["injury"]),
+            ("damage", DMG_NODE, DMG_STATES, rdist["damage"])):
+        v = bn.variable(node)
+        post = ie.posterior(node)
+        # fq follows INJ_CODES/DMG_CODES order == INJ_STATES/DMG_STATES order;
+        # emit the likelihood vector in the node's native label order
+        by_state = dict(zip(states, fq))
+        lik = []
+        for i in range(v.domainSize()):
+            p0 = max(float(post[i]), 1e-12)
+            lik.append(by_state[v.label(i)] / p0)
+        m = max(lik)
+        out[key] = [x / m for x in lik]
+    return out
+
+
+def severity_virtual_evidence(query: str, dataset: dict,
+                              leak_safe: bool = True) -> dict:
+    """Virtual-evidence likelihood vectors for severity nodes from stated phrases.
+
+    Disabled by default (leak_safe=True): reading "substantial damage" from the
+    narrative to predict coded damage is outcome leakage. Set leak_safe=False or
+    NTSB_ALLOW_STATED_SEVERITY=1 only for ablation studies.
+    """
+    if leak_safe:
+        try:
+            import config
+            if getattr(config, "LEAK_SAFE_SEVERITY", True):
+                return {}
+        except ImportError:
+            return {}
     stated = severity_statements(query)
     if not (stated["damage"] or stated["injury"]):
         return {}
@@ -434,7 +566,8 @@ def apply_evidence(ie, bn, confidence: dict):
 
 def parse_query_to_bn_evidence(query: str, bn_names, dataset=None,
                                semantic: bool = False,
-                               semantic_threshold: float = 0.45) -> dict:
+                               semantic_threshold: float = 0.45,
+                               leak_safe: bool = True) -> dict:
     """Parse a free-text narrative into BN evidence nodes.
 
     bn_names : iterable of node names from the built network (bn.names()).
@@ -540,7 +673,7 @@ def parse_query_to_bn_evidence(query: str, bn_names, dataset=None,
     have_event_evidence = any(not e.startswith("person: ") for e in evidence)
     if semantic and dataset and not have_event_evidence:
         try:
-            soft = retrieval_facts(query, names, dataset)
+            soft = retrieval_facts(query, names, dataset, leak_safe=leak_safe)
         except Exception:
             soft = []
         for node, conf, why in soft:
