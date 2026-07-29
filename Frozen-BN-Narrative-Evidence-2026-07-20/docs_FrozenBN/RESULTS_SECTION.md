@@ -138,8 +138,10 @@ stricter (exact top-1 match per category), is reported separately.
 
 Retrieval nearly doubles the frequency baseline (Holm-adjusted p < 1e-4;
 the three baseline comparisons are the designated primary family) and
-is balanced across the three common categories (68/62/72% recall); no
-predictor recovers the rare Organizational class (25 cases). The
+is balanced across the three common categories (68/62/72% recall); the rare
+Organizational class (25 cases) is effectively unrecovered -- retrieval, the
+frequency baseline, and the lift ranking never place it first, and the BN
+event path does so once. The
 supervised embedding model is 3.9 points better than retrieval
 (p = 0.041, exploratory) -- the expected price of zero training -- while
 the BN event path alone reaches 57.7%, significantly above baseline
@@ -169,7 +171,8 @@ engineer away, stated without hedging.
 3. **Rare classes are not learnable from this window.** The held-out set
    contains 3 fatal-injury accidents (1 flagged severe on injury), 16
    minor-injury accidents (0 ranked top-1), and 25 Organizational-cause
-   accidents (0 recovered by any predictor). These n are too small to learn
+   accidents (best recovery by any predictor: 1 of 25). These n are too small
+   to learn
    or retrieve reliably, and no amount of modeling fixes that; we publish
    per-class recall and full confusion matrices rather than absorbing the
    misses into an accuracy average.

@@ -117,8 +117,9 @@ partial negative result: it clears the frequency baseline by 11.9 pp
 (Holm p = 0.0007), which is real evidence that parsed narrative facts propagate
 to cause nodes nothing pointed at, but it trails retrieval by 26.5 pp and is
 not a competitive predictor. Retrieval is balanced across
-Personnel/Aircraft/Environment (68/62/72%); no predictor catches the rare
-Organizational class (0/25).
+Personnel/Aircraft/Environment (68/62/72%); the rare Organizational class is
+effectively unrecoverable — retrieval, freq, and bn-lift never rank it first
+(0/25) and the BN event path does so exactly once (1/25).
 Full reports: `outputs/diagnosis_heldout_eval.md`,
 `outputs/diagnosis_emb_lr.md`.
 
@@ -160,7 +161,8 @@ Seven, none of them fixable by better engineering: (1) narratives are
 retrospective, so this is triage/coding-assist, not real-time prediction;
 (2) the BN adds **no** severity accuracy by construction (`bn-sev` =
 `retrieval-sev`, 0/296 discordant); (3) rare classes are hopeless at this n
-(3 fatal injuries, 16 minor, 0/25 Organizational); (4) the embedding model may
+(3 fatal injuries, 16 minor, Organizational recovered 1/25 at best); (4) the
+embedding model may
 have been pretrained on post-2006 NTSB text — TF-IDF LR is the pretraining-free
 reference and matches it; (5) 12 of Zhang's 93 published BN numbers still
 differ, attributed to his randomized tie-breaking and the fact that his own

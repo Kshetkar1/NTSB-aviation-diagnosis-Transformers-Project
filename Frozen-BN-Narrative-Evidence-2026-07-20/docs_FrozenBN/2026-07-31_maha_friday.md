@@ -92,7 +92,9 @@ prediction is right if its top category is among the coded causes (n=253).
 
 - Balanced: 68/62/72% recall on Personnel/Aircraft/Environment.
 - Disclosed: trained model is 3.9 points better (p=0.041) - the price of
-  needing no labels; and no method catches the rare Organizational class.
+  needing no labels; and the rare Organizational class is effectively
+  unrecoverable - retrieval never ranks it first (0/25), the network's event
+  path manages it once (1/25).
 - The similar-accidents vote (84.2%) is the headline readout, not the
   network's own event path. That path (57.7%) is a real structured-inference
   result - parsed facts reach cause nodes nothing pointed at, well above the

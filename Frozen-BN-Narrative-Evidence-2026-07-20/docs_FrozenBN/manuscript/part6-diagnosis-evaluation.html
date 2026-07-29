@@ -135,9 +135,10 @@ means the top answer is always right). Definitions are printed inside the result
       <td><b>Negative result</b>, reported deliberately: ranking by posterior lift is noisy.</td></tr>
 </table>
 <p>Recall balance: retrieval is even across the three common categories (Personnel 68% / Aircraft
-62% / Environment 72%) — it is not just parroting "Personnel." No predictor recovers the rare
-Organizational class (0 of 25) — same class-rarity failure mode as fatal injuries in Part 5, and
-disclosed the same way.</p>
+62% / Environment 72%) — it is not just parroting "Personnel." The rare Organizational class is
+effectively unrecovered: retrieval, the frequency baseline, and the lift ranking never rank it
+first (0 of 25) and the BN event path does so exactly once (1 of 25) — the same class-rarity failure
+mode as fatal injuries in Part 5, and disclosed the same way.</p>
 <div class="why"><b>How to read this table.</b> Three findings, in the order of their strength.
 (1) The headline readout is <b>retrieval at 84.2%</b> — narratives carry strong diagnostic signal,
 nearly doubling the frequency baseline with zero training. (2) A supervised model beats it by 3.9
