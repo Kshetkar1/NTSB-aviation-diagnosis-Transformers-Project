@@ -1,6 +1,6 @@
 # Project map — NTSB aviation research
 
-**Phase C readiness (2026-07-28):** Root is clean; data in `shared/data/processed/`; foundation repro verified via `./scripts/reproduce_paper.sh` (13/13 PASS on `reproduce_all_examples.py`).
+**Phase C readiness (2026-07-28):** Root is clean; data in `shared/data/processed/`; Zhang foundation verified via `./scripts/reproduce_foundation.sh` (3 scripts; 13/13 PASS on `reproduce_all_examples.py`). Full paper eval (held-out, diagnosis, audits): `Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md`.
 
 **Start here for the current paper:**  
 `Frozen-BN-Narrative-Evidence-2026-07-20/README.md`  

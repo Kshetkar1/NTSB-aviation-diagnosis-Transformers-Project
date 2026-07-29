@@ -6,7 +6,7 @@ Repository reorganized by **approach** (each experiment in its own folder).
 
 **Current paper (ACCEPTED):** [`Frozen-BN-Narrative-Evidence-2026-07-20/`](Frozen-BN-Narrative-Evidence-2026-07-20/)
 
-**Reproduce:** [`Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md`](Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md) or `./scripts/reproduce_paper.sh`
+**Reproduce:** [`Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md`](Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md) (full eval) or `./scripts/reproduce_foundation.sh` (Zhang foundation only, ~minutes)
 
 **Run demo:** `./run_app.sh`
 

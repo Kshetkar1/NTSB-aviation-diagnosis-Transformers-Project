@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-# Run foundation reproduction tests for the current (Frozen-BN) paper path.
+# Foundation-only reproduction (Zhang BN): 3 quick tests (~minutes).
+# Does NOT run held-out eval, diagnosis eval, or leakage audits.
+# For full paper verification see Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -21,3 +23,4 @@ done
 
 echo ""
 echo "All foundation reproduction scripts completed successfully."
+echo "For held-out eval and full paper checks, see Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md"
