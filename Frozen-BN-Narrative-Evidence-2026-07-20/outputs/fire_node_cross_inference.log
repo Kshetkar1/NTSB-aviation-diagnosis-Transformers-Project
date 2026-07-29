@@ -1,0 +1,67 @@
+🧠 Loading knowledge base (Zhang window 1982-2006 (set NTSB_FULL_CORPUS=1 for full corpus))...
+✅ Knowledge base loaded successfully!
+frozen network: 785 nodes, 1438 arcs
+fire-lexicon nodes barred from evidence: 23
+ancestors of 'fire': 13 (6 barred by the fire lexicon, 7 still enterable)
+  enterable ancestors: ['airport facilities, refueling truck/equipment', 'brakes, anti-skid', 'communication/navigation equipment, antenna', 'electrical system, auxiliary power unit (apu)', 'exhaust system, stack', 'fuel system, primer system', 'person: flightcrew']
+  children of 'fire': ['aircraft damage', 'personnel injury'] (never observed, so that collider stays blocked)
+frozen prior P(fire=Yes) = 7.722860e-08  (Zhang's per-flight scale, not a per-accident probability)
+cohort: 296 accidents; identical to outputs/cohort_manifest.json severity cohort: True
+window fire base rate [coded-field]: 208 yes / 1440 no / 94 unknown  (n=1742)
+window fire base rate [occurrence]: 113 yes / 1510 no / 119 unknown  (n=1742)
+fire-family nodes read out: ['fire', 'fire/explosion', 'explosion'] (priors ['7.723e-08', '7.994e-08', '2.733e-08'])
+  ... 25/296
+  ... 50/296
+  ... 75/296
+  ... 100/296
+  ... 125/296
+  ... 150/296
+  ... 175/296
+  ... 200/296
+  ... 225/296
+  ... 250/296
+  ... 275/296
+supervised TF-IDF LR fire arms trained: ['tfidf-lr[masked]:coded-field', 'tfidf-lr[masked]:occurrence', 'tfidf-lr[plain]:coded-field', 'tfidf-lr[plain]:occurrence']
+
+evidence entered per accident (soft-priority, post-guard): plain mean 3.75, masked mean 3.78
+leak guard [plain]: 43/296 accidents had >=1 fire-lexicon evidence node excluded (44 node-instances total)
+   most-excluded nodes: [('fire', 42), ('explosion', 2)]
+leak guard [masked]: 19/296 accidents had >=1 fire-lexicon evidence node excluded (19 node-instances total)
+   most-excluded nodes: [('fire', 19)]
+posterior moved off the prior: bn-all-events[masked] 253/296, bn-all-events[plain] 251/296, bn-fire-family[masked] 244/296, bn-fire-family[plain] 243/296, bn-soft-priority[masked] 246/296, bn-soft-priority[plain] 247/296
+evidence on an enterable ancestor of 'fire' [plain]: 143/296 accidents
+evidence on an enterable ancestor of 'fire' [masked]: 143/296 accidents
+
+[coded-field] base rate 29/295 = 9.8%
+   prior                        AUC 0.500 [0.500,0.500]  AP 0.098  Brier 0.0983  distinct 1
+   keyword-fire                 AUC 0.940 [0.897,0.970]  AP 0.533  Brier 0.0814  distinct 2
+   bn-soft-priority[plain]      AUC 0.381 [0.256,0.511]  AP 0.092  Brier 0.0978  distinct 105
+   bn-all-events[plain]         AUC 0.385 [0.261,0.513]  AP 0.093  Brier 0.0978  distinct 109
+   bn-fire-family[plain]        AUC 0.377 [0.252,0.509]  AP 0.095  Brier 0.0978  distinct 100
+   retrieval[plain]             AUC 0.975 [0.948,0.992]  AP 0.847  Brier 0.0450  distinct 114
+   retrieval-w[plain]           AUC 0.975 [0.949,0.993]  AP 0.848  Brier 0.0445  distinct 212
+   bn-soft-priority[masked]     AUC 0.374 [0.249,0.507]  AP 0.095  Brier 0.0978  distinct 103
+   bn-all-events[masked]        AUC 0.392 [0.268,0.521]  AP 0.094  Brier 0.0977  distinct 110
+   bn-fire-family[masked]       AUC 0.376 [0.250,0.508]  AP 0.095  Brier 0.0978  distinct 101
+   retrieval[masked]            AUC 0.956 [0.919,0.983]  AP 0.748  Brier 0.0561  distinct 107
+   retrieval-w[masked]          AUC 0.958 [0.924,0.983]  AP 0.752  Brier 0.0557  distinct 212
+   tfidf-lr[plain]              AUC 0.986 [0.972,0.996]  AP 0.905  Brier 0.0554  distinct 295
+   tfidf-lr[masked]             AUC 0.961 [0.927,0.986]  AP 0.789  Brier 0.0644  distinct 295
+[occurrence] base rate 25/257 = 9.7%
+   prior                        AUC 0.500 [0.500,0.500]  AP 0.097  Brier 0.0973  distinct 1
+   keyword-fire                 AUC 0.933 [0.882,0.967]  AP 0.505  Brier 0.0895  distinct 2
+   bn-soft-priority[plain]      AUC 0.431 [0.296,0.564]  AP 0.097  Brier 0.0966  distinct 89
+   bn-all-events[plain]         AUC 0.436 [0.301,0.570]  AP 0.098  Brier 0.0966  distinct 92
+   bn-fire-family[plain]        AUC 0.424 [0.287,0.560]  AP 0.100  Brier 0.0966  distinct 86
+   retrieval[plain]             AUC 0.981 [0.961,0.996]  AP 0.890  Brier 0.0451  distinct 92
+   retrieval-w[plain]           AUC 0.981 [0.961,0.996]  AP 0.890  Brier 0.0449  distinct 151
+   bn-soft-priority[masked]     AUC 0.423 [0.285,0.560]  AP 0.100  Brier 0.0966  distinct 87
+   bn-all-events[masked]        AUC 0.457 [0.327,0.588]  AP 0.099  Brier 0.0966  distinct 93
+   bn-fire-family[masked]       AUC 0.423 [0.286,0.559]  AP 0.100  Brier 0.0966  distinct 87
+   retrieval[masked]            AUC 0.960 [0.921,0.987]  AP 0.786  Brier 0.0596  distinct 88
+   retrieval-w[masked]          AUC 0.961 [0.926,0.987]  AP 0.789  Brier 0.0595  distinct 149
+   tfidf-lr[plain]              AUC 0.989 [0.977,0.997]  AP 0.918  Brier 0.0658  distinct 257
+   tfidf-lr[masked]             AUC 0.955 [0.911,0.985]  AP 0.790  Brier 0.0724  distinct 257
+
+wrote /Users/kanushetkar/Desktop/Vanderbilt_University/Internships/RRR/Current_Projects/NTSB/NTSB_Shivy/Frozen-BN-Narrative-Evidence-2026-07-20/outputs/fire_node_cross_inference.md
+wrote /Users/kanushetkar/Desktop/Vanderbilt_University/Internships/RRR/Current_Projects/NTSB/NTSB_Shivy/Frozen-BN-Narrative-Evidence-2026-07-20/outputs/fire_node_cross_inference.json
