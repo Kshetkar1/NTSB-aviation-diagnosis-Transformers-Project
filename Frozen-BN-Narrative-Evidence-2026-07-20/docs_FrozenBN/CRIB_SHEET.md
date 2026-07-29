@@ -38,8 +38,8 @@ measured fraction -- soft-evidence strengths counted from retrieved
 neighbors; or (c) a selected hyperparameter -- top_k=100, chosen on an
 internal 2002-2006 validation split, never on the held-out years. Full
 inventory: `docs_FrozenBN/FREE_PARAMETERS.md`. The only FITTED models in
-the repo are the two supervised baselines (lr, emb-lr) we run against
-ourselves for comparison.
+the repo are the three supervised baselines (lr, emb-lr, tfidf-lr) we run
+against ourselves for comparison.
 
 ## "So what are you training? Where's the validation set?" (Jesse)
 
@@ -73,6 +73,11 @@ redaction leak probe (a classifier on the redacted text keys on crash
 mechanics, not outcome words -- `tests/redaction_leak_probe.py`) and a
 held-out leak audit (`tests/heldout_leak_audit.py`). Numbers dropped from
 93%/81% to 90.9%/77.4% when we fixed this -- we report the honest ones.
+Say the scope precisely if pressed: redaction removes explicit outcome
+STATEMENTS, not outcome predictability -- mechanism wording still predicts
+severity, which is the legitimate signal every model uses. We even
+promoted the probe itself into the baseline table (tfidf-lr) so nobody can
+say we hid it.
 
 ## "What is the BN contributing?" (both advisors)
 
@@ -115,13 +120,15 @@ Baseline gaps significant by McNemar with Holm correction.
 
 ## "A linear model beats you -- why is your architecture justified?"
 
-We ran that attack ourselves, on the identical 296-accident cohort.
-Severity: emb-LR 91.6%/74.0% vs our 90.9%/77.4% -- no significant
-difference (Holm p=1.0 injury / 0.22 damage); we're better on damage
-severe-recall (75.3% vs 67.9% sensitivity), and we significantly beat the
-parsed-feature LR (85.5%/60.1%; Holm p=0.005 / p<0.0001). Diagnosis:
-emb-LR 88.1% does beat retrieval 83.8% (p=0.027) -- we disclose it. The
-answer:
+We ran that attack ourselves, on the identical 296-accident cohort --
+three times over (parsed-feature LR, embedding LR, TF-IDF LR).
+Severity: emb-LR 91.6%/74.0% and TF-IDF-LR 92.2%/73.3% vs our 90.9%/77.4%
+-- no significant difference with either (all Holm p >= 0.29; TF-IDF is
+numerically best on injury, we are numerically best on damage); we're
+better on damage severe-recall (75.3% vs 67.9% emb / 58.0% tfidf
+sensitivity), and we significantly beat the parsed-feature LR
+(85.5%/60.1%; Holm p=0.006 / p<0.0001). Diagnosis: emb-LR 88.1% does beat
+retrieval 83.8% (p=0.027) -- we disclose it. The answer:
 the supervised model needs coded labels to train and outputs an opaque
 score; our chain needs zero training and every prediction decomposes into
 named evidence on a validated causal network. Close-to-parity with zero

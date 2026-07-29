@@ -51,14 +51,18 @@ among fatal/serious/minor/none (injury) or destroyed/substantial/minor/none
 | Always guess the most common outcome | 58.4% | 42.6% |
 | Facts parsed from the text -> network | 82.4% | 50.7% |
 | Similar-accidents readout -> network (OURS) | 90.9% | 77.4% |
-| Trained model on the same text (comparison) | 91.6% | 74.0% |
+| Trained embedding model (comparison) | 91.6% | 74.0% |
+| Trained word-frequency model (comparison) | 92.2% | 73.3% |
 
 - Outcome sentences are stripped from every narrative before ANY use --
   embedding AND parsing -- so the model can't read the answer in the text
   (that fix moved us from 93/81 to the honest 90.9/77.4).
-- OURS vs trained model: statistical tie (Holm p=1.0 injury / 0.22 damage);
-  we're stronger on severe damage (75% vs 68% of severe cases caught) -
-  and we require zero training.
+- OURS vs both trained models: statistical ties (all Holm p >= 0.29). They
+  edge us on injury, we edge them on damage, and we're clearly stronger on
+  severe damage caught (75% vs 68% / 58%) -- with zero training.
+- Honest framing: accuracy is a commodity any text model reaches; what the
+  network adds is reasoning (joint queries, what-ifs, explanations), not
+  accuracy.
 
 Footer: outputs/heldout_significance.md
 

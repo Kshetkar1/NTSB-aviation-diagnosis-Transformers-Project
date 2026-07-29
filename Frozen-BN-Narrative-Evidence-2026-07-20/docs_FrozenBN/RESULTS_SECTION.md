@@ -30,16 +30,22 @@ To prevent outcome leakage, severity-stating phrases ("was destroyed",
 deterministic redaction pass before any embedding or parsing (all
 predictors, including the deterministic and LLM parsers, receive only
 redacted text), and narrative-stated severity is excluded as evidence.
-Three audits support this: a window-trained TF-IDF probe scored once on
-the held-out set (full vs redacted text differ by 0.0 pp injury / 2.4 pp
-damage, so redaction removes the residual outcome leak), a
-token-attribution check on the redacted text (the predictive tokens are
-crash-mechanism words, not outcome words), and a held-out ID audit
-(0/296 overlaps). Retrieval hyperparameters are the pipeline's pre-set
-defaults (k = 100 neighbors, matching the evidence-retrieval pool); an
-internal 2002-2006 validation slice and a held-out k=25 ablation both
-show a flat plateau around them. The held-out years were touched only
-for the final scoring reported here. No component of the primary
+Redaction's scope is stated precisely: it removes explicit outcome
+statements, not outcome predictability -- mechanism wording (stall,
+turbulence, gear collapse) legitimately predicts severity, and a
+window-trained TF-IDF probe confirms the redacted text retains that
+mechanism signal (full vs redacted differ by 0.0 pp injury / 2.4 pp
+damage) while a token-attribution check confirms the predictive tokens
+are mechanism words, not outcome words. A held-out ID audit shows 0/296
+overlaps with the window. Retrieval hyperparameters are the pipeline's
+pre-set defaults (k = 100 neighbors, matching the evidence-retrieval
+pool); an internal 2002-2006 validation slice and a held-out k=25
+ablation both show a flat plateau around them. Limitation, disclosed:
+the held-out window was scored repeatedly during development (protocol
+fixes, ablation design), so the reported accuracies may carry some
+selection optimism; no model parameter was ever fitted to held-out data,
+but a one-shot confirmation on a never-evaluated window (e.g. 2020-2024)
+is the appropriate confirmatory follow-up. No component of the primary
 pipeline is trained: the free-parameter inventory (FREE_PARAMETERS.md)
 classifies every quantity as frozen (network CPTs), measured (evidence
 strengths, counted as fractions of retrieved neighbors), or a fixed
@@ -54,7 +60,7 @@ and exact McNemar tests for paired comparisons.
 
 All predictors and baselines are scored on the identical 296-accident
 cohort (same narrative filter, truncation, and redaction; the accident
-IDs are published in cohort_manifest.json). Four comparisons per target
+IDs are published in cohort_manifest.json). Five comparisons per target
 were designated primary and Holm-Bonferroni-corrected; all other
 contrasts are reported as exploratory.
 
@@ -63,19 +69,28 @@ contrasts are reported as exploratory.
 | Majority class (prior) | 58.4% | 0.184 | 42.6% | 0.149 |
 | Parsed events only (hard+soft) | 82.4% | 0.422 | 50.7% | 0.309 |
 | Supervised LR (parsed features) | 85.5% | 0.440 | 60.1% | 0.408 |
+| Supervised LR (TF-IDF text) | 92.2% | 0.603 | 73.3% | 0.621 |
 | Supervised LR (embedding) | 91.6% | 0.474 | 74.0% | 0.543 |
 | **Narrative -> BN (bn-sev)** | **90.9%** | **0.470** | **77.4%** | **0.697** |
 
 The full chain improves on the network prior by +32.5 points on injury
 and +34.8 on damage (both Holm-adjusted p < 1e-4, McNemar exact), and
 significantly outperforms the supervised logistic regression on parsed
-features (Holm p = 0.005 injury, p < 1e-4 damage). Against the strongest
-supervised baseline -- logistic regression on the raw narrative embedding,
-trained on 1,742 labeled window accidents -- the zero-parameter chain is
-statistically indistinguishable (Holm p = 1.0 injury, p = 0.22 damage)
-and higher on damage Macro-F1 (0.697 vs 0.543). As a severe-outcome screen (fatal-or-serious
-vs rest), the chain reaches 93.5% sensitivity / 96.8% specificity for
-injury and 75.3% / 89.8% for damage. Remaining failure modes are the rare
+features (Holm p = 0.006 injury, p < 1e-4 damage). Against the two
+strongest supervised baselines -- logistic regression on the raw
+narrative embedding and on TF-IDF bag-of-words text, both trained on the
+1,286 window accidents with usable narratives -- the zero-parameter chain
+is statistically indistinguishable (embedding: Holm p = 1.0 injury /
+0.29 damage; TF-IDF: Holm p = 0.87 injury / 0.29 damage). The TF-IDF
+model is numerically the best injury predictor (92.2%, 8 discordant
+accidents vs bn-sev) and has the best injury Macro-F1 (0.603); the chain
+is numerically best on damage and clearly best on damage Macro-F1 (0.697
+vs 0.621/0.543). We note the TF-IDF baseline originated as our redaction
+leak probe and was promoted to the baseline table, configuration
+unchanged, once its strength was apparent. As a severe-outcome screen
+(fatal-or-serious vs rest), the chain reaches 93.5% sensitivity / 96.8%
+specificity for injury and 75.3% / 89.8% for damage (TF-IDF: 94.4%/98.9%
+injury but only 58.0%/93.0% damage). Remaining failure modes are the rare
 classes: fatal injuries (3 cases) and minor injuries (16) are never
 top-1; we report the full confusion matrices in the appendix.
 

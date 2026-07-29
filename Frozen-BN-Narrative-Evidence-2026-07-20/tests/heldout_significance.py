@@ -121,6 +121,15 @@ def main():
                     {k: v for k, v in r.items() if k.startswith("emb-lr:")})
         predictors.append("emb-lr")
 
+    tfidf_path = (ROOT / "Frozen-BN-Narrative-Evidence-2026-07-20" /
+                  "outputs" / "tfidf_lr_per_item.json")
+    if tfidf_path.exists():
+        for r in json.loads(tfidf_path.read_text())["items"]:
+            if r["id"] in items:
+                items[r["id"]].update(
+                    {k: v for k, v in r.items() if k.startswith("tfidf-lr:")})
+        predictors.append("tfidf-lr")
+
     rows = list(items.values())
     emit("# Held-out significance report")
     emit()
@@ -166,8 +175,8 @@ def main():
         emit()
 
     # ---- per-class recall + confusion matrices ----------------------------
-    key_preds = [p for p in ("bn-sev", "retrieval-sev", "emb-lr", "lr",
-                             "soft-priority", "prior")
+    key_preds = [p for p in ("bn-sev", "retrieval-sev", "emb-lr", "tfidf-lr",
+                             "lr", "soft-priority", "prior")
                  if p in predictors]
     for tgt, labels in (("inj", INJ_LABELS), ("dmg", DMG_LABELS)):
         label = "Injury" if tgt == "inj" else "Damage"
@@ -254,8 +263,10 @@ def main():
     primary = [("bn-sev", "prior"),          # narrative signal beats BN alone?
                ("bn-sev", "lr"),             # competitive with supervised LR?
                ("bn-sev", "emb-lr"),         # competitive with embedding LR?
+               ("bn-sev", "tfidf-lr"),       # competitive with raw-text LR?
                ("bn-sev", "retrieval-sev")]  # does BN mediation cost accuracy?
     pairs = primary + [
+             ("tfidf-lr", "emb-lr"), ("tfidf-lr", "lr"),
              ("bn-sev", "bn-fused"),
              ("bn-sev", "hard+soft"), ("bn-sev", "soft-priority"),
              ("retrieval-sev", "lr"), ("retrieval-sev", "emb-lr"),
@@ -286,12 +297,12 @@ def main():
 
     emit("## Multiplicity policy")
     emit()
-    emit("Four comparisons per target are designated PRIMARY (confirmatory): "
-         "bn-sev vs prior, bn-sev vs lr, bn-sev vs emb-lr, and bn-sev vs "
-         "retrieval-sev. Holm-Bonferroni correction is applied within each "
-         "target's primary family (m = 4). All other rows are EXPLORATORY "
-         "ablations; their raw p-values are shown without correction and "
-         "should not be read as confirmatory tests.")
+    emit("Five comparisons per target are designated PRIMARY (confirmatory): "
+         "bn-sev vs prior, bn-sev vs lr, bn-sev vs emb-lr, bn-sev vs "
+         "tfidf-lr, and bn-sev vs retrieval-sev. Holm-Bonferroni correction "
+         "is applied within each target's primary family (m = 5). All other "
+         "rows are EXPLORATORY ablations; their raw p-values are shown "
+         "without correction and should not be read as confirmatory tests.")
     emit()
 
     for tgt in ("inj", "dmg"):

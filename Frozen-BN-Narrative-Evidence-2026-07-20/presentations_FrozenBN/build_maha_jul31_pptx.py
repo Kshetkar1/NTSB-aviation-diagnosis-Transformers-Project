@@ -165,11 +165,13 @@ add_table(s, [
     ["Always guess the most common outcome", "58.4%", "42.6%"],
     ["Facts parsed from the text \u2192 network", "82.4%", "50.7%"],
     ["Similar-accidents readout \u2192 network (OURS)", "90.9%", "77.4%"],
-    ["Trained model on the same text (comparison)", "91.6%", "74.0%"],
-], 0.9, 2.15, 11.4, 2.6, col_widths=[7.4, 2.0, 2.0], font_size=14, bold_row=3)
+    ["Trained embedding model (comparison)", "91.6%", "74.0%"],
+    ["Trained word-frequency model (comparison)", "92.2%", "73.3%"],
+], 0.9, 2.15, 11.4, 2.9, col_widths=[7.4, 2.0, 2.0], font_size=14, bold_row=3)
 add_takeaway(s, "Outcome sentences are stripped before ANY use of the text \u2014 the honest numbers "
-                "(93/81 was pre-fix). Statistical tie with the trained model; stronger on severe damage.",
-             top=5.15, size=14)
+                "(93/81 was pre-fix). Statistical ties with both trained models; stronger on severe "
+                "damage \u2014 and zero training.",
+             top=5.35, size=14)
 add_footer(s, "outputs/heldout_significance.md")
 
 # ---- 6 WHAT ACCURACY HIDES

@@ -39,7 +39,7 @@ over retrieval would be false and are made nowhere.
 
 All baselines run on the IDENTICAL 296-accident cohort (same narrative
 filter, truncation, and redaction; `outputs/cohort_manifest.json` lists the
-IDs). Pairwise p-values are Holm-Bonferroni-corrected within the four
+IDs). Pairwise p-values are Holm-Bonferroni-corrected within the five
 designated primary comparisons per target
 (`outputs/heldout_significance.md`).
 
@@ -48,9 +48,20 @@ designated primary comparisons per target
 | majority class / BN prior | 58.4% | 42.6% | baseline |
 | soft-priority (BN event path) | 89.9% | 55.4% | diagnosis evidence only |
 | **bn-sev (primary)** | **90.9%** | **77.4%** | k-NN severity through frozen BN |
-| LR on parsed features (supervised) | 85.5% | 60.1% | bn-sev better: Holm p=0.005 / p<0.0001 |
-| LR on narrative embedding (supervised) | 91.6% | 74.0% | vs bn-sev n.s.: Holm p=1.0 / p=0.22 |
+| LR on parsed features (supervised) | 85.5% | 60.1% | bn-sev better: Holm p=0.006 / p<0.0001 |
+| LR on narrative embedding (supervised) | 91.6% | 74.0% | vs bn-sev n.s.: Holm p=1.0 / p=0.29 |
+| LR on TF-IDF text (supervised) | 92.2% | 73.3% | vs bn-sev n.s.: Holm p=0.87 / p=0.29 |
 | bn-fused (event + severity evidence) | 38.5% | 41.9% | **negative ablation** — same-narrative double counting |
+
+The TF-IDF row is the leak-probe model promoted to a first-class baseline
+(`tests/tfidf_lr_baseline_heldout.py`, probe configuration unchanged): it
+is numerically the best injury predictor (statistical tie, 8 discordant
+accidents) and below bn-sev on damage. bn-sev keeps the best damage
+Macro-F1 (0.697 vs 0.621) and damage severe-screen sensitivity (75.3% vs
+58.0%), and requires zero supervised training. The honest headline is that
+supervised text models and the zero-parameter chain sit in one statistical
+tie on accuracy; the chain's contribution is the frozen-BN reasoning layer,
+not accuracy dominance.
 
 Binary severe-outcome screening (bn-sev): severe injury sensitivity 93.5% /
 specificity 96.8%; severe damage 75.3% / 89.8%. All 3 fatal accidents are
@@ -105,11 +116,14 @@ Full reports: `outputs/diagnosis_heldout_eval.md`,
 3. **Residual leak probe, two-tier** (`tests/redaction_leak_probe.py`):
    (a) a TF-IDF+LR probe trained ONLY on 1982–2006 window narratives and
    scored once on the held-out set — full vs redacted text differ by 0.0 pp
-   (injury) / 2.4 pp (damage), i.e. redaction removes the small residual
-   outcome leak and what remains is mechanism signal; (b) an in-sample CV
-   probe kept as a worst-case upper bound. Remaining predictive tokens are
-   crash-mechanism words (turbulence, landing gear, tug, fuselage), not
-   outcome statements.
+   (injury) / 2.4 pp (damage); (b) an in-sample CV probe kept as a
+   worst-case upper bound. Scope stated precisely: redaction removes
+   **explicit outcome statements**, not outcome *predictability* — the
+   redacted text still supports ~92% injury accuracy because crash-mechanism
+   wording (turbulence, landing gear, tug, fuselage) legitimately predicts
+   severity; the probe's top-weight tokens are checked to be mechanism
+   words, not outcome words. That probe is itself reported as the tfidf-lr
+   baseline above, so its strength is in the main table, not buried here.
 4. Stated-severity readout exists only as an OFF-by-default ablation
    (`LEAK_SAFE_SEVERITY`).
 

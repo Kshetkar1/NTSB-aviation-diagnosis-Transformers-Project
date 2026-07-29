@@ -31,6 +31,7 @@ Expected: prior ~5.53e-7, Table 7 85/85, Section 4.3 brake/wiring in ~1–11% ba
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/lr_baseline_heldout.py
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/embedding_lr_baseline.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/tfidf_lr_baseline_heldout.py
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/heldout_significance.py
 ```
 
@@ -38,12 +39,16 @@ Results: `Frozen-BN-Narrative-Evidence-2026-07-20/outputs/heldout_significance.m
 
 Headline (leak-safe **bn-sev** = k-NN severity as virtual evidence through
 the frozen BN, Jul 2026; all baselines on the identical 296-accident cohort,
-`outputs/cohort_manifest.json`; p-values Holm-corrected over the 4 primary
+`outputs/cohort_manifest.json`; p-values Holm-corrected over the 5 primary
 comparisons per target):
-- Injury top-1 **90.9%** (CI 87.5–93.9%) vs parsed-LR **85.5%** (Holm p=0.005)
+- Injury top-1 **90.9%** (CI 87.5–93.9%) vs parsed-LR **85.5%** (Holm p=0.006)
 - Damage top-1 **77.4%** (CI 72.6–82.1%) vs parsed-LR **60.1%** (Holm p<0.0001)
-- vs embedding-LR (strongest supervised baseline, 91.6% / 74.0%): not
-  significantly different (Holm p=1.0 injury, p=0.22 damage)
+- vs embedding-LR (91.6% / 74.0%): not significantly different
+  (Holm p=1.0 injury, p=0.29 damage)
+- vs TF-IDF-LR (92.2% / 73.3%; the leak probe promoted to a baseline,
+  `tests/tfidf_lr_baseline_heldout.py`): not significantly different
+  (Holm p=0.87 injury, p=0.29 damage); bn-sev keeps best damage Macro-F1
+  (0.697) and damage severe-screen sensitivity (75.3% vs 58.0%)
 - vs retrieval-sev: identical by construction (0/296 discordant) — the BN
   mediates the signal losslessly, it does not add accuracy
 - BN prior alone: injury 58.4%, damage 42.6%
