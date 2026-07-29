@@ -49,6 +49,18 @@ top_k, and 2007-2019 is held out and touched only for final scoring. The
 word to use is "frozen", never "trained". If asked why we even have a
 held-out set: to *evaluate*, not to fit.
 
+## "How many times have you looked at that held-out set?" (the hard one)
+
+Many. Concede it immediately, then bound it. No model parameter was ever
+fitted to 2007-2019 -- the network is frozen, the strengths are counted from
+window data, top_k came off the 2002-2006 slice -- but we scored the held-out
+296 repeatedly while fixing the leakage protocol and designing ablations, so
+*decisions* saw held-out results and the numbers may carry selection
+optimism. The only real fix is a one-shot run on a window we have never
+touched (2020-2024), and we name it as a **prerequisite for submission**, not
+a nice-to-have. Until it exists, every number should be read as
+developed-on-test. Written up in `docs_FrozenBN/RESULTS_SECTION.md` §5.5.
+
 ## "What exactly is that 93%... sensitivity? specificity?" (Jesse)
 
 The old 93%/81% slide numbers are superseded; the leak-safe numbers are:
@@ -104,17 +116,32 @@ not the paper comparison. Reports:
 `docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md`,
 `docs_FrozenBN/TABLE7_FULL_REPRODUCTION.md`.
 
+**BN posteriors (Table 8/9/Fig 12):** 93 published numbers scored in
+`outputs/BN_COMPARISON_REPORT.md`. Baseline build: 43 exact / 16 close /
+26 differ / 8 qualitative. Upgraded network (person nodes + multi-state
+severity): **77/93 exact or close** (48 exact, 29 close, 12 differ — the
+12 explained by build variance and severity encoding, not silent bugs).
+Forward causal edges and Table 8 sensitivity match closely; damage/injury
+rows in Table 9 are where most baseline gaps live. Narrative-driven
+posteriors are compared side-by-side in the demo on Zhang's hand-picked
+scenarios only — not a held-out metric.
+
 ## "How do you evaluate diagnosis across the 2008 coding change?"
 
 NTSB switched taxonomies in 2008 (legacy subject codes -> CICTT), so exact
 code matching across the split is impossible by design. We roll BOTH eras
 up to CICTT's four top-level cause categories (Personnel / Aircraft /
-Environment / Organizational); legacy subjects map by auditable keyword
-rules (97.6% coverage; audited sample with adjudicated verdicts:
-`outputs/mapping_audit_sample.csv`, summary
-`outputs/mapping_audit_summary.md` -- 68/75 ok, 2 wrong rows overturned by
-the first author and corrected in the rules, rerun moved retrieval +0.4 pp
-only, ordering unaffected). A prediction is correct if its top category is
+Environment / Organizational); legacy subjects map by a published keyword
+rule set (97.6% coverage). If pressed on whether the rules are right, give
+the sensitivity bound, not a validation story: the contested rows are
+316/5,062 window findings (6.2%), which bounds the mapping's effect at
+<= 2 pp on absolute accuracy and in the SAME direction for every predictor,
+so the ordering cannot flip. Observed: correcting the 2 defects the 75-row
+consistency review found moved retrieval +0.4 pp and nothing else
+(`outputs/mapping_audit_sample.csv`, `outputs/mapping_audit_summary.md`).
+Do NOT call it an audit or dual coding -- the review pass was an AI
+assistant checked by the first author, which is self-review, and we say so.
+A prediction is correct if its top category is
 among the accident's coded cause categories. Results (n=253): frequency
 baseline 45.8%, retrieval 84.2%, supervised emb-LR 88.1%, BN event path
 57.7%.
@@ -156,3 +183,8 @@ deterministic.
 - "Virtual evidence / Jeffrey conditioning" -- fine, but be ready to say
   it plainly: "we tell the network the severity node's distribution
   instead of a single observed value."
+- "Audit" / "dual-coded" for the category mapping -- banned. The leakage
+  and train/test checks ARE audits (they measure a fact); the mapping
+  review is not, because an AI pass checked by the first author is
+  self-review. Say "documented rule set with a bounded sensitivity to
+  contested rows (<= 2 pp, same direction for every predictor)".

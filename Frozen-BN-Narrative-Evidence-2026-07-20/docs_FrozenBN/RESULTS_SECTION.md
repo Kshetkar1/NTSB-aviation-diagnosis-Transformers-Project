@@ -113,14 +113,19 @@ CICTT), so exact cause-code matching across our temporal split is
 impossible by design. We therefore evaluate at the level CICTT itself
 defines: the four top-level cause categories (Personnel, Aircraft,
 Environment, Organizational). Held-out truth is the category set of an
-accident's coded cause findings; legacy-era findings are mapped by
-auditable keyword rules covering 97.6% of window cause findings. A
-dual-coded audit of a 75-row stratified mapping sample, adjudicated row by
-row by the first author, found 68 rows correct, 2 wrong (both corrected in
-the rules; the rerun moved retrieval by +0.4 points and no other predictor),
-and 5 genuinely ambiguous boundary rows confirmed as mapped, bounding the
-residual mapping uncertainty at roughly 2 accuracy points without affecting
-any ordering (mapping_audit_summary.md). A prediction is correct if its top-ranked
+accident's coded cause findings; legacy-era findings are mapped by an
+explicit, published keyword rule set covering 97.6% of window cause
+findings. We do not claim the rollup is validated by independent coding;
+we bound its influence instead. A 75-row stratified sample of the rule
+set's decisions was reviewed for internal consistency against CICTT's own
+top-level conventions: 68 rows consistent, 2 rule defects (both corrected;
+the rerun moved retrieval by +0.4 points and no other predictor), and 5
+genuine taxonomy-boundary rows where CICTT admits both readings and the
+mapping was kept. Those seven contested rows together touch 316 of 5,062
+window cause findings (6.2%), which bounds the mapping's effect at at most
+2 accuracy points and -- because a reassignment perturbs every predictor's
+inputs in the same direction -- leaves every claimed ordering intact
+(mapping_audit_summary.md). A prediction is correct if its top-ranked
 category is in the truth set (n = 253); per-category recall, which is
 stricter (exact top-1 match per category), is reported separately.
 
@@ -142,7 +147,72 @@ the BN event path alone reaches 57.7%, significantly above baseline
 ranking categories by posterior lift instead of posterior probability
 degrades top-1 to 50.2%, because lift amplifies low-prior nodes.
 
-### 5.5 Reproducibility
+### 5.5 Limitations
+
+This is the canonical limitations list for the paper; write the Discussion's
+limitations subsection from here. Each item is a genuine constraint we cannot
+engineer away, stated without hedging.
+
+1. **Retrospective narratives.** Every narrative we consume is written after
+   the investigation closed, so this is not real-time prediction. The
+   defensible use cases are triage of an existing report, coding assistance,
+   and what-if analysis -- not forecasting an accident's outcome as it unfolds.
+
+2. **The network adds no severity accuracy, by construction.** `bn-sev` and
+   `retrieval-sev` agree on all 296 held-out accidents (0 discordant), because
+   the network faithfully mediates the k-NN severity evidence rather than
+   adding information to it. Every severity accuracy figure in this paper is
+   the narrative-retrieval signal's; the network's contribution is joint
+   probabilistic reasoning at zero accuracy cost, and no claim of predictive
+   superiority over retrieval is made anywhere.
+
+3. **Rare classes are not learnable from this window.** The held-out set
+   contains 3 fatal-injury accidents (1 flagged severe on injury), 16
+   minor-injury accidents (0 ranked top-1), and 25 Organizational-cause
+   accidents (0 recovered by any predictor). These n are too small to learn
+   or retrieve reliably, and no amount of modeling fixes that; we publish
+   per-class recall and full confusion matrices rather than absorbing the
+   misses into an accuracy average.
+
+4. **Embedding pretraining may have seen the test years.** The OpenAI
+   embedding model's training corpus is undisclosed and may include
+   2007-2019 NTSB reports; redaction cannot reach inside a pretrained
+   encoder. Comparisons stay internally fair because emb-LR uses the same
+   channel, and the TF-IDF text baseline (92.2% injury / 73.3% damage) is the
+   pretraining-free reference point -- it matches the embedding pipeline, so
+   the results do not depend on the embedding's provenance.
+
+5. **12 of Zhang's 93 published BN numbers still differ.** After the person-node
+   and multi-state-severity upgrades the scoreboard is 48 exact / 29 close /
+   12 differ. The differences are attributed rather than hidden: Zhang's
+   construction randomly breaks ties, so his published values are one draw
+   from a distribution (build-variance envelope,
+   `outputs/bn_variance_envelope.json`), and his own released `NTSB.xdsl` does
+   not reproduce his published Table 8 either
+   (`outputs/bn_posterior_parity.json`). We therefore claim faithfulness to
+   his published *method and data-derived quantities* (85/85 Table 7 rows,
+   102 fire occurrences, the prior formula), not cell-for-cell identity of
+   every posterior.
+
+6. **Diagnosis is only evaluated at four-category granularity.** NTSB's 2008
+   taxonomy change means legacy and CICTT codes share no vocabulary below
+   CICTT's top level, so the four-category rollup is forced by the data, not
+   chosen for convenience. The rollup itself is a keyword rule set that no
+   independent coder has checked; its influence is bounded (contested rows are
+   316/5,062 window findings = 6.2%, worst case <= 2 accuracy points in the
+   same direction for every predictor, so all claimed orderings survive), but
+   a bound is not a validation. Finding-level and occurrence-level diagnosis
+   accuracy are computed by the pipeline and not scored here.
+
+7. **Held-out reuse during development.** The 296-accident window was scored
+   repeatedly while protocol fixes and ablations were designed, so reported
+   accuracies may carry selection optimism. No model parameter was ever fitted
+   to held-out data, but decisions saw held-out results. **A one-shot
+   confirmatory run on a never-evaluated window (2020-2024) is a prerequisite
+   for submission,** not an optional extension; until it exists, every number
+   here should be read as developed-on-test.
+
+### 5.6 Reproducibility
 
 Every table regenerates from the public repository with one command per
 result (REPRODUCE.md). Narrative embeddings are cached on disk keyed by
@@ -154,6 +224,27 @@ machinery (bootstrap seeds, McNemar counts) is seeded and versioned.
 ### Numbers you must NOT put in the paper
 
 - 93% / 81% severity accuracy (pre-leakage-fix; superseded by 90.9 / 77.4).
+  If it appears at all, it appears explicitly labelled as superseded, in the
+  leakage narrative, never as a result.
 - The old "diagnosis similarity 36.6%" metric (replaced by the
   era-fair category evaluation).
 - Any Brier/logloss from runs before 2026-07-28.
+- Pre-correction diagnosis numbers: retrieval 83.8%, coverage 98.3%,
+  emb-LR vs retrieval +4.3 pp / p = 0.027. Current: 84.2%, 97.6%,
+  +3.9 pp / p = 0.041. The old values are valid only inside the
+  before/after sensitivity table in `outputs/mapping_audit_summary.md`.
+
+### Framings you must NOT use
+
+- **"Audit" or "dual-coded" for the category mapping.** The review pass was an
+  AI assistant with rows checked by the first author -- self-review, not
+  independent coding. Say "documented rule set" and give the sensitivity bound
+  (<= 2 pp, same direction for every predictor). The leakage and train/test
+  checks *are* audits and keep that word.
+- **Any phrasing in which the Bayesian network improves predictive accuracy.**
+  It does not: `bn-sev` = `retrieval-sev` exactly. The BN's contribution is the
+  reasoning layer at zero accuracy cost.
+- **The BN event path (57.7% diagnosis) as a headline.** It is a
+  structured-inference result and simultaneously a partial negative result:
+  significantly above the frequency baseline (Holm p = 0.0007), 26.5 points
+  below retrieval. Retrieval (84.2%) is the primary diagnosis readout.

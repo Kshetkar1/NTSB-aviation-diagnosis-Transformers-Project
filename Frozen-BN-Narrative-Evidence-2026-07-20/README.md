@@ -3,11 +3,14 @@
 **Status:** ACCEPTED — main paper path  
 **Created:** 2026-07-20  
 **Modes:** Diagnosis **and** prognosis (injury + damage)  
-**Readiness:** Phase C — repo paths + `./scripts/reproduce_paper.sh` verified (Jul 2026)
+**Readiness:** Phase C — repo paths + foundation scripts verified via `./scripts/reproduce_foundation.sh` (Jul 2026); full held-out eval requires `REPRODUCE.md` §2–2b
 
 Reproduce Zhang & Mahadevan (2021) BN from coded NTSB 1982–2006, **freeze**
 it, then at query time map free-text narratives to evidence on the network
-(no retraining).
+(no retraining). The **operational frozen network** is the upgraded build in
+`code/bn_upgraded.py` (Zhang §4 recipe + person→finding edges + multi-state
+severity nodes); the baseline-only scoreboard (43/16/26/8 on 93 published
+numbers) documents pre-upgrade reproduction — see `outputs/BN_COMPARISON_REPORT.md`.
 
 ## The architecture (one sentence)
 
@@ -84,10 +87,17 @@ _llm` to refresh under the current protocol; requires `OPENAI_API_KEY`.)
 
 NTSB switched coding taxonomies in 2008, so exact-code matching across the
 split is impossible by design; both eras are rolled up to CICTT top-level
-cause categories (97.6% of window C/F findings mapped by auditable rules;
-dual-coded audit adjudicated by the first author 2026-07-29: 68/75 rows ok,
-2 overturned rows corrected in the rules, rerun moved retrieval +0.4 pp only,
-`outputs/mapping_audit_summary.md`). Truth = the category set of the
+cause categories (97.6% of window C/F findings mapped by a published keyword
+rule set, not a coded judgement exercise). The rollup's standing is a
+**sensitivity bound, not a validation**: a 75-row stratified sample was reviewed
+for internal consistency against CICTT conventions (2 rule defects found and
+corrected, 5 genuine boundary rows kept), and the contested mass — 316/5,062
+window findings, 6.2% — bounds the mapping's effect at **<= 2 pp on absolute
+accuracy, identical in direction for every predictor**, so the reported ordering
+is insensitive to mapping choices. Observed effect of the corrections: retrieval
++0.4 pp, nothing else moved. The review was an AI pass plus first-author check —
+**not independent dual coding**, and not claimed as such
+(`outputs/mapping_audit_summary.md`). Truth = the category set of the
 accident's C/F findings; metric definitions (set-membership top-1 vs strict
 per-category recall) are spelled out in `outputs/diagnosis_heldout_eval.md`.
 
@@ -99,10 +109,16 @@ per-category recall) are spelled out in `outputs/diagnosis_heldout_eval.md`.
 | BN event path (posterior) | 57.7% | 0.759 | beats freq (Holm p=0.0007) |
 | BN event path (lift) | 50.2% | 0.723 | negative result: max-lift is noisy |
 
-Narratives carry strong diagnostic signal: both readouts crush the
-frequency baseline; a supervised readout adds ~4 pp over zero-parameter
-retrieval. Retrieval is balanced across Personnel/Aircraft/Environment
-(68/62/72%); no predictor catches the rare Organizational class (0/25).
+Narratives carry strong diagnostic signal, and **retrieval (84.2%) is the
+primary readout** — not the BN. Supervised emb-LR is 3.9 pp better (88.1%,
+p = 0.041, exploratory), which is the disclosed price of needing zero labels.
+The BN event path (57.7%) is reported as a structured-inference result *and* a
+partial negative result: it clears the frequency baseline by 11.9 pp
+(Holm p = 0.0007), which is real evidence that parsed narrative facts propagate
+to cause nodes nothing pointed at, but it trails retrieval by 26.5 pp and is
+not a competitive predictor. Retrieval is balanced across
+Personnel/Aircraft/Environment (68/62/72%); no predictor catches the rare
+Organizational class (0/25).
 Full reports: `outputs/diagnosis_heldout_eval.md`,
 `outputs/diagnosis_emb_lr.md`.
 
@@ -137,6 +153,22 @@ Nothing in the primary pipeline is fitted; see
 calibrated / selected / fitted) and `outputs/hyperparam_sensitivity.md` for
 the internal-validation sweep (results stable across top_k 25–200; k=25
 variant: 89.9% / 77.7%, see `outputs/heldout_significance_k25.md`).
+
+## Limitations (canonical list: `docs_FrozenBN/RESULTS_SECTION.md` §5.5)
+
+Seven, none of them fixable by better engineering: (1) narratives are
+retrospective, so this is triage/coding-assist, not real-time prediction;
+(2) the BN adds **no** severity accuracy by construction (`bn-sev` =
+`retrieval-sev`, 0/296 discordant); (3) rare classes are hopeless at this n
+(3 fatal injuries, 16 minor, 0/25 Organizational); (4) the embedding model may
+have been pretrained on post-2006 NTSB text — TF-IDF LR is the pretraining-free
+reference and matches it; (5) 12 of Zhang's 93 published BN numbers still
+differ, attributed to his randomized tie-breaking and the fact that his own
+released `NTSB.xdsl` also fails his published Table 8; (6) diagnosis is scored
+only at four-category granularity, forced by the 2008 taxonomy break, on a rule
+set no independent coder has checked (bounded at ≤ 2 pp, not validated);
+(7) the held-out window was scored repeatedly during development — **a one-shot
+2020–2024 confirmatory run is a prerequisite for submission.**
 
 ## Start here
 
