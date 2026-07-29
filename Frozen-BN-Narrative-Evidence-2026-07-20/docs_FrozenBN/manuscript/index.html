@@ -65,12 +65,15 @@ regression is numerically the best injury predictor (92.2% vs 90.9%, a statistic
 p = 0.87 with 8 discordant accidents), while the BN chain is numerically best on damage (77.4%),
 damage Macro-F1 (0.697), and severe-damage screening sensitivity (75.3%). On diagnosis, supervised
 emb-LR beats narrative retrieval by 3.9 points (88.1% vs 84.2%, p = 0.041), and the network's own
-event-evidence path reaches only 57.7% — significantly above the frequency baseline (45.8%, Holm
-p = 0.0007) and therefore real evidence that cross-node structured inference works, but 26.5 points
-below retrieval and reported as a partial negative result rather than a headline. What the frozen
-network buys is what a trained black box cannot offer at all: one coherent joint model in which
-narrative evidence, event evidence, and what-if interventions compose, and per-node explanations
-tracing back to real historical accidents — at zero accuracy cost.</div>
+event-evidence path reaches only 57.7% on cause categories — significantly above the frequency
+baseline (45.8%, Holm p = 0.0007) but 26.5 points below retrieval, reported as a partial negative
+result rather than a headline. A held-out fire-node experiment tested whether event evidence
+propagates to an unobserved node the pipeline was never pointed at: it does <strong>not</strong>
+(BN ROC AUC ~0.38–0.46 vs retrieval ~0.97 on identical text). What the frozen network buys is what
+a trained black box cannot offer at all: one coherent joint model in which narrative evidence,
+event evidence, and what-if interventions compose, and per-node explanations tracing back to real
+historical accidents — at zero severity accuracy cost, without held-out predictive lift on
+arbitrary cross-node queries.</div>
 
 <h2>The parts</h2>
 
