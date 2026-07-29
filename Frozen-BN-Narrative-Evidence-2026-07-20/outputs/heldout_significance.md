@@ -139,7 +139,7 @@ Severe injury = FATL or SERS; severe damage = DEST or SUBS. Sensitivity = severe
 
 ## Multiplicity policy
 
-Four comparisons per target are PRIMARY (pre-declared, confirmatory): bn-sev vs prior, bn-sev vs lr, bn-sev vs emb-lr, and bn-sev vs retrieval-sev. Holm-Bonferroni correction is applied within each target's primary family (m = 4). All other rows are EXPLORATORY ablations; their raw p-values are shown without correction and should not be read as confirmatory tests.
+Four comparisons per target are designated PRIMARY (confirmatory): bn-sev vs prior, bn-sev vs lr, bn-sev vs emb-lr, and bn-sev vs retrieval-sev. Holm-Bonferroni correction is applied within each target's primary family (m = 4). All other rows are EXPLORATORY ablations; their raw p-values are shown without correction and should not be read as confirmatory tests.
 
 ## Injury: paired comparisons (McNemar exact + Brier delta)
 

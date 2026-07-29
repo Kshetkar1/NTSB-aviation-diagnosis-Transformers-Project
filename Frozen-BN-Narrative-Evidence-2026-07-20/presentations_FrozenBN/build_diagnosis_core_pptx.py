@@ -293,7 +293,8 @@ add_table(s, [
 add_bullets(s, [
     ("Dominant cell exact vs Zhang: Airframe 0.3137 = 0.31372.", 0),
     ("Secondary cells within ~1 accident.", 0),
-    ("At full retrieval breadth, 113/113 causes match Zhang exactly.", 0),
+    ("Zhang's published Table 7 (85 rows) matches 85/85 exactly; 113 is our "
+     "extended internal-consistency check.", 0),
     ("top-50 -> 36 fires (0.222); top-200 -> 84 (0.286); all -> 102 (0.3137).", 0),
 ], top=1.7, left=8.9, width=Inches(4.0), size=15)
 add_speaker_note(s, "Put this next to the previous slide — same causes, same probabilities. "

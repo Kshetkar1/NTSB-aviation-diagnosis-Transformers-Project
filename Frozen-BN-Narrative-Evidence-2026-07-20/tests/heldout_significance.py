@@ -247,7 +247,8 @@ def main():
     emit()
 
     # ---- paired tests ------------------------------------------------------
-    # PRIMARY comparisons: the pre-declared confirmatory hypotheses. Holm-
+    # PRIMARY comparisons: the designated confirmatory hypotheses (chosen on
+    # substantive grounds, not pre-registered before data collection). Holm-
     # Bonferroni is applied within each (target x primary-family) set; all
     # remaining pairs are exploratory and marked as such (raw p only).
     primary = [("bn-sev", "prior"),          # narrative signal beats BN alone?
@@ -285,7 +286,7 @@ def main():
 
     emit("## Multiplicity policy")
     emit()
-    emit("Four comparisons per target are PRIMARY (pre-declared, confirmatory): "
+    emit("Four comparisons per target are designated PRIMARY (confirmatory): "
          "bn-sev vs prior, bn-sev vs lr, bn-sev vs emb-lr, and bn-sev vs "
          "retrieval-sev. Holm-Bonferroni correction is applied within each "
          "target's primary family (m = 4). All other rows are EXPLORATORY "

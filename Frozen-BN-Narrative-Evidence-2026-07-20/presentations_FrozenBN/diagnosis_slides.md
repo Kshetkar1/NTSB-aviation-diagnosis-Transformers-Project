@@ -159,7 +159,9 @@
 | Landing gear, tire | 4 | 0.0392 |
 
 - Dominant cell **exact** vs Zhang's Table 7 (Airframe **0.3137 = 0.31372**); secondary cells within ~1 accident.
-- At full retrieval breadth, **113/113 causes match Zhang exactly**.
+- Zhang's published Table 7 (C/F filter, 85 rows) matches **85/85 exactly**;
+  the 113-cause figure is our extended-mode internal-consistency check, not
+  Zhang's published table (see ZHANG_REPRODUCTION_REPORT.md).
 
 > Speaker note: Put this next to the previous slide — same causes, same probabilities. Convergence is clean: top-50 retrieval sees 36 fires (0.222), top-200 sees 84 (0.286), full breadth sees all 102 (0.3137 = Zhang). Tighter retrieval is the query-focused mode; full breadth reproduces the population. LOO = leave-one-out (used later).
 

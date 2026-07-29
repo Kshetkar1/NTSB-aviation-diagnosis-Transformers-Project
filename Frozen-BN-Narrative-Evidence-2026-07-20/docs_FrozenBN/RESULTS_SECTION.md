@@ -55,7 +55,7 @@ and exact McNemar tests for paired comparisons.
 All predictors and baselines are scored on the identical 296-accident
 cohort (same narrative filter, truncation, and redaction; the accident
 IDs are published in cohort_manifest.json). Four comparisons per target
-were pre-declared primary and Holm-Bonferroni-corrected; all other
+were designated primary and Holm-Bonferroni-corrected; all other
 contrasts are reported as exploratory.
 
 | Predictor | Injury acc. | Injury M-F1 | Damage acc. | Damage M-F1 |
@@ -115,7 +115,7 @@ stricter (exact top-1 match per category), is reported separately.
 | Supervised LR (embedding) | 88.1% | [84.2, 91.7] | 0.936 |
 
 Retrieval nearly doubles the frequency baseline (Holm-adjusted p < 1e-4;
-the three baseline comparisons are the pre-declared primary family) and
+the three baseline comparisons are the designated primary family) and
 is balanced across the three common categories (68/62/72% recall); no
 predictor recovers the rare Organizational class (25 cases). The
 supervised embedding model is 4.3 points better than retrieval

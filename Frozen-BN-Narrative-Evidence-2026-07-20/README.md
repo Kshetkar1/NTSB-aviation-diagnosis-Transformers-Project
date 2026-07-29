@@ -40,7 +40,7 @@ over retrieval would be false and are made nowhere.
 All baselines run on the IDENTICAL 296-accident cohort (same narrative
 filter, truncation, and redaction; `outputs/cohort_manifest.json` lists the
 IDs). Pairwise p-values are Holm-Bonferroni-corrected within the four
-pre-declared primary comparisons per target
+designated primary comparisons per target
 (`outputs/heldout_significance.md`).
 
 | Predictor | Injury top-1 | Damage top-1 | Notes |
