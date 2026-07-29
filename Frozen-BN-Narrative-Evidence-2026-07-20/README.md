@@ -64,9 +64,11 @@ tie on accuracy; the chain's contribution is the frozen-BN reasoning layer,
 not accuracy dominance.
 
 Binary severe-outcome screening (bn-sev): severe injury sensitivity 93.5% /
-specificity 96.8%; severe damage 75.3% / 89.8%. All 3 fatal accidents are
-flagged severe (at 4-class granularity they land on the adjacent SERS class;
-per-class recall disclosed in `outputs/heldout_significance.md`).
+specificity 96.8%; severe damage 75.3% / 89.8%. Honest miss, disclosed: of
+the 3 fatal accidents, only 1 is flagged severe on injury (predicted SERS);
+the other 2 are predicted NONE on injury, though both are flagged severe on
+damage (DEST/SUBS). Per-class recall and full confusion matrices in
+`outputs/heldout_significance.md`.
 
 LLM parsing tiers under the leak-safe protocol (`--llm gpt-4.1`, outputs
 `*_llm.json`): tiered parser 68.9% / 51.4%, LLM-first 69.9% / 57.8% -- both
