@@ -53,6 +53,19 @@ product-of-experts fusion double-counts and collapses to 38.5% / 41.9%.
 Outcome phrases and NTSB report boilerplate are stripped before any
 embedding; stated-severity evidence is off by default.
 
+## 2a. Diagnosis eval (cause-category level, era-fair)
+
+```bash
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_heldout_eval.py
+```
+
+Output: `outputs/diagnosis_heldout_eval.md`. 253 held-out accidents with C/F
+cause findings; both coding eras rolled up to CICTT top-level categories
+(legacy subjects mapped by keyword rules, 98.3% coverage). Headline:
+narrative retrieval **83.8%** top-1 / 0.912 MRR vs frequency baseline 45.8%
+(McNemar p<0.0001). BN event path 57.7% (beats baseline, p=0.0004);
+lift ranking 49.8% (disclosed negative result).
+
 ## 2b. Leakage + robustness audits
 
 ```bash

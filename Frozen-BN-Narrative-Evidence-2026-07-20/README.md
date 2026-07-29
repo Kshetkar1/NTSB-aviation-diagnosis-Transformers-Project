@@ -39,6 +39,24 @@ specificity 96.8%; severe damage 75.3% / 89.8%. All 3 fatal accidents are
 flagged severe (at 4-class granularity they land on the adjacent SERS class;
 per-class recall disclosed in `outputs/heldout_significance.md`).
 
+## Diagnosis (cause-category, era-fair; 253 held-out)
+
+NTSB switched coding taxonomies in 2008, so exact-code matching across the
+split is impossible by design; both eras are rolled up to CICTT top-level
+cause categories (98.3% of window C/F findings mapped by auditable rules).
+Truth = the category set of the accident's C/F findings.
+
+| Predictor | Top-1 | MRR | Notes |
+|-----------|-------|-----|-------|
+| frequency baseline | 45.8% | 0.685 | always guesses Personnel |
+| **narrative retrieval (primary)** | **83.8%** | **0.912** | vs freq: McNemar p<0.0001 |
+| BN event path (posterior) | 57.7% | 0.759 | beats freq (p=0.0004) |
+| BN event path (lift) | 49.8% | 0.721 | negative result: max-lift is noisy |
+
+Retrieval is balanced across Personnel/Aircraft/Environment (68/62/72%);
+no predictor catches the rare Organizational class (0/25). Full report:
+`outputs/diagnosis_heldout_eval.md` (`tests/diagnosis_heldout_eval.py`).
+
 ## Leakage protocol (Jesse's audit, all measured)
 
 1. **Train/test:** 0 of 296 held-out IDs in the BN window or embedding index
