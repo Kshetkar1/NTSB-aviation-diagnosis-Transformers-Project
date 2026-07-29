@@ -63,9 +63,18 @@ couldn't.**
   conditioning via likelihood ratio against the node prior). `query_to_bn.py`.
 - Scenario validation: Zhang's queries typed as English reproduce his evidence
   and posteriors exactly (`tests/all_tables_exact.py`).
-- **Held-out validation (the key table)**: 296 accidents 2007–2019, injury
-  top-1 accuracy 58% (prior) → 90% (narrative evidence); Brier 0.831 → 0.199
-  (`tests/heldout_narrative_bn_eval.py`).
+- **Held-out validation (the key table)**: 296 accidents 2007–2019, leak-safe.
+  Injury top-1 58.4% (prior) → 90.9% (bn-sev); damage 42.6% → 77.4%
+  (`tests/frozenbn_heldout_narrative_bn_eval.py`,
+  `outputs/heldout_significance.md`). State alongside it, in the same
+  paragraph, the two facts that keep this honest: (a) `bn-sev` and
+  `retrieval-sev` are identical (0/296 discordant), so the network adds **zero
+  predictive lift** — the accuracy is the k-NN narrative signal, and the
+  network's contribution is joint reasoning at zero accuracy cost; (b) the
+  chain only *ties* the supervised text baselines (TF-IDF LR 92.2% injury,
+  Holm p = 0.87, 8 discordant; emb-LR 91.6%/74.0%), and is numerically best
+  only on damage (77.4%), damage Macro-F1 (0.697), and severe-damage
+  sensitivity (75.3%). Do not present 58% → 90% as a standalone headline.
 - Calibration of soft-evidence confidences: reliability diagram, retrieval
   f_q ECE ≈ 0.12 (`docs/figures/confidence_calibration.png`,
   `tests/confidence_calibration.py`).
@@ -105,7 +114,11 @@ couldn't.**
   repository. Keep short — the app is evidence of usability, not a claim.
 
 ## 8. Discussion, limitations, conclusion
-- Limitations: single domain/dataset; gpt-4o-mini only (justify: failures are
+- **Canonical limitations list: `docs_FrozenBN/RESULTS_SECTION.md` §5.5.**
+  Write the paper's limitations section from that file, not from this outline —
+  it is maintained against the current leak-safe results.
+- Limitations specific to the LLM experiments below (§6), which §5.5 does not
+  cover: single domain/dataset; gpt-4o-mini only (justify: failures are
   calibration/over-extraction, not comprehension); truth signal for
   extraction is the coded record (conservative); prompt rule 1c added after
   in-sample diagnosis (paraphrase suite is the out-of-sample check).

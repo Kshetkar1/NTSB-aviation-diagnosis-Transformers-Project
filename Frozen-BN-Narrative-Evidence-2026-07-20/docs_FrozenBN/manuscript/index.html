@@ -42,15 +42,35 @@ the test that produced it.</p>
 
 <h2>What this project is, in three sentences</h2>
 <p>Zhang &amp; Mahadevan (2021) built a <em>Bayesian network</em> — a probabilistic model of how
-aviation accidents unfold — from NTSB's hand-coded accident records for 1982–2006. We reproduce
-that network exactly, <strong>freeze it</strong> (never retrain it), and then show that the
-free-text <em>narrative</em> of a brand-new accident can be converted into evidence the frozen
-network understands — so the network can predict injury and damage severity and suggest cause
-categories for accidents it has never seen, with <strong>zero training</strong>. On 296 held-out
-accidents from 2007–2019, this chain reaches 90.9% injury / 77.4% damage accuracy — statistically
-tied with supervised machine-learning models trained on labeled data — while keeping everything a
-trained black box cannot offer: full probabilistic reasoning, what-if queries, and explanations
-that trace back to real historical accidents.</p>
+aviation accidents unfold — from NTSB's hand-coded accident records for 1982–2006; we reproduce
+that network, <strong>freeze it</strong> (never retrain it), and verify it against every
+probability he published (Part 2 and Part 4.3), so the model we query is provably the validated
+one and his published numbers remain available as the reference point. The new knowledge is about
+the <em>narratives</em>: a free-text accident description typed by a user is converted into
+evidence the frozen network understands, and one propagation updates <strong>every node in the
+network at once</strong> — the downstream outcomes (<em>prognosis</em>: injury and damage
+severity) <em>and</em> the upstream causes (<em>diagnosis</em>: which events, findings, and cause
+categories become more probable) — with <strong>zero training</strong>. Both directions are scored
+on held-out 2007–2019 accidents the system has never seen: severity reaches 90.9% injury / 77.4%
+damage and cause categories reach 84.2% by narrative retrieval, both statistically tied with or
+below supervised models trained on labeled data — the contribution is the leak-safe evidence
+interface and honest parity, <em>not</em> better accuracy.</p>
+<div style="background:#faf0f0;border-left:4px solid var(--bad);padding:12px 16px;margin:1.2em 0;
+     border-radius:0 6px 6px 0;">
+<b style="color:var(--bad)">What this project does not claim.</b> The network does <strong>not</strong>
+improve predictive accuracy, and no sentence in this manuscript says otherwise. On severity the
+BN-mediated readout and the raw retrieval readout are <em>identical</em> — 0 of 296 accidents
+disagree — so the network's predictive lift is exactly zero by construction; TF-IDF logistic
+regression is numerically the best injury predictor (92.2% vs 90.9%, a statistical tie at Holm
+p = 0.87 with 8 discordant accidents), while the BN chain is numerically best on damage (77.4%),
+damage Macro-F1 (0.697), and severe-damage screening sensitivity (75.3%). On diagnosis, supervised
+emb-LR beats narrative retrieval by 3.9 points (88.1% vs 84.2%, p = 0.041), and the network's own
+event-evidence path reaches only 57.7% — significantly above the frequency baseline (45.8%, Holm
+p = 0.0007) and therefore real evidence that cross-node structured inference works, but 26.5 points
+below retrieval and reported as a partial negative result rather than a headline. What the frozen
+network buys is what a trained black box cannot offer at all: one coherent joint model in which
+narrative evidence, event evidence, and what-if interventions compose, and per-node explanations
+tracing back to real historical accidents — at zero accuracy cost.</div>
 
 <h2>The parts</h2>
 
@@ -79,7 +99,9 @@ that trace back to real historical accidents.</p>
   <h3><a href="part4-the-pipeline.html">Part 4 — The pipeline: how a narrative becomes evidence</a></h3>
   <p>The accepted architecture, step by step: redaction, the deterministic parser (hard evidence),
   retrieval of similar accidents (soft evidence), the k-NN severity readout (virtual evidence),
-  and why fusing everything at once backfires (the double-counting negative result).</p>
+  why fusing everything at once backfires (the double-counting negative result), and how one
+  evidence set yields posteriors in both directions — plus where our posteriors are compared
+  against Zhang's published probabilities.</p>
 </div>
 
 <div class="part">
@@ -92,8 +114,8 @@ that trace back to real historical accidents.</p>
 <div class="part">
   <h3><a href="part6-diagnosis-evaluation.html">Part 6 — Evaluating diagnosis: cause categories across a taxonomy break</a></h3>
   <p>NTSB changed its coding system in 2008, making naive comparison impossible. The era-fair
-  rollup to four cause categories, the mapping audit, and the results — including the negative
-  result we report on purpose.</p>
+  rollup to four cause categories, why the mapping is defended by a sensitivity bound rather than
+  called an audit, and the results — including the negative result we report on purpose.</p>
 </div>
 
 <div class="part">

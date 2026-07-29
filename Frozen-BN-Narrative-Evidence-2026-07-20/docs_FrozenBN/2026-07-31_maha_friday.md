@@ -91,8 +91,17 @@ prediction is right if its top category is among the coded causes (n=253).
 | Trained model on the same text (comparison) | 88.1% | 0.936 |
 
 - Balanced: 68/62/72% recall on Personnel/Aircraft/Environment.
-- Disclosed: trained model is 4 points better (p=0.04) - the price of
+- Disclosed: trained model is 3.9 points better (p=0.041) - the price of
   needing no labels; and no method catches the rare Organizational class.
+- The similar-accidents vote (84.2%) is the headline readout, not the
+  network's own event path. That path (57.7%) is a real structured-inference
+  result - parsed facts reach cause nodes nothing pointed at, well above the
+  45.8% baseline (p=0.0007) - and simultaneously a partial negative result,
+  because it loses to plain retrieval by 26.5 points. We report both halves.
+- The category rollup is a published keyword rule set, not a validated
+  coding scheme. Its influence is bounded: the contested rows are 6.2% of
+  the mapped findings, worst case <= 2 points, same direction for every
+  method, so no ordering can flip.
 
 Footer: outputs/diagnosis_heldout_eval.md, outputs/diagnosis_emb_lr.md
 

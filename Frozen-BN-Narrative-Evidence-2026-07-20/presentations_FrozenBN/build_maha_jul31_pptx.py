@@ -203,7 +203,9 @@ add_table(s, [
     ["Trained model on the same text (comparison)", "88.1%", "0.936"],
 ], 0.9, 2.15, 11.4, 2.6, col_widths=[7.0, 1.8, 2.6], font_size=14, bold_row=3)
 add_takeaway(s, "Balanced across Personnel/Aircraft/Environment (68/62/72% recall). Disclosed: "
-                "trained model +4 pts (p=0.04); nobody catches the rare Organizational class.",
+                "trained model +3.9 pts (p=0.041); the network's own event path (57.7%) beats "
+                "the baseline but loses to retrieval by 26.5 pts; nobody catches the rare "
+                "Organizational class.",
              top=5.15, size=14)
 add_footer(s, "outputs/diagnosis_heldout_eval.md  -  outputs/diagnosis_emb_lr.md")
 
