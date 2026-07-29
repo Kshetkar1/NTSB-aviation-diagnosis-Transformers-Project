@@ -1,0 +1,122 @@
+# Paper-ready Results section (leak-safe, 2026-07-29)
+
+Drop-in text for the paper. Every number regenerates from `REPRODUCE.md`;
+do not mix with any figure produced before the leakage fix (93%/81% era).
+
+---
+
+## 5. Results
+
+### 5.1 Fidelity to the reference network
+
+Before evaluating the narrative pipeline we verify that the frozen network
+is a faithful reconstruction of Zhang & Mahadevan's model. On every
+quantity the original paper reports, our rebuild matches exactly: 102 fire
+occurrences in the 1982-2006 window, prior P(fire) = 102/184,517,128 =
+5.53e-7, and the complete Table 7 conditional cause distribution
+(113/113 entries). This matters for what follows: all narrative evidence
+is injected into a network whose parameters are pinned to a published,
+independently constructed reference, not fitted to our evaluation data.
+
+### 5.2 Evaluation protocol
+
+The network and the retrieval index are built exclusively on the
+1982-2006 window (1,742 accidents). The held-out set is every accident in
+the corpus outside that window (2007-2019) with a factual narrative:
+n = 296 for severity, of which 253 carry cause findings for diagnosis.
+To prevent outcome leakage, severity-stating phrases ("was destroyed",
+"received fatal injuries") are removed from every narrative by a
+deterministic redaction pass before any embedding or parsing, and
+narrative-stated severity is excluded as evidence. Two audits support
+this: a token-attribution probe on the redacted text (the predictive
+tokens are crash-mechanism words, not outcome words) and a held-out
+leakage audit. Retrieval hyperparameters (k = 100 neighbors) were selected
+once on an internal 2002-2006 validation slice; the held-out years were
+touched only for the final scoring reported here. No component of the
+primary pipeline is trained: the free-parameter inventory
+(FREE_PARAMETERS.md) classifies every quantity as frozen (network CPTs),
+measured (evidence strengths, counted as fractions of retrieved
+neighbors), or selected (retrieval hyperparameters).
+
+### 5.3 Prognosis: held-out severity prediction
+
+Table X reports 4-class top-1 accuracy, Macro-F1, and Brier score for
+injury (fatal / serious / minor / none) and damage (destroyed /
+substantial / minor / none), with bootstrap 95% CIs (10,000 resamples)
+and exact McNemar tests for paired comparisons.
+
+| Predictor | Injury acc. | Injury M-F1 | Damage acc. | Damage M-F1 |
+|---|---|---|---|---|
+| Majority class (prior) | 58.4% | 0.184 | 42.6% | 0.149 |
+| Parsed events only (hard+soft) | 82.1% | 0.420 | 50.7% | 0.309 |
+| Supervised LR (parsed features) | 87.8% | 0.454 | 64.2% | 0.454 |
+| Supervised LR (embedding) | 91.6% | 0.474 | 74.0% | 0.543 |
+| **Narrative -> BN (bn-sev)** | **90.9%** | **0.470** | **77.4%** | **0.697** |
+
+The full chain improves on the network prior by +32.5 points on injury
+and +34.8 on damage (both p < 1e-4, McNemar exact). Against the strongest
+supervised baseline -- logistic regression on the raw narrative embedding,
+trained on 1,742 labeled window accidents -- the zero-parameter chain is
+statistically indistinguishable on injury (p = 0.50) and higher on damage
+Macro-F1 (0.697 vs 0.543). As a severe-outcome screen (fatal-or-serious
+vs rest), the chain reaches 93.5% sensitivity / 96.8% specificity for
+injury and 75.3% / 89.8% for damage. Remaining failure modes are the rare
+classes: fatal injuries (3 cases) and minor injuries (16) are never
+top-1; we report the full confusion matrices in the appendix.
+
+Two ablations locate the contribution. Removing the network and reading
+severity directly off the 100 nearest neighbors (retrieval-sev) gives the
+same accuracy -- by construction, since a self-test asserts the network
+posterior reproduces the virtual-evidence input when no other evidence
+competes. Fusing event evidence and neighbor severity in a single
+inference (bn-fused) collapses accuracy to 38.5%/41.9%: the event
+evidence re-derives severity from the same narrative, so fusing the two
+double-counts it -- a negative result we report deliberately. The
+accuracy therefore comes from the narrative-retrieval signal; the network
+contributes the reasoning layer (joint conditioning, what-if queries,
+per-node explanations) at zero accuracy cost.
+
+### 5.4 Diagnosis: held-out cause-category prediction
+
+NTSB replaced its coding taxonomy in 2008 (legacy subject codes ->
+CICTT), so exact cause-code matching across our temporal split is
+impossible by design. We therefore evaluate at the level CICTT itself
+defines: the four top-level cause categories (Personnel, Aircraft,
+Environment, Organizational). Held-out truth is the category set of an
+accident's coded cause findings; legacy-era findings are mapped by
+auditable keyword rules covering 98.3% of window cause findings. A
+prediction is correct if its top-ranked category is in the truth set
+(n = 253).
+
+| Predictor | Top-1 | 95% CI | MRR |
+|---|---|---|---|
+| Category frequency baseline | 45.8% | [39.5, 52.2] | 0.685 |
+| Frozen BN, event evidence | 57.7% | [51.4, 63.6] | 0.759 |
+| **Narrative retrieval (zero-parameter)** | **83.8%** | **[79.1, 88.1]** | **0.912** |
+| Supervised LR (embedding) | 88.1% | [84.2, 91.7] | 0.936 |
+
+Retrieval nearly doubles the frequency baseline (p < 1e-4) and is
+balanced across the three common categories (68/62/72% recall); no
+predictor recovers the rare Organizational class (25 cases). The
+supervised embedding model is 4.3 points better than retrieval
+(p = 0.027) -- the expected price of zero training -- while the BN event
+path alone reaches 57.7%, significantly above baseline (p = 4e-4) but
+well below the narrative readouts. We also report a negative result:
+ranking categories by posterior lift instead of posterior probability
+degrades top-1 to 49.8%, because lift amplifies low-prior nodes.
+
+### 5.5 Reproducibility
+
+Every table regenerates from the public repository with one command per
+result (REPRODUCE.md). Narrative embeddings are cached on disk keyed by
+content hash, making reruns deterministic and API-free; all significance
+machinery (bootstrap seeds, McNemar counts) is seeded and versioned.
+
+---
+
+### Numbers you must NOT put in the paper
+
+- 93% / 81% severity accuracy (pre-leakage-fix; superseded by 90.9 / 77.4).
+- The old "diagnosis similarity 36.6%" metric (replaced by the
+  era-fair category evaluation).
+- Any Brier/logloss from runs before 2026-07-28.
