@@ -73,15 +73,16 @@ the other 2 are predicted NONE on injury, though both are flagged severe on
 damage (DEST/SUBS). Per-class recall and full confusion matrices in
 `outputs/heldout_significance.md`.
 
-LLM parsing tiers under the leak-safe protocol (`--llm gpt-4.1`, outputs
-`*_llm.json`): tiered parser 68.9% / 51.4%, LLM-first 69.9% / 57.8% -- both
-far below bn-sev, confirming the LLM is a text reader, not the predictive
-signal. Tier usage on 296 narratives: 176 deterministic, 120 LLM fallback,
-0 hard failures; redaction leaves 0 stated-severity detections. (Protocol
-note: these ablation numbers were run before parser inputs were also
-redacted; the deterministic-path rerun under full redaction left every
-number unchanged, so the conclusion is unaffected. Rerun with `--llm --tag
-_llm` to refresh under the current protocol; requires `OPENAI_API_KEY`.)
+LLM parsing tiers under the leak-safe protocol (`--llm gpt-4.1`, full redaction,
+outputs `*_llm.json`, rerun 2026-07-29): llm-tier **68.2% / 51.7%**, llm-first
+**66.9% / 57.8%** — both far below bn-sev (90.9% / 77.4%), confirming the LLM is a
+text reader, not the predictive signal. Tier usage on 296 narratives: 176 deterministic,
+120 LLM fallback, 0 hard failures; redaction leaves 0 stated-severity detections.
+
+**Fire-node cross-inference (negative):** feeding only parsed event evidence and reading
+P(fire) from the frozen BN scores ROC AUC ~0.38–0.46 (below chance) vs retrieval
+~0.96–0.98 and a fire-word regex ~0.94 on the same held-out cohort — the BN does not
+beat retrieval on held-out fire prediction. See `outputs/fire_node_cross_inference.md`.
 
 ## Diagnosis (cause-category, era-fair; 253 held-out)
 
@@ -155,12 +156,14 @@ calibrated / selected / fitted) and `outputs/hyperparam_sensitivity.md` for
 the internal-validation sweep (results stable across top_k 25–200; k=25
 variant: 89.9% / 77.7%, see `outputs/heldout_significance_k25.md`).
 
-## Limitations (canonical list: `docs_FrozenBN/RESULTS_SECTION.md` §5.5)
+## Limitations (canonical list: `docs_FrozenBN/RESULTS_SECTION.md` §5.6)
 
 Seven, none of them fixable by better engineering: (1) narratives are
 retrospective, so this is triage/coding-assist, not real-time prediction;
 (2) the BN adds **no** severity accuracy by construction (`bn-sev` =
-`retrieval-sev`, 0/296 discordant); (3) rare classes are hopeless at this n
+`retrieval-sev`, 0/296 discordant); (2b) cross-node inference does **not**
+beat retrieval on held-out fire (BN ROC AUC ~0.38–0.46 vs retrieval
+~0.96–0.98; §5.5); (3) rare classes are hopeless at this n
 (3 fatal injuries, 16 minor, Organizational recovered 1/25 at best); (4) the
 embedding model may
 have been pretrained on post-2006 NTSB text — TF-IDF LR is the pretraining-free

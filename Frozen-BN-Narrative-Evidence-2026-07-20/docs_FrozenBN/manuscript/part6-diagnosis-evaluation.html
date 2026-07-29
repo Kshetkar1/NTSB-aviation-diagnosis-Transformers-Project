@@ -145,28 +145,31 @@ nearly doubling the frequency baseline with zero training. (2) A supervised mode
 points (88.1%, p = 0.041) — the measured price of needing no labels, disclosed, not hidden. (3) The
 network's <em>event-evidence path</em> at 57.7% is a <b>structured-inference result and a partial
 negative result at the same time, and it is not a headline</b>. Positive: parsed narrative facts
-propagate through Zhang's CPTs to nodes the pipeline was never pointed at and land significantly
-above baseline (Holm p = 0.0007) — cross-node inference, the thing only a joint probabilistic model
-can do, measurably working. Negative: it loses to plain retrieval by 26.5 points, so as a
-<em>predictor</em> of cause category it is not competitive, and we do not present it as one.</div>
+propagate through Zhang's CPTs to cause nodes the pipeline was never pointed at and land significantly
+above baseline (Holm p = 0.0007) — evidence that event evidence reaches upstream cause nodes at
+category granularity. Negative: it loses to plain retrieval by 26.5 points, so as a
+<em>predictor</em> of cause category it is not competitive; the fire-node experiment (Part 7.6)
+further shows BN cross-node inference does not beat retrieval on held-out fire (ROC AUC ~0.38–0.46
+vs retrieval ~0.96–0.98), so we do not present cross-node inference as predictive lift.</div>
 <div class="fail"><b>What we tried that did not work (and kept in the paper).</b> Ranking cause
 categories by <em>lift</em> (posterior ÷ prior, "which category increased most") sounded cleverer
 than ranking by posterior. It scores 50.2% — barely above the baseline — because lift amplifies
 noise on small priors. We report it because negative ablations are how a reader learns the design
 was chosen by measurement, not taste (the same lesson as bn-fused in Part 4).</div>
 
-<h2>6.5 What this evaluation does — and does not yet — cover</h2>
+<h2>6.5 What this evaluation does — and does not — cover</h2>
 <div class="fail"><b>The honest scope statement.</b> The pipeline <em>computes</em> posteriors for
 every individual upstream node (hundreds of specific findings, occurrences, and persons — the
 demo shows them for any narrative), but what is <em>quantitatively scored</em> here is only the
 four-category rollup. Finding-level or occurrence-level diagnosis accuracy is not evaluated —
 partly forced by the data (the 2008 taxonomy break means held-out truth labels do not share a
-vocabulary with the network's legacy-era nodes below the category level), and partly simply not
-yet done. One designed-but-not-yet-run experiment would sharpen the cross-node claim at a single
-specific node: feed only parsed event evidence, read the network's posterior on the <em>fire</em>
-node, and score it against the coded fire field (Part 7.6 lists it as open work). Until such
-results exist, the precise claim is: narratives demonstrably drive diagnosis at the category
-level (this part), and drive node-level posteriors that are demonstrated but not yet scored.</div>
+vocabulary with the network's legacy-era nodes below the category level). The fire-node
+cross-inference experiment (Part 7.6, <code>outputs/fire_node_cross_inference.md</code>) is now
+<b>done and negative</b>: BN ROC AUC ~0.38–0.46 on coded fire (below chance) vs retrieval
+~0.96–0.98 on identical text. Do not claim held-out predictive lift from BN cross-node
+inference; the precise claims are: (1) narratives drive diagnosis at the category level (this
+part), and (2) the BN provides auditable joint reasoning and what-if semantics — not
+outperformance over neighbour voting on unobserved nodes like fire.</div>
 
 <div class="verify"><b>Verify it yourself.</b>
 <pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_heldout_eval.py

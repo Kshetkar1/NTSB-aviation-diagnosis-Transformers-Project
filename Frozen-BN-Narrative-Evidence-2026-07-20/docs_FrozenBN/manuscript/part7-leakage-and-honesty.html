@@ -196,13 +196,22 @@ it and recompute.</div>
       <td>Planned; requires pulling and processing post-2019 NTSB data. The single strongest
       remaining upgrade to the evidence.</td></tr>
   <tr><td>LLM-tier ablation rerun under the current full-redaction protocol</td>
-      <td>Planned (current numbers predate the protocol tightening; the deterministic-path rerun
-      suggests conclusions are unaffected).</td></tr>
-  <tr><td>A quantified "what the network buys you" experiment</td>
-      <td>Candidate designed: feed only parsed event evidence, read the network's posterior on the
-      fire node, score against the coded fire field — cross-node inference no baseline can do
-      without new training. (The diagnosis event path at 57.7%, Part 6, is already evidence of
-      the same phenomenon.)</td></tr>
+      <td><b>Done (2026-07-29).</b> Rerun with <code>--llm gpt-4.1 --tag _llm</code> under full
+      redaction (parsers receive redacted text only): tier 1 deterministic 176, tier 2 LLM 120,
+      tier 3 fallback 0; llm-tier 68.2% / 51.7% injury/damage, llm-first 66.9% / 57.8%; bn-sev
+      unchanged at 90.9% / 77.4%. Conclusion unchanged — the LLM is a text reader, not the
+      predictive signal. Outputs: <code>outputs/heldout_narrative_bn_eval_llm.json</code>,
+      <code>outputs/heldout_per_item_llm.json</code>.</td></tr>
+  <tr><td>Fire-node cross-inference experiment</td>
+      <td><b>Done (2026-07-29) — negative result.</b> Feed only parsed event evidence, read
+      P(fire), score against coded fire field on the same 296 held-out accidents. BN ROC AUC
+      ~0.38–0.46 (below chance); retrieval on identical text ~0.96–0.98; keyword-fire regex
+      ~0.94. Does <em>not</em> support "BN cross-node inference retrieval alone cannot."
+      Mechanism: <code>fire</code> has 13 ancestors, 6 barred by leak guard; parser mostly enters
+      only <code>person: flightcrew</code>. Surviving BN claim narrowed to coherent what-if /
+      evidence-composition semantics — not held-out predictive lift on unobserved nodes. Full
+      report: <code>outputs/fire_node_cross_inference.md</code>;
+      script: <code>tests/fire_node_cross_inference.py</code>.</td></tr>
 </table>
 
 <h2>7.7 The habit to take away</h2>

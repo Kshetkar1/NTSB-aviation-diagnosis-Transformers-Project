@@ -149,7 +149,47 @@ the BN event path alone reaches 57.7%, significantly above baseline
 ranking categories by posterior lift instead of posterior probability
 degrades top-1 to 50.2%, because lift amplifies low-prior nodes.
 
-### 5.5 Limitations
+### 5.5 Fire-node cross-inference (negative result)
+
+To test whether the frozen BN performs held-out cross-node inference that
+retrieval alone cannot, we scored the network's posterior on the `fire`
+occurrence node from parsed narrative event evidence only -- no severity
+evidence, no fire labels in the pipeline, and a leak guard that bars every
+fire-lexicon node (23 nodes) plus the two severity nodes from the entered
+evidence set. Cohort: the identical n = 296 held-out accidents (2007-2019)
+with the same redaction and truncation as the severity eval
+(`outputs/cohort_manifest.json`). Full protocol and tables:
+`outputs/fire_node_cross_inference.md`.
+
+**Verdict (negative, reported honestly):** the BN does not carry usable fire
+signal. Against the coded aircraft-fire field (`acft_fire`; 29/295 = 9.8%
+positive), the best BN arm reaches ROC AUC 0.392 (95% CI upper bound 0.521);
+retrieval neighbor fire rate on the same text reaches 0.975; a single
+fire-word regex reaches 0.940; supervised TF-IDF LR reaches 0.986 (requires
+fire labels). Against Zhang's occurrence-token definition (25/257 = 9.7%
+positive), the best BN arm reaches ROC AUC 0.457 (CI upper bound 0.588);
+retrieval reaches 0.981; keyword-fire 0.933. Paired bootstrap: BN arms trail
+retrieval by 0.56-0.60 AUC with p = 0.0000 in every head-to-head. The BN
+does not beat chance, does not beat a one-line regex, and does not beat
+retrieval -- the claim "the frozen BN performs cross-node inference retrieval
+alone cannot" is **not supported** by this experiment.
+
+**Mechanism (for Discussion):** `fire` has only 13 ancestors in the frozen
+DAG; 6 are barred by the leak guard; the parser enters evidence on only one
+enterable ancestor (`person: flightcrew`, 143/296 accidents). Narrative event
+evidence is almost never d-connected to `fire` in a fire-specific way, so
+the posterior barely moves (~1e-7 per-flight prior scale) and what movement
+there is is not informative. Meanwhile the coded fire label is nearly fully
+recoverable from narrative wording alone -- which is why neighbour voting and
+a regex both score ~0.94-0.98.
+
+**Surviving BN value claim (narrowed):** coherent what-if and
+evidence-composition semantics on a frozen auditable model -- **not** shown to
+yield predictive lift on unobserved nodes like fire. The diagnosis event path
+(57.7%) remains evidence that parsed facts propagate to cause nodes at
+category granularity; it does not extend to held-out fire prediction.
+
+### 5.6 Limitations
 
 This is the canonical limitations list for the paper; write the Discussion's
 limitations subsection from here. Each item is a genuine constraint we cannot
@@ -167,6 +207,13 @@ engineer away, stated without hedging.
    the narrative-retrieval signal's; the network's contribution is joint
    probabilistic reasoning at zero accuracy cost, and no claim of predictive
    superiority over retrieval is made anywhere.
+
+2b. **Cross-node inference does not beat retrieval on held-out fire.** The
+   fire-node experiment (§5.5) is a designed negative result: BN ROC AUC
+   ~0.38-0.46 (below chance), retrieval ~0.96-0.98, keyword-fire ~0.94. Do
+   not claim held-out predictive lift from BN cross-node inference; the
+   surviving claim is auditable joint reasoning and what-if semantics, not
+   outperforming neighbour voting on unobserved nodes.
 
 3. **Rare classes are not learnable from this window.** The held-out set
    contains 3 fatal-injury accidents (1 flagged severe on injury), 16
@@ -215,7 +262,7 @@ engineer away, stated without hedging.
    for submission,** not an optional extension; until it exists, every number
    here should be read as developed-on-test.
 
-### 5.6 Reproducibility
+### 5.7 Reproducibility
 
 Every table regenerates from the public repository with one command per
 result (REPRODUCE.md). Narrative embeddings are cached on disk keyed by
@@ -245,8 +292,11 @@ machinery (bootstrap seeds, McNemar counts) is seeded and versioned.
   (<= 2 pp, same direction for every predictor). The leakage and train/test
   checks *are* audits and keep that word.
 - **Any phrasing in which the Bayesian network improves predictive accuracy.**
-  It does not: `bn-sev` = `retrieval-sev` exactly. The BN's contribution is the
-  reasoning layer at zero accuracy cost.
+  It does not: `bn-sev` = `retrieval-sev` exactly on severity, and the fire-node
+  experiment shows BN cross-inference below chance while retrieval scores
+  ~0.97. The BN's contribution is the reasoning layer at zero severity
+  accuracy cost and coherent composition semantics -- not held-out predictive
+  lift on unobserved nodes.
 - **The BN event path (57.7% diagnosis) as a headline.** It is a
   structured-inference result and simultaneously a partial negative result:
   significantly above the frequency baseline (Holm p = 0.0007), 26.5 points

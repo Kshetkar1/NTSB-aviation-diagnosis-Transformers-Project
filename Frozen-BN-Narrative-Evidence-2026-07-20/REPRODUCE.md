@@ -64,9 +64,10 @@ outputs above are untouched):
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py --llm gpt-4.1 --tag _llm
 ```
 
-Expected: llm-tier 68.9% / 51.4%, llm-first 69.9% / 57.8% (both below
-bn-sev -- the LLM reads text, it is not the predictive signal); tier usage
-176 deterministic / 120 LLM / 0 failures. Query embeddings are disk-cached
+Expected: llm-tier **68.2% / 51.7%**, llm-first **66.9% / 57.8%** (both below
+bn-sev — the LLM reads text, it is not the predictive signal); tier usage
+176 deterministic / 120 LLM / 0 failures. Rerun date 2026-07-29 under full
+redaction (parsers receive redacted text only). Query embeddings are disk-cached
 (`shared/data/processed/query_emb_cache.npz`), so re-runs are
 deterministic and cost no embedding API calls.
 
@@ -115,6 +116,17 @@ probe + in-sample upper bound), `hyperparam_sensitivity.md`,
 `cohort_manifest.json` (exact accident IDs per cohort + cross-checks).
 Free-parameter inventory (the "what is trained?" answer):
 `docs_FrozenBN/FREE_PARAMETERS.md`.
+
+## 2c. Fire-node cross-inference (negative result)
+
+```bash
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/fire_node_cross_inference.py
+```
+
+Outputs: `outputs/fire_node_cross_inference.md`, `.json`. Headline: BN ROC AUC
+~0.38–0.46 on coded fire (below chance); retrieval neighbour fire rate on
+identical text ~0.96–0.98; keyword-fire regex ~0.94. Does **not** support
+held-out predictive lift from BN cross-node inference over retrieval.
 
 ## 3. Streamlit demo
 

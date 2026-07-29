@@ -59,7 +59,7 @@ window data, top_k came off the 2002-2006 slice -- but we scored the held-out
 optimism. The only real fix is a one-shot run on a window we have never
 touched (2020-2024), and we name it as a **prerequisite for submission**, not
 a nice-to-have. Until it exists, every number should be read as
-developed-on-test. Written up in `docs_FrozenBN/RESULTS_SECTION.md` §5.5.
+developed-on-test. Written up in `docs_FrozenBN/RESULTS_SECTION.md` §5.6.
 
 ## "What exactly is that 93%... sensitivity? specificity?" (Jesse)
 
@@ -103,6 +103,23 @@ inference, which counting one conditional at a time can't do; (3)
 interrogability -- what-if queries, explanation of which evidence moved
 which node. The retrieval numbers are the accuracy claim; the BN is the
 reasoning-and-explanation claim. Don't oversell the reverse.
+
+## "Does the BN do cross-node inference on held-out data?" (Jesse / Maha)
+
+**No on the fire node — retrieval wins.** We ran the designed experiment:
+feed only parsed narrative event evidence (no severity, no fire labels),
+read P(fire) from the frozen BN, score against the coded fire field on the
+same 296 held-out accidents. Result: BN ROC AUC ~0.38-0.46 (below chance);
+retrieval neighbour fire rate on identical text ~0.96-0.98; a single
+fire-word regex ~0.94; TF-IDF LR ~0.99 (needs fire labels). The BN does
+**not** beat retrieval and does not beat chance. Mechanism: `fire` has only
+13 ancestors, 6 barred by the leak guard, and the parser mostly only enters
+generic `person: flightcrew` — the posterior barely moves and is not
+fire-specific. **Narrow the BN claim:** coherent what-if / evidence-composition
+semantics on a frozen auditable model — **not** held-out predictive lift on
+unobserved nodes like fire. The diagnosis event path (57.7%) still shows
+parsed facts reach cause nodes at category level; that does not extend to
+fire. Full tables: `outputs/fire_node_cross_inference.md`.
 
 ## "Do your numbers match Zhang's?" (Maha's publishing bar)
 

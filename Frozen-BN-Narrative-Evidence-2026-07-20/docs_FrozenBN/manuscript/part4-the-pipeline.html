@@ -112,7 +112,17 @@ given the identical parsed evidence). The demo app
 narrative, and it shows the severity posteriors <em>and</em> lets you ask for
 P(any event | evidence) on any node you pick — one evidence set, both directions. The top-1
 predicted state of the injury and damage nodes is what gets scored in Part 5; the full
-distributions feed the probabilistic metrics (Brier score).</p></div>
+distributions feed the probabilistic metrics (Brier score).</p>
+<div class="fail"><b>What cross-node inference does and does not buy on held-out data.</b>
+The pipeline <em>can</em> read any node's posterior from the same evidence set — that is the
+joint-model affordance. The fire-node experiment (Part 7.6, <code>outputs/fire_node_cross_inference.md</code>)
+tested whether that affordance yields <em>predictive lift</em> on an unobserved node: feed only
+parsed event evidence, read P(fire), score against the coded fire field. Result: BN ROC AUC
+~0.38–0.46 (below chance); retrieval neighbour fire rate on identical text ~0.96–0.98; a
+fire-word regex ~0.94. The BN does not beat retrieval and does not beat chance. The surviving
+claim is coherent what-if and evidence-composition semantics on a frozen auditable model — not
+held-out predictive superiority over neighbour voting. The diagnosis event path (Part 6, 57.7%)
+shows parsed facts reach cause nodes at category granularity; that does not extend to fire.</div></div>
 
 <h2>4.1 The negative result we report on purpose: bn-fused</h2>
 <div class="fail"><b>What happens if you fuse everything at once.</b> The "obvious" architecture

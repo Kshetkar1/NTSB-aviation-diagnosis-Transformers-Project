@@ -1,0 +1,43 @@
+🧠 Loading knowledge base (Zhang window 1982-2006 (set NTSB_FULL_CORPUS=1 for full corpus))...
+✅ Knowledge base loaded successfully!
+held-out accidents with narratives: 296 (window 1742, full corpus 2243)
+virtual-evidence self-test passed (single-node posterior == target distribution)
+virtual-evidence self-test: OK (posterior tracks target exactly)
+LLM tiered predictor enabled: gpt-4.1
+  ... 25/296
+  ... 50/296
+  ... 75/296
+  ... 100/296
+  ... 125/296
+  ... 150/296
+  ... 175/296
+  ... 200/296
+  ... 225/296
+  ... 250/296
+  ... 275/296
+
+evidence per narrative: hard mean 2.5, retrieval soft facts mean 2.3
+tier usage: tier1(deterministic) 176, tier2(LLM) 120, tier3(fallback) 0
+llm-first API failures (fell back to prior): 0
+severity stated in narrative: damage 0, injury 0 of 296
+scored: injury n=296, damage n=296 (parse failures skipped: 0)
+
+predictor     inj Brier  inj logloss  inj acc  dmg Brier  dmg logloss  dmg acc
+------------------------------------------------------------------------------
+prior            0.8311       6.2681    0.584     1.1486       8.3724    0.426
+soft-only        0.2151       0.7635    0.892     0.6449       1.8700    0.551
+hard             0.6258       1.2100    0.642     0.7712       2.1112    0.446
+hard+soft        0.3524       0.6921    0.824     0.6499       1.3804    0.507
+soft-priority     0.2568       0.5387    0.899     0.5648       1.0296    0.554
+retrieval-sev     0.1762       0.3876    0.909     0.3749       0.6780    0.774
+bn-sev           0.1762       0.3876    0.909     0.3749       0.6780    0.774
+bn-fused         0.9699       6.9388    0.385     0.9638       5.1896    0.419
+bn-fused-t       0.9722       6.9802    0.385     0.9648       5.2181    0.419
+narrative-evidence     0.1762       0.3876    0.909     0.3749       0.6780    0.774
+llm-tier         0.5482       1.0183    0.682     0.6455       1.3791    0.517
+llm-tier+stated     0.5482       1.0183    0.682     0.6455       1.3791    0.517
+llm-first        0.5945       1.3198    0.669     0.7056       1.7602    0.578
+llm-first+stated     0.5945       1.3198    0.669     0.7056       1.7602    0.578
+
+wrote /Users/kanushetkar/Desktop/Vanderbilt_University/Internships/RRR/Current_Projects/NTSB/NTSB_Shivy/Frozen-BN-Narrative-Evidence-2026-07-20/outputs/heldout_narrative_bn_eval_llm.json
+wrote /Users/kanushetkar/Desktop/Vanderbilt_University/Internships/RRR/Current_Projects/NTSB/NTSB_Shivy/Frozen-BN-Narrative-Evidence-2026-07-20/outputs/heldout_per_item_llm.json
