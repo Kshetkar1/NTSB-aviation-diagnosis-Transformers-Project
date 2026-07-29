@@ -1,14 +1,23 @@
-"""Phase 2: reproduce Zhang's Table 7 fire-cause contributions.
+"""Phase 2 (EARLY VARIANT): reproduce Zhang's Table 7 fire-cause contributions.
 
 Zhang (buildOneGraphRep, pre-2006): an edge cause->Fire exists when
   (a) a subject (Subj_Code meaning) is attached to the fire occurrence
       (subject.Occurrence_No == fire occurrence's position), or
   (b) the occurrence immediately preceding Fire in the chain.
 Table 7 value for a cause = (# fire-accidents with that cause->Fire edge) / 102.
+
+NOTE: this script counts ALL findings on the fire occurrence and therefore
+over-counts several causes relative to Zhang's published table (e.g. electric
+wiring 0.1078 vs Zhang 0.0882) -- Zhang counts only contributory (Cause/Factor
+flagged) findings. The paper-faithful reproduction (85/85 exact) is
+`zhang_diagnosis.empirical_cause_distribution("fire", cause_factor_only=True)`,
+documented in docs_FrozenBN/TABLE7_FULL_REPRODUCTION.md. This script is kept
+as the historical first-pass counting check (denominator = 102 verified).
 """
 from __future__ import annotations
 
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -22,7 +31,7 @@ for _p in (_SHARED, _FROZEN_CODE):
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
 ROOT = REPO_ROOT
-RAW = ROOT / "data" / "raw"
+RAW = ROOT / "shared" / "data" / "raw"
 META = ROOT / "Zhang-Replication-Foundation-2026-06-04" / "reference" / "data" / "metaData.xlsx"
 
 # A few published Table 7 anchors (cause -> Zhang conditional prob)
@@ -50,7 +59,8 @@ def main() -> None:
     ev = pd.read_excel(RAW / "events.xlsx", dtype=str)
     ev_year = dict(zip(ev["ev_id"], ev.get("ev_year", ev["ev_id"])))
     import json
-    ref = json.loads((ROOT / "data/processed/refined_dataset.json").read_text())
+    ref = json.loads((ROOT / "shared" / "data" / "processed" /
+                      "refined_dataset.json").read_text())
     def yr(k):
         s = str(ref.get(k, {}).get("ev_date") or "")[:4]
         return int(s) if s.isdigit() else None

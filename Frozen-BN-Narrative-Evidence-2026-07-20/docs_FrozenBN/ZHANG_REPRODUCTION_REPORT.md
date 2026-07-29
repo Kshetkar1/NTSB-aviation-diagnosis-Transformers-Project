@@ -13,13 +13,27 @@ published numbers **exactly**:
 
 | Quantity | Zhang (paper) | Ours | Match |
 |---|---|---|---|
-| Prior P(fire) | 5.53 × 10⁻⁷ | 5.527942 × 10⁻⁷ | ✅ exact |
+| Prior P(fire) — Zhang's Eq. formula (102 / BTS departures) | 5.53 × 10⁻⁷ | 5.527942 × 10⁻⁷ | ✅ exact |
 | Fire occurrences (1982–2006) | 102 | 102 | ✅ exact |
-| Table 7 fire-cause distribution | — | 113/113 causes | ✅ exact |
+| Table 7 (paper, 85 causes, C/F-filtered counting) | 85 rows | **85/85 exact** (±0.0005) | ✅ exact — see `TABLE7_FULL_REPRODUCTION.md` |
+| Retrieval engine vs counting engine (extended mode, all findings) | — | 113/113 agreement | ✅ internal consistency only, NOT a paper comparison |
 
-The bottom line on reproduction: **"running the same data, we now get the same
-thing."** Both the prior and the full Table 7 cause distribution match to the digit.
-This is what earns the right to critique and extend the method.
+Two claims that must not be conflated:
+
+1. **Paper-faithful reproduction (the claim that matters):** with Zhang's
+   contributory-factor filter (`Cause_Factor ∈ {C, F}`), all **85 causes in his
+   published Table 7 match exactly** (tolerance ±0.0005). Full row-by-row
+   verification: `docs_FrozenBN/TABLE7_FULL_REPRODUCTION.md`.
+2. **Internal consistency of the extended mode:** the retrieval engine at full
+   breadth agrees with our own counting engine on 113/113 causes in an
+   *extended* mode that counts all findings (not just C/F). That mode is NOT
+   Zhang's table -- several of its counts exceed his published values (e.g.
+   electric wiring 0.1078 vs 0.0882) -- so "113/113" is a self-consistency
+   check between two of our own code paths, not a reproduction claim.
+
+The bottom line on reproduction: running the same data with Zhang's own
+counting rules, we get his published Table 7 to the digit (85/85). This is
+what earns the right to critique and extend the method.
 
 **Documented fragility in Zhang's smoother.** Zhang's headline *forward* numbers live
 in **sparse CPT cells** — cells with only a handful of observations. His flagship
@@ -89,12 +103,34 @@ transposition of 184,517,128.)
 
 Script: `tests/reproduce_fire_prior.py`, `tests/show_total_flights.py`.
 
+**Scope of this "exact" claim (formula, not network marginal).** What is
+reproduced exactly is Zhang's *arithmetic*: the root-prior formula
+`102 / interpolated BTS departures`. This is the number Zhang assigns to the
+fire node's prior CPT. It is **not** the same quantity as the marginal
+`P(fire)` obtained by querying a built network in which fire has parents --
+there, the marginal is a propagated quantity that depends on the parent CPTs
+and will generally differ from the root-prior formula. Any statement of the
+form "the BN reproduces Zhang's prior" must therefore specify *which* quantity
+is meant; ours is the formula/root-prior reproduction.
+
 ---
 
 ## 4. Table 7 — fire-cause distribution
 
 Zhang's Table 7 reports, for each cause, `P(cause | fire) = count(cause & fire) / 102`
-(confirmed from his code, `main.py` lines 1061–1073). Our reproduction:
+(confirmed from his code, `main.py` lines 1061–1073).
+
+> **Historical note (read before citing this table).** The counts below are
+> from the *first-pass* reproduction, which counted **all** findings on the
+> fire occurrence. Zhang counts only contributory findings
+> (`Cause_Factor ∈ {C, F}`), so several rows below exceed his published values
+> (e.g. electric wiring 11 → 0.1078 vs Zhang 0.0882; emergency procedure and
+> evacuation are inflated by descriptive findings). The **paper-faithful,
+> C/F-filtered reproduction matches all 85 of Zhang's published rows exactly**
+> -- see `TABLE7_FULL_REPRODUCTION.md`. This section is retained as the audit
+> trail of how the reproduction converged.
+
+Our first-pass reproduction:
 
 | Cause | n | Zhang / ours |
 |---|---|---|
@@ -151,8 +187,12 @@ causes. Four alignment fixes closed the gap to an exact match:
 | top-200 | 84 | 0.286 |
 | all | **102** | **0.3137 (= Zhang)** |
 
-**At full breadth, 113/113 causes match Zhang exactly.** At tighter retrieval the
-engine returns a query-focused subset (its added value for free-text questions).
+**At full breadth, the retrieval engine agrees with our counting engine on
+113/113 causes** (extended all-findings mode -- an internal-consistency check
+that retrieval reaches the same distribution as direct counting, not a
+comparison to Zhang's published 85-row table; that comparison is the 85/85 in
+`TABLE7_FULL_REPRODUCTION.md`). At tighter retrieval the engine returns a
+query-focused subset (its added value for free-text questions).
 
 Scripts: `tests/realign_window_vocab.py`, `tests/embed_missing_window.py`,
 `tests/compare_retrieval_zhang_denom.py`.

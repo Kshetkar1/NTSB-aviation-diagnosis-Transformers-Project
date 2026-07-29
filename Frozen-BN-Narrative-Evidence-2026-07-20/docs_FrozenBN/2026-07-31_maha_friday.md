@@ -35,8 +35,8 @@ verified) combines them and returns probabilities.
 | Quantity Zhang published | Zhang | Ours | Status |
 |---|---|---|---|
 | Fire occurrences 1982-2006 | 102 | 102 | exact |
-| Prior P(fire) | 5.53e-7 | 5.527942e-7 | exact |
-| Table 7 cause distribution | 113 entries | 113/113 | exact |
+| Prior P(fire) formula | 5.53e-7 | 5.527942e-7 | exact |
+| Table 7 cause distribution (published) | 85 rows | 85/85 | exact |
 
 Footer: docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md
 
@@ -49,15 +49,16 @@ among fatal/serious/minor/none (injury) or destroyed/substantial/minor/none
 | Method (plain name) | Injury | Damage |
 |---|---|---|
 | Always guess the most common outcome | 58.4% | 42.6% |
-| Facts parsed from the text -> network | 82.1% | 50.7% |
+| Facts parsed from the text -> network | 82.4% | 50.7% |
 | Similar-accidents readout -> network (OURS) | 90.9% | 77.4% |
 | Trained model on the same text (comparison) | 91.6% | 74.0% |
 
-- Outcome sentences are stripped from every narrative first, so the model
-  can't read the answer in the text (that fix moved us from 93/81 to the
-  honest 90.9/77.4).
-- OURS vs trained model: tie on injury (p=0.50); we're stronger on severe
-  damage (75% vs 68% of severe cases caught) - and we require zero training.
+- Outcome sentences are stripped from every narrative before ANY use --
+  embedding AND parsing -- so the model can't read the answer in the text
+  (that fix moved us from 93/81 to the honest 90.9/77.4).
+- OURS vs trained model: statistical tie (Holm p=1.0 injury / 0.22 damage);
+  we're stronger on severe damage (75% vs 68% of severe cases caught) -
+  and we require zero training.
 
 Footer: outputs/heldout_significance.md
 

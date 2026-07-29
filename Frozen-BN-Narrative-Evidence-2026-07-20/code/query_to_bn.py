@@ -40,7 +40,8 @@ p0 for the node,
 so after propagation the network believes the fact with probability ~c
 (exactly c when it is the only soft fact). Suggestion, not assertion --
 and this is how the narrative is exploited END TO END: text -> retrieval
--> facts + calibrated strengths -> joint propagation.
+-> facts + data-measured strengths (empirical retrieval frequencies)
+-> joint propagation.
 """
 from __future__ import annotations
 
@@ -187,9 +188,12 @@ def retrieval_facts(query: str, names, dataset: dict,
     with weighted frequency f_q in the pool and base rate f_0 in the dataset
     is kept when f_q >= min_fq and its odds lift over f_0 >= min_lift.
     The soft-evidence confidence is c = f_q itself: "given this narrative,
-    the fact holds with probability about f_q" -- an empirical, calibrated
-    number (apply_evidence turns it into a likelihood ratio against the
-    node's own prior, i.e. Jeffrey conditioning).
+    the fact holds with weighted frequency f_q among the most similar training
+    accidents" -- an empirical retrieval frequency, NOT a calibrated
+    probability (no calibration procedure is applied to it; whether f_q is
+    well-calibrated as P(fact | narrative) is untested). apply_evidence turns
+    it into a likelihood ratio against the node's own prior (Jeffrey
+    conditioning).
 
     Returns [(node, confidence, reason), ...] strongest first.
     """
@@ -346,8 +350,9 @@ _SEV_CAL_CACHE: dict[int, dict] = {}
 
 
 def severity_likelihoods(dataset: dict, alpha: float = 0.5) -> dict:
-    """Calibrated likelihood matrices L[i][j] = P(stated=i | coded=j), estimated
-    from the dataset's own narratives with Laplace smoothing alpha.
+    """Confusion-likelihood matrices L[i][j] = P(stated=i | coded=j), counted
+    once from the dataset's own narratives with Laplace smoothing alpha
+    (an empirical estimate, not a post-hoc calibration procedure).
 
     Returns {"damage": {stated_code: [L over DMG_CODES]},
              "injury": {stated_code: [L over INJ_CODES]}}.

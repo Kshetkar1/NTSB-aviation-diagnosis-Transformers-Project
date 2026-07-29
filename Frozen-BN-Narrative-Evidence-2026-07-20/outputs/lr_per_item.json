@@ -1,0 +1,2668 @@
+{
+ "items": [
+  {
+   "id": "20070131X00119",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.015347511813790838,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.2441667116421234
+  },
+  {
+   "id": "20070206X00142",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0177242172549363,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.7175580376966375
+  },
+  {
+   "id": "20070228X00237",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.25305205336164843,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.6703265033826362
+  },
+  {
+   "id": "20070313X00281",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0958646627428117,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.862387983928601
+  },
+  {
+   "id": "20070409X00387",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.5964432823999144,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.3606193874936036
+  },
+  {
+   "id": "20070418X00436",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.007438548326026865,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.015006385428699445
+  },
+  {
+   "id": "20070423X00446",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.050986792755640054,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7971741164088977
+  },
+  {
+   "id": "20070501X00494",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.1108285044873726,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.9226608668208125
+  },
+  {
+   "id": "20070503X00504",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.08537400168503477,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.6612130102615469
+  },
+  {
+   "id": "20070504X00513",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.38917798602768794,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.1908332525041726
+  },
+  {
+   "id": "20070510X00542",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03290130719208055,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.48376629390210774
+  },
+  {
+   "id": "20070520X00598",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.04656838931529447,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.033401937294160064
+  },
+  {
+   "id": "20070601X00676",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.04705008196125516,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.4709218851922445
+  },
+  {
+   "id": "20070625X00787",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7967350455805151
+  },
+  {
+   "id": "20070627X00819",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.964701281418017,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.10643962091619598
+  },
+  {
+   "id": "20070705X00879",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02848701785965794,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6828013284906903
+  },
+  {
+   "id": "20070712X00920",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0147897419771937,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.3709796574912976
+  },
+  {
+   "id": "20070718X00958",
+   "inj_true": 0,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 1.5305737548430736,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.046996861180607204
+  },
+  {
+   "id": "20070720X00966",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.009227687481682803,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.014380886910209095
+  },
+  {
+   "id": "20070817X01201",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.01479771071326823,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.02054300421972251
+  },
+  {
+   "id": "20070911X01360",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.050828605614721065,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.029805710231501817
+  },
+  {
+   "id": "20071005X01522",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.05691325542127844,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.9479076138156077
+  },
+  {
+   "id": "20071023X01634",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.13013475815442527,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.6136357335560786
+  },
+  {
+   "id": "20071023X01635",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.5227734849494847,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.21506894274283747
+  },
+  {
+   "id": "20071029X01680",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.051607419995425466,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.796878830612504
+  },
+  {
+   "id": "20071130X01878",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 1.420549796740088e-06,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.0003780185450332752
+  },
+  {
+   "id": "20071204X01893",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.04120256355489183,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.965422341033181
+  },
+  {
+   "id": "20071217X01939",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0276011887735284,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.41350040713351066
+  },
+  {
+   "id": "20071231X02012",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02848701785965794,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.783144986743314
+  },
+  {
+   "id": "20071231X02013",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.5809700955968538,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6536069920425112
+  },
+  {
+   "id": "20080107X00024",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.7702430747600271,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.4486336765362495
+  },
+  {
+   "id": "20080118X00073",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.014022278603554424,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6965431692114836
+  },
+  {
+   "id": "20080122X00088",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.09157542239808664,
+   "dmg_true": 3,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 1.473641586498681
+  },
+  {
+   "id": "20080212X00178",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.892092871263414,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.44963910239616073
+  },
+  {
+   "id": "20080222X00229",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419245641864581,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.5783952596783868
+  },
+  {
+   "id": "20080228X00243",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.09868096927703182,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.07124451096171998
+  },
+  {
+   "id": "20080304X00260",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.3402039729240094,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.1264780330557635
+  },
+  {
+   "id": "20080305X00267",
+   "inj_true": 2,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.7552111430927118,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.16040369001529814
+  },
+  {
+   "id": "20080307X00283",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.019911652537213366,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.9578050890477113
+  },
+  {
+   "id": "20080331X00404",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419245641864581,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7335247954181239
+  },
+  {
+   "id": "20080404X00426",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.030869071653807527,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.30583135981740356
+  },
+  {
+   "id": "20080409X00446",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 1.228991804980466,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.08243002610431459
+  },
+  {
+   "id": "20080413X00464",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0017341180651152099,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.006915005273113947
+  },
+  {
+   "id": "20080506X00598",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.034299498716039246,
+   "dmg_true": 3,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.7370974470143936
+  },
+  {
+   "id": "20080701X00963",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.25602475872767605,
+   "dmg_true": 0,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.0451312930623464
+  },
+  {
+   "id": "20080703X00974",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.014988908829158536,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6828856274418602
+  },
+  {
+   "id": "20080720X01081",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8893416252652886
+  },
+  {
+   "id": "20080722X01094",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.011043232263907615,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.08187211643740962
+  },
+  {
+   "id": "20080812X01218",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.019803233098950497,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8421686501576207
+  },
+  {
+   "id": "20080912X01438",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.16297284449452165,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.3621629250541174
+  },
+  {
+   "id": "20080915X01465",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02848701785965794,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.783144986743314
+  },
+  {
+   "id": "20081003X16303",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.0216691555274036,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.3506091587536819
+  },
+  {
+   "id": "20081003X17330",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.052200292707607135,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.9097746817045861
+  },
+  {
+   "id": "20081003X63355",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10596124448567423,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.27703640363400334
+  },
+  {
+   "id": "20081007X03940",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.2008064525832635,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.33577829363815626
+  },
+  {
+   "id": "20081027X75039",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.17116730279048947,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.7438065081421675
+  },
+  {
+   "id": "20081110X15316",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.5565066615503224
+  },
+  {
+   "id": "20081113X92722",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.9215383481161968,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.4589386579450336
+  },
+  {
+   "id": "20081116X33137",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0071714621578809964,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.5253659122285332
+  },
+  {
+   "id": "20081124X34243",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.14645531413691645,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.8148085662478235
+  },
+  {
+   "id": "20081201X44308",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10173845524470992,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.7029505032355192
+  },
+  {
+   "id": "20081215X14936",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.15109527624447128,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6341141428666689
+  },
+  {
+   "id": "20081216X41655",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7967350455805151
+  },
+  {
+   "id": "20081217X83220",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03093171426113496,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.4223233462737357
+  },
+  {
+   "id": "20081219X16532",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03395632633315033,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.21506894274283747
+  },
+  {
+   "id": "20081219X65251",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0147897419771937,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.18299190288933387
+  },
+  {
+   "id": "20081219X65313",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03395632633315033,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.21506894274283747
+  },
+  {
+   "id": "20081221X14648",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.1106156556570077,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.9859263829869186
+  },
+  {
+   "id": "20081224X25658",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.16830103437115643,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.9218973022846948
+  },
+  {
+   "id": "20081228X25156",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.014022278603554424,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6965431692114836
+  },
+  {
+   "id": "20081229X80551",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10020347869797619,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8146379403628096
+  },
+  {
+   "id": "20090105X01036",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.026385569669333014,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.5646428302279763
+  },
+  {
+   "id": "20090114X61852",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7967350455805151
+  },
+  {
+   "id": "20090115X73226",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.26700621904979194,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.4589386579450336
+  },
+  {
+   "id": "20090223X03403",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419245641864581,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7335247954181239
+  },
+  {
+   "id": "20090303X74824",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.20122361104157208,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.1511750240293952
+  },
+  {
+   "id": "20090401X82602",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.5921985752435481,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6828013284906903
+  },
+  {
+   "id": "20090421X81417",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.002481792277423094,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.007208913970506682
+  },
+  {
+   "id": "20090422X95319",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06156196586955659,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.2782612080467932
+  },
+  {
+   "id": "20090505X04553",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.1775281598372576,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.522168545047989
+  },
+  {
+   "id": "20090513X31333",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.3194822763568106,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.10625866032641462
+  },
+  {
+   "id": "20090522X80352",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.008394309124214329,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7531816553880817
+  },
+  {
+   "id": "20090527X25328",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 6.899982277044766e-05,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.00158482152770456
+  },
+  {
+   "id": "20090610X65600",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.15021027276205254,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.391437141662996
+  },
+  {
+   "id": "20090611X13753",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03456891649721726,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.3867676040906084
+  },
+  {
+   "id": "20090712X94532",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.004943424865906259,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.010759282839865745
+  },
+  {
+   "id": "20090724X12005",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.12849851834587983,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.33627900408367467
+  },
+  {
+   "id": "20090724X34459",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.040196345994057886,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.18391775462513493
+  },
+  {
+   "id": "20090730X12915",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03395632633315033,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.21506894274283747
+  },
+  {
+   "id": "20090805X42956",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.00012968989254961475,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.8264870178449422
+  },
+  {
+   "id": "20090806X21108",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.003317279548174097,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.02207190393876584
+  },
+  {
+   "id": "20090810X21314",
+   "inj_true": 2,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 1.9991580033719172,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 3.3201543666661945e-05
+  },
+  {
+   "id": "20090828X61756",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.00033262882915661475,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.008753281921004637
+  },
+  {
+   "id": "20090909X82446",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03395632633315033,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.21506894274283747
+  },
+  {
+   "id": "20090910X53412",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.5048741318963534,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.01652190112013159
+  },
+  {
+   "id": "20090910X95942",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.8142988692480067,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.5937970950256757
+  },
+  {
+   "id": "20090921X05830",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.1602299349391635,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.46882494651040196
+  },
+  {
+   "id": "20090921X73211",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.2658746554617618,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.2902467657983649
+  },
+  {
+   "id": "20090925X65328",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 1.609174763306159,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.021388421074275504
+  },
+  {
+   "id": "20091020X14635",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.3376566289784152,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6264308752085322
+  },
+  {
+   "id": "20091022X00120",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.6357583449282681,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.03434655019257661
+  },
+  {
+   "id": "20091029X02444",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0017341180651152099,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.006915005273113947
+  },
+  {
+   "id": "20091030X64143",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.019154380162280563,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.016732094018964156
+  },
+  {
+   "id": "20091102X82140",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.07936151573169553,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.3771229469276665
+  },
+  {
+   "id": "20091117X55556",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.08215357313956798,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.5019048808677028
+  },
+  {
+   "id": "20091124X94107",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.010043306326872066,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.1461342263413159
+  },
+  {
+   "id": "20091214X41802",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.04132621207348035,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 1.108728252439313
+  },
+  {
+   "id": "20091223X50505",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.4649881513731549,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8893416252652886
+  },
+  {
+   "id": "20091228X15816",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.029018016338056483,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.6046812272133367
+  },
+  {
+   "id": "20100114X11754",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0969608075832,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.1662773885592811
+  },
+  {
+   "id": "20100216X20235",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.6528566466440406,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.23245904465110512
+  },
+  {
+   "id": "20100216X34257",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419245641864581,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7335247954181239
+  },
+  {
+   "id": "20100219X11249",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.07694313514528064,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.5299824594472531
+  },
+  {
+   "id": "20100222X84927",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.1251092523291068,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.0879582214213155
+  },
+  {
+   "id": "20100312X84023",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.011388476346081158,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.01476301069951775
+  },
+  {
+   "id": "20100315X12046",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02850951729765053,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.48011411923484537
+  },
+  {
+   "id": "20100423X01145",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.014337397162816887,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.020358732463776886
+  },
+  {
+   "id": "20100423X02633",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.06872117658427122,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.041480954558799854
+  },
+  {
+   "id": "20100503X82523",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.006160406456147804,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.37733248494083876
+  },
+  {
+   "id": "20100507X94749",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.026049363563053776,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.025282348151565874
+  },
+  {
+   "id": "20100520X02527",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02850951729765053,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8996266744393429
+  },
+  {
+   "id": "20100523X62317",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02690271157531053,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.5984353620816006
+  },
+  {
+   "id": "20100525X31845",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.9002692714920449,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.3126461454848145
+  },
+  {
+   "id": "20100606X02721",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419245641864581,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7335247954181239
+  },
+  {
+   "id": "20100608X35931",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.00501244135368149,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.11368257028945347
+  },
+  {
+   "id": "20100701X93344",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.013499293465681933,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.015512934862495088
+  },
+  {
+   "id": "20100714X63624",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10020347869797619,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8146379403628096
+  },
+  {
+   "id": "20100719X80209",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.011465888529298324,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.01480861182498527
+  },
+  {
+   "id": "20100720X43639",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.043946300935719995,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.37446908823587755
+  },
+  {
+   "id": "20100811X20501",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7967350455805151
+  },
+  {
+   "id": "20100827X20401",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.4556784346525387,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.3869884383814382
+  },
+  {
+   "id": "20100928X12406",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.029433025597355063,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.4401428091332725
+  },
+  {
+   "id": "20100930X00358",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419681681408052,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.2092867085984111
+  },
+  {
+   "id": "20101006X00507",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.3048666054267628,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.31849943064839803
+  },
+  {
+   "id": "20101019X33258",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02848701785965794,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6828013284906903
+  },
+  {
+   "id": "20101027X04916",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.12304653422396747,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.5378084464903686
+  },
+  {
+   "id": "20101103X34855",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8893416252652886
+  },
+  {
+   "id": "20101103X44221",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.027243941871708734,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.6087834145501079
+  },
+  {
+   "id": "20101116X51712",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02848701785965794,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.783144986743314
+  },
+  {
+   "id": "20101124X20432",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0629909984981198,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.7204764706099956
+  },
+  {
+   "id": "20101130X64248",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0017341180651152099,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.006915005273113947
+  },
+  {
+   "id": "20101203X60119",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.22840770897697332,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.2797302289132609
+  },
+  {
+   "id": "20101203X90900",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.009706956023480567,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.01372971375698962
+  },
+  {
+   "id": "20101208X40921",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06513358896067495,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.8413043705031444
+  },
+  {
+   "id": "20101220X14621",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03290130719208055,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.8396939915290673
+  },
+  {
+   "id": "20101229X22154",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.6099425329619725
+  },
+  {
+   "id": "20110105X33913",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10596124448567423,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8688885370655437
+  },
+  {
+   "id": "20110209X55126",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.1470193295851781,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.13107891942248356
+  },
+  {
+   "id": "20110219X32035",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.006936672504551677,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.012467646115269862
+  },
+  {
+   "id": "20110222X20316",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.5565066615503224
+  },
+  {
+   "id": "20110228X54428",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.6126796242062675,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.22848187694146152
+  },
+  {
+   "id": "20110317X14552",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10596124448567423,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.27703640363400334
+  },
+  {
+   "id": "20110318X05118",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.048675380427835466,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.8273898822187744
+  },
+  {
+   "id": "20110323X24235",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.046986976937369924,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.33137535162302684
+  },
+  {
+   "id": "20110328X80923",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.04801823850279742,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.0339258841701407
+  },
+  {
+   "id": "20110329X33129",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.08679923149903536,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.046996861180607204
+  },
+  {
+   "id": "20110401X24330",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.2834130965629587,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8667241223454362
+  },
+  {
+   "id": "20110417X11718",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.41690709013980753,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.19707931535757525
+  },
+  {
+   "id": "20110418X12310",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.9002692714920449,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.3126461454848145
+  },
+  {
+   "id": "20110426X53639",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.07452788195498397,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6492543443824191
+  },
+  {
+   "id": "20110513X41407",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7599634363630603
+  },
+  {
+   "id": "20110517X80339",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.010911562653681105,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.6115210474699977
+  },
+  {
+   "id": "20110525X42547",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.2230517682338724,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.2642080396031004
+  },
+  {
+   "id": "20110603X52158",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.036125431256176316,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.022471552326377
+  },
+  {
+   "id": "20110607X73034",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.010285651350757237,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.01409509756750289
+  },
+  {
+   "id": "20110607X83931",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419681681408052,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.2092867085984111
+  },
+  {
+   "id": "20110615X10113",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0507303869125705,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.034888368759496226
+  },
+  {
+   "id": "20110621X20741",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.2526209172498477,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.0911899045346405
+  },
+  {
+   "id": "20110621X32040",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02850951729765053,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8996266744393429
+  },
+  {
+   "id": "20110628X11855",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.39031004091211563,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.19104160646481536
+  },
+  {
+   "id": "20110701X11957",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.004147237059639827,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.029830419698830532
+  },
+  {
+   "id": "20110715X40120",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.011814345759142251,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.4015369983235463
+  },
+  {
+   "id": "20110730X60307",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 1.0137073149975801e-06,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.0005035466493720568
+  },
+  {
+   "id": "20110808X94427",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.045508603192902966,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.42579272057550055
+  },
+  {
+   "id": "20110902X54326",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03093171426113496,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.4223233462737357
+  },
+  {
+   "id": "20110912X61152",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.3773107330825448,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.18875262759339795
+  },
+  {
+   "id": "20110930X20857",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0017341180651152099,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.006915005273113947
+  },
+  {
+   "id": "20111011X01145",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06218438072637711,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.4203872344627714
+  },
+  {
+   "id": "20111018X03714",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06348826928681989,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.2728148381516707
+  },
+  {
+   "id": "20111020X14740",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.009872938377647562,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.014975222341630273
+  },
+  {
+   "id": "20111024X74546",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.027206135869915434,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.33759130958616723
+  },
+  {
+   "id": "20111027X01810",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.18432839866162387,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.5744000440467842
+  },
+  {
+   "id": "20111208X41332",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0021900643885132127,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.009682246624464883
+  },
+  {
+   "id": "20120105X34138",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02850951729765053,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.48011411923484537
+  },
+  {
+   "id": "20120118X91324",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0948747305977975,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.2862824328353431
+  },
+  {
+   "id": "20120207X34555",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02850951729765053,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8996266744393429
+  },
+  {
+   "id": "20120221X03231",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.1602299349391635,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.707649374733418
+  },
+  {
+   "id": "20120221X32033",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.39041412630663863,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.11479657578885857
+  },
+  {
+   "id": "20120224X25922",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419245641864581,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7037111106308473
+  },
+  {
+   "id": "20120224X42146",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.02294864888277728,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.01978192514740442
+  },
+  {
+   "id": "20120229X70237",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.0480037956500385,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.35943840136772076
+  },
+  {
+   "id": "20120302X00956",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.1282688479822363,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.05715426562086346
+  },
+  {
+   "id": "20120312X10202",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02971724820215508,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.37685328097313686
+  },
+  {
+   "id": "20120322X25316",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.014660546439589093,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.020440194046135306
+  },
+  {
+   "id": "20120417X44353",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0001486310949362626,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.8199632759972286
+  },
+  {
+   "id": "20120511X73555",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 1.0137073149975801e-06,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.0005035466493720568
+  },
+  {
+   "id": "20120530X64155",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.002169834858684791,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.3751193425539328
+  },
+  {
+   "id": "20120531X95046",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02971724820215508,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.37685328097313686
+  },
+  {
+   "id": "20120612X01249",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.02318480211773813,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.026497993769640592
+  },
+  {
+   "id": "20120621X34639",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.09266303268202955,
+   "dmg_true": 3,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 1.2297047852070588
+  },
+  {
+   "id": "20120719X94744",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.407305293255491,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8688885370655437
+  },
+  {
+   "id": "20120802X03552",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0629013980823993,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.051901493531851
+  },
+  {
+   "id": "20120807X32623",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.008267780400005831,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.013876262777724295
+  },
+  {
+   "id": "20120924X32520",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.005777668200394702,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.020269743490540348
+  },
+  {
+   "id": "20121005X05550",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.5792995772954705,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.9567875139588677
+  },
+  {
+   "id": "20121107X21801",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.011563489875634263,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.36013690869735726
+  },
+  {
+   "id": "20130220X51849",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.02020059563236163,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.02479673267367078
+  },
+  {
+   "id": "20130220X85257",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.35564013681017476,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.1348483534312896
+  },
+  {
+   "id": "20130312X23544",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.09521854055996219,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.43141132863002807
+  },
+  {
+   "id": "20130314X14422",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.04190369463050612,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.6107824584701625
+  },
+  {
+   "id": "20130314X15433",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03395632633315033,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.9406176493404443
+  },
+  {
+   "id": "20130429X12734",
+   "inj_true": 0,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.3059038919607375,
+   "dmg_true": 0,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.0451312930623464
+  },
+  {
+   "id": "20130511X04905",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03290130719208055,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7747162052617815
+  },
+  {
+   "id": "20130517X14847",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.05305915457638948,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.036234362718756
+  },
+  {
+   "id": "20130712X61436",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.010155408123381128,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.01493779466427302
+  },
+  {
+   "id": "20130723X13256",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.6402598756883315,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.038456771591955256
+  },
+  {
+   "id": "20130814X15751",
+   "inj_true": 0,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.3059038919607375,
+   "dmg_true": 0,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.0451312930623464
+  },
+  {
+   "id": "20130901X95021",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.03848492938174707,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.5147596352347596
+  },
+  {
+   "id": "20130930X75500",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.01793801374962926,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.023922968794385546
+  },
+  {
+   "id": "20131220X70905",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.069204656078342,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.43828078014716926
+  },
+  {
+   "id": "20131224X22946",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.032206425977480385,
+   "dmg_true": 2,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.9846389651737332
+  },
+  {
+   "id": "20140109X32656",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.13217283548398806,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.112653138704783
+  },
+  {
+   "id": "20140110X14059",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.26501719928744005,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.10360470714407738
+  },
+  {
+   "id": "20140110X15754",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.7763399546742515,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.31453402413730513
+  },
+  {
+   "id": "20140314X21725",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.08670181842960825,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.4800279156822651
+  },
+  {
+   "id": "20140320X53321",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.05545442397077721,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.037073139177644245
+  },
+  {
+   "id": "20140507X51410",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.053264974384352536,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.036190336403225276
+  },
+  {
+   "id": "20140529X04134",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7967350455805151
+  },
+  {
+   "id": "20140603X95748",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.015472042068686234,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.39232932809110055
+  },
+  {
+   "id": "20140620X45424",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.4076724151531117,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.645448627812973
+  },
+  {
+   "id": "20140624X40942",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.2646378114066654,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.10070156156406723
+  },
+  {
+   "id": "20140714X45633",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10596124448567423,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.27703640363400334
+  },
+  {
+   "id": "20140814X52213",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8893416252652886
+  },
+  {
+   "id": "20140814X52852",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8893416252652886
+  },
+  {
+   "id": "20140815X53015",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06515968872880609,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.1735557389494076
+  },
+  {
+   "id": "20140826X64917",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.000712320059267546,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.00043277109444411386
+  },
+  {
+   "id": "20140828X43935",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.025586425512942837,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.026956030287727886
+  },
+  {
+   "id": "20140829X32709",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.05464555965483567,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.03679156332313241
+  },
+  {
+   "id": "20140918X21722",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02859703788556784,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8706852693360021
+  },
+  {
+   "id": "20140918X52311",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10596124448567423,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.27703640363400334
+  },
+  {
+   "id": "20140922X14716",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.20122361104157208,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.7711914112058597
+  },
+  {
+   "id": "20141006X73012",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0419245641864581,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7037111106308473
+  },
+  {
+   "id": "20141023X80357",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7967350455805151
+  },
+  {
+   "id": "20141121X15631",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.012608915024837243,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.7809765070458867
+  },
+  {
+   "id": "20141211X62917",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.009766956454329909,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.016882343764737438
+  },
+  {
+   "id": "20150305X42958",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.5792995772954705,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.9567875139588677
+  },
+  {
+   "id": "20150422X71127",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.014169861263507796,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.8227220558156452
+  },
+  {
+   "id": "20150511X92031",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02848701785965794,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6828013284906903
+  },
+  {
+   "id": "20150523X13659",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.025992236580131486,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.027363331366371223
+  },
+  {
+   "id": "20150605X52542",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10596124448567423,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.27703640363400334
+  },
+  {
+   "id": "20150611X74851",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.02096254137686235,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.025223279597406383
+  },
+  {
+   "id": "20150701X91130",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.05000868075030822,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.035143428253265
+  },
+  {
+   "id": "20150701X91338",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.05931316939402747,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.03839433651242234
+  },
+  {
+   "id": "20150717X41748",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.09180272423823904,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.04757229034429159
+  },
+  {
+   "id": "20150812X63537",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.45951952622945264,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.15109814890940698
+  },
+  {
+   "id": "20150824X02325",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06272925354374817,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.6099425329619725
+  },
+  {
+   "id": "20151005X35533",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.048248159013631046,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.44901446465224204
+  },
+  {
+   "id": "20151022X65901",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.05643904037831075,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.03741367116897312
+  },
+  {
+   "id": "20151023X50751",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0748407354923026,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.043401987056407326
+  },
+  {
+   "id": "20151107X52955",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.010738322770002163,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.045666347694929305
+  },
+  {
+   "id": "20151124X65446",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.8884175871880726,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.2753285616347313
+  },
+  {
+   "id": "20151130X61148",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.11468652840971641,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.20934763567500553
+  },
+  {
+   "id": "20151213X84149",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.12883107941976116,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.1583163852587634
+  },
+  {
+   "id": "20151216X41606",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0484167950309332,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.35520248681836436
+  },
+  {
+   "id": "20160106X80332",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.7780897464329684,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.30776363257249856
+  },
+  {
+   "id": "20160112X24550",
+   "inj_true": 1,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.1924148066148632,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.41288622322937757
+  },
+  {
+   "id": "20160119X15230",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.04920716471319423,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.03435055548896947
+  },
+  {
+   "id": "20160119X20258",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.029616955865127016,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.02695046233727287
+  },
+  {
+   "id": "20160126X75122",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.008394309124214329,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7531816553880817
+  },
+  {
+   "id": "20160129X24835",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.0021900643885132127,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.009682246624464883
+  },
+  {
+   "id": "20160222X93713",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.02742744206139544,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.5182599719090552
+  },
+  {
+   "id": "20160330X72920",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.13923504697148473,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.98253945660734
+  },
+  {
+   "id": "20160707X02944",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.28586098091912265,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.462547092076246
+  },
+  {
+   "id": "20160708X61700",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.06305056078025657,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.4883504634894298
+  },
+  {
+   "id": "20160803X71952",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.00042339452361274713,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.009991603402539156
+  },
+  {
+   "id": "20160805X44633",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.0147897419771937,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.0008294253160863
+  },
+  {
+   "id": "20160811X81653",
+   "inj_true": 3,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.5792995772954705,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.9567875139588677
+  },
+  {
+   "id": "20160927X51937",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.04673911508007204,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.6505946427860411
+  },
+  {
+   "id": "20161028X72837",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.3687219434878955,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 1.4249981954531006
+  },
+  {
+   "id": "20161028X93712",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.10508938829789416,
+   "dmg_true": 1,
+   "lr:dmg_pred": 1,
+   "lr:dmg_brier": 0.3996268130535954
+  },
+  {
+   "id": "20161205X55455",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.191952182896401,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.24433152733827102
+  },
+  {
+   "id": "20161208X21155",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.024390242731220813,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.0736596290768776
+  },
+  {
+   "id": "20161216X60544",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.022270892979703232,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.01950934772355429
+  },
+  {
+   "id": "20170124X45041",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.04852611829438447,
+   "dmg_true": 3,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.8045298726845211
+  },
+  {
+   "id": "20170222X80758",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.013572792287650817,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.015993953203070288
+  },
+  {
+   "id": "20170224X03359",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.08939205560375382,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.5197141473411411
+  },
+  {
+   "id": "20170308X73155",
+   "inj_true": 2,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 1.4966205261888215,
+   "dmg_true": 1,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.7967350455805151
+  },
+  {
+   "id": "20170508X85232",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.004778342760531119,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.025223964056211315
+  },
+  {
+   "id": "20170608X90705",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.05144282879513154,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.47483491305070147
+  },
+  {
+   "id": "20170612X10422",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.11246038632879268,
+   "dmg_true": 2,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 0.09137838233343515
+  },
+  {
+   "id": "20170703X71412",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.054955100543659444,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.8894888025904311
+  },
+  {
+   "id": "20170913X72254",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.014988908829158536,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.9245394139323003
+  },
+  {
+   "id": "20171002X95003",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.014169861263507796,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.6953196142234133
+  },
+  {
+   "id": "20171212X50255",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.014988908829158536,
+   "dmg_true": 2,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.9245394139323003
+  },
+  {
+   "id": "20171220X52223",
+   "inj_true": 1,
+   "lr:inj_pred": 1,
+   "lr:inj_brier": 0.005777668200394702,
+   "dmg_true": 3,
+   "lr:dmg_pred": 3,
+   "lr:dmg_brier": 0.020269743490540348
+  },
+  {
+   "id": "20180507X00658",
+   "inj_true": 3,
+   "lr:inj_pred": 3,
+   "lr:inj_brier": 0.12690079104655008,
+   "dmg_true": 1,
+   "lr:dmg_pred": 2,
+   "lr:dmg_brier": 1.61488879530709
+  }
+ ]
+}

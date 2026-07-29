@@ -247,8 +247,15 @@ def main():
     emit()
 
     # ---- paired tests ------------------------------------------------------
-    pairs = [("bn-sev", "prior"), ("bn-sev", "lr"), ("bn-sev", "emb-lr"),
-             ("bn-sev", "retrieval-sev"), ("bn-sev", "bn-fused"),
+    # PRIMARY comparisons: the pre-declared confirmatory hypotheses. Holm-
+    # Bonferroni is applied within each (target x primary-family) set; all
+    # remaining pairs are exploratory and marked as such (raw p only).
+    primary = [("bn-sev", "prior"),          # narrative signal beats BN alone?
+               ("bn-sev", "lr"),             # competitive with supervised LR?
+               ("bn-sev", "emb-lr"),         # competitive with embedding LR?
+               ("bn-sev", "retrieval-sev")]  # does BN mediation cost accuracy?
+    pairs = primary + [
+             ("bn-sev", "bn-fused"),
              ("bn-sev", "hard+soft"), ("bn-sev", "soft-priority"),
              ("retrieval-sev", "lr"), ("retrieval-sev", "emb-lr"),
              ("emb-lr", "lr"),
@@ -262,14 +269,38 @@ def main():
                   ("llm-first", "llm-tier")]
     pairs = [(a, b) for a, b in pairs
              if a in predictors and b in predictors]
+    primary = [(a, b) for a, b in primary
+               if a in predictors and b in predictors]
+
+    def holm(pvals):
+        """Holm-Bonferroni adjusted p-values (step-down, monotone)."""
+        m = len(pvals)
+        order = np.argsort(pvals)
+        adj = np.empty(m)
+        running = 0.0
+        for rank, i in enumerate(order):
+            running = max(running, (m - rank) * pvals[i])
+            adj[i] = min(1.0, running)
+        return adj
+
+    emit("## Multiplicity policy")
+    emit()
+    emit("Four comparisons per target are PRIMARY (pre-declared, confirmatory): "
+         "bn-sev vs prior, bn-sev vs lr, bn-sev vs emb-lr, and bn-sev vs "
+         "retrieval-sev. Holm-Bonferroni correction is applied within each "
+         "target's primary family (m = 4). All other rows are EXPLORATORY "
+         "ablations; their raw p-values are shown without correction and "
+         "should not be read as confirmatory tests.")
+    emit()
 
     for tgt in ("inj", "dmg"):
         label = "Injury" if tgt == "inj" else "Damage"
         emit(f"## {label}: paired comparisons (McNemar exact + Brier delta)")
         emit()
-        emit("| A vs B | A only right | B only right | McNemar p | "
-             "Brier delta (A-B) 95% CI | n |")
-        emit("|---|---|---|---|---|---|")
+        emit("| A vs B | Role | A only right | B only right | McNemar p | "
+             "p (Holm) | Brier delta (A-B) 95% CI | n |")
+        emit("|---|---|---|---|---|---|---|---|")
+        results = []
         for a, b in pairs:
             sub = [r for r in rows
                    if f"{a}:{tgt}_pred" in r and f"{b}:{tgt}_pred" in r
@@ -284,13 +315,28 @@ def main():
             d = np.array([r[f"{a}:{tgt}_brier"] - r[f"{b}:{tgt}_brier"]
                           for r in sub])
             lo, hi = boot_ci(d)
-            star = " *" if p < 0.05 else ""
-            emit(f"| {a} vs {b} | {nb} | {nc} | {p:.4f}{star} | "
-                 f"[{lo:+.3f}, {hi:+.3f}] | {len(sub)} |")
+            results.append([a, b, nb, nc, p, lo, hi, len(sub)])
+        prim_idx = [i for i, r in enumerate(results)
+                    if (r[0], r[1]) in primary]
+        adj = holm(np.array([results[i][4] for i in prim_idx])) \
+            if prim_idx else np.array([])
+        holm_p = {i: adj[j] for j, i in enumerate(prim_idx)}
+        for i, (a, b, nb, nc, p, lo, hi, n) in enumerate(results):
+            if i in holm_p:
+                role = "primary"
+                ph = holm_p[i]
+                pcell = f"{ph:.4f}" + (" *" if ph < 0.05 else "")
+            else:
+                role = "exploratory"
+                pcell = "--"
+            emit(f"| {a} vs {b} | {role} | {nb} | {nc} | {p:.4f} | {pcell} | "
+                 f"[{lo:+.3f}, {hi:+.3f}] | {n} |")
         emit()
 
-    emit("`*` = significant at p < 0.05. Negative Brier delta favors A "
-         "(lower Brier is better).")
+    emit("`*` = significant at Holm-adjusted p < 0.05 (primary comparisons "
+         "only). Negative Brier delta favors A (lower Brier is better). "
+         "Exploratory rows: raw p shown for transparency, no correction, "
+         "no significance claims.")
     OUT.write_text("\n".join(L) + "\n")
     print(f"\nwrote {OUT.relative_to(ROOT)}")
     return 0

@@ -241,18 +241,31 @@ def main():
     n_sev_dmg = n_sev_inj = 0
     per_item = []                     # per-accident record for paired tests
 
+    n_parse_fail = 0
+    fallback_counts = {}              # predictor -> silent fallbacks to prior
+
+    def fell_back(pname):
+        fallback_counts[pname] = fallback_counts.get(pname, 0) + 1
+
     for idx, (k, inc, narr) in enumerate(held):
         text = narr[:4000]
+        # LEAK-SAFE: strip outcome phrases BEFORE any parsing, not just before
+        # embedding. Every predictor below (deterministic parse, retrieval,
+        # LLM tiers) sees only the redacted text; the raw text is used solely
+        # by the stated-severity ablation (OFF by default), which exists to
+        # measure exactly that leakage.
+        ptext = qb.redact_severity_phrases(text)
         inj_y, dmg_y = truth_states(inc)
         try:
-            hard = qb.parse_query_to_bn_evidence(text, names, dataset=ds,
+            hard = qb.parse_query_to_bn_evidence(ptext, names, dataset=ds,
                                                  semantic=False)
             soft = qb.parse_query_to_bn_evidence(
-                text, names, dataset=main_app.refined_dataset, semantic=True)
+                ptext, names, dataset=main_app.refined_dataset, semantic=True)
             softonly = {lab: c for lab, c, _ in qb.retrieval_facts(
-                text, names, main_app.refined_dataset)}
+                ptext, names, main_app.refined_dataset)}
         except Exception as exc:
             print(f"  parse failed for {k}: {exc}")
+            n_parse_fail += 1
             continue
         n_hard_ev.append(len(hard["evidence"]))
         n_soft_ev.append(len(softonly))
@@ -263,23 +276,27 @@ def main():
                                   else (prior_inj, prior_dmg))
         except Exception:
             preds["soft-only"] = (prior_inj, prior_dmg)
+            fell_back("soft-only")
         try:
             preds["hard"] = posteriors(bn, hard["confidence"])
         except Exception:
             preds["hard"] = (prior_inj, prior_dmg)
+            fell_back("hard")
         try:
             preds["hard+soft"] = posteriors(bn, soft["confidence"])
         except Exception:
             preds["hard+soft"] = preds["hard"]
+            fell_back("hard+soft")
         soft_pri = qb.merge_evidence_soft_priority(hard["confidence"], softonly)
         try:
             preds["soft-priority"] = (posteriors(bn, soft_pri) if soft_pri
                                       else (prior_inj, prior_dmg))
         except Exception:
             preds["soft-priority"] = preds["soft-only"]
+            fell_back("soft-priority")
         rdist = None
         try:
-            rdist = qb.severity_retrieval_distributions(text, ds,
+            rdist = qb.severity_retrieval_distributions(ptext, ds,
                                                         top_k=sev_topk)
             if rdist:
                 ni = np.array(rdist["injury"])
@@ -293,6 +310,7 @@ def main():
         except Exception:
             preds["retrieval-sev"] = (prior_inj, prior_dmg)
             preds["narrative-evidence"] = preds["soft-priority"]
+            fell_back("retrieval-sev")
         # BN-SEV (PRIMARY): the same k-NN severity distributions enter the
         # FROZEN BN as virtual evidence (Jeffrey conditioning, per-target
         # inference); the reported numbers are BN posteriors.
@@ -300,11 +318,12 @@ def main():
         try:
             if rdist:
                 sev_knn = qb.retrieval_severity_virtual_evidence(
-                    text, ds, bn, rdist=rdist)
+                    ptext, ds, bn, rdist=rdist)
             preds["bn-sev"] = (posteriors(bn, {}, sev=sev_knn)
                                if sev_knn else (prior_inj, prior_dmg))
         except Exception:
             preds["bn-sev"] = (prior_inj, prior_dmg)
+            fell_back("bn-sev")
         # BN-FUSED: event evidence AND k-NN severity in one inference.
         # Negative ablation -- both signals derive from the same narrative,
         # so the BN double-counts them (violated conditional independence).
@@ -314,6 +333,7 @@ def main():
                                  else (prior_inj, prior_dmg))
         except Exception:
             preds["bn-fused"] = preds["bn-sev"]
+            fell_back("bn-fused")
         # BN-FUSED-T: same, event confidences tempered (sqrt) to test whether
         # softer event evidence rescues the fusion. (It does not.)
         try:
@@ -324,7 +344,10 @@ def main():
         except Exception:
             preds["bn-fused-t"] = preds["bn-fused"]
         # FULL: hard+soft evidence PLUS what the narrative STATES about severity,
-        # entered as virtual evidence calibrated on the training window only
+        # entered as virtual evidence with confusion likelihoods measured on the
+        # training window only. Intentionally reads the UNREDACTED text: this
+        # ablation exists to quantify the stated-severity signal (OFF for all
+        # leak-safe predictors above).
         sev = qb.severity_virtual_evidence(text, ds)
         if "damage" in sev:
             n_sev_dmg += 1
@@ -352,7 +375,7 @@ def main():
         if llm_model:
             try:
                 from llm_evidence import combined_parse
-                cp = combined_parse(text, names, main_app.refined_dataset,
+                cp = combined_parse(ptext, names, main_app.refined_dataset,
                                     model=llm_model)
                 tier_counts[cp["tier"]] += 1
                 preds["llm-tier"] = posteriors(bn, cp["confidence"])
@@ -362,13 +385,14 @@ def main():
             except Exception:
                 preds["llm-tier"] = preds["hard+soft"]
                 preds["llm-tier+stated"] = preds["full"]
+                fell_back("llm-tier")
             # LLM-FIRST: the LLM is the ONLY front door -- no deterministic
             # pass, no retrieval suggestions. Facts from the LLM, strengths
             # still measured from the data (hybrid grounding).
             try:
                 from llm_evidence import llm_parse_evidence, hybrid_confidence
-                raw = llm_parse_evidence(text, names, model=llm_model)
-                lf = hybrid_confidence(text, raw, main_app.refined_dataset)
+                raw = llm_parse_evidence(ptext, names, model=llm_model)
+                lf = hybrid_confidence(ptext, raw, main_app.refined_dataset)
                 preds["llm-first"] = (posteriors(bn, lf) if lf
                                       else (prior_inj, prior_dmg))
                 preds["llm-first+stated"] = (posteriors(bn, lf, sev=sev)
@@ -425,7 +449,11 @@ def main():
     print(f"severity stated in narrative: damage {n_sev_dmg}, injury {n_sev_inj} "
           f"of {len(held)}")
     print(f"scored: injury n={len(scores['prior']['inj_brier'])}, "
-          f"damage n={len(scores['prior']['dmg_brier'])}\n")
+          f"damage n={len(scores['prior']['dmg_brier'])}"
+          f" (parse failures skipped: {n_parse_fail})")
+    if fallback_counts:
+        print(f"silent fallbacks to prior/parent: {fallback_counts}")
+    print()
 
     header = f"{'predictor':12} {'inj Brier':>10} {'inj logloss':>12} {'inj acc':>8} {'dmg Brier':>10} {'dmg logloss':>12} {'dmg acc':>8}"
     print(header)
@@ -444,6 +472,10 @@ def main():
         OUT.stem + suffix + OUT.suffix)
     out_path.write_text(json.dumps({
         "n_heldout": len(held),
+        "n_scored_injury": len(scores["prior"]["inj_brier"]),
+        "n_scored_damage": len(scores["prior"]["dmg_brier"]),
+        "n_parse_failures": n_parse_fail,
+        "fallback_counts": fallback_counts,
         "sev_topk": sev_topk,
         "evidence_per_narrative": {"hard_mean": float(np.mean(n_hard_ev)),
                                    "soft_added_mean": float(np.mean(n_soft_ev))},

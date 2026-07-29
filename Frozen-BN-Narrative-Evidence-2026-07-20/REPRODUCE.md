@@ -36,12 +36,16 @@ python Frozen-BN-Narrative-Evidence-2026-07-20/tests/heldout_significance.py
 
 Results: `Frozen-BN-Narrative-Evidence-2026-07-20/outputs/heldout_significance.md`
 
-Headline (leak-safe **bn-sev** = k-NN severity as virtual evidence through the
-frozen BN, Jul 2026):
-- Injury top-1 **90.9%** (CI 87.5–93.9%) vs parsed-LR **87.8%** (McNemar p=0.02)
-- Damage top-1 **77.4%** (CI 72.6–82.1%) vs parsed-LR **64.2%** (p<0.001)
+Headline (leak-safe **bn-sev** = k-NN severity as virtual evidence through
+the frozen BN, Jul 2026; all baselines on the identical 296-accident cohort,
+`outputs/cohort_manifest.json`; p-values Holm-corrected over the 4 primary
+comparisons per target):
+- Injury top-1 **90.9%** (CI 87.5–93.9%) vs parsed-LR **85.5%** (Holm p=0.005)
+- Damage top-1 **77.4%** (CI 72.6–82.1%) vs parsed-LR **60.1%** (Holm p<0.0001)
 - vs embedding-LR (strongest supervised baseline, 91.6% / 74.0%): not
-  significantly different (p=0.50 injury, p=0.11 damage)
+  significantly different (Holm p=1.0 injury, p=0.22 damage)
+- vs retrieval-sev: identical by construction (0/296 discordant) — the BN
+  mediates the signal losslessly, it does not add accuracy
 - BN prior alone: injury 58.4%, damage 42.6%
 - Binary severe screening: severe injury 93.5% sens / 96.8% spec;
   severe damage 75.3% / 89.8%
@@ -63,8 +67,9 @@ The eval self-tests that severity virtual evidence propagates (hard failure
 otherwise). `bn-fused` (event evidence + severity evidence together) is a
 NEGATIVE ablation: both signals derive from the same narrative, so
 product-of-experts fusion double-counts and collapses to 38.5% / 41.9%.
-Outcome phrases and NTSB report boilerplate are stripped before any
-embedding; stated-severity evidence is off by default.
+Outcome phrases and NTSB report boilerplate are stripped before ANY use of
+the text (embedding, retrieval, deterministic parse, LLM parse); the
+stated-severity readout is off by default and exists only as an ablation.
 
 ## 2a. Diagnosis eval (cause-category level, era-fair)
 
@@ -77,10 +82,12 @@ Outputs: `outputs/diagnosis_heldout_eval.md`, `outputs/diagnosis_emb_lr.md`.
 253 held-out accidents with C/F cause findings; both coding eras rolled up
 to CICTT top-level categories (legacy subjects mapped by keyword rules,
 98.3% coverage). Headline: narrative retrieval **83.8%** top-1 / 0.912 MRR
-vs frequency baseline 45.8% (McNemar p<0.0001); supervised emb-LR 88.1%
-(beats retrieval p=0.027 -- disclosed; retrieval needs zero training).
-BN event path 57.7% (beats baseline, p=0.0004); lift ranking 49.8%
-(disclosed negative result).
+vs frequency baseline 45.8% (McNemar, Holm-corrected p<0.0001); supervised
+emb-LR 88.1% (beats retrieval p=0.027 -- disclosed; retrieval needs zero
+training). BN event path 57.7% (beats baseline, Holm p=0.0007); lift
+ranking 50.2% (disclosed negative result). Mapping rules audited:
+`outputs/mapping_audit_sample.csv` + `outputs/mapping_audit_summary.md`
+(68/75 ok, worst-case mapping uncertainty <=2-3 pp, ordering unaffected).
 
 ## 2b. Leakage + robustness audits
 
@@ -88,11 +95,14 @@ BN event path 57.7% (beats baseline, p=0.0004); lift ranking 49.8%
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/heldout_leak_audit.py
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/redaction_leak_probe.py
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/retrieval_hyperparam_sensitivity.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/build_cohort_manifest.py
 ```
 
-Outputs: `heldout_leak_audit.md`, `redaction_leak_probe.md`,
-`hyperparam_sensitivity.md`. Free-parameter inventory (the "what is
-trained?" answer): `docs_FrozenBN/FREE_PARAMETERS.md`.
+Outputs: `heldout_leak_audit.md`, `redaction_leak_probe.md` (window-trained
+probe + in-sample upper bound), `hyperparam_sensitivity.md`,
+`cohort_manifest.json` (exact accident IDs per cohort + cross-checks).
+Free-parameter inventory (the "what is trained?" answer):
+`docs_FrozenBN/FREE_PARAMETERS.md`.
 
 ## 3. Streamlit demo
 

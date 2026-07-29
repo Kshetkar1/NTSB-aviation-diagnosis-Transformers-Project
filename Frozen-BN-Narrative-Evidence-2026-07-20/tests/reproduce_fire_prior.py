@@ -15,11 +15,14 @@ import pandas as pd
 from scipy.interpolate import interp1d
 
 DEPARTURES_XLSX = (
-    Path(__file__).resolve().parents[1]
-    / "Zhang's Approach 2026" / "data" / "table_01_37_061019.xlsx"
+    Path(__file__).resolve().parents[2]
+    / "Zhang-Replication-Foundation-2026-06-04" / "reference" / "data"
+    / "table_01_37_061019.xlsx"
 )
 
-ZHANG_TOTAL_FLIGHTS = 184572128
+# 184,517,128 is the correct interpolated sum. (The figure "184,572,128"
+# sometimes quoted verbally is a digit transposition of this value.)
+ZHANG_TOTAL_FLIGHTS = 184517128
 ZHANG_TOTAL_OCCURRENCES = 102
 ZHANG_PRIOR = 5.527942099770814e-07
 

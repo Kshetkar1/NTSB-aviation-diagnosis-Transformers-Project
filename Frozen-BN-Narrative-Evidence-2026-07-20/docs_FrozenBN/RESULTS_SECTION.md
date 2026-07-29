@@ -12,9 +12,10 @@ do not mix with any figure produced before the leakage fix (93%/81% era).
 Before evaluating the narrative pipeline we verify that the frozen network
 is a faithful reconstruction of Zhang & Mahadevan's model. On every
 quantity the original paper reports, our rebuild matches exactly: 102 fire
-occurrences in the 1982-2006 window, prior P(fire) = 102/184,517,128 =
-5.53e-7, and the complete Table 7 conditional cause distribution
-(113/113 entries). This matters for what follows: all narrative evidence
+occurrences in the 1982-2006 window, the prior formula P(fire) =
+102/184,517,128 = 5.53e-7, and all 85 rows of the published Table 7
+conditional cause distribution (85/85, contributory-factor counting,
+tolerance +/-0.0005). This matters for what follows: all narrative evidence
 is injected into a network whose parameters are pinned to a published,
 independently constructed reference, not fitted to our evaluation data.
 
@@ -26,17 +27,23 @@ the corpus outside that window (2007-2019) with a factual narrative:
 n = 296 for severity, of which 253 carry cause findings for diagnosis.
 To prevent outcome leakage, severity-stating phrases ("was destroyed",
 "received fatal injuries") are removed from every narrative by a
-deterministic redaction pass before any embedding or parsing, and
-narrative-stated severity is excluded as evidence. Two audits support
-this: a token-attribution probe on the redacted text (the predictive
-tokens are crash-mechanism words, not outcome words) and a held-out
-leakage audit. Retrieval hyperparameters (k = 100 neighbors) were selected
-once on an internal 2002-2006 validation slice; the held-out years were
-touched only for the final scoring reported here. No component of the
-primary pipeline is trained: the free-parameter inventory
-(FREE_PARAMETERS.md) classifies every quantity as frozen (network CPTs),
-measured (evidence strengths, counted as fractions of retrieved
-neighbors), or selected (retrieval hyperparameters).
+deterministic redaction pass before any embedding or parsing (all
+predictors, including the deterministic and LLM parsers, receive only
+redacted text), and narrative-stated severity is excluded as evidence.
+Three audits support this: a window-trained TF-IDF probe scored once on
+the held-out set (full vs redacted text differ by 0.0 pp injury / 2.4 pp
+damage, so redaction removes the residual outcome leak), a
+token-attribution check on the redacted text (the predictive tokens are
+crash-mechanism words, not outcome words), and a held-out ID audit
+(0/296 overlaps). Retrieval hyperparameters are the pipeline's pre-set
+defaults (k = 100 neighbors, matching the evidence-retrieval pool); an
+internal 2002-2006 validation slice and a held-out k=25 ablation both
+show a flat plateau around them. The held-out years were touched only
+for the final scoring reported here. No component of the primary
+pipeline is trained: the free-parameter inventory (FREE_PARAMETERS.md)
+classifies every quantity as frozen (network CPTs), measured (evidence
+strengths, counted as fractions of retrieved neighbors), or a fixed
+default confirmed by sensitivity analysis.
 
 ### 5.3 Prognosis: held-out severity prediction
 
@@ -45,20 +52,28 @@ injury (fatal / serious / minor / none) and damage (destroyed /
 substantial / minor / none), with bootstrap 95% CIs (10,000 resamples)
 and exact McNemar tests for paired comparisons.
 
+All predictors and baselines are scored on the identical 296-accident
+cohort (same narrative filter, truncation, and redaction; the accident
+IDs are published in cohort_manifest.json). Four comparisons per target
+were pre-declared primary and Holm-Bonferroni-corrected; all other
+contrasts are reported as exploratory.
+
 | Predictor | Injury acc. | Injury M-F1 | Damage acc. | Damage M-F1 |
 |---|---|---|---|---|
 | Majority class (prior) | 58.4% | 0.184 | 42.6% | 0.149 |
-| Parsed events only (hard+soft) | 82.1% | 0.420 | 50.7% | 0.309 |
-| Supervised LR (parsed features) | 87.8% | 0.454 | 64.2% | 0.454 |
+| Parsed events only (hard+soft) | 82.4% | 0.422 | 50.7% | 0.309 |
+| Supervised LR (parsed features) | 85.5% | 0.440 | 60.1% | 0.408 |
 | Supervised LR (embedding) | 91.6% | 0.474 | 74.0% | 0.543 |
 | **Narrative -> BN (bn-sev)** | **90.9%** | **0.470** | **77.4%** | **0.697** |
 
 The full chain improves on the network prior by +32.5 points on injury
-and +34.8 on damage (both p < 1e-4, McNemar exact). Against the strongest
+and +34.8 on damage (both Holm-adjusted p < 1e-4, McNemar exact), and
+significantly outperforms the supervised logistic regression on parsed
+features (Holm p = 0.005 injury, p < 1e-4 damage). Against the strongest
 supervised baseline -- logistic regression on the raw narrative embedding,
 trained on 1,742 labeled window accidents -- the zero-parameter chain is
-statistically indistinguishable on injury (p = 0.50) and higher on damage
-Macro-F1 (0.697 vs 0.543). As a severe-outcome screen (fatal-or-serious
+statistically indistinguishable (Holm p = 1.0 injury, p = 0.22 damage)
+and higher on damage Macro-F1 (0.697 vs 0.543). As a severe-outcome screen (fatal-or-serious
 vs rest), the chain reaches 93.5% sensitivity / 96.8% specificity for
 injury and 75.3% / 89.8% for damage. Remaining failure modes are the rare
 classes: fatal injuries (3 cases) and minor injuries (16) are never
@@ -85,8 +100,12 @@ defines: the four top-level cause categories (Personnel, Aircraft,
 Environment, Organizational). Held-out truth is the category set of an
 accident's coded cause findings; legacy-era findings are mapped by
 auditable keyword rules covering 98.3% of window cause findings. A
-prediction is correct if its top-ranked category is in the truth set
-(n = 253).
+dual-coded audit of a 75-row stratified mapping sample found 68 rows
+correct, 2 wrong, and 5 genuinely ambiguous, bounding the mapping
+uncertainty at 2-3 accuracy points without affecting any ordering
+(mapping_audit_summary.md). A prediction is correct if its top-ranked
+category is in the truth set (n = 253); per-category recall, which is
+stricter (exact top-1 match per category), is reported separately.
 
 | Predictor | Top-1 | 95% CI | MRR |
 |---|---|---|---|
@@ -95,13 +114,14 @@ prediction is correct if its top-ranked category is in the truth set
 | **Narrative retrieval (zero-parameter)** | **83.8%** | **[79.1, 88.1]** | **0.912** |
 | Supervised LR (embedding) | 88.1% | [84.2, 91.7] | 0.936 |
 
-Retrieval nearly doubles the frequency baseline (p < 1e-4) and is
-balanced across the three common categories (68/62/72% recall); no
+Retrieval nearly doubles the frequency baseline (Holm-adjusted p < 1e-4;
+the three baseline comparisons are the pre-declared primary family) and
+is balanced across the three common categories (68/62/72% recall); no
 predictor recovers the rare Organizational class (25 cases). The
 supervised embedding model is 4.3 points better than retrieval
-(p = 0.027) -- the expected price of zero training -- while the BN event
-path alone reaches 57.7%, significantly above baseline (p = 4e-4) but
-well below the narrative readouts. We also report a negative result:
+(p = 0.027, exploratory) -- the expected price of zero training -- while
+the BN event path alone reaches 57.7%, significantly above baseline
+(Holm p = 0.0007) but well below the narrative readouts. We also report a negative result:
 ranking categories by posterior lift instead of posterior probability
 degrades top-1 to 50.2%, because lift amplifies low-prior nodes.
 

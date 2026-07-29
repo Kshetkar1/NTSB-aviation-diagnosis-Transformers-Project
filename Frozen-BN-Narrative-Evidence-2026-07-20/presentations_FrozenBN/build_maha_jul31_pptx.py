@@ -149,7 +149,7 @@ add_table(s, [
     ["Quantity Zhang published", "Zhang", "Ours", "Status"],
     ["Fire occurrences 1982\u20132006", "102", "102", "exact"],
     ["Prior P(fire)", "5.53e-7", "5.527942e-7", "exact"],
-    ["Table 7 cause distribution", "113 entries", "113/113", "exact"],
+    ["Table 7 cause distribution (published)", "85 rows", "85/85", "exact"],
 ], 0.9, 1.7, 11.4, 2.2, col_widths=[5.2, 2.2, 2.4, 1.6], font_size=14)
 add_takeaway(s, "Everything Zhang published, we reproduce to the digit \u2014 the network we query is his.")
 add_footer(s, "docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md")
@@ -163,12 +163,12 @@ s = add_content_slide(
 add_table(s, [
     ["Method", "Injury", "Damage"],
     ["Always guess the most common outcome", "58.4%", "42.6%"],
-    ["Facts parsed from the text \u2192 network", "82.1%", "50.7%"],
+    ["Facts parsed from the text \u2192 network", "82.4%", "50.7%"],
     ["Similar-accidents readout \u2192 network (OURS)", "90.9%", "77.4%"],
     ["Trained model on the same text (comparison)", "91.6%", "74.0%"],
 ], 0.9, 2.15, 11.4, 2.6, col_widths=[7.4, 2.0, 2.0], font_size=14, bold_row=3)
-add_takeaway(s, "Outcome sentences are stripped before prediction \u2014 the honest numbers "
-                "(93/81 was pre-fix). Tie with the trained model on injury; stronger on severe damage.",
+add_takeaway(s, "Outcome sentences are stripped before ANY use of the text \u2014 the honest numbers "
+                "(93/81 was pre-fix). Statistical tie with the trained model; stronger on severe damage.",
              top=5.15, size=14)
 add_footer(s, "outputs/heldout_significance.md")
 

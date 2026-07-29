@@ -1,0 +1,9756 @@
+{
+ "n": 253,
+ "summary": {
+  "freq": {
+   "top1": 0.45849802371541504,
+   "mrr": 0.6851119894598154,
+   "ci": [
+    0.3952569169960474,
+    0.5217391304347826
+   ]
+  },
+  "retrieval": {
+   "top1": 0.8379446640316206,
+   "mrr": 0.9120553359683794,
+   "ci": [
+    0.7905138339920948,
+    0.8814229249011858
+   ]
+  },
+  "bn-post": {
+   "top1": 0.5770750988142292,
+   "mrr": 0.7585638998682478,
+   "ci": [
+    0.5138339920948617,
+    0.6363636363636364
+   ]
+  },
+  "bn-lift": {
+   "top1": 0.5019762845849802,
+   "mrr": 0.7229907773386035,
+   "ci": [
+    0.43873517786561267,
+    0.5612648221343873
+   ]
+  }
+ },
+ "window_mapping": {
+  "total": 5062,
+  "unmapped": 85,
+  "counts": {
+   "AIRCRAFT": 1413,
+   "PERSONNEL": 2263,
+   "ORGANIZATIONAL": 315,
+   "ENVIRONMENT": 986
+  }
+ },
+ "freq_ranking": [
+  "PERSONNEL",
+  "AIRCRAFT",
+  "ENVIRONMENT",
+  "ORGANIZATIONAL"
+ ],
+ "items": [
+  {
+   "id": "20080118X00073",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080222X00229",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080305X00267",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080307X00283",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080331X00404",
+   "truth": [
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080404X00426",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080506X00598",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080701X00963",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080703X00974",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080720X01081",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080812X01218",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20080912X01438",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20080915X01465",
+   "truth": [
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081003X16303",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081003X17330",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081003X63355",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081007X03940",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081027X75039",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081110X15316",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081113X92722",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ]
+  },
+  {
+   "id": "20081116X33137",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081124X34243",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081201X44308",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081215X14936",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081216X41655",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081217X83220",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081219X16532",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20081219X65313",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20081221X14648",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081224X25658",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081228X25156",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20081229X80551",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.25,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ]
+  },
+  {
+   "id": "20090105X01036",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20090114X61852",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.25,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090115X73226",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090223X03403",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090303X74824",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090401X82602",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090421X81417",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090422X95319",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090505X04553",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090513X31333",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090522X80352",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090527X25328",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090610X65600",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "ORGANIZATIONAL",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090611X13753",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090712X94532",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090724X12005",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090724X34459",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090730X12915",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "ORGANIZATIONAL",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20090805X42956",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090806X21108",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090810X21314",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090828X61756",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090909X82446",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20090910X53412",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090910X95942",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20090921X73211",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20090925X65328",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091020X14635",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091022X00120",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091029X02444",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091030X64143",
+   "truth": [
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091102X82140",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091117X55556",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091124X94107",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091214X41802",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091223X50505",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20091228X15816",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100114X11754",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100216X20235",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100216X34257",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100219X11249",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20100222X84927",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100312X84023",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100315X12046",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100423X01145",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100423X02633",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100503X82523",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.25,
+   "bn-post:rank": [
+    "ORGANIZATIONAL",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100507X94749",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100520X02527",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100523X62317",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100525X31845",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100606X02721",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100608X35931",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20100701X93344",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100714X63624",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100719X80209",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100720X43639",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100811X20501",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100827X20401",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20100930X00358",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101006X00507",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101019X33258",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101027X04916",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101103X34855",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101103X44221",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101116X51712",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101124X20432",
+   "truth": [
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101130X64248",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101203X60119",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101203X90900",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101208X40921",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101220X14621",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20101229X22154",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20110105X33913",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110209X55126",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110219X32035",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110222X20316",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110228X54428",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110317X14552",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110318X05118",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110323X24235",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110328X80923",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110329X33129",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110401X24330",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110417X11718",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110418X12310",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110426X53639",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110513X41407",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110517X80339",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110525X42547",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110603X52158",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110607X73034",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110607X83931",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110615X10113",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110621X20741",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110621X32040",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110628X11855",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110701X11957",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110715X40120",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110730X60307",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110902X54326",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110912X61152",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20110930X20857",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20111011X01145",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20111018X03714",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20111020X14740",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20111024X74546",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20111027X01810",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20111208X41332",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120105X34138",
+   "truth": [
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120118X91324",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120207X34555",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120221X03231",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20120221X32033",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120224X25922",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120224X42146",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120229X70237",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120302X00956",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120312X10202",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120322X25316",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120417X44353",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120511X73555",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120530X64155",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120531X95046",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120612X01249",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120621X34639",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120719X94744",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120802X03552",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120807X32623",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20120924X32520",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20121005X05550",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20121107X21801",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130220X51849",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130220X85257",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130312X23544",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130314X14422",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130314X15433",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130429X12734",
+   "truth": [
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130511X04905",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130517X14847",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130712X61436",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130723X13256",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130814X15751",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130901X95021",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20130930X75500",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20131220X70905",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20131224X22946",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140109X32656",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140110X14059",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140110X15754",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140320X53321",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140507X51410",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140529X04134",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140603X95748",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ORGANIZATIONAL",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140620X45424",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140624X40942",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140714X45633",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140814X52213",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140814X52852",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140815X53015",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140826X64917",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140828X43935",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140829X32709",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140918X21722",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140918X52311",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20140922X14716",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20141006X73012",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20141023X80357",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20141121X15631",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20141211X62917",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150305X42958",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20150422X71127",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150511X92031",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150523X13659",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150605X52542",
+   "truth": [
+    "AIRCRAFT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150611X74851",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150701X91130",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150701X91338",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150717X41748",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150812X63537",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20150824X02325",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.3333333333333333,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20151005X35533",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20151022X65901",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20151023X50751",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20151107X52955",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20151124X65446",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20151130X61148",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20151213X84149",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20151216X41606",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160106X80332",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160112X24550",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160119X15230",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160119X20258",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160126X75122",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160129X24835",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160222X93713",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "ORGANIZATIONAL",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20160330X72920",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160707X02944",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160708X61700",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160803X71952",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160805X44633",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160811X81653",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20160927X51937",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20161028X72837",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20161028X93712",
+   "truth": [
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20161205X55455",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20161208X21155",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20161216X60544",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170124X45041",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170222X80758",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170224X03359",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170308X73155",
+   "truth": [
+    "AIRCRAFT",
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 0.0,
+   "retrieval:mrr": 0.5,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170508X85232",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.3333333333333333,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170608X90705",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ]
+  },
+  {
+   "id": "20170612X10422",
+   "truth": [
+    "AIRCRAFT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.5,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170703X71412",
+   "truth": [
+    "ENVIRONMENT",
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20170913X72254",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20171002X95003",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20171212X50255",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL",
+    "AIRCRAFT"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.3333333333333333,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20171220X52223",
+   "truth": [
+    "ENVIRONMENT"
+   ],
+   "freq:top1": 0.0,
+   "freq:mrr": 0.3333333333333333,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 1.0,
+   "bn-post:mrr": 1.0,
+   "bn-post:rank": [
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 1.0,
+   "bn-lift:mrr": 1.0,
+   "bn-lift:rank": [
+    "ENVIRONMENT",
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ]
+  },
+  {
+   "id": "20180507X00658",
+   "truth": [
+    "PERSONNEL"
+   ],
+   "freq:top1": 1.0,
+   "freq:mrr": 1.0,
+   "freq:rank": [
+    "PERSONNEL",
+    "AIRCRAFT",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "retrieval:top1": 1.0,
+   "retrieval:mrr": 1.0,
+   "retrieval:rank": [
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "AIRCRAFT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-post:top1": 0.0,
+   "bn-post:mrr": 0.5,
+   "bn-post:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ],
+   "bn-lift:top1": 0.0,
+   "bn-lift:mrr": 0.5,
+   "bn-lift:rank": [
+    "AIRCRAFT",
+    "PERSONNEL",
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
+   ]
+  }
+ ]
+}

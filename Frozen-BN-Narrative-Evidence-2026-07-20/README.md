@@ -23,15 +23,33 @@ nodes (per-target Jeffrey conditioning) and the posterior is read out of the
 BN. Verified lossless: the BN-mediated posterior reproduces the k-NN evidence
 distribution exactly (self-test in the eval, 0/296 discordant vs `retrieval-sev`).
 
+**What the BN does and does not contribute (stated plainly):** the severity
+*accuracy* belongs to the k-NN retrieval signal — `bn-sev` and
+`retrieval-sev` are identical by construction, so the BN adds **zero
+predictive lift** on this task. What BN mediation buys is (a) a single
+coherent probabilistic model where narrative evidence, event evidence, and
+what-if interventions compose (joint inference the raw k-NN readout cannot
+do), (b) auditability — every posterior is explainable by which evidence
+moved which node — and (c) zero accuracy cost for those capabilities
+(`bn-fused` shows naive fusion *loses* accuracy, which is itself a finding
+about violated conditional independence). Claims of BN predictive superiority
+over retrieval would be false and are made nowhere.
+
 ## Key results (296 held-out, 2007–2019; leak-safe)
+
+All baselines run on the IDENTICAL 296-accident cohort (same narrative
+filter, truncation, and redaction; `outputs/cohort_manifest.json` lists the
+IDs). Pairwise p-values are Holm-Bonferroni-corrected within the four
+pre-declared primary comparisons per target
+(`outputs/heldout_significance.md`).
 
 | Predictor | Injury top-1 | Damage top-1 | Notes |
 |-----------|--------|--------|-------|
 | majority class / BN prior | 58.4% | 42.6% | baseline |
 | soft-priority (BN event path) | 89.9% | 55.4% | diagnosis evidence only |
 | **bn-sev (primary)** | **90.9%** | **77.4%** | k-NN severity through frozen BN |
-| LR on parsed features (supervised) | 87.8% | 64.2% | McNemar vs bn-sev p=0.02 / p<0.001 |
-| LR on narrative embedding (supervised) | 91.6% | 74.0% | vs bn-sev p=0.50 / p=0.11 (n.s.) |
+| LR on parsed features (supervised) | 85.5% | 60.1% | bn-sev better: Holm p=0.005 / p<0.0001 |
+| LR on narrative embedding (supervised) | 91.6% | 74.0% | vs bn-sev n.s.: Holm p=1.0 / p=0.22 |
 | bn-fused (event + severity evidence) | 38.5% | 41.9% | **negative ablation** — same-narrative double counting |
 
 Binary severe-outcome screening (bn-sev): severe injury sensitivity 93.5% /
@@ -39,26 +57,32 @@ specificity 96.8%; severe damage 75.3% / 89.8%. All 3 fatal accidents are
 flagged severe (at 4-class granularity they land on the adjacent SERS class;
 per-class recall disclosed in `outputs/heldout_significance.md`).
 
-LLM parsing tiers under the same leak-safe protocol (`--llm gpt-4.1`,
-outputs `*_llm.json`): tiered parser 68.9% / 51.4%, LLM-first 69.9% /
-57.8% -- both far below bn-sev, confirming the LLM is a text reader, not
-the predictive signal. Tier usage on 296 narratives: 176 deterministic,
-120 LLM fallback, 0 hard failures; redaction leaves 0 stated-severity
-detections.
+LLM parsing tiers under the leak-safe protocol (`--llm gpt-4.1`, outputs
+`*_llm.json`): tiered parser 68.9% / 51.4%, LLM-first 69.9% / 57.8% -- both
+far below bn-sev, confirming the LLM is a text reader, not the predictive
+signal. Tier usage on 296 narratives: 176 deterministic, 120 LLM fallback,
+0 hard failures; redaction leaves 0 stated-severity detections. (Protocol
+note: these ablation numbers were run before parser inputs were also
+redacted; the deterministic-path rerun under full redaction left every
+number unchanged, so the conclusion is unaffected. Rerun with `--llm --tag
+_llm` to refresh under the current protocol; requires `OPENAI_API_KEY`.)
 
 ## Diagnosis (cause-category, era-fair; 253 held-out)
 
 NTSB switched coding taxonomies in 2008, so exact-code matching across the
 split is impossible by design; both eras are rolled up to CICTT top-level
-cause categories (98.3% of window C/F findings mapped by auditable rules).
-Truth = the category set of the accident's C/F findings.
+cause categories (98.3% of window C/F findings mapped by auditable rules;
+dual-coded audit: 68/75 sample rows ok, worst-case impact 2-3 pp,
+`outputs/mapping_audit_summary.md`). Truth = the category set of the
+accident's C/F findings; metric definitions (set-membership top-1 vs strict
+per-category recall) are spelled out in `outputs/diagnosis_heldout_eval.md`.
 
 | Predictor | Top-1 | MRR | Notes |
 |-----------|-------|-----|-------|
 | frequency baseline | 45.8% | 0.685 | always guesses Personnel |
-| **narrative retrieval (primary, zero-parameter)** | **83.8%** | **0.912** | vs freq: McNemar p<0.0001 |
-| emb-LR (supervised, needs coded labels) | 88.1% | 0.936 | beats retrieval p=0.027 |
-| BN event path (posterior) | 57.7% | 0.759 | beats freq (p=0.0004) |
+| **narrative retrieval (primary, zero-parameter)** | **83.8%** | **0.912** | vs freq: Holm p<0.0001 |
+| emb-LR (supervised, needs coded labels) | 88.1% | 0.936 | beats retrieval p=0.027 (exploratory) |
+| BN event path (posterior) | 57.7% | 0.759 | beats freq (Holm p=0.0007) |
 | BN event path (lift) | 50.2% | 0.723 | negative result: max-lift is noisy |
 
 Narratives carry strong diagnostic signal: both readouts crush the
@@ -74,10 +98,17 @@ Full reports: `outputs/diagnosis_heldout_eval.md`,
    (`tests/heldout_leak_audit.py`).
 2. **Outcome-in-text:** stated injury/damage phrases, death/medical wording,
    AND NTSB full-report boilerplate (which marks fatal investigations) are
-   stripped before any embedding (`query_to_bn.redact_severity_phrases`).
-3. **Residual leak probe:** TF-IDF diagnostic on redacted text
-   (`tests/redaction_leak_probe.py`) — remaining predictive tokens are
-   crash-mechanism words (turbulence, landing gear, postcrash fire), not
+   stripped before **any use of the text** — embedding, retrieval, AND the
+   deterministic/LLM parsers all receive only the redacted narrative
+   (`query_to_bn.redact_severity_phrases`; verified: rerun under full
+   redaction left every headline number unchanged).
+3. **Residual leak probe, two-tier** (`tests/redaction_leak_probe.py`):
+   (a) a TF-IDF+LR probe trained ONLY on 1982–2006 window narratives and
+   scored once on the held-out set — full vs redacted text differ by 0.0 pp
+   (injury) / 2.4 pp (damage), i.e. redaction removes the small residual
+   outcome leak and what remains is mechanism signal; (b) an in-sample CV
+   probe kept as a worst-case upper bound. Remaining predictive tokens are
+   crash-mechanism words (turbulence, landing gear, tug, fuselage), not
    outcome statements.
 4. Stated-severity readout exists only as an OFF-by-default ablation
    (`LEAK_SAFE_SEVERITY`).

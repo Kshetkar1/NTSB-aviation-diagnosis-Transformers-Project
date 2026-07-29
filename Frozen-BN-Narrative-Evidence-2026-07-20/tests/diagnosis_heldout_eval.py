@@ -341,11 +341,14 @@ def main():
             rankings["retrieval"] = freq_ranking
 
         # ---- BN evidence ---------------------------------------------------
+        # LEAK-SAFE: the deterministic parser also sees only redacted text
+        # (outcome phrases stripped), matching the retrieval path above.
+        ptext = qb.redact_severity_phrases(text)
         try:
-            hard = qb.parse_query_to_bn_evidence(text, names, dataset=ds,
+            hard = qb.parse_query_to_bn_evidence(ptext, names, dataset=ds,
                                                  semantic=False)
             softonly = {lab: c for lab, c, _ in qb.retrieval_facts(
-                text, names, main_app.refined_dataset)}
+                ptext, names, main_app.refined_dataset)}
             conf = qb.merge_evidence_soft_priority(hard["confidence"], softonly)
         except Exception as exc:
             print(f"  parse failed for {k}: {exc}")
@@ -394,6 +397,23 @@ def main():
     lines += ["", f"Window mapping coverage: {n_total_win - n_unmapped_win}/"
               f"{n_total_win} C/F findings mapped "
               f"({100*(1-n_unmapped_win/max(n_total_win,1)):.1f}%).", ""]
+    lines += [
+        "## Metric definitions (read before comparing tables)", "",
+        "Truth for an accident is a SET of categories (an accident can have "
+        "C/F findings in several). Two different metrics follow, and they "
+        "must not be conflated:", "",
+        "* **Top-1 accuracy** (first table): the predictor's #1-ranked "
+        "category is IN the truth set. Multi-category accidents give every "
+        "predictor several chances to be 'right', so absolute values are "
+        "higher than a single-label accuracy would be; the freq baseline row "
+        "shows how much of that is set-membership generosity.",
+        "* **Per-category recall** (last table): among accidents whose truth "
+        "set CONTAINS category c, the fraction where the predictor's #1 "
+        "category EQUALS c exactly. This is stricter and column-wise; a "
+        "predictor can have high top-1 accuracy while never ranking a rare "
+        "category first (see ORGANIZATIONAL).",
+        "* **MRR**: reciprocal rank of the first truth-set category in the "
+        "predicted ranking, averaged over accidents.", ""]
 
     summary = {}
     lines += ["## Top-1 accuracy and MRR (95% CI bootstrap, 10k)", "",
@@ -410,18 +430,41 @@ def main():
                      f"{np.mean(mrrs):.3f} | {len(hits)} |")
 
     lines += ["", "## Paired comparisons (McNemar exact, top-1)", "",
-              "| A vs B | A only right | B only right | p |", "|---|---|---|---|"]
-    pairs = [("retrieval", "freq"), ("bn-lift", "freq"), ("bn-post", "freq"),
-             ("bn-lift", "bn-post"), ("retrieval", "bn-lift"),
-             ("retrieval", "bn-post")]
+              "PRIMARY (confirmatory) comparisons are each predictor vs the "
+              "freq baseline; Holm-Bonferroni is applied within that family "
+              "(m = 3). The predictor-vs-predictor rows are exploratory "
+              "(raw p only, no significance claims).", "",
+              "| A vs B | Role | A only right | B only right | p | p (Holm) |",
+              "|---|---|---|---|---|---|"]
+    primary = [("retrieval", "freq"), ("bn-lift", "freq"), ("bn-post", "freq")]
+    pairs = primary + [("bn-lift", "bn-post"), ("retrieval", "bn-lift"),
+                       ("retrieval", "bn-post")]
+    raw_p = {}
+    counts = {}
     for a, b in pairs:
         aw = sum(1 for r in per_item
                  if r[f"{a}:top1"] > r[f"{b}:top1"])
         bw = sum(1 for r in per_item
                  if r[f"{b}:top1"] > r[f"{a}:top1"])
-        pv = mcnemar_exact(aw, bw)
-        star = " *" if pv < 0.05 else ""
-        lines.append(f"| {a} vs {b} | {aw} | {bw} | {pv:.4f}{star} |")
+        raw_p[(a, b)] = mcnemar_exact(aw, bw)
+        counts[(a, b)] = (aw, bw)
+    # Holm step-down over the primary family
+    order = sorted(primary, key=lambda ab: raw_p[ab])
+    holm_p, running = {}, 0.0
+    for rank, ab in enumerate(order):
+        running = max(running, (len(primary) - rank) * raw_p[ab])
+        holm_p[ab] = min(1.0, running)
+    for a, b in pairs:
+        aw, bw = counts[(a, b)]
+        pv = raw_p[(a, b)]
+        if (a, b) in holm_p:
+            ph = holm_p[(a, b)]
+            pcell = f"{ph:.4f}" + (" *" if ph < 0.05 else "")
+            role = "primary"
+        else:
+            pcell, role = "--", "exploratory"
+        lines.append(f"| {a} vs {b} | {role} | {aw} | {bw} | "
+                     f"{pv:.4f} | {pcell} |")
 
     lines += ["", "## Per-category recall (top-1 predictions, truth contains category)",
               "", "| Predictor | " + " | ".join(CATS) + " |",

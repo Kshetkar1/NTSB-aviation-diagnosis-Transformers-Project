@@ -809,13 +809,13 @@ def render_bn_section(seed_evidence=None, query=None):
         st.caption(
             "**Narrative readout** = the severity distribution among the 100 "
             "accidents most similar to your narrative (same retrieval as the "
-            "soft facts)"
-            + (", sharpened by what the narrative states outright ("
-               + " · ".join(stated_bits) + ", weighted by the training-window "
-               "reliability of that phrasing)" if stated_bits else "")
-            + ". Held-out 2007–2019 (n=296): **93% injury / 81% damage** "
-            "top-1 accuracy — beats a supervised logistic-regression baseline "
-            "on both."
+            "soft facts); outcome phrases are stripped before embedding "
+            "(leak-safe)."
+            + ((" The narrative also states the outcome outright ("
+                + " · ".join(stated_bits) + ") — shown for transparency, "
+                "NOT used in the readout above.") if stated_bits else "")
+            + " Held-out 2007–2019 (n=296), leak-safe protocol: "
+            "**90.9% injury / 77.4% damage** top-1 accuracy."
         )
 
     if extra_targets:

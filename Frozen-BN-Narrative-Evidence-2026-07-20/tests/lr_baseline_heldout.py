@@ -23,9 +23,16 @@ Run:
 from __future__ import annotations
 
 import json
+import os
 import sys
 import time
 from pathlib import Path
+
+# Lock retrieval index to the Zhang window (1982-2006) before main_app loads,
+# exactly as the main held-out eval does -- otherwise a stray environment
+# variable could hand the parser an index containing held-out accidents.
+os.environ.pop("NTSB_FULL_CORPUS", None)
+os.environ.pop("NTSB_USE_TRAIN_INDEX", None)
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 FROZEN_DIR = Path(__file__).resolve().parents[1]
@@ -60,8 +67,11 @@ def main():
         X, yi, yd, kept = [], [], [], []
         t0 = time.time()
         for k, (ev, inc, narr) in enumerate(pop):
+            # Same leak-safe treatment as the main eval: truncate to 4000
+            # chars and strip outcome phrases before parsing.
+            ptext = qb.redact_severity_phrases(narr[:4000])
             conf = qb.parse_query_to_bn_evidence(
-                narr, names, dataset=ds, semantic=True)["confidence"]
+                ptext, names, dataset=ds, semantic=True)["confidence"]
             v = np.zeros(len(names))
             for n, c in conf.items():
                 if n in idx:
@@ -79,9 +89,12 @@ def main():
     train_pop, test_pop = [], []
     for k, inc in full.items():
         narr = str(inc.get("narr_accf") or "").strip()
-        if len(narr) < 200:
+        # SAME cohort filter as the main held-out eval (>=100 chars), so the
+        # paired McNemar comparison scores identical accidents.
+        if len(narr) < 100:
             continue
         (train_pop if k in window_ids else test_pop).append((k, inc, narr))
+    test_pop.sort(key=lambda t: t[0])
     print(f"train: {len(train_pop)} (1982-2006)   "
           f"test: {len(test_pop)} (2007-2019)")
 

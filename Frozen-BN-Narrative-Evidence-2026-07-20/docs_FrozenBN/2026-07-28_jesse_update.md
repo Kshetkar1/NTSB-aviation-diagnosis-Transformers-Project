@@ -143,13 +143,14 @@ from the text).*
 | Network prior alone (no narrative) | 58.4% | 42.6% |
 | Event evidence → frozen BN (soft-priority) | 89.9% | 55.4% |
 | k-NN severity via frozen BN (bn-sev, primary) | **90.9%** | **77.4%** |
-| Supervised LR, parsed features | 87.8% | 64.2% |
+| Supervised LR, parsed features | 85.5% | 60.1% |
 | Supervised LR, narrative embedding | 91.6% | 74.0% |
 
 **Takeaway:** *With zero trained parameters, the leak-safe pipeline beats the
-parsed-feature supervised baseline (McNemar p=0.02 injury / p<0.001 damage)
-and statistically ties the embedding LR (p=0.50 / 0.11). Severe-outcome
-screening: 93.5% sensitivity / 96.8% specificity on injury.*
+parsed-feature supervised baseline (McNemar, Holm-corrected p=0.005 injury /
+p<0.0001 damage; identical 296-accident cohort) and statistically ties the
+embedding LR (Holm p=1.0 / 0.22). Severe-outcome screening: 93.5%
+sensitivity / 96.8% specificity on injury.*
 
 *SAY:* "Coded labels arrive late; narratives exist early — this is the practical win."
 

@@ -1,0 +1,76 @@
+era,finding_subject,person,window_count,mapped_category,verdict (ok/wrong/unsure),notes
+legacy 1982-2006,1 engine,,7,AIRCRAFT,ok,engine = aircraft power plant (CICTT Aircraft-Aircraft power plant)
+legacy 1982-2006,"airport facilities, taxiway condition",,12,ENVIRONMENT,ok,CICTT Environmental issues-Physical environment (surface condition)
+legacy 1982-2006,atc clearance,"ATC personnel, (local/ground/clearance delivery)",42,PERSONNEL,ok,person-attributed action -> Personnel (matches CICTT Action/decision rows)
+legacy 1982-2006,"autopilot/flight director, servo",,3,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,"autopilot/flight director, transmitter (autopilot)",,1,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,auxiliary power unit (apu),Flight engineer,18,AIRCRAFT,ok,failed physical system named; person tag incidental (consistent with rule: component subjects -> AIRCRAFT)
+legacy 1982-2006,became lost/disoriented,Pilot of other aircraft,8,PERSONNEL,ok,person psychological/spatial state -> Personnel
+legacy 1982-2006,clearance,Driver of vehicle,122,PERSONNEL,ok,person-attributed action -> Personnel
+legacy 1982-2006,communications/information/atc,(unspecified person),8,PERSONNEL,ok,person-attributed communication -> Personnel
+legacy 1982-2006,compressor assembly,,8,AIRCRAFT,ok,power plant component
+legacy 1982-2006,directional control,Pilot-in-command,43,PERSONNEL,ok,matches CICTT Personnel-Task performance-Use of equip/info-Aircraft control
+legacy 1982-2006,"electrical system, generator",,12,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,elevator,Pilot-in-command,6,AIRCRAFT,ok,physical component subject -> AIRCRAFT (rule applied consistently; pilot misuse would be coded as a control subject)
+legacy 1982-2006,fatigue (circadian rhythm),Pilot-in-command,2,PERSONNEL,ok,CICTT Personnel issues-Physical-Fatigue
+legacy 1982-2006,"flight control system, elevator control",,9,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,"flight control system, elevator trim/tab control",,14,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,flight into known adverse weather,Flightcrew,15,ENVIRONMENT,unsure,"CICTT could code this as Personnel (decision making) OR Environmental (weather encounter); mapping follows the condition-response->Environment convention, defensible but genuinely ambiguous"
+legacy 1982-2006,flight manuals,Company/operator management,2,ORGANIZATIONAL,ok,management/documentation deficiency -> Organizational
+legacy 1982-2006,"fuel system, fuel flow divider/distributor",,4,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,"fuselage, stringer",,1,AIRCRAFT,ok,aircraft structure
+legacy 1982-2006,identification of aircraft visually,"ATC personnel, (local/ground/clearance delivery)",16,PERSONNEL,ok,ATC personnel task -> Personnel (matches CICTT Task monitoring/vigilance-Airport personnel)
+legacy 1982-2006,ifr separation standards,(unspecified person),32,PERSONNEL,unsure,could be Organizational (procedures/standards) rather than the unspecified person; person tag makes Personnel defensible
+legacy 1982-2006,in-flight planning/decision,Pilot-in-command,38,PERSONNEL,ok,CICTT Personnel-Action/decision-Info processing/decision
+legacy 1982-2006,inadequate surveillance of operation,FAA (organization),25,ORGANIZATIONAL,ok,CICTT Organizational issues-Support/oversight/monitoring
+legacy 1982-2006,inadequate training,Ground personnel,12,PERSONNEL,unsure,"CICTT splits this: person lacking knowledge -> Personnel (Experience/knowledge), training-program deficiency -> Organizational (Training); legacy phrase does not disambiguate"
+legacy 1982-2006,"instructions, written/verbal","ATC personnel, (local/ground/clearance delivery)",48,PERSONNEL,ok,person-attributed communication -> Personnel
+legacy 1982-2006,"landing gear, main gear strut",,19,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,"maintenance, inspection",Company maintenance personnel,63,PERSONNEL,ok,matches CICTT Personnel issues-Task performance-Inspection
+legacy 1982-2006,"maintenance, overhaul",Other maintenance personnel,21,PERSONNEL,ok,maintenance personnel task -> Personnel
+legacy 1982-2006,"maintenance, rebuild/remanufacture",Other maintenance personnel,4,PERSONNEL,ok,maintenance personnel task -> Personnel
+legacy 1982-2006,"maintenance, service bulletin/letter",Company/operator management,22,PERSONNEL,wrong,"person is Company/operator management -> should be ORGANIZATIONAL (same person type as 'procedure inadequate' row, which IS mapped Organizational); inconsistent"
+legacy 1982-2006,"maintenance, service of aircraft/equipment",Unqualified person,19,PERSONNEL,ok,person task -> Personnel
+legacy 1982-2006,miscellaneous,Unknown,29,PERSONNEL,unsure,arbitrary default for an uninformative subject+person; arguably should be excluded from truth sets
+legacy 1982-2006,"miscellaneous, bolt/nut/fastener/clamp/spring",,16,AIRCRAFT,ok,hardware component
+legacy 1982-2006,"miscellaneous, engine",,2,AIRCRAFT,ok,power plant component
+legacy 1982-2006,nosewheel steering,Pilot-in-command,3,AIRCRAFT,ok,physical system subject -> AIRCRAFT (consistent with component rule)
+legacy 1982-2006,object,,107,ENVIRONMENT,ok,CICTT Environmental issues (object/animal/substance)
+legacy 1982-2006,overheat warning system,,2,AIRCRAFT,ok,aircraft system component
+legacy 1982-2006,planning/decision,Pilot-in-command,14,PERSONNEL,ok,CICTT Personnel-Action/decision
+legacy 1982-2006,preflight planning/preparation,Pilot-in-command,15,PERSONNEL,ok,CICTT Personnel-Action/decision
+legacy 1982-2006,procedure inadequate,Company/operator management,56,ORGANIZATIONAL,ok,management-attributed procedure deficiency -> Organizational (CICTT Standard operating practices)
+legacy 1982-2006,procedures/directives,(unspecified person),168,PERSONNEL,unsure,"high-frequency row: person non-compliance (Personnel) vs deficient procedures (Organizational); person tag makes Personnel defensible but this is the largest ambiguous mass"
+legacy 1982-2006,proper alignment,Ground personnel,22,PERSONNEL,ok,ground personnel task -> Personnel
+legacy 1982-2006,reason for occurrence undetermined,(unspecified person),38,PERSONNEL,wrong,"'undetermined' is not a Personnel cause; should be excluded/unmapped rather than defaulted to PERSONNEL"
+legacy 1982-2006,remedial action,Pilot of other aircraft,37,PERSONNEL,ok,person action -> Personnel
+legacy 1982-2006,seat belt,Passenger,48,AIRCRAFT,ok,equipment component -> AIRCRAFT (CICTT codes restraint failures under Aircraft systems)
+legacy 1982-2006,traffic advisory,Flightcrew,17,PERSONNEL,ok,person-attributed communication -> Personnel
+legacy 1982-2006,"turbine assembly, turbine blade",,27,AIRCRAFT,ok,power plant component
+legacy 1982-2006,wake turbulence,(unspecified person),11,ENVIRONMENT,ok,matches CICTT Environmental issues-Turbulence
+legacy 1982-2006,weather condition,,515,ENVIRONMENT,ok,CICTT Environmental issues-Conditions/weather
+cictt 2007-2019,Aircraft-Aircraft oper/perf/capability-Performance/control parameters-(general)-Incorrect use/operation - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft power plant-Engine (turbine/turboprop)-Accessory drives-Failure - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft structures-Fuselage-Plates/skins (aux fuselage)-Fatigue/wear/corrosion - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft structures-Nacelles/pylons structure-(general)-Failure - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft systems-Fuel system-(general)-Not specified - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft systems-Landing gear system-Gear extension and retract sys-Capability exceeded - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft systems-Landing gear system-Landing gear steering system-Malfunction - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft systems-Landing gear system-Main landing gear-Malfunction - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft systems-Landing gear system-Nose/tail landing gear-Failure - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Aircraft-Aircraft systems-Landing gear system-Nose/tail landing gear-Incorrect service/maintenance - C,,,AIRCRAFT,ok,top-level prefix Aircraft
+cictt 2007-2019,Environmental issues-Conditions/weather/phenomena-Turbulence-(general)-Not specified - C,,,ENVIRONMENT,ok,top-level prefix Environmental issues
+cictt 2007-2019,Environmental issues-Physical environment-Runway/land/takeoff/taxi surface-Snow/slush/ice covered surface-Effect on operation - F,,,ENVIRONMENT,ok,top-level prefix Environmental issues
+cictt 2007-2019,Environmental issues-Task environment-Physical workspace-Positioning/available space-Effect on operation - F,,,ENVIRONMENT,ok,top-level prefix Environmental issues
+cictt 2007-2019,Organizational issues-Management-Culture-Standard operating practices-Not specified - C,,,ORGANIZATIONAL,ok,top-level prefix Organizational issues
+cictt 2007-2019,Organizational issues-Support/oversight/monitoring-Training-(general)-Not specified - F,,,ORGANIZATIONAL,ok,top-level prefix Organizational issues
+cictt 2007-2019,Personnel issues-Action/decision-Action-Incorrect action performance-Copilot - F,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Action/decision-Action-Lack of action-Other/unknown - F,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Action/decision-Info processing/decision-Decision making/judgment-Pilot - F,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Action/decision-Info processing/decision-Expectation/assumption-Pilot - F,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Experience/knowledge-Knowledge-Knowledge of procedures-Cabin crew - F,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Psychological-Attention/monitoring-Monitoring equip/instruments-Pilot - C,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Psychological-Attention/monitoring-Task monitoring/vigilance-Airport personnel - C,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Task performance-Inspection-(general)-Not specified - C,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Task performance-Use of equip/info-Aircraft control-Copilot - C,,,PERSONNEL,ok,top-level prefix Personnel issues
+cictt 2007-2019,Personnel issues-Task performance-Use of equip/info-Aircraft control-Flight crew - C,,,PERSONNEL,ok,top-level prefix Personnel issues

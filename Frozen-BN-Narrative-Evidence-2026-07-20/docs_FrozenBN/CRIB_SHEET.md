@@ -90,9 +90,14 @@ reasoning-and-explanation claim. Don't oversell the reverse.
 ## "Do your numbers match Zhang's?" (Maha's publishing bar)
 
 Yes, on everything Zhang published: fire occurrences 102 (was 38 before
-the data fix), prior P(fire) = 102/184,517,128 = 5.527942e-7 exact,
-Table 7 cause distribution 113/113 exact. Report:
-`docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md`.
+the data fix), prior P(fire) = 102/184,517,128 = 5.527942e-7 exact (this
+is his prior *formula*; a built network's propagated marginal is a
+different quantity), and all 85 rows of his published Table 7 exact
+(85/85, contributory-factor counting). If asked about "113/113": that is
+an internal retrieval-vs-counting consistency check in an extended mode,
+not the paper comparison. Reports:
+`docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md`,
+`docs_FrozenBN/TABLE7_FULL_REPRODUCTION.md`.
 
 ## "How do you evaluate diagnosis across the 2008 coding change?"
 
@@ -100,18 +105,23 @@ NTSB switched taxonomies in 2008 (legacy subject codes -> CICTT), so exact
 code matching across the split is impossible by design. We roll BOTH eras
 up to CICTT's four top-level cause categories (Personnel / Aircraft /
 Environment / Organizational); legacy subjects map by auditable keyword
-rules (98.3% coverage; hand-audit sample:
-`outputs/mapping_audit_sample.csv`). A prediction is correct if its top
-category is among the accident's coded cause categories. Results (n=253):
-frequency baseline 45.8%, retrieval 83.8%, supervised emb-LR 88.1%, BN
-event path 57.7%. All gaps significant by McNemar.
+rules (98.3% coverage; audited sample with verdicts:
+`outputs/mapping_audit_sample.csv`, summary
+`outputs/mapping_audit_summary.md` -- 68/75 ok, worst-case impact 2-3 pp,
+ordering unaffected). A prediction is correct if its top category is among
+the accident's coded cause categories. Results (n=253): frequency baseline
+45.8%, retrieval 83.8%, supervised emb-LR 88.1%, BN event path 57.7%.
+Baseline gaps significant by McNemar with Holm correction.
 
 ## "A linear model beats you -- why is your architecture justified?"
 
-We ran that attack ourselves. Severity: emb-LR 91.6%/74.0% vs our
-90.9%/77.4% -- no significant difference on injury (p=0.50), we're better
-on damage severe-recall (75.3% vs 67.9% sensitivity). Diagnosis: emb-LR
-88.1% does beat retrieval 83.8% (p=0.027) -- we disclose it. The answer:
+We ran that attack ourselves, on the identical 296-accident cohort.
+Severity: emb-LR 91.6%/74.0% vs our 90.9%/77.4% -- no significant
+difference (Holm p=1.0 injury / 0.22 damage); we're better on damage
+severe-recall (75.3% vs 67.9% sensitivity), and we significantly beat the
+parsed-feature LR (85.5%/60.1%; Holm p=0.005 / p<0.0001). Diagnosis:
+emb-LR 88.1% does beat retrieval 83.8% (p=0.027) -- we disclose it. The
+answer:
 the supervised model needs coded labels to train and outputs an opaque
 score; our chain needs zero training and every prediction decomposes into
 named evidence on a validated causal network. Close-to-parity with zero

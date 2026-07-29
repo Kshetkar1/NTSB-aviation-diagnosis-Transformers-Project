@@ -76,6 +76,15 @@ def main() -> int:
                 cictt.add(s)
     cictt_sample = rng.sample(sorted(cictt), min(N_CICTT, len(cictt)))
 
+    # Never clobber a coded audit: verdicts are hand-entered and
+    # irreplaceable. Regenerate only with --force (writes a fresh template).
+    if OUT.exists() and "--force" not in sys.argv:
+        content = OUT.read_text()
+        if any(v in content for v in (",ok,", ",wrong,", ",unsure,")):
+            print(f"REFUSING to overwrite {OUT}: it contains filled-in "
+                  "verdicts. Use --force to regenerate a blank template.")
+            return 1
+
     with OUT.open("w", newline="") as fh:
         w = csv.writer(fh)
         w.writerow(["era", "finding_subject", "person", "window_count",

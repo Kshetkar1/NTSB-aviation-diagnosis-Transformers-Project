@@ -1,0 +1,6220 @@
+{
+ "items": [
+  {
+   "id": "20070131X00119",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0843679497463902,
+   "emb-lr:inj_probs": [
+    0.035007,
+    0.048591,
+    0.154781,
+    0.761621
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3569929877056786,
+   "emb-lr:dmg_probs": [
+    0.030792,
+    0.329907,
+    0.517861,
+    0.12144
+   ]
+  },
+  {
+   "id": "20070206X00142",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.017226452558580286,
+   "emb-lr:inj_probs": [
+    0.013199,
+    0.017116,
+    0.075119,
+    0.894566
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7774677697554098,
+   "emb-lr:dmg_probs": [
+    0.01943,
+    0.516334,
+    0.160467,
+    0.303768
+   ]
+  },
+  {
+   "id": "20070228X00237",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.027275337665797834,
+   "emb-lr:inj_probs": [
+    0.018963,
+    0.052565,
+    0.068146,
+    0.860326
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7091466382359923,
+   "emb-lr:dmg_probs": [
+    0.026911,
+    0.498689,
+    0.336199,
+    0.138202
+   ]
+  },
+  {
+   "id": "20070313X00281",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.1892564137787813,
+   "emb-lr:inj_probs": [
+    0.036841,
+    0.236311,
+    0.081082,
+    0.645766
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.6102845737426741,
+   "emb-lr:dmg_probs": [
+    0.032401,
+    0.456207,
+    0.380369,
+    0.131024
+   ]
+  },
+  {
+   "id": "20070409X00387",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.5397375467598584,
+   "emb-lr:inj_probs": [
+    0.007069,
+    0.018296,
+    0.110097,
+    0.864538
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.7915191357581453,
+   "emb-lr:dmg_probs": [
+    0.011131,
+    0.293446,
+    0.506409,
+    0.189014
+   ]
+  },
+  {
+   "id": "20070418X00436",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.02483116394177142,
+   "emb-lr:inj_probs": [
+    0.012769,
+    0.867803,
+    0.065209,
+    0.054219
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.046308566597583645,
+   "emb-lr:dmg_probs": [
+    0.012217,
+    0.065367,
+    0.10063,
+    0.821786
+   ]
+  },
+  {
+   "id": "20070423X00446",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.041845834666781025,
+   "emb-lr:inj_probs": [
+    0.025393,
+    0.044705,
+    0.100497,
+    0.829405
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.11708342061365548,
+   "emb-lr:dmg_probs": [
+    0.021374,
+    0.732061,
+    0.208248,
+    0.038318
+   ]
+  },
+  {
+   "id": "20070501X00494",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.4046058937464653,
+   "emb-lr:inj_probs": [
+    0.20503,
+    0.239312,
+    0.099215,
+    0.456443
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 1.3307367117871323,
+   "emb-lr:dmg_probs": [
+    0.160497,
+    0.076028,
+    0.099065,
+    0.66441
+   ]
+  },
+  {
+   "id": "20070503X00504",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.09173101833595233,
+   "emb-lr:inj_probs": [
+    0.027197,
+    0.050014,
+    0.168167,
+    0.754623
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.8328330135685076,
+   "emb-lr:dmg_probs": [
+    0.029516,
+    0.245549,
+    0.362022,
+    0.362914
+   ]
+  },
+  {
+   "id": "20070504X00513",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.01140451394738227,
+   "emb-lr:inj_probs": [
+    0.013863,
+    0.909988,
+    0.048344,
+    0.027804
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.054389770727258466,
+   "emb-lr:dmg_probs": [
+    0.018481,
+    0.051929,
+    0.121116,
+    0.808473
+   ]
+  },
+  {
+   "id": "20070510X00542",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.014695637985083243,
+   "emb-lr:inj_probs": [
+    0.022006,
+    0.033173,
+    0.048531,
+    0.89629
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.1927624798712206,
+   "emb-lr:dmg_probs": [
+    0.036402,
+    0.20839,
+    0.120554,
+    0.634654
+   ]
+  },
+  {
+   "id": "20070520X00598",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.002641675033512377,
+   "emb-lr:inj_probs": [
+    0.007624,
+    0.95703,
+    0.025171,
+    0.010175
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.01667836162327105,
+   "emb-lr:dmg_probs": [
+    0.012426,
+    0.037991,
+    0.057886,
+    0.891696
+   ]
+  },
+  {
+   "id": "20070601X00676",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.2220654796657263,
+   "emb-lr:inj_probs": [
+    0.053956,
+    0.189828,
+    0.15506,
+    0.601157
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.39648735261528817,
+   "emb-lr:dmg_probs": [
+    0.046547,
+    0.474876,
+    0.284275,
+    0.194302
+   ]
+  },
+  {
+   "id": "20070625X00787",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.019267001681298992,
+   "emb-lr:inj_probs": [
+    0.01428,
+    0.029199,
+    0.071173,
+    0.885349
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.22489884546192196,
+   "emb-lr:dmg_probs": [
+    0.015773,
+    0.642358,
+    0.309327,
+    0.032543
+   ]
+  },
+  {
+   "id": "20070627X00819",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.10517620698227241,
+   "emb-lr:inj_probs": [
+    0.023168,
+    0.112492,
+    0.135619,
+    0.728721
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.345975394558267,
+   "emb-lr:dmg_probs": [
+    0.019536,
+    0.098163,
+    0.346755,
+    0.535545
+   ]
+  },
+  {
+   "id": "20070705X00879",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.00752185319274055,
+   "emb-lr:inj_probs": [
+    0.011235,
+    0.02017,
+    0.041287,
+    0.927308
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.5629050242383289,
+   "emb-lr:dmg_probs": [
+    0.020667,
+    0.159049,
+    0.399734,
+    0.42055
+   ]
+  },
+  {
+   "id": "20070712X00920",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.003783215984712142,
+   "emb-lr:inj_probs": [
+    0.002961,
+    0.018725,
+    0.029086,
+    0.949228
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 1.07704641569523,
+   "emb-lr:dmg_probs": [
+    0.006535,
+    0.411245,
+    0.431661,
+    0.150559
+   ]
+  },
+  {
+   "id": "20070718X00958",
+   "inj_true": 0,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 1.3697568364089454,
+   "emb-lr:inj_probs": [
+    0.039997,
+    0.613954,
+    0.097735,
+    0.248314
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.48104683664232295,
+   "emb-lr:dmg_probs": [
+    0.033804,
+    0.197212,
+    0.339644,
+    0.42934
+   ]
+  },
+  {
+   "id": "20070720X00966",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.022913193252500765,
+   "emb-lr:inj_probs": [
+    0.01349,
+    0.872569,
+    0.056231,
+    0.057711
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.011037566417375275,
+   "emb-lr:dmg_probs": [
+    0.007665,
+    0.024832,
+    0.053874,
+    0.91363
+   ]
+  },
+  {
+   "id": "20070817X01201",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0052682660875570005,
+   "emb-lr:inj_probs": [
+    0.009669,
+    0.938905,
+    0.033455,
+    0.017971
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0267124945079493,
+   "emb-lr:dmg_probs": [
+    0.016102,
+    0.040179,
+    0.079691,
+    0.864028
+   ]
+  },
+  {
+   "id": "20070911X01360",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.07338299367183931,
+   "emb-lr:inj_probs": [
+    0.016132,
+    0.777795,
+    0.067579,
+    0.138494
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.02129800059645471,
+   "emb-lr:dmg_probs": [
+    0.007823,
+    0.039919,
+    0.072316,
+    0.879943
+   ]
+  },
+  {
+   "id": "20071005X01522",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.2003609000320853,
+   "emb-lr:inj_probs": [
+    0.065919,
+    0.149087,
+    0.166973,
+    0.61802
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.6310567520207477,
+   "emb-lr:dmg_probs": [
+    0.118182,
+    0.324598,
+    0.331875,
+    0.225345
+   ]
+  },
+  {
+   "id": "20071023X01634",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.040909178212923135,
+   "emb-lr:inj_probs": [
+    0.014222,
+    0.038422,
+    0.111237,
+    0.836119
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.48640086099414437,
+   "emb-lr:dmg_probs": [
+    0.021405,
+    0.373255,
+    0.436101,
+    0.169238
+   ]
+  },
+  {
+   "id": "20071023X01635",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.8196983746753643,
+   "emb-lr:inj_probs": [
+    0.003686,
+    0.006868,
+    0.040894,
+    0.948553
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.17220251902162245,
+   "emb-lr:dmg_probs": [
+    0.007445,
+    0.234576,
+    0.669426,
+    0.088554
+   ]
+  },
+  {
+   "id": "20071029X01680",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.07680901319052116,
+   "emb-lr:inj_probs": [
+    0.028957,
+    0.116898,
+    0.087803,
+    0.766342
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.12558429599917245,
+   "emb-lr:dmg_probs": [
+    0.02294,
+    0.71757,
+    0.20598,
+    0.05351
+   ]
+  },
+  {
+   "id": "20071130X01878",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0027929559511997385,
+   "emb-lr:inj_probs": [
+    0.006545,
+    0.955147,
+    0.020664,
+    0.017644
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.01057113923931131,
+   "emb-lr:dmg_probs": [
+    0.006363,
+    0.01515,
+    0.0602,
+    0.918286
+   ]
+  },
+  {
+   "id": "20071204X01893",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.025584611337494567,
+   "emb-lr:inj_probs": [
+    0.015905,
+    0.049303,
+    0.069314,
+    0.865477
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.2870268428030162,
+   "emb-lr:dmg_probs": [
+    0.020855,
+    0.313247,
+    0.575407,
+    0.090491
+   ]
+  },
+  {
+   "id": "20071217X01939",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.30919954410021666,
+   "emb-lr:inj_probs": [
+    0.121184,
+    0.183463,
+    0.175129,
+    0.520224
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.35330556203298713,
+   "emb-lr:dmg_probs": [
+    0.109527,
+    0.506476,
+    0.082416,
+    0.30158
+   ]
+  },
+  {
+   "id": "20071231X02012",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.09756393379531424,
+   "emb-lr:inj_probs": [
+    0.0429,
+    0.076927,
+    0.143343,
+    0.73683
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.07198795841336127,
+   "emb-lr:dmg_probs": [
+    0.017361,
+    0.787306,
+    0.158373,
+    0.036959
+   ]
+  },
+  {
+   "id": "20071231X02013",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.3411838295987788,
+   "emb-lr:inj_probs": [
+    0.020758,
+    0.113323,
+    0.133251,
+    0.732667
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.5701795098685674,
+   "emb-lr:dmg_probs": [
+    0.030406,
+    0.265137,
+    0.37511,
+    0.329348
+   ]
+  },
+  {
+   "id": "20080107X00024",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.013613748986225563,
+   "emb-lr:inj_probs": [
+    0.012709,
+    0.902005,
+    0.052946,
+    0.03234
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.09926877443985854,
+   "emb-lr:dmg_probs": [
+    0.022827,
+    0.086869,
+    0.151531,
+    0.738773
+   ]
+  },
+  {
+   "id": "20080118X00073",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.007403702569008893,
+   "emb-lr:inj_probs": [
+    0.015736,
+    0.027678,
+    0.030483,
+    0.926103
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.40077428169910123,
+   "emb-lr:dmg_probs": [
+    0.036547,
+    0.476034,
+    0.298981,
+    0.188437
+   ]
+  },
+  {
+   "id": "20080122X00088",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.05338283661129441,
+   "emb-lr:inj_probs": [
+    0.01246,
+    0.03196,
+    0.137821,
+    0.817759
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.9339741812642871,
+   "emb-lr:dmg_probs": [
+    0.013071,
+    0.34806,
+    0.430765,
+    0.208104
+   ]
+  },
+  {
+   "id": "20080212X00178",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.2020106721029187,
+   "emb-lr:inj_probs": [
+    0.038668,
+    0.274678,
+    0.109851,
+    0.576803
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.5297571354513119,
+   "emb-lr:dmg_probs": [
+    0.036306,
+    0.148424,
+    0.41299,
+    0.40228
+   ]
+  },
+  {
+   "id": "20080222X00229",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.3941522095949097,
+   "emb-lr:inj_probs": [
+    0.109814,
+    0.196637,
+    0.231788,
+    0.461761
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.179712260470904,
+   "emb-lr:dmg_probs": [
+    0.084138,
+    0.193791,
+    0.080645,
+    0.641427
+   ]
+  },
+  {
+   "id": "20080228X00243",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0764092920237511,
+   "emb-lr:inj_probs": [
+    0.050195,
+    0.073345,
+    0.1127,
+    0.763761
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.9822014337777394,
+   "emb-lr:dmg_probs": [
+    0.051307,
+    0.647659,
+    0.253132,
+    0.047902
+   ]
+  },
+  {
+   "id": "20080304X00260",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.014741508311801665,
+   "emb-lr:inj_probs": [
+    0.018782,
+    0.896305,
+    0.038526,
+    0.046387
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.007508278466181087,
+   "emb-lr:dmg_probs": [
+    0.012709,
+    0.026615,
+    0.034492,
+    0.926184
+   ]
+  },
+  {
+   "id": "20080305X00267",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.8321103223166662,
+   "emb-lr:inj_probs": [
+    0.049067,
+    0.494285,
+    0.260473,
+    0.196175
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.4746308178552038,
+   "emb-lr:dmg_probs": [
+    0.038561,
+    0.204067,
+    0.327053,
+    0.430319
+   ]
+  },
+  {
+   "id": "20080307X00283",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.000804410706670002,
+   "emb-lr:inj_probs": [
+    0.002912,
+    0.008602,
+    0.012349,
+    0.976137
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7207418479629947,
+   "emb-lr:dmg_probs": [
+    0.007956,
+    0.557703,
+    0.363857,
+    0.070484
+   ]
+  },
+  {
+   "id": "20080331X00404",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.1266019752518613,
+   "emb-lr:inj_probs": [
+    0.054718,
+    0.096414,
+    0.151251,
+    0.697617
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.6329228603453744,
+   "emb-lr:dmg_probs": [
+    0.065469,
+    0.281848,
+    0.331931,
+    0.320752
+   ]
+  },
+  {
+   "id": "20080404X00426",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0468463539072863,
+   "emb-lr:inj_probs": [
+    0.009674,
+    0.033338,
+    0.128021,
+    0.828968
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.23408308165606945,
+   "emb-lr:dmg_probs": [
+    0.013597,
+    0.223613,
+    0.602324,
+    0.160466
+   ]
+  },
+  {
+   "id": "20080409X00446",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.4442743228960329,
+   "emb-lr:inj_probs": [
+    0.059721,
+    0.230273,
+    0.270716,
+    0.439291
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.8206258374608467,
+   "emb-lr:dmg_probs": [
+    0.078608,
+    0.137266,
+    0.513474,
+    0.270652
+   ]
+  },
+  {
+   "id": "20080413X00464",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.03860209882127431,
+   "emb-lr:inj_probs": [
+    0.008802,
+    0.836927,
+    0.07313,
+    0.081141
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.07503299484529576,
+   "emb-lr:dmg_probs": [
+    0.007418,
+    0.050534,
+    0.1591,
+    0.782948
+   ]
+  },
+  {
+   "id": "20080506X00598",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01748118460291194,
+   "emb-lr:inj_probs": [
+    0.015086,
+    0.026961,
+    0.067415,
+    0.890538
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.1402478454316669,
+   "emb-lr:dmg_probs": [
+    0.020656,
+    0.150504,
+    0.140829,
+    0.688011
+   ]
+  },
+  {
+   "id": "20080701X00963",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.4595019153057311,
+   "emb-lr:inj_probs": [
+    0.082236,
+    0.237574,
+    0.255521,
+    0.424668
+   ],
+   "dmg_true": 0,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.9530556970992975,
+   "emb-lr:dmg_probs": [
+    0.17131,
+    0.142045,
+    0.271169,
+    0.415476
+   ]
+  },
+  {
+   "id": "20080703X00974",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.08485589905831745,
+   "emb-lr:inj_probs": [
+    0.023327,
+    0.121447,
+    0.099489,
+    0.755737
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.6658787953060025,
+   "emb-lr:dmg_probs": [
+    0.029597,
+    0.338808,
+    0.196694,
+    0.434901
+   ]
+  },
+  {
+   "id": "20080720X01081",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.00919564315854499,
+   "emb-lr:inj_probs": [
+    0.010801,
+    0.040152,
+    0.030061,
+    0.918986
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.6973757104054661,
+   "emb-lr:dmg_probs": [
+    0.02131,
+    0.331041,
+    0.464698,
+    0.182951
+   ]
+  },
+  {
+   "id": "20080722X01094",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.013642452443593241,
+   "emb-lr:inj_probs": [
+    0.008875,
+    0.902114,
+    0.041305,
+    0.047707
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.024775075376071827,
+   "emb-lr:dmg_probs": [
+    0.006813,
+    0.034706,
+    0.085688,
+    0.872793
+   ]
+  },
+  {
+   "id": "20080812X01218",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.010978927735335917,
+   "emb-lr:inj_probs": [
+    0.010966,
+    0.011521,
+    0.06112,
+    0.916392
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 1.1172199759369295,
+   "emb-lr:dmg_probs": [
+    0.0231,
+    0.207972,
+    0.607907,
+    0.161022
+   ]
+  },
+  {
+   "id": "20080912X01438",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.007122845914011611,
+   "emb-lr:inj_probs": [
+    0.007473,
+    0.011659,
+    0.04852,
+    0.932348
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.9676745300847136,
+   "emb-lr:dmg_probs": [
+    0.016642,
+    0.32484,
+    0.463125,
+    0.195393
+   ]
+  },
+  {
+   "id": "20080915X01465",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0653231521138094,
+   "emb-lr:inj_probs": [
+    0.031115,
+    0.101331,
+    0.084303,
+    0.783251
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.22113957397612136,
+   "emb-lr:dmg_probs": [
+    0.030209,
+    0.622114,
+    0.266005,
+    0.081673
+   ]
+  },
+  {
+   "id": "20081003X16303",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.05261964839591554,
+   "emb-lr:inj_probs": [
+    0.02101,
+    0.807156,
+    0.075287,
+    0.096548
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.02961456558456356,
+   "emb-lr:dmg_probs": [
+    0.013077,
+    0.074051,
+    0.056846,
+    0.856026
+   ]
+  },
+  {
+   "id": "20081003X17330",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.04163201573193458,
+   "emb-lr:inj_probs": [
+    0.015452,
+    0.059702,
+    0.09472,
+    0.830126
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.43002655670088685,
+   "emb-lr:dmg_probs": [
+    0.025419,
+    0.459729,
+    0.207674,
+    0.307179
+   ]
+  },
+  {
+   "id": "20081003X63355",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.07261914748429282,
+   "emb-lr:inj_probs": [
+    0.01716,
+    0.051015,
+    0.149486,
+    0.782339
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.19068465348785243,
+   "emb-lr:dmg_probs": [
+    0.030687,
+    0.162311,
+    0.634453,
+    0.17255
+   ]
+  },
+  {
+   "id": "20081007X03940",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.08258597133111532,
+   "emb-lr:inj_probs": [
+    0.033955,
+    0.080677,
+    0.127554,
+    0.757814
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.6771356780626279,
+   "emb-lr:dmg_probs": [
+    0.051692,
+    0.398713,
+    0.319792,
+    0.229802
+   ]
+  },
+  {
+   "id": "20081027X75039",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.1263871739043695,
+   "emb-lr:inj_probs": [
+    0.031731,
+    0.145364,
+    0.121891,
+    0.701015
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.17292962139151158,
+   "emb-lr:dmg_probs": [
+    0.028456,
+    0.661097,
+    0.222588,
+    0.087858
+   ]
+  },
+  {
+   "id": "20081110X15316",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.012575485397151333,
+   "emb-lr:inj_probs": [
+    0.006556,
+    0.036932,
+    0.04975,
+    0.906762
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.8240752160694442,
+   "emb-lr:dmg_probs": [
+    0.008364,
+    0.547567,
+    0.292124,
+    0.151945
+   ]
+  },
+  {
+   "id": "20081113X92722",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.326622011764794,
+   "emb-lr:inj_probs": [
+    0.066463,
+    0.270573,
+    0.14148,
+    0.521483
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.3797910096321565,
+   "emb-lr:dmg_probs": [
+    0.048198,
+    0.495264,
+    0.324436,
+    0.132102
+   ]
+  },
+  {
+   "id": "20081116X33137",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01503320547452863,
+   "emb-lr:inj_probs": [
+    0.005341,
+    0.014745,
+    0.075355,
+    0.904559
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7243594296916945,
+   "emb-lr:dmg_probs": [
+    0.008292,
+    0.574572,
+    0.373686,
+    0.04345
+   ]
+  },
+  {
+   "id": "20081124X34243",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.22950684676659547,
+   "emb-lr:inj_probs": [
+    0.096354,
+    0.190245,
+    0.124059,
+    0.589343
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.6460275598868261,
+   "emb-lr:dmg_probs": [
+    0.090393,
+    0.32538,
+    0.320122,
+    0.264105
+   ]
+  },
+  {
+   "id": "20081201X44308",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.044271802418126394,
+   "emb-lr:inj_probs": [
+    0.029296,
+    0.043404,
+    0.10309,
+    0.82421
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.5166210478123893,
+   "emb-lr:dmg_probs": [
+    0.051626,
+    0.249965,
+    0.299757,
+    0.398652
+   ]
+  },
+  {
+   "id": "20081215X14936",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.16261843312920693,
+   "emb-lr:inj_probs": [
+    0.019123,
+    0.117956,
+    0.195036,
+    0.667885
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.19396749370708094,
+   "emb-lr:dmg_probs": [
+    0.022283,
+    0.128123,
+    0.636922,
+    0.212672
+   ]
+  },
+  {
+   "id": "20081216X41655",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.008590682272290486,
+   "emb-lr:inj_probs": [
+    0.006547,
+    0.018093,
+    0.050596,
+    0.924764
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.23338848354015065,
+   "emb-lr:dmg_probs": [
+    0.009737,
+    0.62324,
+    0.293038,
+    0.073985
+   ]
+  },
+  {
+   "id": "20081217X83220",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.033518878909841614,
+   "emb-lr:inj_probs": [
+    0.013505,
+    0.024525,
+    0.1075,
+    0.85447
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.238519397827366,
+   "emb-lr:dmg_probs": [
+    0.016312,
+    0.275542,
+    0.609389,
+    0.098758
+   ]
+  },
+  {
+   "id": "20081219X16532",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.005691795944604646,
+   "emb-lr:inj_probs": [
+    0.008635,
+    0.008379,
+    0.043465,
+    0.93952
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.15799880645145994,
+   "emb-lr:dmg_probs": [
+    0.01478,
+    0.215724,
+    0.678984,
+    0.090511
+   ]
+  },
+  {
+   "id": "20081219X65251",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01162664876446481,
+   "emb-lr:inj_probs": [
+    0.016867,
+    0.016453,
+    0.055853,
+    0.910827
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3778134121777427,
+   "emb-lr:dmg_probs": [
+    0.029004,
+    0.381022,
+    0.523202,
+    0.066772
+   ]
+  },
+  {
+   "id": "20081219X65313",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.005308416605065742,
+   "emb-lr:inj_probs": [
+    0.008727,
+    0.013851,
+    0.037627,
+    0.939795
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.46125015463230506,
+   "emb-lr:dmg_probs": [
+    0.012752,
+    0.447679,
+    0.491691,
+    0.047879
+   ]
+  },
+  {
+   "id": "20081221X14648",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.5556527023306498,
+   "emb-lr:inj_probs": [
+    0.201178,
+    0.360694,
+    0.146645,
+    0.291483
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.8608047956697435,
+   "emb-lr:dmg_probs": [
+    0.288896,
+    0.204487,
+    0.163382,
+    0.343235
+   ]
+  },
+  {
+   "id": "20081224X25658",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.011472211469811143,
+   "emb-lr:inj_probs": [
+    0.009357,
+    0.030958,
+    0.049174,
+    0.910511
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.2822586087300376,
+   "emb-lr:dmg_probs": [
+    0.017526,
+    0.199205,
+    0.222378,
+    0.560891
+   ]
+  },
+  {
+   "id": "20081228X25156",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.008621603945255357,
+   "emb-lr:inj_probs": [
+    0.012594,
+    0.030036,
+    0.036357,
+    0.921013
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5477963146006382,
+   "emb-lr:dmg_probs": [
+    0.027914,
+    0.39981,
+    0.393468,
+    0.178808
+   ]
+  },
+  {
+   "id": "20081229X80551",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.02336781645832914,
+   "emb-lr:inj_probs": [
+    0.010679,
+    0.018853,
+    0.091212,
+    0.879257
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.33376938473698853,
+   "emb-lr:dmg_probs": [
+    0.020866,
+    0.523982,
+    0.267322,
+    0.187829
+   ]
+  },
+  {
+   "id": "20090105X01036",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.033537007612628844,
+   "emb-lr:inj_probs": [
+    0.030346,
+    0.057607,
+    0.068783,
+    0.843263
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.37797012119636647,
+   "emb-lr:dmg_probs": [
+    0.040006,
+    0.261356,
+    0.486929,
+    0.211709
+   ]
+  },
+  {
+   "id": "20090114X61852",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.04189585029569386,
+   "emb-lr:inj_probs": [
+    0.026943,
+    0.072845,
+    0.074373,
+    0.825839
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.17923115272469975,
+   "emb-lr:dmg_probs": [
+    0.021033,
+    0.669501,
+    0.258835,
+    0.050632
+   ]
+  },
+  {
+   "id": "20090115X73226",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.9850109169111383,
+   "emb-lr:inj_probs": [
+    0.152205,
+    0.183328,
+    0.139707,
+    0.52476
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5272087548277925,
+   "emb-lr:dmg_probs": [
+    0.174278,
+    0.373232,
+    0.197754,
+    0.254736
+   ]
+  },
+  {
+   "id": "20090223X03403",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0037588634215207383,
+   "emb-lr:inj_probs": [
+    0.005176,
+    0.010272,
+    0.034153,
+    0.9504
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.4360871414933162,
+   "emb-lr:dmg_probs": [
+    0.009357,
+    0.446838,
+    0.514727,
+    0.029078
+   ]
+  },
+  {
+   "id": "20090303X74824",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.2502039954995605,
+   "emb-lr:inj_probs": [
+    0.064388,
+    0.129424,
+    0.227537,
+    0.578651
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.6707909962361831,
+   "emb-lr:dmg_probs": [
+    0.083035,
+    0.317012,
+    0.39339,
+    0.206563
+   ]
+  },
+  {
+   "id": "20090401X82602",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0014376108386329248,
+   "emb-lr:inj_probs": [
+    0.003767,
+    0.968385,
+    0.018174,
+    0.009674
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 1.7696189158281217,
+   "emb-lr:dmg_probs": [
+    0.005697,
+    0.024694,
+    0.044455,
+    0.925154
+   ]
+  },
+  {
+   "id": "20090421X81417",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.007874624492046489,
+   "emb-lr:inj_probs": [
+    0.008346,
+    0.925649,
+    0.040022,
+    0.025983
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.015400711069885328,
+   "emb-lr:dmg_probs": [
+    0.007933,
+    0.020881,
+    0.070701,
+    0.900485
+   ]
+  },
+  {
+   "id": "20090422X95319",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01501597192658736,
+   "emb-lr:inj_probs": [
+    0.01351,
+    0.041076,
+    0.04905,
+    0.896364
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.49648680055173744,
+   "emb-lr:dmg_probs": [
+    0.017544,
+    0.451997,
+    0.43133,
+    0.099129
+   ]
+  },
+  {
+   "id": "20090505X04553",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.5036336361954366,
+   "emb-lr:inj_probs": [
+    0.018667,
+    0.071396,
+    0.090639,
+    0.819298
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.0781674279280278,
+   "emb-lr:dmg_probs": [
+    0.015717,
+    0.777767,
+    0.163293,
+    0.043223
+   ]
+  },
+  {
+   "id": "20090513X31333",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.2765362250254706,
+   "emb-lr:inj_probs": [
+    0.013222,
+    0.07025,
+    0.16204,
+    0.754487
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.26718211449069423,
+   "emb-lr:dmg_probs": [
+    0.016792,
+    0.298179,
+    0.589151,
+    0.095877
+   ]
+  },
+  {
+   "id": "20090522X80352",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0030481007207409433,
+   "emb-lr:inj_probs": [
+    0.007774,
+    0.016057,
+    0.023055,
+    0.953114
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.14385857140819666,
+   "emb-lr:dmg_probs": [
+    0.015766,
+    0.701158,
+    0.22591,
+    0.057167
+   ]
+  },
+  {
+   "id": "20090527X25328",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.009679042340663798,
+   "emb-lr:inj_probs": [
+    0.015673,
+    0.916925,
+    0.04511,
+    0.022292
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.010572534034475542,
+   "emb-lr:dmg_probs": [
+    0.015226,
+    0.025235,
+    0.046422,
+    0.913116
+   ]
+  },
+  {
+   "id": "20090610X65600",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.010439332582906514,
+   "emb-lr:inj_probs": [
+    0.011515,
+    0.02101,
+    0.052061,
+    0.915413
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.20299850174404627,
+   "emb-lr:dmg_probs": [
+    0.032401,
+    0.158193,
+    0.622958,
+    0.186447
+   ]
+  },
+  {
+   "id": "20090611X13753",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.03029380472253032,
+   "emb-lr:inj_probs": [
+    0.006272,
+    0.019251,
+    0.108808,
+    0.865669
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.1853033543387928,
+   "emb-lr:dmg_probs": [
+    0.008362,
+    0.260459,
+    0.664018,
+    0.067161
+   ]
+  },
+  {
+   "id": "20090712X94532",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.004631549237054644,
+   "emb-lr:inj_probs": [
+    0.007329,
+    0.943489,
+    0.033942,
+    0.01524
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0777504147923119,
+   "emb-lr:dmg_probs": [
+    0.015411,
+    0.099631,
+    0.117077,
+    0.767881
+   ]
+  },
+  {
+   "id": "20090724X12005",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.014250359917286164,
+   "emb-lr:inj_probs": [
+    0.011061,
+    0.900079,
+    0.054325,
+    0.034535
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.027716011098386353,
+   "emb-lr:dmg_probs": [
+    0.013153,
+    0.056256,
+    0.070104,
+    0.860488
+   ]
+  },
+  {
+   "id": "20090724X34459",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.004284168167615206,
+   "emb-lr:inj_probs": [
+    0.007654,
+    0.945143,
+    0.030753,
+    0.016451
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0221839590193225,
+   "emb-lr:dmg_probs": [
+    0.008579,
+    0.034052,
+    0.07879,
+    0.878579
+   ]
+  },
+  {
+   "id": "20090730X12915",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.008841286907956885,
+   "emb-lr:inj_probs": [
+    0.009414,
+    0.007872,
+    0.056707,
+    0.926007
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.18294248889374062,
+   "emb-lr:dmg_probs": [
+    0.015433,
+    0.261089,
+    0.666413,
+    0.057065
+   ]
+  },
+  {
+   "id": "20090805X42956",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.035776099287638106,
+   "emb-lr:inj_probs": [
+    0.047919,
+    0.836356,
+    0.056408,
+    0.059317
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 1.581413747849694,
+   "emb-lr:dmg_probs": [
+    0.036078,
+    0.024077,
+    0.081744,
+    0.858101
+   ]
+  },
+  {
+   "id": "20090806X21108",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0221373403474294,
+   "emb-lr:inj_probs": [
+    0.024356,
+    0.872784,
+    0.057352,
+    0.045508
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.03797562388690613,
+   "emb-lr:dmg_probs": [
+    0.026008,
+    0.056357,
+    0.082775,
+    0.83486
+   ]
+  },
+  {
+   "id": "20090810X21314",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 1.6276599476300804,
+   "emb-lr:inj_probs": [
+    0.022731,
+    0.854877,
+    0.055612,
+    0.066779
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.07984145169315186,
+   "emb-lr:dmg_probs": [
+    0.026396,
+    0.075464,
+    0.133816,
+    0.764324
+   ]
+  },
+  {
+   "id": "20090828X61756",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.016600136173540354,
+   "emb-lr:inj_probs": [
+    0.022268,
+    0.891147,
+    0.059209,
+    0.027376
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.04591426944538402,
+   "emb-lr:dmg_probs": [
+    0.031558,
+    0.068436,
+    0.082735,
+    0.817271
+   ]
+  },
+  {
+   "id": "20090909X82446",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01116502624965874,
+   "emb-lr:inj_probs": [
+    0.007157,
+    0.017204,
+    0.060349,
+    0.91529
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.16416720161450504,
+   "emb-lr:dmg_probs": [
+    0.00674,
+    0.267701,
+    0.697251,
+    0.028308
+   ]
+  },
+  {
+   "id": "20090910X53412",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.5730906167686536,
+   "emb-lr:inj_probs": [
+    0.00819,
+    0.01164,
+    0.103324,
+    0.876846
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.26608493962465524,
+   "emb-lr:dmg_probs": [
+    0.011161,
+    0.324366,
+    0.6037,
+    0.060774
+   ]
+  },
+  {
+   "id": "20090910X95942",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.2742918346797237,
+   "emb-lr:inj_probs": [
+    0.048853,
+    0.226748,
+    0.164286,
+    0.560113
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.9704168597597117,
+   "emb-lr:dmg_probs": [
+    0.035441,
+    0.042117,
+    0.266822,
+    0.655619
+   ]
+  },
+  {
+   "id": "20090921X05830",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.02559777383196489,
+   "emb-lr:inj_probs": [
+    0.026561,
+    0.03241,
+    0.075641,
+    0.865388
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.25566767965855425,
+   "emb-lr:dmg_probs": [
+    0.022202,
+    0.62058,
+    0.332577,
+    0.024641
+   ]
+  },
+  {
+   "id": "20090921X73211",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.020567949685488373,
+   "emb-lr:inj_probs": [
+    0.015791,
+    0.020238,
+    0.080118,
+    0.883853
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3757240358754676,
+   "emb-lr:dmg_probs": [
+    0.023512,
+    0.383872,
+    0.527205,
+    0.065411
+   ]
+  },
+  {
+   "id": "20090925X65328",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 1.5443711823021165,
+   "emb-lr:inj_probs": [
+    0.026928,
+    0.826535,
+    0.071408,
+    0.075129
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0008804513171699537,
+   "emb-lr:dmg_probs": [
+    0.006125,
+    0.003889,
+    0.014712,
+    0.975274
+   ]
+  },
+  {
+   "id": "20091020X14635",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.010143028121102909,
+   "emb-lr:inj_probs": [
+    0.017788,
+    0.913678,
+    0.037917,
+    0.030617
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.021747255527681256,
+   "emb-lr:dmg_probs": [
+    0.017899,
+    0.039131,
+    0.067061,
+    0.875909
+   ]
+  },
+  {
+   "id": "20091022X00120",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.23072963209073385,
+   "emb-lr:inj_probs": [
+    0.104146,
+    0.145922,
+    0.16421,
+    0.585723
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.12397091829467008,
+   "emb-lr:dmg_probs": [
+    0.075436,
+    0.128078,
+    0.099697,
+    0.696789
+   ]
+  },
+  {
+   "id": "20091029X02444",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.00553363105437239,
+   "emb-lr:inj_probs": [
+    0.010348,
+    0.937397,
+    0.034559,
+    0.017696
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.02627379517595319,
+   "emb-lr:dmg_probs": [
+    0.015171,
+    0.043242,
+    0.076783,
+    0.864803
+   ]
+  },
+  {
+   "id": "20091030X64143",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.12678836550846037,
+   "emb-lr:inj_probs": [
+    0.027527,
+    0.701332,
+    0.141465,
+    0.129676
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.027133988056221352,
+   "emb-lr:dmg_probs": [
+    0.015462,
+    0.049524,
+    0.073173,
+    0.861841
+   ]
+  },
+  {
+   "id": "20091102X82140",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.12946395049537443,
+   "emb-lr:inj_probs": [
+    0.059524,
+    0.144088,
+    0.103658,
+    0.69273
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.4920702061263155,
+   "emb-lr:dmg_probs": [
+    0.062932,
+    0.427638,
+    0.378714,
+    0.130716
+   ]
+  },
+  {
+   "id": "20091117X55556",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.04087392936715219,
+   "emb-lr:inj_probs": [
+    0.01711,
+    0.088953,
+    0.063253,
+    0.830685
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7826407780263788,
+   "emb-lr:dmg_probs": [
+    0.035205,
+    0.49222,
+    0.289056,
+    0.183519
+   ]
+  },
+  {
+   "id": "20091124X94107",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.08806201213672782,
+   "emb-lr:inj_probs": [
+    0.03412,
+    0.74856,
+    0.114229,
+    0.103091
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.2117047508537742,
+   "emb-lr:dmg_probs": [
+    0.043758,
+    0.113715,
+    0.224958,
+    0.61757
+   ]
+  },
+  {
+   "id": "20091214X41802",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.04322882027096414,
+   "emb-lr:inj_probs": [
+    0.021273,
+    0.046514,
+    0.104518,
+    0.827696
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 1.0885364008868825,
+   "emb-lr:dmg_probs": [
+    0.025919,
+    0.40165,
+    0.140021,
+    0.43241
+   ]
+  },
+  {
+   "id": "20091223X50505",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.8435984867503987,
+   "emb-lr:inj_probs": [
+    0.041369,
+    0.245758,
+    0.24805,
+    0.464823
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5559679111138214,
+   "emb-lr:dmg_probs": [
+    0.045237,
+    0.379062,
+    0.251502,
+    0.324199
+   ]
+  },
+  {
+   "id": "20091228X15816",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.045001814026972675,
+   "emb-lr:inj_probs": [
+    0.016866,
+    0.078962,
+    0.082261,
+    0.821911
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 1.1100385477065786,
+   "emb-lr:dmg_probs": [
+    0.017799,
+    0.120448,
+    0.194107,
+    0.667646
+   ]
+  },
+  {
+   "id": "20100114X11754",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.022027495161911693,
+   "emb-lr:inj_probs": [
+    0.007642,
+    0.016963,
+    0.091086,
+    0.884308
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.2224170890359669,
+   "emb-lr:dmg_probs": [
+    0.019939,
+    0.21218,
+    0.610025,
+    0.157856
+   ]
+  },
+  {
+   "id": "20100216X20235",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.7763168678568009,
+   "emb-lr:inj_probs": [
+    0.032544,
+    0.307658,
+    0.132093,
+    0.527705
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.017924584195630845,
+   "emb-lr:dmg_probs": [
+    0.012242,
+    0.043489,
+    0.056782,
+    0.887487
+   ]
+  },
+  {
+   "id": "20100216X34257",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01878947899324119,
+   "emb-lr:inj_probs": [
+    0.017066,
+    0.037689,
+    0.06088,
+    0.884365
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5730698238751637,
+   "emb-lr:dmg_probs": [
+    0.023367,
+    0.469872,
+    0.414189,
+    0.092573
+   ]
+  },
+  {
+   "id": "20100219X11249",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.008715500461796324,
+   "emb-lr:inj_probs": [
+    0.010666,
+    0.01031,
+    0.053837,
+    0.925187
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5240675073335039,
+   "emb-lr:dmg_probs": [
+    0.020959,
+    0.45855,
+    0.445288,
+    0.075203
+   ]
+  },
+  {
+   "id": "20100222X84927",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.04649666855804366,
+   "emb-lr:inj_probs": [
+    0.028565,
+    0.819352,
+    0.103266,
+    0.048818
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 1.4803956196439865,
+   "emb-lr:dmg_probs": [
+    0.03578,
+    0.057187,
+    0.095751,
+    0.811282
+   ]
+  },
+  {
+   "id": "20100312X84023",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.007418162576116589,
+   "emb-lr:inj_probs": [
+    0.008724,
+    0.927846,
+    0.039597,
+    0.023832
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.044463619189151725,
+   "emb-lr:dmg_probs": [
+    0.014101,
+    0.05319,
+    0.106304,
+    0.826405
+   ]
+  },
+  {
+   "id": "20100315X12046",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01656986870476472,
+   "emb-lr:inj_probs": [
+    0.010387,
+    0.043708,
+    0.053849,
+    0.892056
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.5014560748013137,
+   "emb-lr:dmg_probs": [
+    0.016608,
+    0.434496,
+    0.449913,
+    0.098983
+   ]
+  },
+  {
+   "id": "20100423X01145",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.004194297000971003,
+   "emb-lr:inj_probs": [
+    0.011832,
+    0.944687,
+    0.026714,
+    0.016767
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.022811303856169994,
+   "emb-lr:dmg_probs": [
+    0.017061,
+    0.053681,
+    0.057194,
+    0.872065
+   ]
+  },
+  {
+   "id": "20100423X02633",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.05669423696879102,
+   "emb-lr:inj_probs": [
+    0.023108,
+    0.801758,
+    0.059962,
+    0.115173
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.03095865055510969,
+   "emb-lr:dmg_probs": [
+    0.016098,
+    0.037212,
+    0.091442,
+    0.855248
+   ]
+  },
+  {
+   "id": "20100503X82523",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0031054423683837254,
+   "emb-lr:inj_probs": [
+    0.004732,
+    0.010539,
+    0.030149,
+    0.95458
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.2923499167232763,
+   "emb-lr:dmg_probs": [
+    0.007726,
+    0.306292,
+    0.569887,
+    0.116096
+   ]
+  },
+  {
+   "id": "20100507X94749",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0035178204535551887,
+   "emb-lr:inj_probs": [
+    0.007153,
+    0.950309,
+    0.028076,
+    0.014462
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.039854810900054966,
+   "emb-lr:dmg_probs": [
+    0.016285,
+    0.03697,
+    0.109028,
+    0.837717
+   ]
+  },
+  {
+   "id": "20100520X02527",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.048030954187382735,
+   "emb-lr:inj_probs": [
+    0.03388,
+    0.058225,
+    0.09404,
+    0.813856
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.739741943075336,
+   "emb-lr:dmg_probs": [
+    0.035722,
+    0.348805,
+    0.557744,
+    0.057729
+   ]
+  },
+  {
+   "id": "20100523X62317",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.054431667675627224,
+   "emb-lr:inj_probs": [
+    0.009389,
+    0.037004,
+    0.137891,
+    0.815717
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.8786260121392725,
+   "emb-lr:dmg_probs": [
+    0.014313,
+    0.596272,
+    0.28454,
+    0.104875
+   ]
+  },
+  {
+   "id": "20100525X31845",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.20928316405773345,
+   "emb-lr:inj_probs": [
+    0.037101,
+    0.619284,
+    0.127503,
+    0.216113
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.2784478766709652,
+   "emb-lr:dmg_probs": [
+    0.036665,
+    0.212972,
+    0.191873,
+    0.55849
+   ]
+  },
+  {
+   "id": "20100606X02721",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.007391414820420257,
+   "emb-lr:inj_probs": [
+    0.008791,
+    0.033621,
+    0.030197,
+    0.927392
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.6713349132211942,
+   "emb-lr:dmg_probs": [
+    0.013131,
+    0.178587,
+    0.346964,
+    0.461317
+   ]
+  },
+  {
+   "id": "20100608X35931",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.007982459463796044,
+   "emb-lr:inj_probs": [
+    0.008605,
+    0.006411,
+    0.05476,
+    0.930224
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.1792491274857166,
+   "emb-lr:dmg_probs": [
+    0.017956,
+    0.229709,
+    0.657659,
+    0.094676
+   ]
+  },
+  {
+   "id": "20100701X93344",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.05060000855025575,
+   "emb-lr:inj_probs": [
+    0.028246,
+    0.808967,
+    0.086807,
+    0.075981
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.12223764075383614,
+   "emb-lr:dmg_probs": [
+    0.028924,
+    0.078849,
+    0.179968,
+    0.712258
+   ]
+  },
+  {
+   "id": "20100714X63624",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.16617854785494446,
+   "emb-lr:inj_probs": [
+    0.035129,
+    0.207813,
+    0.093294,
+    0.663764
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.7235915467235599,
+   "emb-lr:dmg_probs": [
+    0.032834,
+    0.346226,
+    0.536645,
+    0.084294
+   ]
+  },
+  {
+   "id": "20100719X80209",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0018259437590734625,
+   "emb-lr:inj_probs": [
+    0.005835,
+    0.963789,
+    0.018298,
+    0.012078
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.018233049540366142,
+   "emb-lr:dmg_probs": [
+    0.010994,
+    0.040287,
+    0.061463,
+    0.887255
+   ]
+  },
+  {
+   "id": "20100720X43639",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.02885836916803397,
+   "emb-lr:inj_probs": [
+    0.023323,
+    0.037807,
+    0.081275,
+    0.857594
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.1762707013411921,
+   "emb-lr:dmg_probs": [
+    0.043488,
+    0.148347,
+    0.645266,
+    0.162899
+   ]
+  },
+  {
+   "id": "20100811X20501",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.10496794980379315,
+   "emb-lr:inj_probs": [
+    0.033652,
+    0.158595,
+    0.077375,
+    0.730378
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.36429251934254636,
+   "emb-lr:dmg_probs": [
+    0.03409,
+    0.497043,
+    0.245542,
+    0.223325
+   ]
+  },
+  {
+   "id": "20100827X20401",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.1810025499161163,
+   "emb-lr:inj_probs": [
+    0.016842,
+    0.070429,
+    0.190874,
+    0.721855
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.5309165021131356,
+   "emb-lr:dmg_probs": [
+    0.023154,
+    0.348433,
+    0.401934,
+    0.226479
+   ]
+  },
+  {
+   "id": "20100928X12406",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0224818998478192,
+   "emb-lr:inj_probs": [
+    0.005765,
+    0.020034,
+    0.091299,
+    0.882902
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.104501259947927,
+   "emb-lr:dmg_probs": [
+    0.005469,
+    0.198535,
+    0.74926,
+    0.046736
+   ]
+  },
+  {
+   "id": "20100930X00358",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.09327135972969319,
+   "emb-lr:inj_probs": [
+    0.012305,
+    0.028408,
+    0.193518,
+    0.76577
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.29550157096530394,
+   "emb-lr:dmg_probs": [
+    0.013981,
+    0.30122,
+    0.564104,
+    0.120695
+   ]
+  },
+  {
+   "id": "20101006X00507",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.12514663665932563,
+   "emb-lr:inj_probs": [
+    0.029274,
+    0.708959,
+    0.079289,
+    0.182478
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.12328568209270926,
+   "emb-lr:dmg_probs": [
+    0.022704,
+    0.114885,
+    0.154931,
+    0.70748
+   ]
+  },
+  {
+   "id": "20101019X33258",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.10033880827071603,
+   "emb-lr:inj_probs": [
+    0.023166,
+    0.107608,
+    0.134203,
+    0.735024
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.4292155499581106,
+   "emb-lr:dmg_probs": [
+    0.022414,
+    0.219192,
+    0.459983,
+    0.298411
+   ]
+  },
+  {
+   "id": "20101027X04916",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.26845516244025935,
+   "emb-lr:inj_probs": [
+    0.10492,
+    0.165751,
+    0.175585,
+    0.553745
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.5634724481105191,
+   "emb-lr:dmg_probs": [
+    0.088062,
+    0.384362,
+    0.40079,
+    0.126786
+   ]
+  },
+  {
+   "id": "20101103X34855",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.013804759520397135,
+   "emb-lr:inj_probs": [
+    0.011718,
+    0.03031,
+    0.056011,
+    0.901961
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.23869152942931748,
+   "emb-lr:dmg_probs": [
+    0.015759,
+    0.627892,
+    0.313242,
+    0.043108
+   ]
+  },
+  {
+   "id": "20101103X44221",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.024005828884592503,
+   "emb-lr:inj_probs": [
+    0.012627,
+    0.023728,
+    0.088177,
+    0.875468
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.16022524560193996,
+   "emb-lr:dmg_probs": [
+    0.019027,
+    0.673923,
+    0.21008,
+    0.09697
+   ]
+  },
+  {
+   "id": "20101116X51712",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.07655939837826553,
+   "emb-lr:inj_probs": [
+    0.053676,
+    0.117677,
+    0.064573,
+    0.764075
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.3250565005748342,
+   "emb-lr:dmg_probs": [
+    0.052669,
+    0.543434,
+    0.32896,
+    0.074936
+   ]
+  },
+  {
+   "id": "20101124X20432",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.017550176267240356,
+   "emb-lr:inj_probs": [
+    0.007619,
+    0.035949,
+    0.065539,
+    0.890893
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.2754297268056273,
+   "emb-lr:dmg_probs": [
+    0.013309,
+    0.567995,
+    0.187318,
+    0.231378
+   ]
+  },
+  {
+   "id": "20101130X64248",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0030260675297823923,
+   "emb-lr:inj_probs": [
+    0.00601,
+    0.953736,
+    0.024564,
+    0.01569
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.01648407180753328,
+   "emb-lr:dmg_probs": [
+    0.0088,
+    0.031214,
+    0.065526,
+    0.89446
+   ]
+  },
+  {
+   "id": "20101203X60119",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.046729876261055604,
+   "emb-lr:inj_probs": [
+    0.017123,
+    0.820221,
+    0.060263,
+    0.102394
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.00628231262918961,
+   "emb-lr:dmg_probs": [
+    0.005847,
+    0.020421,
+    0.03924,
+    0.934492
+   ]
+  },
+  {
+   "id": "20101203X90900",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.009800442676414955,
+   "emb-lr:inj_probs": [
+    0.013868,
+    0.915674,
+    0.037973,
+    0.032485
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.12898567424930427,
+   "emb-lr:dmg_probs": [
+    0.02639,
+    0.113879,
+    0.159521,
+    0.70021
+   ]
+  },
+  {
+   "id": "20101208X40921",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.00465315220031449,
+   "emb-lr:inj_probs": [
+    0.011253,
+    0.024554,
+    0.022609,
+    0.941584
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.567195021011062,
+   "emb-lr:dmg_probs": [
+    0.029844,
+    0.170348,
+    0.391353,
+    0.408455
+   ]
+  },
+  {
+   "id": "20101220X14621",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.09849440781413529,
+   "emb-lr:inj_probs": [
+    0.065357,
+    0.109198,
+    0.09584,
+    0.729605
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.44940511843872055,
+   "emb-lr:dmg_probs": [
+    0.091051,
+    0.430706,
+    0.275593,
+    0.20265
+   ]
+  },
+  {
+   "id": "20101229X22154",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.2610561545900778,
+   "emb-lr:inj_probs": [
+    0.091594,
+    0.232744,
+    0.107922,
+    0.567739
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.5298058711548113,
+   "emb-lr:dmg_probs": [
+    0.123657,
+    0.337012,
+    0.153613,
+    0.385719
+   ]
+  },
+  {
+   "id": "20110105X33913",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.02611934436836417,
+   "emb-lr:inj_probs": [
+    0.013705,
+    0.034518,
+    0.084464,
+    0.867313
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 1.2544504827716831,
+   "emb-lr:dmg_probs": [
+    0.025911,
+    0.169034,
+    0.679125,
+    0.125931
+   ]
+  },
+  {
+   "id": "20110209X55126",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.016563335817294033,
+   "emb-lr:inj_probs": [
+    0.01373,
+    0.021521,
+    0.069811,
+    0.894938
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3662614873330209,
+   "emb-lr:dmg_probs": [
+    0.038593,
+    0.304299,
+    0.501914,
+    0.155194
+   ]
+  },
+  {
+   "id": "20110219X32035",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.01859940541261341,
+   "emb-lr:inj_probs": [
+    0.009006,
+    0.885988,
+    0.050725,
+    0.054281
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.09563887649739108,
+   "emb-lr:dmg_probs": [
+    0.011422,
+    0.118768,
+    0.12586,
+    0.74395
+   ]
+  },
+  {
+   "id": "20110222X20316",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0032621694740005876,
+   "emb-lr:inj_probs": [
+    0.004359,
+    0.008614,
+    0.032787,
+    0.95424
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7560720426950127,
+   "emb-lr:dmg_probs": [
+    0.007899,
+    0.588557,
+    0.361382,
+    0.042163
+   ]
+  },
+  {
+   "id": "20110228X54428",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.018273624661068685,
+   "emb-lr:inj_probs": [
+    0.013045,
+    0.886166,
+    0.056148,
+    0.04464
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.02011234349727709,
+   "emb-lr:dmg_probs": [
+    0.00962,
+    0.049059,
+    0.0598,
+    0.881522
+   ]
+  },
+  {
+   "id": "20110317X14552",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.05436174292964009,
+   "emb-lr:inj_probs": [
+    0.019354,
+    0.060494,
+    0.1136,
+    0.806551
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.1646332582977584,
+   "emb-lr:dmg_probs": [
+    0.024777,
+    0.190311,
+    0.663688,
+    0.121224
+   ]
+  },
+  {
+   "id": "20110318X05118",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.005546833631879617,
+   "emb-lr:inj_probs": [
+    0.006692,
+    0.020011,
+    0.035357,
+    0.93794
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.5714211616762306,
+   "emb-lr:dmg_probs": [
+    0.014232,
+    0.360278,
+    0.38188,
+    0.24361
+   ]
+  },
+  {
+   "id": "20110323X24235",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.03900409836228164,
+   "emb-lr:inj_probs": [
+    0.015709,
+    0.077466,
+    0.07261,
+    0.834216
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.12144072317053724,
+   "emb-lr:dmg_probs": [
+    0.019759,
+    0.711003,
+    0.159982,
+    0.109256
+   ]
+  },
+  {
+   "id": "20110328X80923",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.001804640954293434,
+   "emb-lr:inj_probs": [
+    0.007709,
+    0.963705,
+    0.017397,
+    0.011189
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.008854875658874904,
+   "emb-lr:dmg_probs": [
+    0.009899,
+    0.017432,
+    0.049894,
+    0.922776
+   ]
+  },
+  {
+   "id": "20110329X33129",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.3344990479227236,
+   "emb-lr:inj_probs": [
+    0.052299,
+    0.520994,
+    0.138261,
+    0.288446
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.1376259095989117,
+   "emb-lr:dmg_probs": [
+    0.040217,
+    0.09921,
+    0.171581,
+    0.688992
+   ]
+  },
+  {
+   "id": "20110401X24330",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.9293323690966249,
+   "emb-lr:inj_probs": [
+    0.113417,
+    0.27901,
+    0.186687,
+    0.420886
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.9115347253475701,
+   "emb-lr:dmg_probs": [
+    0.111844,
+    0.204798,
+    0.212856,
+    0.470502
+   ]
+  },
+  {
+   "id": "20110417X11718",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0073011244780542715,
+   "emb-lr:inj_probs": [
+    0.007272,
+    0.928627,
+    0.039108,
+    0.024993
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.010937104727186283,
+   "emb-lr:dmg_probs": [
+    0.007667,
+    0.026874,
+    0.051866,
+    0.913594
+   ]
+  },
+  {
+   "id": "20110418X12310",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.016148872782174063,
+   "emb-lr:inj_probs": [
+    0.014837,
+    0.892433,
+    0.051778,
+    0.040952
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.13304205382041165,
+   "emb-lr:dmg_probs": [
+    0.023459,
+    0.106841,
+    0.172113,
+    0.697587
+   ]
+  },
+  {
+   "id": "20110426X53639",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.18876858759120863,
+   "emb-lr:inj_probs": [
+    0.055346,
+    0.093106,
+    0.213886,
+    0.637661
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7711664432478377,
+   "emb-lr:dmg_probs": [
+    0.057979,
+    0.494816,
+    0.293387,
+    0.153818
+   ]
+  },
+  {
+   "id": "20110513X41407",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.003982705371979905,
+   "emb-lr:inj_probs": [
+    0.006818,
+    0.021531,
+    0.02501,
+    0.946641
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3583033768526956,
+   "emb-lr:dmg_probs": [
+    0.016611,
+    0.308385,
+    0.513376,
+    0.161628
+   ]
+  },
+  {
+   "id": "20110517X80339",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.06517269663884165,
+   "emb-lr:inj_probs": [
+    0.014985,
+    0.028636,
+    0.155921,
+    0.800458
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.6496436545541306,
+   "emb-lr:dmg_probs": [
+    0.017238,
+    0.494369,
+    0.374011,
+    0.114382
+   ]
+  },
+  {
+   "id": "20110525X42547",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.022414872126202405,
+   "emb-lr:inj_probs": [
+    0.026253,
+    0.871539,
+    0.050782,
+    0.051427
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.05388922826670619,
+   "emb-lr:dmg_probs": [
+    0.033039,
+    0.059848,
+    0.103393,
+    0.80372
+   ]
+  },
+  {
+   "id": "20110603X52158",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.03298291234763121,
+   "emb-lr:inj_probs": [
+    0.009222,
+    0.017553,
+    0.11356,
+    0.859665
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 1.050320114758801,
+   "emb-lr:dmg_probs": [
+    0.015071,
+    0.168329,
+    0.617151,
+    0.199449
+   ]
+  },
+  {
+   "id": "20110607X73034",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.01603848021964432,
+   "emb-lr:inj_probs": [
+    0.007277,
+    0.895206,
+    0.0376,
+    0.059916
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.03721591317119092,
+   "emb-lr:dmg_probs": [
+    0.006645,
+    0.028941,
+    0.115813,
+    0.848601
+   ]
+  },
+  {
+   "id": "20110607X83931",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.049921366916011546,
+   "emb-lr:inj_probs": [
+    0.008318,
+    0.018318,
+    0.143465,
+    0.829899
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.33488824724234484,
+   "emb-lr:dmg_probs": [
+    0.010906,
+    0.342908,
+    0.545072,
+    0.101114
+   ]
+  },
+  {
+   "id": "20110615X10113",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.03561938598934336,
+   "emb-lr:inj_probs": [
+    0.038735,
+    0.837721,
+    0.070513,
+    0.053031
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.015439430991381285,
+   "emb-lr:dmg_probs": [
+    0.028202,
+    0.03215,
+    0.0466,
+    0.893047
+   ]
+  },
+  {
+   "id": "20110621X20741",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.172045265748177,
+   "emb-lr:inj_probs": [
+    0.037943,
+    0.160378,
+    0.150766,
+    0.650912
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.9343172251272398,
+   "emb-lr:dmg_probs": [
+    0.053443,
+    0.270434,
+    0.472836,
+    0.203287
+   ]
+  },
+  {
+   "id": "20110621X32040",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.048190177690498125,
+   "emb-lr:inj_probs": [
+    0.033696,
+    0.06481,
+    0.088592,
+    0.812902
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.7667893862357849,
+   "emb-lr:dmg_probs": [
+    0.062734,
+    0.267284,
+    0.362774,
+    0.307208
+   ]
+  },
+  {
+   "id": "20110628X11855",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.013565028264141953,
+   "emb-lr:inj_probs": [
+    0.007574,
+    0.902647,
+    0.044917,
+    0.044862
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.012890014764095563,
+   "emb-lr:dmg_probs": [
+    0.005401,
+    0.018321,
+    0.066382,
+    0.909896
+   ]
+  },
+  {
+   "id": "20110701X11957",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.03307170020363357,
+   "emb-lr:inj_probs": [
+    0.010106,
+    0.036742,
+    0.100111,
+    0.85304
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 1.1585550328962027,
+   "emb-lr:dmg_probs": [
+    0.009665,
+    0.70673,
+    0.193259,
+    0.090346
+   ]
+  },
+  {
+   "id": "20110715X40120",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.08004508599276894,
+   "emb-lr:inj_probs": [
+    0.06678,
+    0.103087,
+    0.074017,
+    0.756115
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.4294554540136279,
+   "emb-lr:dmg_probs": [
+    0.08472,
+    0.448082,
+    0.298899,
+    0.168298
+   ]
+  },
+  {
+   "id": "20110730X60307",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.06499492670378786,
+   "emb-lr:inj_probs": [
+    0.018231,
+    0.787528,
+    0.079043,
+    0.115197
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0562857300042587,
+   "emb-lr:dmg_probs": [
+    0.013133,
+    0.05096,
+    0.128363,
+    0.807544
+   ]
+  },
+  {
+   "id": "20110808X94427",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.02553915069050713,
+   "emb-lr:inj_probs": [
+    0.021531,
+    0.035346,
+    0.076939,
+    0.866184
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.2734047794979335,
+   "emb-lr:dmg_probs": [
+    0.018296,
+    0.336387,
+    0.602415,
+    0.042902
+   ]
+  },
+  {
+   "id": "20110902X54326",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.052128755917998995,
+   "emb-lr:inj_probs": [
+    0.010705,
+    0.026812,
+    0.140288,
+    0.822195
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.28210141313343085,
+   "emb-lr:dmg_probs": [
+    0.012254,
+    0.318499,
+    0.583814,
+    0.085433
+   ]
+  },
+  {
+   "id": "20110912X61152",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.008824635876820027,
+   "emb-lr:inj_probs": [
+    0.009709,
+    0.922726,
+    0.04922,
+    0.018344
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.03886306884008833,
+   "emb-lr:dmg_probs": [
+    0.013797,
+    0.030666,
+    0.113312,
+    0.842225
+   ]
+  },
+  {
+   "id": "20110930X20857",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.002296629910262936,
+   "emb-lr:inj_probs": [
+    0.005154,
+    0.959465,
+    0.018415,
+    0.016966
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.015297402801985717,
+   "emb-lr:dmg_probs": [
+    0.007963,
+    0.041439,
+    0.05371,
+    0.896888
+   ]
+  },
+  {
+   "id": "20111011X01145",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.04134535208902883,
+   "emb-lr:inj_probs": [
+    0.024934,
+    0.021298,
+    0.116886,
+    0.836882
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.2895471983084686,
+   "emb-lr:dmg_probs": [
+    0.034599,
+    0.279114,
+    0.559209,
+    0.127079
+   ]
+  },
+  {
+   "id": "20111018X03714",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.006429449369963279,
+   "emb-lr:inj_probs": [
+    0.004629,
+    0.015054,
+    0.044874,
+    0.935442
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.12816929140870054,
+   "emb-lr:dmg_probs": [
+    0.004545,
+    0.736096,
+    0.241192,
+    0.018167
+   ]
+  },
+  {
+   "id": "20111020X14740",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.005938676421025264,
+   "emb-lr:inj_probs": [
+    0.005418,
+    0.936045,
+    0.036544,
+    0.021992
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0036191490718999442,
+   "emb-lr:dmg_probs": [
+    0.003777,
+    0.012294,
+    0.032736,
+    0.951193
+   ]
+  },
+  {
+   "id": "20111024X74546",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.024330858656855015,
+   "emb-lr:inj_probs": [
+    0.027026,
+    0.033837,
+    0.071065,
+    0.868071
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.32905232778563076,
+   "emb-lr:dmg_probs": [
+    0.045852,
+    0.313977,
+    0.534052,
+    0.10612
+   ]
+  },
+  {
+   "id": "20111027X01810",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0984730770869505,
+   "emb-lr:inj_probs": [
+    0.036501,
+    0.07057,
+    0.154345,
+    0.738584
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.9071502983520802,
+   "emb-lr:dmg_probs": [
+    0.05512,
+    0.358094,
+    0.380976,
+    0.20581
+   ]
+  },
+  {
+   "id": "20111208X41332",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.007549172093114569,
+   "emb-lr:inj_probs": [
+    0.006285,
+    0.928135,
+    0.042657,
+    0.022924
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.011515474231640671,
+   "emb-lr:dmg_probs": [
+    0.005492,
+    0.025008,
+    0.056843,
+    0.912657
+   ]
+  },
+  {
+   "id": "20120105X34138",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.07262467519002976,
+   "emb-lr:inj_probs": [
+    0.046783,
+    0.05478,
+    0.12568,
+    0.772757
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 1.1397714796638063,
+   "emb-lr:dmg_probs": [
+    0.049428,
+    0.451796,
+    0.113937,
+    0.384839
+   ]
+  },
+  {
+   "id": "20120118X91324",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.015804778662926663,
+   "emb-lr:inj_probs": [
+    0.022375,
+    0.037371,
+    0.047982,
+    0.892272
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.2983114780741571,
+   "emb-lr:dmg_probs": [
+    0.030768,
+    0.545818,
+    0.238576,
+    0.184838
+   ]
+  },
+  {
+   "id": "20120207X34555",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0406355930982116,
+   "emb-lr:inj_probs": [
+    0.043346,
+    0.057033,
+    0.073233,
+    0.826389
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.48386177863324054,
+   "emb-lr:dmg_probs": [
+    0.091017,
+    0.411759,
+    0.303087,
+    0.194137
+   ]
+  },
+  {
+   "id": "20120221X03231",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.019635410416046706,
+   "emb-lr:inj_probs": [
+    0.027533,
+    0.026389,
+    0.064491,
+    0.881586
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3305920917303075,
+   "emb-lr:dmg_probs": [
+    0.047056,
+    0.35323,
+    0.55137,
+    0.048344
+   ]
+  },
+  {
+   "id": "20120221X32033",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.012540022546138202,
+   "emb-lr:inj_probs": [
+    0.012959,
+    0.907769,
+    0.058654,
+    0.020618
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.08842814762798877,
+   "emb-lr:dmg_probs": [
+    0.02203,
+    0.081583,
+    0.143026,
+    0.753361
+   ]
+  },
+  {
+   "id": "20120224X25922",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.23643323831900626,
+   "emb-lr:inj_probs": [
+    0.075058,
+    0.21135,
+    0.126161,
+    0.58743
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.6127977339160178,
+   "emb-lr:dmg_probs": [
+    0.087405,
+    0.338478,
+    0.250033,
+    0.324083
+   ]
+  },
+  {
+   "id": "20120224X42146",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.018136480128446028,
+   "emb-lr:inj_probs": [
+    0.024162,
+    0.884412,
+    0.048221,
+    0.043206
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.034736212670099374,
+   "emb-lr:dmg_probs": [
+    0.026814,
+    0.048243,
+    0.082623,
+    0.842319
+   ]
+  },
+  {
+   "id": "20120229X70237",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.04593326294190958,
+   "emb-lr:inj_probs": [
+    0.013567,
+    0.822577,
+    0.061364,
+    0.102493
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0064337336416673075,
+   "emb-lr:dmg_probs": [
+    0.005563,
+    0.019253,
+    0.04109,
+    0.934093
+   ]
+  },
+  {
+   "id": "20120302X00956",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.26260257430383205,
+   "emb-lr:inj_probs": [
+    0.080363,
+    0.56498,
+    0.132543,
+    0.222114
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.05559790423485192,
+   "emb-lr:dmg_probs": [
+    0.062259,
+    0.03841,
+    0.099964,
+    0.799367
+   ]
+  },
+  {
+   "id": "20120312X10202",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01292109244262582,
+   "emb-lr:inj_probs": [
+    0.009056,
+    0.009223,
+    0.070192,
+    0.911529
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.32288891659831165,
+   "emb-lr:dmg_probs": [
+    0.01464,
+    0.358989,
+    0.564185,
+    0.062186
+   ]
+  },
+  {
+   "id": "20120322X25316",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0027226902951443307,
+   "emb-lr:inj_probs": [
+    0.007351,
+    0.956635,
+    0.026363,
+    0.009651
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.04477788892905113,
+   "emb-lr:dmg_probs": [
+    0.018553,
+    0.070783,
+    0.088435,
+    0.822229
+   ]
+  },
+  {
+   "id": "20120417X44353",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.012631259425714202,
+   "emb-lr:inj_probs": [
+    0.0165,
+    0.904456,
+    0.046816,
+    0.032227
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 1.647577636582593,
+   "emb-lr:dmg_probs": [
+    0.016447,
+    0.037181,
+    0.06641,
+    0.879962
+   ]
+  },
+  {
+   "id": "20120511X73555",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.019771217310414004,
+   "emb-lr:inj_probs": [
+    0.027183,
+    0.880973,
+    0.063913,
+    0.027931
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.038106636696923005,
+   "emb-lr:dmg_probs": [
+    0.029208,
+    0.070744,
+    0.066758,
+    0.83329
+   ]
+  },
+  {
+   "id": "20120530X64155",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.10917452821588056,
+   "emb-lr:inj_probs": [
+    0.049254,
+    0.119321,
+    0.113579,
+    0.717846
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.6676240472849243,
+   "emb-lr:dmg_probs": [
+    0.058196,
+    0.326572,
+    0.411242,
+    0.20399
+   ]
+  },
+  {
+   "id": "20120531X95046",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.011612544725375123,
+   "emb-lr:inj_probs": [
+    0.009167,
+    0.008997,
+    0.066027,
+    0.91581
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.34474111696514753,
+   "emb-lr:dmg_probs": [
+    0.014969,
+    0.3723,
+    0.550513,
+    0.062218
+   ]
+  },
+  {
+   "id": "20120612X01249",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.005713966746224065,
+   "emb-lr:inj_probs": [
+    0.006111,
+    0.937106,
+    0.03577,
+    0.021012
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.011678569703352785,
+   "emb-lr:dmg_probs": [
+    0.006494,
+    0.022108,
+    0.058975,
+    0.912424
+   ]
+  },
+  {
+   "id": "20120621X34639",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.14134229943994767,
+   "emb-lr:inj_probs": [
+    0.02411,
+    0.077693,
+    0.203601,
+    0.694596
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.8998022583091978,
+   "emb-lr:dmg_probs": [
+    0.025011,
+    0.315035,
+    0.439122,
+    0.220833
+   ]
+  },
+  {
+   "id": "20120719X94744",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.5398910641834814,
+   "emb-lr:inj_probs": [
+    0.029045,
+    0.398497,
+    0.204415,
+    0.368043
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.20980819995471786,
+   "emb-lr:dmg_probs": [
+    0.031046,
+    0.083197,
+    0.255446,
+    0.630311
+   ]
+  },
+  {
+   "id": "20120802X03552",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.10417777798023789,
+   "emb-lr:inj_probs": [
+    0.046059,
+    0.110223,
+    0.118957,
+    0.724761
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.6186992606887278,
+   "emb-lr:dmg_probs": [
+    0.046311,
+    0.39168,
+    0.352505,
+    0.209504
+   ]
+  },
+  {
+   "id": "20120807X32623",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.00707444358096089,
+   "emb-lr:inj_probs": [
+    0.006791,
+    0.931659,
+    0.046001,
+    0.015548
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.026428860193636244,
+   "emb-lr:dmg_probs": [
+    0.008062,
+    0.031374,
+    0.091192,
+    0.869372
+   ]
+  },
+  {
+   "id": "20120924X32520",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.007539603696203176,
+   "emb-lr:inj_probs": [
+    0.016491,
+    0.925443,
+    0.03243,
+    0.025636
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.016684063429295067,
+   "emb-lr:dmg_probs": [
+    0.014762,
+    0.021533,
+    0.069442,
+    0.894263
+   ]
+  },
+  {
+   "id": "20121005X05550",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.1474183356001826,
+   "emb-lr:inj_probs": [
+    0.017413,
+    0.147482,
+    0.153952,
+    0.681154
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.70447636888604,
+   "emb-lr:dmg_probs": [
+    0.016889,
+    0.317216,
+    0.423194,
+    0.242701
+   ]
+  },
+  {
+   "id": "20121107X21801",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.07219089174691423,
+   "emb-lr:inj_probs": [
+    0.041932,
+    0.075825,
+    0.111048,
+    0.771195
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.8366066200990501,
+   "emb-lr:dmg_probs": [
+    0.03472,
+    0.263514,
+    0.451503,
+    0.250262
+   ]
+  },
+  {
+   "id": "20130220X51849",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.035123841122860835,
+   "emb-lr:inj_probs": [
+    0.009237,
+    0.844328,
+    0.079665,
+    0.066771
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.013797154576518476,
+   "emb-lr:dmg_probs": [
+    0.004108,
+    0.012466,
+    0.073834,
+    0.909593
+   ]
+  },
+  {
+   "id": "20130220X85257",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.09357675711420989,
+   "emb-lr:inj_probs": [
+    0.063757,
+    0.739061,
+    0.067108,
+    0.130074
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.20735441953938383,
+   "emb-lr:dmg_probs": [
+    0.079555,
+    0.078487,
+    0.222954,
+    0.619005
+   ]
+  },
+  {
+   "id": "20130312X23544",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.07595597653547348,
+   "emb-lr:inj_probs": [
+    0.016512,
+    0.089519,
+    0.123122,
+    0.770848
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.24137975486016672,
+   "emb-lr:dmg_probs": [
+    0.024601,
+    0.127959,
+    0.597558,
+    0.249882
+   ]
+  },
+  {
+   "id": "20130314X14422",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.15900624662766108,
+   "emb-lr:inj_probs": [
+    0.048781,
+    0.169943,
+    0.118482,
+    0.662794
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.19629866969309517,
+   "emb-lr:dmg_probs": [
+    0.05217,
+    0.636517,
+    0.236277,
+    0.075035
+   ]
+  },
+  {
+   "id": "20130314X15433",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.08706018520688197,
+   "emb-lr:inj_probs": [
+    0.062455,
+    0.09647,
+    0.095501,
+    0.745574
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.25504572570671086,
+   "emb-lr:dmg_probs": [
+    0.066702,
+    0.5953,
+    0.290846,
+    0.047152
+   ]
+  },
+  {
+   "id": "20130429X12734",
+   "inj_true": 0,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.0034953574335155,
+   "emb-lr:inj_probs": [
+    0.176223,
+    0.125273,
+    0.168641,
+    0.529863
+   ],
+   "dmg_true": 0,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.6569402718323097,
+   "emb-lr:dmg_probs": [
+    0.312979,
+    0.359985,
+    0.194147,
+    0.132889
+   ]
+  },
+  {
+   "id": "20130511X04905",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.00437174284600473,
+   "emb-lr:inj_probs": [
+    0.004067,
+    0.023746,
+    0.027352,
+    0.944835
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.9952056399442499,
+   "emb-lr:dmg_probs": [
+    0.007152,
+    0.655993,
+    0.253128,
+    0.083727
+   ]
+  },
+  {
+   "id": "20130517X14847",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.07014575542814279,
+   "emb-lr:inj_probs": [
+    0.068803,
+    0.772093,
+    0.099717,
+    0.059387
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.04501135979555891,
+   "emb-lr:dmg_probs": [
+    0.068662,
+    0.053028,
+    0.061794,
+    0.816516
+   ]
+  },
+  {
+   "id": "20130712X61436",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.003979282557983571,
+   "emb-lr:inj_probs": [
+    0.008019,
+    0.947085,
+    0.02977,
+    0.015125
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.026917729494623278,
+   "emb-lr:dmg_probs": [
+    0.012719,
+    0.056792,
+    0.067994,
+    0.862495
+   ]
+  },
+  {
+   "id": "20130723X13256",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.876952432075752,
+   "emb-lr:inj_probs": [
+    0.064606,
+    0.216901,
+    0.232306,
+    0.486187
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.5290218866853502,
+   "emb-lr:dmg_probs": [
+    0.049731,
+    0.421316,
+    0.103577,
+    0.425376
+   ]
+  },
+  {
+   "id": "20130814X15751",
+   "inj_true": 0,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.9442301167667992,
+   "emb-lr:inj_probs": [
+    0.180131,
+    0.208144,
+    0.16161,
+    0.450115
+   ],
+   "dmg_true": 0,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7189888288827468,
+   "emb-lr:dmg_probs": [
+    0.271937,
+    0.303004,
+    0.154376,
+    0.270684
+   ]
+  },
+  {
+   "id": "20130901X95021",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.08107339499205421,
+   "emb-lr:inj_probs": [
+    0.013083,
+    0.026495,
+    0.179481,
+    0.780941
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.7603943774458644,
+   "emb-lr:dmg_probs": [
+    0.014007,
+    0.343114,
+    0.568474,
+    0.074405
+   ]
+  },
+  {
+   "id": "20130930X75500",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.001605650819170997,
+   "emb-lr:inj_probs": [
+    0.005455,
+    0.96707,
+    0.02129,
+    0.006185
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.007131254869991235,
+   "emb-lr:dmg_probs": [
+    0.007809,
+    0.02625,
+    0.036828,
+    0.929113
+   ]
+  },
+  {
+   "id": "20131220X70905",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.022710478801893492,
+   "emb-lr:inj_probs": [
+    0.019248,
+    0.043732,
+    0.064542,
+    0.872478
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.31692461187969284,
+   "emb-lr:dmg_probs": [
+    0.035418,
+    0.538866,
+    0.291627,
+    0.134088
+   ]
+  },
+  {
+   "id": "20131224X22946",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.0682667066394727,
+   "emb-lr:inj_probs": [
+    0.051084,
+    0.075417,
+    0.097945,
+    0.775554
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7777690147757891,
+   "emb-lr:dmg_probs": [
+    0.059443,
+    0.545874,
+    0.314554,
+    0.080129
+   ]
+  },
+  {
+   "id": "20140109X32656",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.16668392855611688,
+   "emb-lr:inj_probs": [
+    0.061409,
+    0.157447,
+    0.129501,
+    0.651643
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.16836093985477157,
+   "emb-lr:dmg_probs": [
+    0.058077,
+    0.653808,
+    0.186683,
+    0.101432
+   ]
+  },
+  {
+   "id": "20140110X14059",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.20176501134676605,
+   "emb-lr:inj_probs": [
+    0.036732,
+    0.622739,
+    0.17766,
+    0.162869
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.05479000515516263,
+   "emb-lr:dmg_probs": [
+    0.034473,
+    0.040682,
+    0.119143,
+    0.805702
+   ]
+  },
+  {
+   "id": "20140110X15754",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0024709625882296483,
+   "emb-lr:inj_probs": [
+    0.008367,
+    0.958235,
+    0.023732,
+    0.009666
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.012033572435545621,
+   "emb-lr:dmg_probs": [
+    0.013094,
+    0.030531,
+    0.048822,
+    0.907553
+   ]
+  },
+  {
+   "id": "20140314X21725",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.11864045419765154,
+   "emb-lr:inj_probs": [
+    0.042197,
+    0.099041,
+    0.149696,
+    0.709067
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.3719630170314388,
+   "emb-lr:dmg_probs": [
+    0.050533,
+    0.488629,
+    0.201061,
+    0.259776
+   ]
+  },
+  {
+   "id": "20140320X53321",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.04942022947959737,
+   "emb-lr:inj_probs": [
+    0.021368,
+    0.813184,
+    0.068999,
+    0.096449
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0041065134096576715,
+   "emb-lr:dmg_probs": [
+    0.007379,
+    0.009615,
+    0.035179,
+    0.947827
+   ]
+  },
+  {
+   "id": "20140507X51410",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.2147110809495918,
+   "emb-lr:inj_probs": [
+    0.08543,
+    0.601918,
+    0.15052,
+    0.162133
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.10566587553656237,
+   "emb-lr:dmg_probs": [
+    0.066102,
+    0.106847,
+    0.107077,
+    0.719974
+   ]
+  },
+  {
+   "id": "20140529X04134",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.04197930996083109,
+   "emb-lr:inj_probs": [
+    0.031672,
+    0.052137,
+    0.089902,
+    0.826289
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.1683878222992006,
+   "emb-lr:dmg_probs": [
+    0.034036,
+    0.656563,
+    0.181305,
+    0.128096
+   ]
+  },
+  {
+   "id": "20140603X95748",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.005806223213083642,
+   "emb-lr:inj_probs": [
+    0.015113,
+    0.01164,
+    0.037044,
+    0.936203
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3471351884537851,
+   "emb-lr:dmg_probs": [
+    0.031592,
+    0.338544,
+    0.529428,
+    0.100435
+   ]
+  },
+  {
+   "id": "20140620X45424",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.2803074504221228,
+   "emb-lr:inj_probs": [
+    0.026754,
+    0.133642,
+    0.12959,
+    0.710013
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.09052947687107923,
+   "emb-lr:dmg_probs": [
+    0.020276,
+    0.756891,
+    0.167044,
+    0.055789
+   ]
+  },
+  {
+   "id": "20140624X40942",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.31140934384926683,
+   "emb-lr:inj_probs": [
+    0.032102,
+    0.541313,
+    0.146221,
+    0.280364
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.09241293805841268,
+   "emb-lr:dmg_probs": [
+    0.026075,
+    0.03171,
+    0.182127,
+    0.760089
+   ]
+  },
+  {
+   "id": "20140714X45633",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.021276532816808535,
+   "emb-lr:inj_probs": [
+    0.014685,
+    0.023568,
+    0.080306,
+    0.881441
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.2220796484897466,
+   "emb-lr:dmg_probs": [
+    0.031482,
+    0.246417,
+    0.614319,
+    0.107783
+   ]
+  },
+  {
+   "id": "20140814X52213",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.023812036503712927,
+   "emb-lr:inj_probs": [
+    0.010831,
+    0.030574,
+    0.083946,
+    0.874649
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.3780589866319086,
+   "emb-lr:dmg_probs": [
+    0.013244,
+    0.516789,
+    0.365283,
+    0.104685
+   ]
+  },
+  {
+   "id": "20140814X52852",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.08761430402907835,
+   "emb-lr:inj_probs": [
+    0.026175,
+    0.122631,
+    0.099981,
+    0.751213
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.643000691626543,
+   "emb-lr:dmg_probs": [
+    0.027154,
+    0.375856,
+    0.491509,
+    0.105482
+   ]
+  },
+  {
+   "id": "20140815X53015",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.12456802283435803,
+   "emb-lr:inj_probs": [
+    0.069138,
+    0.123053,
+    0.111482,
+    0.696326
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.23572438154373362,
+   "emb-lr:dmg_probs": [
+    0.083763,
+    0.590556,
+    0.226204,
+    0.099476
+   ]
+  },
+  {
+   "id": "20140826X64917",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.04925877654172711,
+   "emb-lr:inj_probs": [
+    0.01073,
+    0.819284,
+    0.05307,
+    0.116915
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.005564750003243259,
+   "emb-lr:dmg_probs": [
+    0.00356,
+    0.014054,
+    0.04218,
+    0.940205
+   ]
+  },
+  {
+   "id": "20140828X43935",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.028887777745745996,
+   "emb-lr:inj_probs": [
+    0.021309,
+    0.857038,
+    0.043564,
+    0.078089
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.019348015422525792,
+   "emb-lr:dmg_probs": [
+    0.016013,
+    0.025875,
+    0.072717,
+    0.885395
+   ]
+  },
+  {
+   "id": "20140829X32709",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.20266691208783588,
+   "emb-lr:inj_probs": [
+    0.01982,
+    0.647292,
+    0.060465,
+    0.272424
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.044562523977588156,
+   "emb-lr:dmg_probs": [
+    0.01237,
+    0.028203,
+    0.125986,
+    0.833441
+   ]
+  },
+  {
+   "id": "20140918X21722",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.208014402364903,
+   "emb-lr:inj_probs": [
+    0.068286,
+    0.202266,
+    0.115564,
+    0.613885
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.40818929047234914,
+   "emb-lr:dmg_probs": [
+    0.073478,
+    0.475278,
+    0.338861,
+    0.112383
+   ]
+  },
+  {
+   "id": "20140918X52311",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.03036248868406856,
+   "emb-lr:inj_probs": [
+    0.025694,
+    0.037135,
+    0.083367,
+    0.853804
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.4715537714542602,
+   "emb-lr:dmg_probs": [
+    0.038491,
+    0.362152,
+    0.440053,
+    0.159303
+   ]
+  },
+  {
+   "id": "20140922X14716",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01509018076070577,
+   "emb-lr:inj_probs": [
+    0.013045,
+    0.016743,
+    0.069356,
+    0.900857
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 1.0106226245157646,
+   "emb-lr:dmg_probs": [
+    0.027494,
+    0.298456,
+    0.495687,
+    0.178364
+   ]
+  },
+  {
+   "id": "20141006X73012",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.025863847222460733,
+   "emb-lr:inj_probs": [
+    0.015549,
+    0.039031,
+    0.079033,
+    0.866387
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.7671580533364601,
+   "emb-lr:dmg_probs": [
+    0.020757,
+    0.286142,
+    0.438582,
+    0.254518
+   ]
+  },
+  {
+   "id": "20141023X80357",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.07307628324156032,
+   "emb-lr:inj_probs": [
+    0.030814,
+    0.131469,
+    0.063211,
+    0.774507
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.9253406663868894,
+   "emb-lr:dmg_probs": [
+    0.031515,
+    0.245743,
+    0.578472,
+    0.14427
+   ]
+  },
+  {
+   "id": "20141121X15631",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.06427143521032982,
+   "emb-lr:inj_probs": [
+    0.070772,
+    0.070856,
+    0.077869,
+    0.780504
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5184291920035958,
+   "emb-lr:dmg_probs": [
+    0.102946,
+    0.385877,
+    0.259653,
+    0.251524
+   ]
+  },
+  {
+   "id": "20141211X62917",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.007572527765282248,
+   "emb-lr:inj_probs": [
+    0.009258,
+    0.926743,
+    0.038013,
+    0.025986
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.004790940581403528,
+   "emb-lr:dmg_probs": [
+    0.006033,
+    0.015218,
+    0.035727,
+    0.943022
+   ]
+  },
+  {
+   "id": "20150305X42958",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.22133527773096284,
+   "emb-lr:inj_probs": [
+    0.137387,
+    0.112496,
+    0.156646,
+    0.59347
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.37078700575737616,
+   "emb-lr:dmg_probs": [
+    0.125445,
+    0.47542,
+    0.209871,
+    0.189264
+   ]
+  },
+  {
+   "id": "20150422X71127",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.08003482113807918,
+   "emb-lr:inj_probs": [
+    0.046305,
+    0.077121,
+    0.117627,
+    0.758946
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5537875096682888,
+   "emb-lr:dmg_probs": [
+    0.07856,
+    0.378649,
+    0.35574,
+    0.187051
+   ]
+  },
+  {
+   "id": "20150511X92031",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.15133628650513442,
+   "emb-lr:inj_probs": [
+    0.046231,
+    0.13918,
+    0.144612,
+    0.669977
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.34359813045672916,
+   "emb-lr:dmg_probs": [
+    0.043983,
+    0.305109,
+    0.519154,
+    0.131754
+   ]
+  },
+  {
+   "id": "20150523X13659",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.012620436777685554,
+   "emb-lr:inj_probs": [
+    0.020628,
+    0.903696,
+    0.043178,
+    0.032497
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.019471472921457907,
+   "emb-lr:dmg_probs": [
+    0.020346,
+    0.044121,
+    0.054463,
+    0.881069
+   ]
+  },
+  {
+   "id": "20150605X52542",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.1754648555155105,
+   "emb-lr:inj_probs": [
+    0.035734,
+    0.136589,
+    0.179058,
+    0.648618
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.29334057411689735,
+   "emb-lr:dmg_probs": [
+    0.043621,
+    0.240932,
+    0.547156,
+    0.168291
+   ]
+  },
+  {
+   "id": "20150611X74851",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.008036661436408278,
+   "emb-lr:inj_probs": [
+    0.01088,
+    0.92532,
+    0.04427,
+    0.01953
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.02705250401572575,
+   "emb-lr:dmg_probs": [
+    0.014156,
+    0.065817,
+    0.058304,
+    0.861722
+   ]
+  },
+  {
+   "id": "20150701X91130",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.18570957075084527,
+   "emb-lr:inj_probs": [
+    0.040856,
+    0.643065,
+    0.100227,
+    0.215853
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.03487631834637905,
+   "emb-lr:dmg_probs": [
+    0.019479,
+    0.043128,
+    0.092545,
+    0.844848
+   ]
+  },
+  {
+   "id": "20150701X91338",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.03780781495908131,
+   "emb-lr:inj_probs": [
+    0.028756,
+    0.834363,
+    0.059025,
+    0.077855
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.02116620515480308,
+   "emb-lr:dmg_probs": [
+    0.025741,
+    0.040224,
+    0.058423,
+    0.875612
+   ]
+  },
+  {
+   "id": "20150717X41748",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.022037761582970553,
+   "emb-lr:inj_probs": [
+    0.026278,
+    0.87399,
+    0.065606,
+    0.034125
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.010943865610066893,
+   "emb-lr:dmg_probs": [
+    0.015371,
+    0.025568,
+    0.047412,
+    0.911649
+   ]
+  },
+  {
+   "id": "20150812X63537",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.002477930005579488,
+   "emb-lr:inj_probs": [
+    0.005192,
+    0.958169,
+    0.02219,
+    0.014449
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0061161136781745385,
+   "emb-lr:dmg_probs": [
+    0.004946,
+    0.018599,
+    0.040518,
+    0.935937
+   ]
+  },
+  {
+   "id": "20150824X02325",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.20651477101808,
+   "emb-lr:inj_probs": [
+    0.059318,
+    0.21668,
+    0.104857,
+    0.619145
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7589624506268939,
+   "emb-lr:dmg_probs": [
+    0.060028,
+    0.380917,
+    0.286007,
+    0.273047
+   ]
+  },
+  {
+   "id": "20151005X35533",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.007444486866975472,
+   "emb-lr:inj_probs": [
+    0.007756,
+    0.009438,
+    0.051184,
+    0.931623
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.33521921186125714,
+   "emb-lr:dmg_probs": [
+    0.016635,
+    0.279621,
+    0.525628,
+    0.178116
+   ]
+  },
+  {
+   "id": "20151022X65901",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.05191321501143822,
+   "emb-lr:inj_probs": [
+    0.023334,
+    0.807504,
+    0.082796,
+    0.086365
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.17198303146659327,
+   "emb-lr:dmg_probs": [
+    0.033642,
+    0.060998,
+    0.237857,
+    0.667503
+   ]
+  },
+  {
+   "id": "20151023X50751",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.05969556109299459,
+   "emb-lr:inj_probs": [
+    0.019935,
+    0.799878,
+    0.051263,
+    0.128924
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.01697023622975693,
+   "emb-lr:dmg_probs": [
+    0.008552,
+    0.03078,
+    0.067443,
+    0.893224
+   ]
+  },
+  {
+   "id": "20151107X52955",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0017837977913935088,
+   "emb-lr:inj_probs": [
+    0.005268,
+    0.964608,
+    0.020049,
+    0.010075
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.011864176575082689,
+   "emb-lr:dmg_probs": [
+    0.008478,
+    0.027895,
+    0.05376,
+    0.909867
+   ]
+  },
+  {
+   "id": "20151124X65446",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.12200809331023049,
+   "emb-lr:inj_probs": [
+    0.030435,
+    0.710584,
+    0.08599,
+    0.172991
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.06266810174886489,
+   "emb-lr:dmg_probs": [
+    0.022425,
+    0.064951,
+    0.120825,
+    0.791799
+   ]
+  },
+  {
+   "id": "20151130X61148",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.08806680241307542,
+   "emb-lr:inj_probs": [
+    0.042205,
+    0.747274,
+    0.093953,
+    0.116567
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.048998813472970915,
+   "emb-lr:dmg_probs": [
+    0.036255,
+    0.060504,
+    0.091874,
+    0.811366
+   ]
+  },
+  {
+   "id": "20151213X84149",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.09725370101817896,
+   "emb-lr:inj_probs": [
+    0.03215,
+    0.739161,
+    0.082458,
+    0.146232
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.06123783747137674,
+   "emb-lr:dmg_probs": [
+    0.027282,
+    0.083953,
+    0.098101,
+    0.790664
+   ]
+  },
+  {
+   "id": "20151216X41606",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.26924436647978134,
+   "emb-lr:inj_probs": [
+    0.07483,
+    0.162137,
+    0.204998,
+    0.558036
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.6553114595997303,
+   "emb-lr:dmg_probs": [
+    0.074159,
+    0.324767,
+    0.219213,
+    0.381861
+   ]
+  },
+  {
+   "id": "20160106X80332",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.0093037367099506,
+   "emb-lr:inj_probs": [
+    0.008316,
+    0.918874,
+    0.037547,
+    0.035262
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.01579307538893739,
+   "emb-lr:dmg_probs": [
+    0.007462,
+    0.027375,
+    0.067379,
+    0.897784
+   ]
+  },
+  {
+   "id": "20160112X24550",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.07821242155574984,
+   "emb-lr:inj_probs": [
+    0.036486,
+    0.763276,
+    0.08018,
+    0.120059
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.1743636891286667,
+   "emb-lr:dmg_probs": [
+    0.043238,
+    0.095635,
+    0.207787,
+    0.653341
+   ]
+  },
+  {
+   "id": "20160119X15230",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.035360247455757825,
+   "emb-lr:inj_probs": [
+    0.021908,
+    0.843208,
+    0.091936,
+    0.042948
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.016333517914124004,
+   "emb-lr:dmg_probs": [
+    0.018103,
+    0.036595,
+    0.053802,
+    0.891501
+   ]
+  },
+  {
+   "id": "20160119X20258",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.03420494995742511,
+   "emb-lr:inj_probs": [
+    0.030996,
+    0.841516,
+    0.063434,
+    0.064055
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0529332373452108,
+   "emb-lr:dmg_probs": [
+    0.02864,
+    0.049867,
+    0.113298,
+    0.808194
+   ]
+  },
+  {
+   "id": "20160126X75122",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.028285415689119853,
+   "emb-lr:inj_probs": [
+    0.022871,
+    0.063512,
+    0.056803,
+    0.856815
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.6027274701821626,
+   "emb-lr:dmg_probs": [
+    0.033899,
+    0.363419,
+    0.387161,
+    0.215522
+   ]
+  },
+  {
+   "id": "20160129X24835",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.015343706613447356,
+   "emb-lr:inj_probs": [
+    0.022646,
+    0.893799,
+    0.047329,
+    0.036226
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.026544874794264352,
+   "emb-lr:dmg_probs": [
+    0.026645,
+    0.042167,
+    0.069732,
+    0.861456
+   ]
+  },
+  {
+   "id": "20160222X93713",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.16323421049998463,
+   "emb-lr:inj_probs": [
+    0.08436,
+    0.100459,
+    0.161507,
+    0.653675
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5289974015024952,
+   "emb-lr:dmg_probs": [
+    0.072559,
+    0.405764,
+    0.392259,
+    0.129418
+   ]
+  },
+  {
+   "id": "20160330X72920",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.054519804863711024,
+   "emb-lr:inj_probs": [
+    0.031225,
+    0.08193,
+    0.085602,
+    0.801243
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.230485069692123,
+   "emb-lr:dmg_probs": [
+    0.045559,
+    0.604332,
+    0.247748,
+    0.102361
+   ]
+  },
+  {
+   "id": "20160707X02944",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.03345306657983624,
+   "emb-lr:inj_probs": [
+    0.011832,
+    0.026776,
+    0.106892,
+    0.8545
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.18012003264324356,
+   "emb-lr:dmg_probs": [
+    0.022868,
+    0.226691,
+    0.654916,
+    0.095525
+   ]
+  },
+  {
+   "id": "20160708X61700",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.10431803261290427,
+   "emb-lr:inj_probs": [
+    0.058802,
+    0.062945,
+    0.150653,
+    0.7276
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.4896034436397546,
+   "emb-lr:dmg_probs": [
+    0.068236,
+    0.338529,
+    0.175838,
+    0.417397
+   ]
+  },
+  {
+   "id": "20160803X71952",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.03269096804826109,
+   "emb-lr:inj_probs": [
+    0.025224,
+    0.845972,
+    0.068566,
+    0.060238
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.06488547122523189,
+   "emb-lr:dmg_probs": [
+    0.03207,
+    0.055461,
+    0.12498,
+    0.787489
+   ]
+  },
+  {
+   "id": "20160805X44633",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.10698408935442752,
+   "emb-lr:inj_probs": [
+    0.028769,
+    0.096979,
+    0.147893,
+    0.726359
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.2508255357965625,
+   "emb-lr:dmg_probs": [
+    0.034905,
+    0.59078,
+    0.264908,
+    0.109406
+   ]
+  },
+  {
+   "id": "20160811X81653",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.15724578951090923,
+   "emb-lr:inj_probs": [
+    0.069654,
+    0.124471,
+    0.145896,
+    0.659978
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.43644752897642336,
+   "emb-lr:dmg_probs": [
+    0.096907,
+    0.439414,
+    0.283323,
+    0.180356
+   ]
+  },
+  {
+   "id": "20160927X51937",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.3244943471291413,
+   "emb-lr:inj_probs": [
+    0.065383,
+    0.124751,
+    0.28347,
+    0.526396
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.45500132014828004,
+   "emb-lr:dmg_probs": [
+    0.063006,
+    0.448575,
+    0.361864,
+    0.126556
+   ]
+  },
+  {
+   "id": "20161028X72837",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.7264928106333983,
+   "emb-lr:inj_probs": [
+    0.109205,
+    0.291225,
+    0.17238,
+    0.427189
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.9393268531574752,
+   "emb-lr:dmg_probs": [
+    0.138378,
+    0.176938,
+    0.277724,
+    0.40696
+   ]
+  },
+  {
+   "id": "20161028X93712",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.04875907534535845,
+   "emb-lr:inj_probs": [
+    0.030975,
+    0.023535,
+    0.124006,
+    0.821483
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.5484350146947354,
+   "emb-lr:dmg_probs": [
+    0.05515,
+    0.429282,
+    0.466073,
+    0.049495
+   ]
+  },
+  {
+   "id": "20161205X55455",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.6630819759856064,
+   "emb-lr:inj_probs": [
+    0.010979,
+    0.018495,
+    0.07362,
+    0.896906
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.5424724661530325,
+   "emb-lr:dmg_probs": [
+    0.012683,
+    0.485724,
+    0.448986,
+    0.052607
+   ]
+  },
+  {
+   "id": "20161208X21155",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.03108512620205102,
+   "emb-lr:inj_probs": [
+    0.017449,
+    0.03452,
+    0.092841,
+    0.855191
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 1.1845230152692965,
+   "emb-lr:dmg_probs": [
+    0.019988,
+    0.291659,
+    0.568917,
+    0.119436
+   ]
+  },
+  {
+   "id": "20161216X60544",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.01549816846601355,
+   "emb-lr:inj_probs": [
+    0.017938,
+    0.893876,
+    0.047672,
+    0.040515
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.015540089612082824,
+   "emb-lr:dmg_probs": [
+    0.017633,
+    0.031408,
+    0.056226,
+    0.894732
+   ]
+  },
+  {
+   "id": "20170124X45041",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01789209660920356,
+   "emb-lr:inj_probs": [
+    0.015965,
+    0.024551,
+    0.06978,
+    0.889704
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 1.3832734584887696,
+   "emb-lr:dmg_probs": [
+    0.013288,
+    0.389166,
+    0.557279,
+    0.040267
+   ]
+  },
+  {
+   "id": "20170222X80758",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.033765303301483224,
+   "emb-lr:inj_probs": [
+    0.033695,
+    0.842189,
+    0.065482,
+    0.058634
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.042420721925511655,
+   "emb-lr:dmg_probs": [
+    0.032341,
+    0.054224,
+    0.088414,
+    0.825021
+   ]
+  },
+  {
+   "id": "20170224X03359",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.6090691680143581,
+   "emb-lr:inj_probs": [
+    0.094533,
+    0.416574,
+    0.129143,
+    0.35975
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.09280801168256686,
+   "emb-lr:dmg_probs": [
+    0.087992,
+    0.094417,
+    0.081298,
+    0.736293
+   ]
+  },
+  {
+   "id": "20170308X73155",
+   "inj_true": 2,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 1.209398034586358,
+   "emb-lr:inj_probs": [
+    0.127458,
+    0.146752,
+    0.109894,
+    0.615896
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.888746834347434,
+   "emb-lr:dmg_probs": [
+    0.195513,
+    0.202061,
+    0.174021,
+    0.428406
+   ]
+  },
+  {
+   "id": "20170508X85232",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.002775549687410462,
+   "emb-lr:inj_probs": [
+    0.009955,
+    0.954876,
+    0.020886,
+    0.014284
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.0219111033068043,
+   "emb-lr:dmg_probs": [
+    0.018311,
+    0.038854,
+    0.067418,
+    0.875417
+   ]
+  },
+  {
+   "id": "20170608X90705",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.020907257079195524,
+   "emb-lr:inj_probs": [
+    0.014748,
+    0.016616,
+    0.084122,
+    0.884514
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.3397521053559961,
+   "emb-lr:dmg_probs": [
+    0.023547,
+    0.334619,
+    0.53536,
+    0.106474
+   ]
+  },
+  {
+   "id": "20170612X10422",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.02111874387245913,
+   "emb-lr:inj_probs": [
+    0.01941,
+    0.020826,
+    0.078622,
+    0.881143
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.35421675456071056,
+   "emb-lr:dmg_probs": [
+    0.030721,
+    0.330809,
+    0.520499,
+    0.117971
+   ]
+  },
+  {
+   "id": "20170703X71412",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.02612320260584534,
+   "emb-lr:inj_probs": [
+    0.03026,
+    0.052462,
+    0.056193,
+    0.861084
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.4242979629762193,
+   "emb-lr:dmg_probs": [
+    0.04834,
+    0.289994,
+    0.456247,
+    0.20542
+   ]
+  },
+  {
+   "id": "20170913X72254",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.01360618877463482,
+   "emb-lr:inj_probs": [
+    0.017933,
+    0.034049,
+    0.047405,
+    0.900612
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 2,
+   "emb-lr:dmg_brier": 0.4375562803648801,
+   "emb-lr:dmg_probs": [
+    0.030652,
+    0.388955,
+    0.476114,
+    0.104278
+   ]
+  },
+  {
+   "id": "20171002X95003",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.16524477391144654,
+   "emb-lr:inj_probs": [
+    0.10773,
+    0.113575,
+    0.13044,
+    0.648254
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.8781679793485829,
+   "emb-lr:dmg_probs": [
+    0.137555,
+    0.351542,
+    0.200448,
+    0.310455
+   ]
+  },
+  {
+   "id": "20171212X50255",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.1384954673232826,
+   "emb-lr:inj_probs": [
+    0.090885,
+    0.126567,
+    0.104081,
+    0.678467
+   ],
+   "dmg_true": 2,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.7823377911277482,
+   "emb-lr:dmg_probs": [
+    0.09142,
+    0.389975,
+    0.256297,
+    0.262309
+   ]
+  },
+  {
+   "id": "20171220X52223",
+   "inj_true": 1,
+   "emb-lr:inj_pred": 1,
+   "emb-lr:inj_brier": 0.03701490895657636,
+   "emb-lr:inj_probs": [
+    0.031388,
+    0.835912,
+    0.078598,
+    0.054102
+   ],
+   "dmg_true": 3,
+   "emb-lr:dmg_pred": 3,
+   "emb-lr:dmg_brier": 0.03280549606051459,
+   "emb-lr:dmg_probs": [
+    0.031336,
+    0.051037,
+    0.072449,
+    0.845178
+   ]
+  },
+  {
+   "id": "20180507X00658",
+   "inj_true": 3,
+   "emb-lr:inj_pred": 3,
+   "emb-lr:inj_brier": 0.061128024904045106,
+   "emb-lr:inj_probs": [
+    0.038459,
+    0.058445,
+    0.112075,
+    0.791021
+   ],
+   "dmg_true": 1,
+   "emb-lr:dmg_pred": 1,
+   "emb-lr:dmg_brier": 0.42402347909916976,
+   "emb-lr:dmg_probs": [
+    0.054338,
+    0.484334,
+    0.386785,
+    0.074542
+   ]
+  }
+ ]
+}
