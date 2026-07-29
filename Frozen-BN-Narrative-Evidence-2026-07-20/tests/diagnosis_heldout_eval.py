@@ -127,6 +127,12 @@ _AIRCRAFT_KEYS = (
 )
 _ORG_PERSONS = ("manufacturer", "company", "faa", "management", "operator")
 
+# Convention note (hand-audit 2026-07-29): condition-response subjects such
+# as "compensation for wind conditions" or "weather evaluation" map to
+# ENVIRONMENT, not PERSONNEL. This mirrors CICTT itself, which codes
+# "Wind-Sudden wind shift-Response/compensation" under Environmental issues,
+# so the rollup stays era-consistent.
+
 
 def categorize_legacy(subject: str, person: str = "") -> str | None:
     """Legacy-era finding subject (+ optional person attribution) -> category."""

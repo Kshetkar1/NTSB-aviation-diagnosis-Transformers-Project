@@ -57,14 +57,17 @@ embedding; stated-severity evidence is off by default.
 
 ```bash
 python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_heldout_eval.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_emb_lr_baseline.py
 ```
 
-Output: `outputs/diagnosis_heldout_eval.md`. 253 held-out accidents with C/F
-cause findings; both coding eras rolled up to CICTT top-level categories
-(legacy subjects mapped by keyword rules, 98.3% coverage). Headline:
-narrative retrieval **83.8%** top-1 / 0.912 MRR vs frequency baseline 45.8%
-(McNemar p<0.0001). BN event path 57.7% (beats baseline, p=0.0004);
-lift ranking 49.8% (disclosed negative result).
+Outputs: `outputs/diagnosis_heldout_eval.md`, `outputs/diagnosis_emb_lr.md`.
+253 held-out accidents with C/F cause findings; both coding eras rolled up
+to CICTT top-level categories (legacy subjects mapped by keyword rules,
+98.3% coverage). Headline: narrative retrieval **83.8%** top-1 / 0.912 MRR
+vs frequency baseline 45.8% (McNemar p<0.0001); supervised emb-LR 88.1%
+(beats retrieval p=0.027 -- disclosed; retrieval needs zero training).
+BN event path 57.7% (beats baseline, p=0.0004); lift ranking 49.8%
+(disclosed negative result).
 
 ## 2b. Leakage + robustness audits
 

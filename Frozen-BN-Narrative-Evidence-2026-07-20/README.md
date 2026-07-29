@@ -49,13 +49,17 @@ Truth = the category set of the accident's C/F findings.
 | Predictor | Top-1 | MRR | Notes |
 |-----------|-------|-----|-------|
 | frequency baseline | 45.8% | 0.685 | always guesses Personnel |
-| **narrative retrieval (primary)** | **83.8%** | **0.912** | vs freq: McNemar p<0.0001 |
+| **narrative retrieval (primary, zero-parameter)** | **83.8%** | **0.912** | vs freq: McNemar p<0.0001 |
+| emb-LR (supervised, needs coded labels) | 88.1% | 0.936 | beats retrieval p=0.027 |
 | BN event path (posterior) | 57.7% | 0.759 | beats freq (p=0.0004) |
 | BN event path (lift) | 49.8% | 0.721 | negative result: max-lift is noisy |
 
-Retrieval is balanced across Personnel/Aircraft/Environment (68/62/72%);
-no predictor catches the rare Organizational class (0/25). Full report:
-`outputs/diagnosis_heldout_eval.md` (`tests/diagnosis_heldout_eval.py`).
+Narratives carry strong diagnostic signal: both readouts crush the
+frequency baseline; a supervised readout adds ~4 pp over zero-parameter
+retrieval. Retrieval is balanced across Personnel/Aircraft/Environment
+(68/62/72%); no predictor catches the rare Organizational class (0/25).
+Full reports: `outputs/diagnosis_heldout_eval.md`,
+`outputs/diagnosis_emb_lr.md`.
 
 ## Leakage protocol (Jesse's audit, all measured)
 
