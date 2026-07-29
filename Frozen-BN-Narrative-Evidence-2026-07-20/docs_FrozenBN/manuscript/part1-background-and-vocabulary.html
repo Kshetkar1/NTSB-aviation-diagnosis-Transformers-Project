@@ -98,7 +98,10 @@ real accidents. A trained classifier answers exactly one question and shows you 
 network from the coded window data, using the pyAgrum library). The original network it follows is
 from Zhang &amp; Mahadevan, <em>Reliability Engineering &amp; System Safety</em> 209 (2021) 107371.</p>
 
-<h2>1.3 The two tasks: prognosis and diagnosis</h2>
+<h2>1.3 The two tasks: prognosis and diagnosis — two readouts of one model</h2>
+<p>The goal is <em>not</em> just to predict injury and damage. Given a narrative typed by a user,
+the question is bidirectional: what are the likely <b>downstream outcomes</b> (prognosis), and
+what are the likely <b>upstream causes</b> (diagnosis) — all of them, not a pre-chosen pair?</p>
 <table>
   <tr><th>Task</th><th>Question</th><th>Our target variables</th></tr>
   <tr><td><b>Prognosis (severity)</b></td>
@@ -106,10 +109,20 @@ from Zhang &amp; Mahadevan, <em>Reliability Engineering &amp; System Safety</em>
       <td>Injury level (fatal / serious / minor / none) and aircraft damage
           (destroyed / substantial / minor / none) — a 4-way choice each.</td></tr>
   <tr><td><b>Diagnosis (causes)</b></td>
-      <td>Which broad category of cause was involved?</td>
-      <td>The four official top-level cause categories: Personnel, Aircraft,
-          Environment, Organizational.</td></tr>
+      <td>Which causes — events, findings, persons — become more probable?</td>
+      <td>Every upstream node in the network; <em>scored</em> at the level of the four official
+          top-level cause categories: Personnel, Aircraft, Environment, Organizational
+          (why the scoring is at that level: Part 6).</td></tr>
 </table>
+<div class="vocab"><b>Vocabulary — one joint posterior, two readouts.</b> These are not two
+separate systems. A Bayesian network holds a joint distribution over <em>all</em> its variables,
+so once narrative-derived evidence is entered and propagated, every node — upstream cause nodes
+and downstream severity nodes alike — has an updated posterior in the same inference. Prognosis
+and diagnosis are two <em>scored views</em> of that one update: Part 5 scores the two severity
+nodes, Part 6 scores the upstream cause nodes (rolled up to four categories). One honesty note,
+expanded in Part 4: the headline severity number additionally uses a dedicated severity-evidence
+channel (the k-NN readout), because entering event evidence and severity evidence from the
+<em>same</em> narrative into one inference double-counts it.</div>
 <div class="vocab"><b>Vocabulary — a caution about the word "prognosis".</b> NTSB narratives are
 written <em>after</em> the investigation, so nobody has this text before the outcome is known. Our
 severity task is therefore not real-time prediction; it is a test of whether the text's

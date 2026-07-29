@@ -100,12 +100,19 @@ without embarrassment: bn-sev's <em>accuracy</em> equals the raw k-NN readout's 
 (0 of 296 predictions differ). The network adds no accuracy — it adds the reasoning layer: joint
 posteriors over all nodes, evidence composition, what-if queries, per-node explanations.</div></div>
 
-<div class="step"><h3>Step 4 — Inference and output</h3>
-<p>With evidence loaded, the network computes posteriors for every node
-(<code>posteriors()</code> in the evaluation script; the demo app
-<code>apps/frozenbn_streamlit_diagnosis_prognosis_demo.py</code> shows the same thing
-interactively). The top-1 predicted state of the injury and damage nodes is what gets scored in
-Part 5; the full distributions feed the probabilistic metrics (Brier score).</p></div>
+<div class="step"><h3>Step 4 — Inference and output: one evidence set, posteriors in both directions</h3>
+<p>With evidence loaded, one propagation updates <em>every node in the network</em> — this is the
+point of using a joint probabilistic model rather than a per-question classifier. From the same
+parsed evidence you can read the <b>downstream</b> severity nodes (prognosis — scored in Part 5:
+<code>posteriors()</code> in <code>tests/frozenbn_heldout_narrative_bn_eval.py</code>) or the
+<b>upstream</b> cause, finding, and person nodes (diagnosis — scored in Part 6:
+<code>tests/diagnosis_heldout_eval.py</code> queries the posterior of every candidate cause node
+given the identical parsed evidence). The demo app
+(<code>apps/frozenbn_streamlit_diagnosis_prognosis_demo.py</code>) makes this concrete: paste a
+narrative, and it shows the severity posteriors <em>and</em> lets you ask for
+P(any event | evidence) on any node you pick — one evidence set, both directions. The top-1
+predicted state of the injury and damage nodes is what gets scored in Part 5; the full
+distributions feed the probabilistic metrics (Brier score).</p></div>
 
 <h2>4.1 The negative result we report on purpose: bn-fused</h2>
 <div class="fail"><b>What happens if you fuse everything at once.</b> The "obvious" architecture
@@ -139,6 +146,52 @@ best, proving retrieval carries the severity signal).</div>
 <p class="src">All predictors are computed in one script —
 <code>tests/frozenbn_heldout_narrative_bn_eval.py</code> — in a single pass over the 296 held-out
 accidents, so every comparison is on identical inputs.</p>
+
+<h2>4.3 Comparing our posteriors against Zhang's published probabilities</h2>
+<p>Because the network is frozen, Zhang's published numbers stay meaningful as a reference point
+for everything the pipeline produces. Three comparisons exist, at increasing distance from his
+paper:</p>
+<table>
+  <tr><th>Comparison</th><th>What it checks</th><th>Where</th></tr>
+  <tr><td><b>Counting level</b> (Part 2)</td>
+      <td>His data-derived quantities: 102 fire accidents, P(fire) = 5.53×10⁻⁷, all 85 rows of
+      Table 7 — reproduced exactly.</td>
+      <td><code>tests/reproduce_all_examples.py</code> (13/13 pass),
+      <code>tests/reproduce_table7_full.py</code></td></tr>
+  <tr><td><b>Network level</b></td>
+      <td>Our frozen network's posteriors against <em>every</em> published BN number in his paper
+      — 93 items across Table 8 (sensitivity sweep), all Table 9 rows, and Fig 12. Scoreboard:
+      43 exact, 16 close, 26 differ, 8 qualitative-only. (Do not confuse
+      <em>16 close</em> with 16 differs — close means within 25% of Zhang;
+      differ means farther than that. After network upgrades — person nodes and
+      multi-state severity — the same 93-item scoreboard becomes 48 exact, 29
+      close, 12 differ: <strong>77/93 exact or close</strong>, which is the
+      number Jesse's deck uses.) The differing cells are explained, not
+      hidden: Zhang's own construction code randomly jitters ties, and his own released network
+      file does not reproduce his published Table 8 either
+      (<code>outputs/bn_posterior_parity.json</code>); the remaining gaps come from dataset
+      differences and our multi-state severity upgrade.</td>
+      <td><code>tests/bn_full_comparison.py</code> →
+      <code>outputs/BN_COMPARISON_REPORT.md</code></td></tr>
+  <tr><td><b>Narrative level</b></td>
+      <td>Posteriors driven by a typed narrative, shown side by side with Zhang's published
+      values whenever the parsed evidence matches one of his scenarios (Table 9's
+      loss-of-engine-power column; Fig 12's pilot-error case), and a diagnosis panel that
+      compares the narrative-tilted cause distribution against his Table 7 — with a built-in
+      calibration check: silence the narrative and Table 7 comes back exactly.</td>
+      <td><code>apps/frozenbn_streamlit_diagnosis_prognosis_demo.py</code>
+      (<code>ZHANG_BN_PUBLISHED</code>, <code>render_zhang_comparison_panel</code>)</td></tr>
+</table>
+<div class="fail"><b>The honest gap.</b> The narrative-level comparison is a demonstration, not a
+scored experiment: Zhang published posteriors for only a handful of hand-picked scenarios, so
+there is no held-out evaluation with "distance from Zhang's published probability" as the metric.
+Several early scripts in <code>tests/</code> (<code>compare_table9_mine.py</code>,
+<code>table9_semantic.py</code>, <code>prognosis_table9.py</code>,
+<code>compare_three_methods_fire.py</code>, <code>compare_zhang_probabilities_quick.py</code>)
+were first-pass snapshots of this comparison using counting estimators rather than BN posteriors
+— a different estimand — and are kept as history, not results; the last of them no longer runs
+(it imports a folder that was reorganized away). The current, accepted comparison artifacts are
+the two in the table above plus Part 2's counting reproduction.</div>
 
 <div class="verify"><b>Verify it yourself.</b>
 <pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py</pre>
