@@ -336,12 +336,18 @@ ITEMS = [
    "Unverified numbers.",
    "Verify against the code before submitting.", ""),
   ("MISSING: the primary validation (new)",
-   "The 296-accident held-out evaluation is now the headline validation.",
-   "Numbers for the table: narrative severity readout 92.9% injury [89.9, "
-   "95.6] / 81.4% damage [77.0, 85.8]; BN chain (soft+stated) 91.9% / "
-   "61.5%; LR baseline 87.5% / 64.5%. Readout beats LR at McNemar "
-   "p = 0.0025 (injury), p < 0.0001 (damage); narratives vs no narratives "
-   "significant at p < 0.0001 on both. Source: "
+   "The 296-accident held-out evaluation is now the headline validation. "
+   "LEAK-SAFE numbers only (outcome phrases redacted before embedding; "
+   "stated-severity readout OFF) -- the older 92.9%/81.4% figures were "
+   "pre-audit and read severity wording from the text; do NOT use them.",
+   "Numbers for the table: bn-sev (k-NN severity as virtual evidence "
+   "through the frozen BN) 90.9% injury [87.5, 93.9] / 77.4% damage "
+   "[72.3, 82.1]; BN event path (soft-priority) 89.9% / 55.7%; LR on "
+   "parsed features 87.8% / 64.2%; LR on narrative embedding 91.6% / "
+   "74.0%. bn-sev beats parsed-feature LR at McNemar p = 0.0225 (injury), "
+   "p < 0.0001 (damage); vs embedding LR not significant (p = 0.50 / "
+   "0.11); vs no-narrative prior p < 0.0001 on both. Severe-outcome "
+   "screening: injury 93.5% sensitivity / 96.8% specificity. Source: "
    "outputs/heldout_significance.md. Cite Brier 1950 where the Brier "
    "score is defined, and McNemar 1947 (Psychometrika 12(2):153-157).",
    "Brier 1950: https://doi.org/10.1175/1520-0493(1950)078<0001:VOFEIT>"

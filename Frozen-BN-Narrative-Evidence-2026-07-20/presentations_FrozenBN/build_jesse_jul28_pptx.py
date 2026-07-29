@@ -115,7 +115,7 @@ add_content_slide(
         ("Where we started: Zhang's network + your structural-mapping idea", 0),
         ("Dead end #1: LLM computes probabilities directly", 0),
         ("What we built: LLM reads → frozen network calculates", 0),
-        ("Proof: reproduce Zhang + 296 held-out accidents (~93% injury)", 0),
+        ("Proof: reproduce Zhang + 296 held-out accidents (~91% injury, leak-safe)", 0),
         ("Your idea tested exhaustively → appendix negative result", 0),
     ],
     note="One arc: reproduce calculator, narrative bridge, fair test of struct mapping.")
@@ -171,17 +171,20 @@ add_content_slide(
 # ---- 7 HELD-OUT
 s = add_content_slide(
     "Does it work? 296 held-out accidents (2007–2019)",
-    note="Never used in network construction.")
+    note="Never used in network construction. Leak-safe: outcome phrases "
+         "redacted before embedding; stated-severity readout OFF "
+         "(supersedes pre-audit 93%/81%). Source: outputs/heldout_significance.md")
 add_table(s, [
     ["Method", "Injury", "Damage"],
-    ["Prior (no narrative)", "58%", "43%"],
-    ["Full narrative → BN", "89%", "64%"],
-    ["Best readout (narr-sev)", "93%", "81%"],
-    ["Supervised LR baseline", "88%", "65%"],
-    ["LLM-only front door", "69%", "58%"],
+    ["Prior (no narrative)", "58.4%", "42.6%"],
+    ["Event evidence → frozen BN", "89.9%", "55.7%"],
+    ["k-NN severity via frozen BN (primary)", "90.9%", "77.4%"],
+    ["Supervised LR (parsed features)", "87.8%", "64.2%"],
+    ["Supervised LR (narrative embedding)", "91.6%", "74.0%"],
 ], left=1.0, top=1.55, width=11.0, height=3.0,
-   col_widths=[5.0, 2.5, 2.5], font_size=15)
-add_takeaway(s, "Narratives early; coded labels late — ~93% injury on unseen cases.", top=4.85)
+   col_widths=[6.0, 2.0, 2.0], font_size=15)
+add_takeaway(s, "Narratives early; coded labels late — ~91% injury on unseen cases, "
+                "zero trained parameters, leak-audited.", top=4.85)
 
 # ---- 8 JESSE IDEA
 add_content_slide(
@@ -213,7 +216,9 @@ add_takeaway(s, "Rerank, replace retrieval, hybrid — every insertion point.", 
 # ---- 10 RESULTS
 s = add_content_slide(
     "Structural mapping: results",
-    note="Never beat baseline; struct-first hurts severity.")
+    note="Never beat baseline; struct-first hurts severity. Severity rows "
+         "were run PRE-redaction (baseline 92.9%/81.4%); paired comparison "
+         "still valid — every variant saw the same text.")
 add_table(s, [
     ["Test", "Result"],
     ["Rerank A2 vs A0 (diagnosis)", "No significant win"],
