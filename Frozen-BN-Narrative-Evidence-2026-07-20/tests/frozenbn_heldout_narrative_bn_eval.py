@@ -190,6 +190,11 @@ def main():
         i = sys.argv.index("--llm")
         llm_model = (sys.argv[i + 1] if i + 1 < len(sys.argv)
                      and not sys.argv[i + 1].startswith("--") else "gpt-4.1")
+    # --tag SUFFIX: write outputs to suffixed paths so ablation runs
+    # (e.g. --llm) never clobber the canonical leak-safe results
+    tag = ""
+    if "--tag" in sys.argv:
+        tag = sys.argv[sys.argv.index("--tag") + 1]
 
     full = json.loads(FULL.read_text())
     window_ids = set(json.loads(WINDOW.read_text()).keys())
@@ -434,7 +439,7 @@ def main():
               f"{row['inj_acc']:8.3f} {row['dmg_brier']:10.4f} "
               f"{row['dmg_ll']:12.4f} {row['dmg_acc']:8.3f}")
 
-    suffix = "" if sev_topk == 100 else f"_k{sev_topk}"
+    suffix = ("" if sev_topk == 100 else f"_k{sev_topk}") + tag
     out_path = OUT if not suffix else OUT.with_name(
         OUT.stem + suffix + OUT.suffix)
     out_path.write_text(json.dumps({

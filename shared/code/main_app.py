@@ -53,11 +53,45 @@ def get_client():
         client = OpenAI(api_key=get_openai_api_key())
     return client
 
-def get_embedding(text):
-    """Generates an embedding for a given text using the OpenAI API."""
+_QUERY_EMB_CACHE_PATH = (Path(__file__).resolve().parents[1] / "data" /
+                         "processed" / "query_emb_cache.npz")
+_query_emb_cache = None
+
+
+def _emb_cache():
+    global _query_emb_cache
+    if _query_emb_cache is None:
+        _query_emb_cache = {}
+        if _QUERY_EMB_CACHE_PATH.exists():
+            z = np.load(_QUERY_EMB_CACHE_PATH, allow_pickle=False)
+            _query_emb_cache = {k: z[k] for k in z.files}
+    return _query_emb_cache
+
+
+def get_embedding(text, use_cache=True):
+    """Embedding for a text via the OpenAI API, with a persistent disk cache.
+
+    The cache (keyed by model + sha1 of the normalized text) makes eval
+    re-runs deterministic and free: the API is only hit for texts never seen
+    before. Pass use_cache=False to force a fresh API call.
+    """
+    import hashlib
     text = text.replace("\n", " ")
+    key = f"{EMBEDDING_MODEL}_{hashlib.sha1(text.encode()).hexdigest()}"
+    if use_cache:
+        cached = _emb_cache().get(key)
+        if cached is not None:
+            return cached.tolist()
     response = get_client().embeddings.create(input=[text], model=EMBEDDING_MODEL)
-    return response.data[0].embedding
+    emb = response.data[0].embedding
+    if use_cache:
+        _emb_cache()[key] = np.asarray(emb, dtype=np.float32)
+        try:
+            _QUERY_EMB_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+            np.savez_compressed(_QUERY_EMB_CACHE_PATH, **_emb_cache())
+        except OSError:
+            pass                       # read-only environment: cache stays in memory
+    return emb
 
 def find_top_matches(query_embedding, exclude_ev_ids=None):
     """Finds the top N most similar embeddings from the knowledge base.
