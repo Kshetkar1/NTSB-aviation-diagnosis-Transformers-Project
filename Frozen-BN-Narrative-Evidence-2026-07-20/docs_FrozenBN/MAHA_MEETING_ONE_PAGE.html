@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Maha Meeting Study Sheet</title>
+  <style>
+    :root {
+      --blue: #1a5490;
+      --green: #1a6b3c;
+      --red: #a32020;
+      --amber: #9a6b00;
+      --gray: #555;
+      --border: #d0d0d0;
+      --bg-blue: #e8f0fa;
+      --bg-green: #e8f5ec;
+      --bg-red: #fdeaea;
+      --bg-amber: #fff8e6;
+    }
+    @page { size: letter; margin: 0.45in; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      font-size: 9pt;
+      line-height: 1.42;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0.45in;
+      background: #fff;
+    }
+    h1 { font-size: 17pt; color: var(--blue); margin: 0 0 2px; }
+    .meta { color: var(--gray); font-size: 8.5pt; margin-bottom: 10px; }
+    h2 {
+      font-size: 10.5pt;
+      color: var(--blue);
+      margin: 12px 0 6px;
+      padding-bottom: 3px;
+      border-bottom: 2px solid var(--blue);
+      page-break-after: avoid;
+    }
+    .opener {
+      background: var(--bg-blue);
+      border-left: 5px solid var(--blue);
+      padding: 10px 12px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 10px;
+      page-break-inside: avoid;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 10px;
+      page-break-inside: avoid;
+    }
+    .card.blue { background: var(--bg-blue); border-color: #b8cfe8; }
+    .card.green { background: var(--bg-green); border-color: #a8d4b8; }
+    .card.red { background: var(--bg-red); border-color: #e8b8b8; }
+    .card.amber { background: var(--bg-amber); border-color: #e8d49a; }
+    .card-label {
+      font-size: 7.5pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--gray);
+      margin-bottom: 4px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 8.5pt; margin: 6px 0; }
+    th, td { border: 1px solid var(--border); padding: 5px 7px; vertical-align: top; }
+    th { background: #eef2f6; color: var(--blue); }
+    .num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 22px; height: 22px; border-radius: 50%;
+      background: var(--blue); color: #fff;
+      font-size: 8pt; font-weight: 700; margin-right: 7px; flex-shrink: 0;
+    }
+    .num.green { background: var(--green); }
+    .num.red { background: var(--red); }
+    .step {
+      display: flex; align-items: flex-start;
+      margin-bottom: 7px; padding: 8px 10px;
+      border: 1px solid var(--border); border-radius: 6px; background: #fff;
+      page-break-inside: avoid;
+    }
+    .step-title { font-weight: 700; font-size: 9.5pt; margin-bottom: 3px; }
+    .step-what { font-size: 8.5pt; margin-bottom: 3px; }
+    .step-why { font-size: 8pt; color: var(--gray); }
+    .step-why em { color: var(--green); font-style: normal; font-weight: 600; }
+    .parallel-wrap {
+      border: 2px dashed var(--green); border-radius: 8px;
+      padding: 10px; margin: 7px 0; background: #fafffa;
+      page-break-inside: avoid;
+    }
+    .parallel-label {
+      text-align: center; font-size: 8pt; font-weight: 700;
+      color: var(--green); margin-bottom: 8px;
+    }
+    .parallel-row { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; }
+    .parallel-mid { display: flex; align-items: center; font-weight: 800; color: var(--green); font-size: 14pt; }
+    .mini-step {
+      padding: 8px; border-radius: 6px; border: 1px solid #a8d4b8;
+      background: var(--bg-green); font-size: 8.5pt;
+    }
+    .mini-step strong { display: block; margin-bottom: 3px; color: var(--green); }
+    .arrow-down { text-align: center; color: var(--gray); font-size: 14pt; margin: 3px 0; }
+    .tag { display: inline-block; font-size: 7pt; font-weight: 700; padding: 2px 6px; border-radius: 3px; }
+    .tag-yes { background: #d4edda; color: var(--green); }
+    .tag-no { background: #f8d7da; color: var(--red); }
+    ul.compact { margin: 4px 0; padding-left: 16px; }
+    ul.compact li { margin: 2px 0; font-size: 8.5pt; }
+    .explain-box {
+      background: #fff;
+      border: 2px solid var(--amber);
+      border-radius: 6px;
+      padding: 8px 10px;
+      margin: 8px 0;
+      font-size: 8.5pt;
+    }
+    .page-break { page-break-before: always; }
+    .footer { font-size: 7.5pt; color: var(--gray); margin-top: 8px; text-align: center; }
+    @media print { body { padding: 0; } }
+  </style>
+</head>
+<body>
+
+<h1>Maha Meeting Study Sheet</h1>
+<p class="meta">Plain language only · No jargon with Maha · Read blue box aloud 2×</p>
+
+<div class="opener">
+  <strong>“What did you do?” — say it in this order</strong><br><br>
+  <strong>Job 1 (1982–2006):</strong> Rebuilt Zhang’s network from NTSB <strong>codes only</strong> and checked we match her published tables — <strong>85/85 Table 7</strong>, 102 fires, Table 9/10 examples.<br><br>
+  <strong>Job 2 (2007–2019) — in my words:</strong> We take <strong>296 newer accidents</strong> whose narratives were <strong>never used to build</strong> the network or the similarity list. For each narrative we (1) remove wording that states the injury/damage outcome, (2) match keywords to network node names and <strong>at the same time</strong> find the 100 most similar narratives from 1982–2006, (3) from those 100 read their <strong>official NTSB codes</strong>, (4) put that information onto the <strong>fixed</strong> network and read probabilities, (5) compare our answers to NTSB’s codes at the end only.<br><br>
+  <strong>Job 2 results:</strong> Injury <strong>90.9%</strong> · Damage <strong>77.4%</strong> (296 accidents) · Cause category <strong>84.2%</strong> (253 accidents).<br>
+  <strong>Say honestly:</strong> Same top injury/damage answer as just counting the 100 similar accidents (<strong>296/296</strong>). Word-count classifier (TF-IDF) beats us on injury (<strong>92.2%</strong>). <strong>84.2%</strong> causes = counting categories on the 100 similar accidents, not the keyword→network path (57.7%).
+</div>
+
+<div class="grid-3">
+  <div class="card blue">
+    <div class="card-label">Problem</div>
+    Zhang used <strong>codes</strong> only — not narratives. Can <strong>narratives</strong> (after removing cheat phrases) update the <strong>same fixed network</strong> without rebuilding it from those 296 accidents?
+  </div>
+  <div class="card blue">
+    <div class="card-label">Goal</div>
+    <strong>J1:</strong> Verify rebuild.<br>
+    <strong>J2:</strong> Score narratives on 2007–2019 accidents.<br>
+    <strong>Added:</strong> person nodes + 4 injury/damage levels.
+  </div>
+  <div class="card green">
+    <div class="card-label">Years — plain words</div>
+    <strong>1982–2006</strong> = years we <strong>built</strong> network + similarity list (not “training” the main method).<br>
+    <strong>2007–2019</strong> = <strong>newer accidents we score</strong> (never in the build).
+  </div>
+</div>
+
+<h2>Job 2 outcomes — severity vs causes (different readouts)</h2>
+<div class="grid-2">
+  <div class="card green">
+    <div class="card-label">Severity (prognosis) — 296 accidents</div>
+    <strong>90.9%</strong> injury · <strong>77.4%</strong> damage = top predicted level matches NTSB code.<br>
+    <strong>How:</strong> 100 similar 1982–2006 accidents → count their <strong>coded</strong> injury/damage → set those values on the network’s injury/damage nodes → pick highest probability level.<br>
+    <strong>Not:</strong> comparing to Zhang’s Table 7.
+  </div>
+  <div class="card green">
+    <div class="card-label">Causes (diagnosis) — 253 accidents</div>
+    <strong>84.2%</strong> = top category matches NTSB (Personnel · Aircraft · Environment · Organization).<br>
+    <strong>How:</strong> Same 100 similar accidents → <strong>vote</strong> which cause category appears most in their coded findings.<br>
+    <strong>Not:</strong> Table 9 fire demo · not keyword→network (that’s only <strong>57.7%</strong>).
+  </div>
+</div>
+
+<h2>Pipeline — every step (what · why)</h2>
+
+<div class="step">
+  <span class="num">1</span>
+  <div>
+    <div class="step-title">Remove outcome phrases from the narrative</div>
+    <div class="step-what"><strong>What:</strong> Strip phrases like “fatal injury” or “substantial damage” before any matching or similarity search.</div>
+    <div class="step-why"><em>Why:</em> The narrative often already states the answer — using that wording would be cheating.</div>
+  </div>
+</div>
+
+<div class="parallel-wrap">
+  <div class="parallel-label">STEPS 2 &amp; 3 — SAME TIME, same cleaned narrative</div>
+  <div class="parallel-row">
+    <div class="mini-step">
+      <strong>Step 2 · Keyword match</strong>
+      <strong>What:</strong> If words/phrases in the narrative match a <strong>keyword list</strong>, we turn on the matching <strong>network node</strong> (e.g. “fire”, “stall”, “pilot”).<br>
+      <strong>Not every node:</strong> Only nodes we have keywords for — built from Zhang/NTSB <strong>coded event and finding labels</strong> (our phrase dictionary). No match → that node stays unset from this step.<br>
+      <em>Why:</em> Uses the same vocabulary Zhang’s network was built from when the narrative actually names those facts.
+    </div>
+    <div class="parallel-mid">∥</div>
+    <div class="mini-step">
+      <strong>Step 3 · 100 most similar past narratives</strong>
+      <strong>What:</strong> Compare the cleaned narrative to all 1982–2006 narratives in our list; keep the <strong>100 closest</strong> by text similarity.<br>
+      <em>Why:</em> When keywords miss, past similar accidents still carry information — and we never add the 296 newer accidents to this list.
+    </div>
+  </div>
+</div>
+
+<div class="parallel-wrap">
+  <div class="parallel-label">STEPS 4a &amp; 4b — SAME TIME, same 100 accidents</div>
+  <div class="parallel-row">
+    <div class="mini-step">
+      <strong>Step 4a · Event hints from the 100</strong>
+      <strong>What:</strong> For event-type nodes, count how many of the 100 had that code (71/100 → set strength 0.71 on that node).<br>
+      <em>Why:</em> The new narrative may not name an event clearly, but similar past accidents often share event patterns — this fills gaps keyword match missed.
+    </div>
+    <div class="parallel-mid">∥</div>
+    <div class="mini-step">
+      <strong>Step 4b · Injury &amp; damage codes from the 100</strong>
+      <strong>What:</strong> Look up the <strong>official NTSB injury and damage codes</strong> stored on those 100 records (not words in the new narrative). Count each level (e.g. 41 none, 28 minor…) → turn into fractions → set the network’s injury and damage nodes to those fractions.<br>
+      <em>Why:</em> This is our main severity path — severity from <strong>how similar past accidents were coded</strong>, without reading outcome phrases from the new narrative.
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">↓</div>
+
+<div class="explain-box">
+  <strong>What actually goes into the network in Step 5?</strong><br>
+  The network has many <strong>nodes</strong> (fire yes/no, injury level, damage level, etc.). Steps 2–4 decide <strong>which nodes to set</strong> and <strong>what values</strong>:<br>
+  · Step 2 → matched nodes set to <strong>yes</strong><br>
+  · Step 4a → event nodes set to <strong>fractions</strong> (0–1)<br>
+  · Step 4b → injury/damage nodes set to <strong>level fractions</strong><br>
+  Step 5 <strong>loads those node values</strong> into the fixed network and runs the probability math once. We do <strong>not</strong> put raw narrative text into the network — only node values.<br>
+  <strong>Main result (90.9% / 77.4%):</strong> use <strong>Step 4b only</strong> on injury/damage nodes. If we also merge Step 2 + 4a + 4b together → <strong>38.5% / 41.9%</strong> (failed — double-counting).
+</div>
+
+<div class="step">
+  <span class="num green">5</span>
+  <div>
+    <div class="step-title">Update the fixed network</div>
+    <div class="step-what">Set the node values from above; network computes updated probabilities. Network tables were fixed from 1982–2006 — we do <strong>not</strong> relearn from the 296 accidents.</div>
+  </div>
+</div>
+
+<div class="grid-2">
+  <div class="step" style="margin:0;">
+    <span class="num green">6A</span>
+    <div>
+      <div class="step-title">Severity answer</div>
+      <div class="step-what">Pick injury level and damage level with highest probability → <strong>90.9% / 77.4%</strong>.</div>
+    </div>
+  </div>
+  <div class="step" style="margin:0;">
+    <span class="num green">6B</span>
+    <div>
+      <div class="step-title">Cause answer</div>
+      <div class="step-what">Vote 4 categories from the 100 similar accidents’ coded findings → <strong>84.2%</strong>.</div>
+    </div>
+  </div>
+</div>
+
+<div class="arrow-down">↓</div>
+
+<div class="step">
+  <span class="num red">7</span>
+  <div>
+    <div class="step-title">Grade vs NTSB codes</div>
+    <div class="step-what">Compare prediction to official codes. Codes were <strong>never</strong> inputs in Steps 1–6. Compare to NTSB — <strong>not</strong> to Zhang’s percentages.</div>
+  </div>
+</div>
+
+<p class="footer">Page 1 of 3</p>
+
+<div class="page-break"></div>
+
+<h1 style="font-size:14pt;">Comparison methods · Research questions · LLM</h1>
+
+<h2>What is TF-IDF (and other Table 6 comparisons)?</h2>
+<p style="font-size:8.5pt;margin:0 0 6px;">These are <strong>comparison only</strong> — all learned from <strong>1982–2006 codes</strong>, then applied to 2007–2019. Our main pipeline does <strong>not</strong> learn from the 296 accidents.</p>
+<table>
+  <tr><th>Method (plain name)</th><th>What we did</th><th>Injury (296)</th></tr>
+  <tr><td><strong>Always guess most common</strong></td><td>No narrative — always predict “no injury” / “no damage”</td><td>58.4%</td></tr>
+  <tr><td><strong>Keywords only</strong></td><td>Step 2 (+ 4a fractions) — no 100-accident severity path</td><td>82.4%</td></tr>
+  <tr><td><strong>Our main pipeline</strong></td><td>Step 4b → network → read injury/damage</td><td><strong>90.9%</strong></td></tr>
+  <tr><td><strong>TF-IDF classifier</strong></td><td>Count important words in each narrative; train a simple classifier on <strong>1982–2006</strong> narratives paired with their NTSB injury codes; apply to 2007–2019. <em>(TF-IDF = which words matter most for prediction.)</em></td><td><strong>92.2%</strong> — beats us; we report it</td></tr>
+  <tr><td><strong>Word-vector classifier</strong></td><td>Same idea but uses a numeric narrative representation instead of word counts</td><td>91.6%</td></tr>
+  <tr><td><strong>Parsed-feature classifier</strong></td><td>Train on parsed event features from 1982–2006 codes</td><td>85.5%</td></tr>
+  <tr><td><strong>Combined merge (failed)</strong></td><td>Keywords + 4a + 4b all in one network update</td><td>38.5%</td></tr>
+</table>
+<p style="font-size:8pt;color:var(--gray);">Table 8 also compares cause categories: always-guess-common (45.8%) · keyword→network (57.7%) · <strong>100-accident vote (84.2%)</strong> · word-vector classifier (88.1%).</p>
+
+<h2>4 · Research questions — plain wording</h2>
+<table>
+  <tr><th>Question</th><th>What “skeptic” means</th><th>Answer</th></tr>
+  <tr><td>Reproduce Zhang?</td><td>Rebuild might not match her tables</td><td><span class="tag tag-yes">YES</span> 85/85</td></tr>
+  <tr><td>Do narratives beat <strong>always guessing “no injury”</strong>?</td><td>Narratives add nothing vs dumb baseline (58.4%)</td><td><span class="tag tag-yes">YES</span> → 90.9%</td></tr>
+  <tr><td>Do narratives beat <strong>every</strong> method?</td><td>We win on everything</td><td><span class="tag tag-no">NO</span> TF-IDF 92.2% &gt; 90.9%</td></tr>
+  <tr><td>Does the network beat counting the 100 for severity?</td><td>BN adds a better top answer</td><td><span class="tag tag-no">NO</span> 296/296 same</td></tr>
+  <tr><td>Does keyword→network beat 100-accident vote for causes?</td><td>BN path wins causes</td><td><span class="tag tag-no">NO</span> 57.7% vs 84.2%</td></tr>
+  <tr><td>Does merging all paths help?</td><td>More evidence is better</td><td><span class="tag tag-no">NO</span> 38%/42%</td></tr>
+  <tr><td>Did <strong>our GPT setup in §8.3</strong> beat our main pipeline?</td><td>Our specific LLM experiments win</td><td><span class="tag tag-no">NO</span> ~68% inj vs 90.9%</td></tr>
+</table>
+<p style="font-size:8.5pt;"><strong>LLM note for Maha:</strong> We are <strong>not</strong> saying LLMs can never do this. We tested GPT <strong>the way we ran it in the paper</strong> — it did not beat our pipeline and did not reliably produce network probabilities. Future work could guide an LLM to follow BN rules; that is not what we evaluated.</p>
+
+<h2>6 · vs Zhang’s numbers?</h2>
+<div class="grid-2">
+  <div class="card green">
+    <strong>Job 1 — YES.</strong> Same counting P(cause|fire), 85/85. Same demo queries (Table 9/10).
+  </div>
+  <div class="card red">
+    <strong>Job 2 — NO.</strong> Grade vs NTSB on 2007–2019. <strong>90.9% is not a Zhang number.</strong>
+  </div>
+</div>
+
+<h2>8 · LLM — four tests (side experiments)</h2>
+<ul class="compact">
+  <li>Zhang’s 11 short examples: GPT picks same nodes as keywords (11/11) — label reader only</li>
+  <li>296 narratives: GPT path ~68% injury vs our 90.9%</li>
+  <li>Ask GPT to recode 1,288 old narratives: cause ranking fails for fire</li>
+  <li>Ask GPT for probabilities directly: wrong/unstable — network still computes P(·)</li>
+</ul>
+
+<h2>Weak · Don’t claim · Why BN</h2>
+<div class="grid-3">
+  <div class="card blue">
+    <div class="card-label">Weak / fix in paper</div>
+    <ul class="compact">
+      <li>§6.5 blurs main vs merged path</li>
+      <li>Job 1 &amp; 2 blur in Results</li>
+      <li>296 used while fixing scoring code</li>
+    </ul>
+  </div>
+  <div class="card red">
+    <div class="card-label">Don’t claim</div>
+    <ul class="compact">
+      <li>BN beats 100-accident count</li>
+      <li>Beat TF-IDF</li>
+      <li>84.2% = BN or Table 9</li>
+      <li>90.9% = Table 7 proof</li>
+    </ul>
+  </div>
+  <div class="card green">
+    <div class="card-label">Why BN if same severity answer?</div>
+    Multi-node queries (Table 10 engine example), person nodes, what-if on the graph — not higher top-1 severity accuracy.
+  </div>
+</div>
+
+<p class="footer">Page 2 of 3 · Page 3 = keyword / node FAQ</p>
+
+<div class="page-break"></div>
+
+<h1 style="font-size:14pt;">FAQ — things Maha might drill</h1>
+
+<div class="card amber" style="margin-bottom:10px;">
+  <div class="card-label">Are keyword matches all network nodes?</div>
+  <strong>No.</strong> The network has thousands of nodes from NTSB codes. We only set nodes we have <strong>keywords</strong> for (multi-word phrases from Zhang/NTSB coded labels). If the narrative uses words outside that dictionary, keyword match sets nothing — then the 100 similar accidents matter more.
+</div>
+
+<div class="card amber" style="margin-bottom:10px;">
+  <div class="card-label">Is the keyword list the same as NTSB codes?</div>
+  <strong>Related, not identical.</strong> Network nodes come from NTSB coded event/finding <strong>labels</strong> Zhang used. Our keyword list maps narrative <strong>wording</strong> to those node names. Official codes are only used at Step 7 to grade — and on the 100 past records in Step 4b/6B.
+</div>
+
+<div class="card amber" style="margin-bottom:10px;">
+  <div class="card-label">1982–2006 — not “training” for our method</div>
+  <strong>Build years:</strong> network structure, probability tables, similarity list, keyword rules — all fixed from these accidents. We do <strong>not</strong> adjust them using the 296 newer accidents.<br>
+  <strong>Exception:</strong> TF-IDF and other <strong>comparison classifiers</strong> learn word patterns from 1982–2006 narratives + codes — that is separate from our main pipeline.
+</div>
+
+<div class="card amber" style="margin-bottom:10px;">
+  <div class="card-label">2007–2019 — not “held-out test” jargon</div>
+  <strong>Scoring years:</strong> accidents that happened after the network was built. We run our pipeline on their narratives and compare to NTSB codes. None of these 296 were in the 1982–2006 similarity list.
+</div>
+
+<div class="card amber" style="margin-bottom:10px;">
+  <div class="card-label">“Do narratives beat doing nothing?”</div>
+  <strong>Beat the dumb baseline</strong> (always guess no injury = 58.4%) — <strong>yes</strong>, 90.9%.<br>
+  <strong>Beat every comparison method</strong> — <strong>no</strong> (TF-IDF 92.2%, cause vote path is the main dx readout not BN). Say which you mean.
+</div>
+
+<div class="opener" style="border-left-color:var(--green);background:var(--bg-green);">
+  <strong>Claim → How → Why → Proof</strong> · If stuck: “I’d open Table 6 or Table 8 — the headline is …”
+</div>
+
+<p class="footer">Page 3 of 3 · Print ⌘P · Full detail: MAHA_MEETING_OUTLINE.md</p>
+
+</body>
+</html>

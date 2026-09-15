@@ -177,12 +177,16 @@ def categorize_cictt(desc: str) -> str | None:
     return _CICTT_TOP.get(top)
 
 
-def truth_categories(inc: dict) -> set:
+def truth_categories(inc: dict, *, legacy: bool = False) -> set:
     out = set()
     for f in inc.get("findings") or []:
         if f.get("Cause_Factor") not in ("C", "F"):
             continue
-        c = categorize_cictt(f.get("finding_description"))
+        if legacy:
+            c = categorize_legacy(f.get("finding_description"),
+                                  f.get("person_description"))
+        else:
+            c = categorize_cictt(f.get("finding_description"))
         if c:
             out.add(c)
     return out
@@ -243,6 +247,12 @@ def main():
     limit = None
     if "--limit" in sys.argv:
         limit = int(sys.argv[sys.argv.index("--limit") + 1])
+    tag = ""
+    if "--tag" in sys.argv:
+        tag = sys.argv[sys.argv.index("--tag") + 1]
+    in_window = "--in-window" in sys.argv
+    if in_window and not tag:
+        tag = "_inwindow_1982_2006"
 
     full = json.loads(FULL.read_text())
     window_ids = set(json.loads(WINDOW.read_text()).keys())
@@ -299,22 +309,31 @@ def main():
 
     priors = {n: max(p_yes(ie0, n), 1e-12) for n in all_cands}
 
-    # held-out set: same protocol as the severity eval + needs C/F truth
+    # Test set: 2007-2019 held-out (default) or 1982-2006 leave-one-out.
+    # In-window truth uses legacy keyword rollup (no CICTT codes before 2008).
     held = []
     for k, inc in full.items():
-        if k in window_ids:
+        if in_window:
+            if k not in window_ids:
+                continue
+        elif k in window_ids:
             continue
         narr = str(inc.get("narr_accf") or "").strip()
         if len(narr) < 100:
             continue
-        truth = truth_categories(inc)
+        truth = truth_categories(inc, legacy=in_window)
         if not truth:
             continue
         held.append((k, inc, narr, truth))
     held.sort(key=lambda t: t[0])
     if limit:
         held = held[:limit]
-    print(f"held-out accidents with narrative + C/F cause categories: {len(held)}")
+    proto = ("in-window LOO 1982-2006" if in_window
+             else "held-out 2007-2019")
+    print(f"{proto} accidents with narrative + C/F cause categories: "
+          f"{len(held)}")
+    if in_window:
+        print("exclude-self: ON; truth = legacy keyword rollup")
 
     predictors = ["freq", "retrieval", "bn-post", "bn-lift"]
     per_item = []
@@ -326,7 +345,9 @@ def main():
         rankings = {"freq": freq_ranking}
         try:
             emb = main_app.get_embedding(qb.inference_query(text))
-            scores_, matches = main_app.find_top_matches(emb)
+            exclude = [k] if in_window else None
+            scores_, matches = main_app.find_top_matches(
+                emb, exclude_ev_ids=exclude)
             votes: Counter = Counter()
             seen, n_pool = set(), 0
             for s, m in zip(scores_, matches):
@@ -358,10 +379,13 @@ def main():
         # (outcome phrases stripped), matching the retrieval path above.
         ptext = qb.redact_severity_phrases(text)
         try:
+            exclude = [k] if in_window else None
             hard = qb.parse_query_to_bn_evidence(ptext, names, dataset=ds,
-                                                 semantic=False)
+                                                 semantic=False,
+                                                 exclude_ev_ids=exclude)
             softonly = {lab: c for lab, c, _ in qb.retrieval_facts(
-                ptext, names, main_app.refined_dataset)}
+                ptext, names, main_app.refined_dataset,
+                exclude_ev_ids=exclude)}
             conf = qb.merge_evidence_soft_priority(hard["confidence"], softonly)
         except Exception as exc:
             print(f"  parse failed for {k}: {exc}")
@@ -400,13 +424,26 @@ def main():
             print(f"  ... {idx + 1}/{len(held)}")
 
     # ---- aggregate ----------------------------------------------------------
-    lines = ["# Held-out diagnosis evaluation (cause-category level)", ""]
-    lines.append(f"n = {len(per_item)} held-out accidents (2007-2019) with a "
-                 "narrative and >=1 C/F cause finding. Era-fair rollup to "
-                 "CICTT top-level categories (AIRCRAFT / PERSONNEL / "
-                 "ENVIRONMENT / ORGANIZATIONAL). Truth = category set of the "
-                 "accident's C/F findings; top-1 correct if the predicted #1 "
-                 "category is in that set. Leak-safe (redacted embeddings).")
+    title = ("# In-window diagnosis evaluation (1982-2006, leave-one-out)"
+             if in_window else
+             "# Held-out diagnosis evaluation (cause-category level)")
+    lines = [title, ""]
+    if in_window:
+        lines.append(
+            f"n = {len(per_item)} accidents in the 1982-2006 Zhang window "
+            "with a narrative and >=1 mapped C/F cause finding. Query "
+            "accident excluded from k-NN (leave-one-out). Truth = legacy "
+            "keyword rollup to AIRCRAFT / PERSONNEL / ENVIRONMENT / "
+            "ORGANIZATIONAL. Top-1 correct if the predicted #1 category is "
+            "in that set. Leak-safe (redacted embeddings).")
+    else:
+        lines.append(
+            f"n = {len(per_item)} held-out accidents (2007-2019) with a "
+            "narrative and >=1 C/F cause finding. Era-fair rollup to "
+            "CICTT top-level categories (AIRCRAFT / PERSONNEL / "
+            "ENVIRONMENT / ORGANIZATIONAL). Truth = category set of the "
+            "accident's C/F findings; top-1 correct if the predicted #1 "
+            "category is in that set. Leak-safe (redacted embeddings).")
     lines += ["", f"Window mapping coverage: {n_total_win - n_unmapped_win}/"
               f"{n_total_win} C/F findings mapped "
               f"({100*(1-n_unmapped_win/max(n_total_win,1)):.1f}%).", ""]
@@ -490,14 +527,21 @@ def main():
             cells.append(f"{got}/{len(rel)}")
         lines.append(f"| {p} | " + " | ".join(cells) + " |")
 
-    OUT_MD.write_text("\n".join(lines) + "\n")
-    OUT_JSON.write_text(json.dumps({
+    out_md = OUT_MD if not tag else OUT_MD.with_name(
+        OUT_MD.stem + tag + OUT_MD.suffix)
+    out_json = OUT_JSON if not tag else OUT_JSON.with_name(
+        OUT_JSON.stem + tag + OUT_JSON.suffix)
+    out_md.write_text("\n".join(lines) + "\n")
+    out_json.write_text(json.dumps({
+        "protocol": ("in-window-loo-1982-2006" if in_window
+                     else "heldout-2007-2019"),
+        "exclude_self": bool(in_window),
         "n": len(per_item), "summary": summary,
         "window_mapping": {"total": n_total_win, "unmapped": n_unmapped_win,
                            "counts": dict(win_cat_counts)},
         "freq_ranking": freq_ranking, "items": per_item}, indent=1))
     print("\n".join(lines[4:30]))
-    print(f"\nwrote {OUT_MD}\nwrote {OUT_JSON}")
+    print(f"\nwrote {out_md}\nwrote {out_json}")
     return 0
 
 

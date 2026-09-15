@@ -12,13 +12,13 @@ Majority-class baseline: always predict NONE = 58.4% accuracy (any useful model 
 |---|---|---|---|---|
 | prior | 58.4% | [52.7%, 63.9%] | 0.184 | 296 |
 | soft-only | 89.2% | [85.5%, 92.6%] | 0.461 | 296 |
-| hard | 64.2% | [58.4%, 69.6%] | 0.267 | 296 |
-| hard+soft | 82.4% | [78.0%, 86.8%] | 0.422 | 296 |
+| hard | 63.9% | [58.4%, 69.3%] | 0.263 | 296 |
+| hard+soft | 82.1% | [77.7%, 86.5%] | 0.420 | 296 |
 | soft-priority | 89.9% | [86.5%, 93.2%] | 0.465 | 296 |
 | retrieval-sev | 90.9% | [87.5%, 93.9%] | 0.470 | 296 |
 | bn-sev | 90.9% | [87.5%, 93.9%] | 0.470 | 296 |
-| bn-fused | 38.5% | [33.1%, 43.9%] | 0.230 | 296 |
-| bn-fused-t | 38.5% | [33.1%, 44.3%] | 0.229 | 296 |
+| bn-fused | 90.9% | [87.5%, 93.9%] | 0.470 | 296 |
+| bn-fused-t | 90.9% | [87.5%, 93.9%] | 0.470 | 296 |
 | narrative-evidence | 90.9% | [87.5%, 93.9%] | 0.470 | 296 |
 | lr | 85.5% | [81.4%, 89.2%] | 0.440 | 296 |
 | emb-lr | 91.6% | [88.2%, 94.6%] | 0.474 | 296 |
@@ -37,8 +37,8 @@ Majority-class baseline: always predict NONE = 42.6% accuracy (any useful model 
 | soft-priority | 55.4% | [49.7%, 60.8%] | 0.342 | 296 |
 | retrieval-sev | 77.4% | [72.3%, 82.1%] | 0.697 | 296 |
 | bn-sev | 77.4% | [72.6%, 82.1%] | 0.697 | 296 |
-| bn-fused | 41.9% | [36.1%, 47.6%] | 0.367 | 296 |
-| bn-fused-t | 41.9% | [36.5%, 47.6%] | 0.367 | 296 |
+| bn-fused | 77.4% | [72.6%, 82.1%] | 0.697 | 296 |
+| bn-fused-t | 77.4% | [72.6%, 82.1%] | 0.697 | 296 |
 | narrative-evidence | 77.4% | [72.6%, 81.8%] | 0.697 | 296 |
 | lr | 60.1% | [54.4%, 65.5%] | 0.408 | 296 |
 | emb-lr | 74.0% | [68.9%, 79.1%] | 0.543 | 296 |
@@ -158,20 +158,20 @@ Five comparisons per target are designated PRIMARY (confirmatory): bn-sev vs pri
 | bn-sev vs retrieval-sev | primary | 0 | 0 | 1.0000 | 1.0000 | [-0.000, +0.000] | 296 |
 | tfidf-lr vs emb-lr | exploratory | 5 | 3 | 0.7266 | -- | [+0.016, +0.044] | 296 |
 | tfidf-lr vs lr | exploratory | 21 | 1 | 0.0000 | -- | [-0.059, -0.001] | 296 |
-| bn-sev vs bn-fused | exploratory | 169 | 14 | 0.0000 | -- | [-0.889, -0.698] | 296 |
-| bn-sev vs hard+soft | exploratory | 26 | 1 | 0.0000 | -- | [-0.222, -0.133] | 296 |
+| bn-sev vs bn-fused | exploratory | 0 | 0 | 1.0000 | -- | [-0.000, +0.000] | 296 |
+| bn-sev vs hard+soft | exploratory | 27 | 1 | 0.0000 | -- | [-0.224, -0.134] | 296 |
 | bn-sev vs soft-priority | exploratory | 4 | 1 | 0.3750 | -- | [-0.104, -0.057] | 296 |
 | retrieval-sev vs lr | exploratory | 20 | 4 | 0.0015 | -- | [-0.079, -0.020] | 296 |
 | retrieval-sev vs emb-lr | exploratory | 0 | 2 | 0.5000 | -- | [+0.000, +0.021] | 296 |
 | emb-lr vs lr | exploratory | 21 | 3 | 0.0003 | -- | [-0.088, -0.032] | 296 |
 | narrative-evidence vs prior | exploratory | 99 | 3 | 0.0000 | -- | [-0.768, -0.546] | 296 |
-| narrative-evidence vs hard+soft | exploratory | 26 | 1 | 0.0000 | -- | [-0.224, -0.133] | 296 |
+| narrative-evidence vs hard+soft | exploratory | 27 | 1 | 0.0000 | -- | [-0.225, -0.134] | 296 |
 | narrative-evidence vs soft-only | exploratory | 6 | 1 | 0.1250 | -- | [-0.070, -0.009] | 296 |
 | narrative-evidence vs lr | exploratory | 20 | 4 | 0.0015 | -- | [-0.078, -0.019] | 296 |
 | soft-only vs lr | exploratory | 19 | 8 | 0.0522 | -- | [-0.048, +0.030] | 296 |
-| hard+soft vs prior | exploratory | 76 | 5 | 0.0000 | -- | [-0.579, -0.379] | 296 |
-| hard+soft vs soft-only | exploratory | 3 | 23 | 0.0001 | -- | [+0.092, +0.185] | 296 |
-| hard+soft vs lr | exploratory | 18 | 27 | 0.2327 | -- | [+0.078, +0.182] | 296 |
+| hard+soft vs prior | exploratory | 75 | 5 | 0.0000 | -- | [-0.578, -0.378] | 296 |
+| hard+soft vs soft-only | exploratory | 3 | 24 | 0.0000 | -- | [+0.092, +0.187] | 296 |
+| hard+soft vs lr | exploratory | 18 | 28 | 0.1839 | -- | [+0.079, +0.183] | 296 |
 
 ## Damage: paired comparisons (McNemar exact + Brier delta)
 
@@ -184,19 +184,19 @@ Five comparisons per target are designated PRIMARY (confirmatory): bn-sev vs pri
 | bn-sev vs retrieval-sev | primary | 0 | 0 | 1.0000 | 1.0000 | [-0.000, +0.000] | 296 |
 | tfidf-lr vs emb-lr | exploratory | 19 | 21 | 0.8746 | -- | [+0.001, +0.037] | 296 |
 | tfidf-lr vs lr | exploratory | 56 | 17 | 0.0000 | -- | [-0.121, -0.059] | 296 |
-| bn-sev vs bn-fused | exploratory | 121 | 16 | 0.0000 | -- | [-0.696, -0.488] | 296 |
-| bn-sev vs hard+soft | exploratory | 96 | 17 | 0.0000 | -- | [-0.335, -0.214] | 296 |
+| bn-sev vs bn-fused | exploratory | 0 | 0 | 1.0000 | -- | [-0.000, +0.000] | 296 |
+| bn-sev vs hard+soft | exploratory | 96 | 17 | 0.0000 | -- | [-0.337, -0.216] | 296 |
 | bn-sev vs soft-priority | exploratory | 83 | 18 | 0.0000 | -- | [-0.236, -0.144] | 296 |
 | retrieval-sev vs lr | exploratory | 68 | 17 | 0.0000 | -- | [-0.136, -0.074] | 296 |
 | retrieval-sev vs emb-lr | exploratory | 21 | 11 | 0.1102 | -- | [-0.013, +0.021] | 296 |
 | emb-lr vs lr | exploratory | 59 | 18 | 0.0000 | -- | [-0.145, -0.072] | 296 |
 | narrative-evidence vs prior | exploratory | 121 | 18 | 0.0000 | -- | [-0.875, -0.672] | 296 |
-| narrative-evidence vs hard+soft | exploratory | 96 | 17 | 0.0000 | -- | [-0.333, -0.214] | 296 |
+| narrative-evidence vs hard+soft | exploratory | 96 | 17 | 0.0000 | -- | [-0.335, -0.215] | 296 |
 | narrative-evidence vs soft-only | exploratory | 88 | 22 | 0.0000 | -- | [-0.336, -0.205] | 296 |
 | narrative-evidence vs lr | exploratory | 68 | 17 | 0.0000 | -- | [-0.136, -0.074] | 296 |
 | soft-only vs lr | exploratory | 44 | 59 | 0.1674 | -- | [+0.099, +0.231] | 296 |
-| hard+soft vs prior | exploratory | 33 | 9 | 0.0003 | -- | [-0.580, -0.417] | 296 |
-| hard+soft vs soft-only | exploratory | 15 | 28 | 0.0660 | -- | [-0.056, +0.062] | 296 |
-| hard+soft vs lr | exploratory | 33 | 61 | 0.0051 | -- | [+0.109, +0.229] | 296 |
+| hard+soft vs prior | exploratory | 33 | 9 | 0.0003 | -- | [-0.579, -0.415] | 296 |
+| hard+soft vs soft-only | exploratory | 15 | 28 | 0.0660 | -- | [-0.054, +0.064] | 296 |
+| hard+soft vs lr | exploratory | 33 | 61 | 0.0051 | -- | [+0.111, +0.231] | 296 |
 
 `*` = significant at Holm-adjusted p < 0.05 (primary comparisons only). Negative Brier delta favors A (lower Brier is better). Exploratory rows: raw p shown for transparency, no correction, no significance claims.

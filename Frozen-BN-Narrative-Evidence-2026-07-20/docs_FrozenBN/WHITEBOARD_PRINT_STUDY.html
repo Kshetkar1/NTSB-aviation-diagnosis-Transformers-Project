@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NTSB BN Project — Printable Study Guide</title>
+  <style>
+    :root {
+      --blue: #1a5490;
+      --green: #1a6b3c;
+      --red: #a32020;
+      --gray: #444;
+      --light-blue: #e8f0fa;
+      --light-green: #e8f5ec;
+      --light-red: #fdeaea;
+      --border: #ccc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px 32px;
+      background: #fff;
+      color: #111;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11pt;
+      line-height: 1.45;
+    }
+    h1 { font-size: 20pt; color: var(--blue); border-bottom: 2px solid var(--blue); padding-bottom: 6px; margin-top: 0; }
+    h2 { font-size: 14pt; color: var(--blue); margin-top: 28px; page-break-after: avoid; }
+    h3 { font-size: 12pt; margin-top: 18px; page-break-after: avoid; }
+    h4 { font-size: 11pt; margin-top: 14px; }
+    p, li { max-width: 7.2in; }
+    ul { padding-left: 1.2em; }
+    table { border-collapse: collapse; width: 100%; max-width: 7.5in; margin: 10px 0 16px; font-size: 10pt; page-break-inside: avoid; }
+    th, td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; vertical-align: top; }
+    th { background: #f5f5f5; font-weight: bold; }
+    .meta { color: var(--gray); font-size: 10pt; margin-bottom: 20px; }
+    .rule-box {
+      background: var(--light-red);
+      border: 2px solid var(--red);
+      padding: 12px 14px;
+      margin: 16px 0;
+      font-weight: bold;
+      page-break-inside: avoid;
+    }
+    .box-blue { background: var(--light-blue); border-left: 5px solid var(--blue); padding: 12px 14px; margin: 12px 0; }
+    .box-green { background: var(--light-green); border-left: 5px solid var(--green); padding: 12px 14px; margin: 12px 0; }
+    .box-red { background: var(--light-red); border-left: 5px solid var(--red); padding: 12px 14px; margin: 12px 0; }
+    .box-black { border: 1px solid #333; padding: 12px 14px; margin: 12px 0; }
+    .tag { display: inline-block; font-size: 9pt; font-weight: bold; padding: 2px 6px; border-radius: 3px; margin-right: 6px; font-family: Arial, sans-serif; }
+    .tag-blue { background: var(--light-blue); color: var(--blue); }
+    .tag-green { background: var(--light-green); color: var(--green); }
+    .tag-red { background: var(--light-red); color: var(--red); }
+    .tag-black { background: #eee; color: #111; }
+    .flow { max-width: 7.5in; margin: 16px auto; page-break-inside: avoid; }
+    .flow-step {
+      border: 2px solid #333;
+      padding: 10px 12px;
+      margin: 0 auto 4px;
+      text-align: center;
+      max-width: 420px;
+      font-size: 10.5pt;
+    }
+    .flow-step.green { border-color: var(--green); background: var(--light-green); }
+    .flow-step.red { border-color: var(--red); background: var(--light-red); }
+    .flow-step.blue { border-color: var(--blue); background: var(--light-blue); }
+    .flow-arrow { text-align: center; font-size: 16pt; line-height: 1; margin: 2px 0; color: #333; }
+    .flow-split { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 8px 0; align-items: flex-start; }
+    .flow-split > div { flex: 1; min-width: 200px; max-width: 280px; }
+    .flow-col-right { display: flex; flex-direction: column; align-items: stretch; }
+    .flow-parallel {
+      text-align: center;
+      font-size: 9.5pt;
+      font-weight: bold;
+      color: var(--green);
+      margin: 6px 0 8px;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .flow-merge {
+      text-align: center;
+      font-size: 9pt;
+      color: var(--gray);
+      margin: 8px 0 4px;
+      font-family: Arial, sans-serif;
+    }
+    .flow-branch-down {
+      border-left: 3px solid #333;
+      margin-left: 50%;
+      height: 20px;
+      width: 0;
+    }
+    .flow-join {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .flow-join-left { flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .flow-join-right { flex: 1; display: flex; flex-direction: column; align-items: center; }
+    .flow-join-bar {
+      height: 3px;
+      background: #333;
+      flex: 0 0 40px;
+      margin-top: 28px;
+    }
+    .flow-join-center { flex: 0 0 24px; text-align: center; margin-top: 18px; font-size: 14pt; }
+    .flow-side {
+      border: 2px dashed var(--blue);
+      padding: 10px;
+      margin-top: 16px;
+      font-size: 10pt;
+      background: #fafcff;
+    }
+    pre {
+      background: #f8f8f8;
+      border: 1px solid var(--border);
+      padding: 10px;
+      font-size: 9.5pt;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      page-break-inside: avoid;
+    }
+    .toc { background: #fafafa; border: 1px solid var(--border); padding: 14px 18px; margin-bottom: 24px; }
+    .toc a { color: var(--blue); text-decoration: none; }
+    .toc li { margin: 4px 0; }
+    .page-break { page-break-before: always; }
+    .no-print { font-family: Arial, sans-serif; background: #fffde7; border: 1px solid #e6d96a; padding: 12px; margin-bottom: 20px; }
+    @media print {
+      body { padding: 0; font-size: 10pt; }
+      .no-print { display: none !important; }
+      a { color: #000; text-decoration: none; }
+      h2 { margin-top: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="no-print">
+  <strong>Print this guide:</strong> File → Print (or ⌘P) → Save as PDF (~20–25 pages). <strong>One file = complete.</strong><br>
+  Parts 0–6: words · what/why · flow (2∥3, 4a∥4b) · build · numbers · quiz · <strong>own every claim</strong>.
+</div>
+
+<h1>NTSB Narratives → Zhang Bayesian Network<br>Printable Study Guide</h1>
+<p class="meta">Kanu Shetkar · Maha · Jesse · Vanderbilt · Draft 3 · Plain language (no jargon on the wall)</p>
+
+<div class="rule-box">
+  ONE RULE: Stories never enter the network as raw text.<br>
+  Story → phrase match + 100 similar past accidents → network update → <strong>probabilities</strong> (P(injury), P(damage), …).
+</div>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <ol>
+    <li><a href="#part0">Word guide &amp; colors</a></li>
+    <li><a href="#part1">Part 1 — What &amp; why</a></li>
+    <li><a href="#part2">Part 2 — Pipeline &amp; flow picture</a></li>
+    <li><a href="#part3">Part 3 — Build network &amp; check Zhang</a></li>
+    <li><a href="#part4">Part 4 — Numbers, honesty, talk track</a></li>
+    <li><a href="#part5">Quick reference &amp; self-quiz</a></li>
+    <li><a href="#part6">Own every claim (Maha)</a></li>
+  </ol>
+</nav>
+
+<!-- ========== PART 0 ========== -->
+<h2 id="part0">Word guide — say this to Maha (not draft jargon)</h2>
+
+<table>
+  <tr><th>Say this</th><th>Not this</th><th>Means</th></tr>
+  <tr><td>probability of … / P(injury)</td><td>P(·) alone</td><td>BN outputs how likely each outcome is. P(·) in draft = blank for “fire”, “injury”, etc.</td></tr>
+  <tr><td>phrase match</td><td>hard evidence</td><td>Story words match a node name → node = YES</td></tr>
+  <tr><td>suggestion from similar stories</td><td>soft evidence</td><td>100 similar accidents often had label X → suggest X (strength 0–1)</td></tr>
+  <tr><td>neighbor injury/damage vote</td><td>retr-sev</td><td>Count coded injury/damage on 100 similar accidents → pick most common</td></tr>
+  <tr><td>severity through network</td><td>bn-sev</td><td>Same counts fed into injury/damage nodes inside BN → read probabilities (main: 90.9%/77.4%)</td></tr>
+  <tr><td>296 test accidents</td><td>held-out</td><td>2007–2019 accidents used only for grading</td></tr>
+  <tr><td>network locked after build</td><td>frozen</td><td>Built from 1982–2006 only — not updated from test accidents</td></tr>
+  <tr><td>story search list</td><td>index</td><td>Saved vectors of all 1982–2006 stories to find similar ones fast</td></tr>
+  <tr><td>our accident dataset</td><td>corpus</td><td>Cleaned NTSB Part 121 data (<code>refined_dataset.json</code>)</td></tr>
+  <tr><td>flight count table (BTS)</td><td>BTS</td><td>Bureau of Transportation Statistics — 184,517,128 US flights (denominator for P(fire))</td></tr>
+  <tr><td>combined test (failed)</td><td>bn-fused</td><td>Phrase match + neighbor severity together → 38%/42% (worse)</td></tr>
+  <tr><td>neighbor severity as network input</td><td>virtual evidence</td><td>Tell injury/damage nodes what similar accidents looked like — not reading severity from new story text</td></tr>
+</table>
+
+<h3>Color key (wall or highlight on print)</h3>
+<table>
+  <tr><th>Color</th><th>Use for</th></tr>
+  <tr><td><span class="tag tag-black">Black</span></td><td>Titles, arrows, most text</td></tr>
+  <tr><td><span class="tag tag-blue">Blue</span></td><td>1982–2006 · build network · check Zhang · §9 examples</td></tr>
+  <tr><td><span class="tag tag-green">Green</span></td><td>2007–2019 test · pipeline · result numbers</td></tr>
+  <tr><td><span class="tag tag-red">Red</span></td><td>Strip cheat phrases · grading only · failed tests · don’t claim</td></tr>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ========== PART 1 ========== -->
+<h2 id="part1">Part 1 — What &amp; why</h2>
+
+<h3><span class="tag tag-black">Black</span> The problem · p.__ §1</h3>
+<ul>
+  <li>NTSB report = <strong>coded events</strong> + <strong>written factual story</strong></li>
+  <li>Codes lose wording, timing, crew context</li>
+  <li><span class="tag tag-blue">Blue</span> Zhang (2021): Bayesian network from <strong>codes only</strong>, 1982–2006</li>
+  <li><strong>Our question:</strong> Can a new story (after stripping cheat phrases) update that same network and predict NTSB injury, damage, cause type?</li>
+</ul>
+
+<h3><span class="tag tag-black">Black</span> Five goals</h3>
+<ol>
+  <li>Rebuild Zhang’s network from 1982–2006 codes</li>
+  <li>Match published checks (Table 7, fire rate, Table 9/10)</li>
+  <li>Turn stories into node updates on <strong>network locked after build</strong></li>
+  <li>Score <strong>296</strong> accidents (2007–2019) — NTSB codes for <strong>grading only</strong></li>
+  <li>Side: GPT reads text → node labels only (network does all probabilities)</li>
+</ol>
+
+<h3><span class="tag tag-green">Green</span> Research questions</h3>
+<p><strong>Main:</strong> After Step 1 (strip cheat phrases), can story → network match NTSB codes on 2007–2019?</p>
+<p><strong>Side:</strong> Can GPT label nodes without outputting probabilities?</p>
+<p><strong>NOT:</strong> “ChatGPT predicts the accident.”</p>
+
+<h3>Four contributions — upgrades explained</h3>
+<table>
+  <tr><th>Upgrade</th><th>What Zhang had</th><th>What we added</th><th>Why better</th></tr>
+  <tr>
+    <td><strong>Person roles</strong></td>
+    <td>Findings → events only</td>
+    <td><code>person: pilot-in-command</code> → findings</td>
+    <td>Pilot-error queries (Fig 12) work</td>
+  </tr>
+  <tr>
+    <td><strong>Four-level injury &amp; damage</strong></td>
+    <td>Separate yes/no injury leaves</td>
+    <td>One injury node (fatal/serious/minor/none) + one damage node (destroyed/substantial/minor/none)</td>
+    <td>Boolean leaves broke P(no injury); four levels match NTSB codes</td>
+  </tr>
+</table>
+<p><strong>P(·) in paper</strong> = probability of something — P(fire), P(fatal injury), P(loss of engine power). The dot is a blank.</p>
+
+<h3><span class="tag tag-blue">Blue</span> + <span class="tag tag-green">Green</span> Data split · p.__ §3</h3>
+<div class="box-blue">
+  <strong>1982–2006 (build + check Zhang)</strong><br>
+  1,742 accidents · 1,288 with stories · Build: network, probability tables, story search list · Check: Table 7 85/85, 102 fires · <em>NOT where 90.9% comes from</em>
+</div>
+<p style="text-align:center;"><strong>↓ NETWORK LOCKED — never re-learn from 296 test cases</strong></p>
+<div class="box-green">
+  <strong>2007–2019 (story test)</strong><br>
+  296 stories (≥100 chars) · cut to <strong>4,000 characters</strong> (no story in our data is longer) · 253 scorable for cause type (43 skipped) · NTSB codes → grading ONLY
+</div>
+<div class="box-red">
+  <strong>Why not test stories on 1982–2006?</strong> Same years built the network and story search list — circular / cheating.
+</div>
+<p><strong>BTS</strong> = Bureau of Transportation Statistics — <strong>184,517,128</strong> flights for “how rare is fire per flight.”</p>
+
+<h3>Two jobs — never merge</h3>
+<table>
+  <tr><th></th><th>Job 1 — Check Zhang (blue)</th><th>Job 2 — Test stories (green)</th></tr>
+  <tr><td>Years</td><td>1982–2006</td><td>2007–2019</td></tr>
+  <tr><td>Question</td><td>Rebuild correct?</td><td>Stories work on new years?</td></tr>
+  <tr><td>Numbers</td><td>85/85 Table 7 · 102 fires</td><td><strong>90.9%</strong> injury · <strong>77.4%</strong> damage · <strong>84.2%</strong> cause type</td></tr>
+</table>
+
+<h3>Four “paths” = same pipeline, different scores at Step 6</h3>
+<table>
+  <tr><th>What we measure</th><th>Where</th><th>Number</th></tr>
+  <tr><td>Injury &amp; damage</td><td>Steps 3–5 → severity through network</td><td><strong>90.9% / 77.4%</strong></td></tr>
+  <tr><td>Cause type (4 categories)</td><td>Step 3 → vote on same 100 stories</td><td><strong>84.2%</strong></td></tr>
+  <tr><td>Zhang paper examples</td><td>Phrase match only, no 100 stories</td><td>Table 9 · Table 10</td></tr>
+  <tr><td>GPT side study</td><td>Off main path</td><td>§8.3</td></tr>
+</table>
+<p>Phrase match = <strong>Step 2</strong>. 100 similar stories = <strong>Step 3</strong>. Steps 4a/4b = use those 100 stories.</p>
+
+<h3>Why we designed it this way</h3>
+<ul>
+  <li><strong>Extend Zhang:</strong> person nodes + 4-level injury/damage (see table above)</li>
+  <li><strong>Strip cheat phrases:</strong> “substantial damage” in text = reading the answer</li>
+  <li><strong>296 = exam:</strong> only comparison classifiers train on 1982–2006 labels</li>
+  <li><strong>4 cause categories only:</strong> NTSB changed coding in 2008 — we score Personnel / Aircraft / Environment / Organization, not exact phrases like “compressor blade”</li>
+  <li><strong>Severity through network = neighbor vote on top pick:</strong> same #1 answer 296/296 — network enables Table 10 what-if, does not beat neighbor vote on accuracy</li>
+  <li><strong>TF-IDF 92.2% injury &gt; our 90.9%</strong> — say honestly</li>
+</ul>
+
+<div class="page-break"></div>
+
+<!-- ========== PART 2 ========== -->
+<h2 id="part2">Part 2 — Pipeline &amp; flow picture</h2>
+
+<h3>Visual flow (study this diagram)</h3>
+<p><strong>Key:</strong> Step 2 and Step 3 run <strong>at the same time</strong> on the same clean story. Step 4a and Step 4b run <strong>at the same time</strong> on the same 100 stories from Step 3. Step 2 does <em>not</em> go through 4a/4b — all paths meet at Step 5.</p>
+
+<div class="flow">
+  <div class="flow-step green">NEW ACCIDENT STORY (2007–2019)<br>≥100 chars · max 4,000 chars</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step red">STEP 1: STRIP CHEAT PHRASES<br>→ one clean story for everything below</div>
+  <div class="flow-arrow">▼</div>
+
+  <div class="flow-parallel">⟵ STEP 2 and STEP 3 AT THE SAME TIME (parallel) ⟶</div>
+
+  <div class="flow-join">
+    <div class="flow-join-left">
+      <div class="flow-step green" style="max-width:100%">STEP 2: PHRASE MATCH<br>Story words → network nodes<br><em>(outcome, person, events)</em></div>
+      <div class="flow-merge">↓ goes straight to Step 5<br>(skips 4a / 4b)</div>
+    </div>
+    <div class="flow-join-center">+</div>
+    <div class="flow-join-right">
+      <div class="flow-step green" style="max-width:100%">STEP 3: FIND 100 SIMILAR STORIES<br>1982–2006 only · story search list</div>
+      <div class="flow-arrow">▼</div>
+      <div class="flow-parallel" style="font-size:8.5pt">⟵ 4a and 4b AT THE SAME TIME ⟶</div>
+      <div class="flow-split" style="margin:4px 0">
+        <div>
+          <div class="flow-step green" style="max-width:100%;font-size:9.5pt">STEP 4a<br>Suggest event nodes<br>from 100 stories</div>
+        </div>
+        <div>
+          <div class="flow-step green" style="max-width:100%;font-size:9.5pt">STEP 4b<br>Count injury &amp; damage codes<br>on <strong>same</strong> 100 stories</div>
+        </div>
+      </div>
+      <div class="flow-merge">↓ both feed Step 5</div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step blue">STEP 5: UPDATE LOCKED NETWORK<br>★ Main: Step 4b only → 90.9% / 77.4% injury &amp; damage<br>Alt: Step 2 (+ optional 4a) → weaker · Combined (2+4a+4b) → 38% / 42% FAIL</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step green">STEP 6: READ ANSWERS<br><strong>A)</strong> injury + damage levels (from Step 5)<br><strong>B)</strong> cause category — 4 types (from Step 3’s 100 stories, same pool as 4a/4b)</div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-step red">STEP 7: GRADE vs NTSB CODES<br>Codes were NEVER model inputs</div>
+  <div class="flow-side">
+    <strong>Side path (Zhang §9 — NOT 296 test):</strong> Short query → Step 2 only → Step 5 → Table 9 or 10<br>(no Step 3, no 4a/4b)
+  </div>
+</div>
+
+<h3>Step details</h3>
+
+<h4>Step 0 · Input</h4>
+<p>NTSB factual narrative · ≥100 chars · first 4,000 chars (none longer in data) · truth codes saved for Step 7 only.</p>
+
+<h4>Step 1 · Strip cheat phrases · <span class="tag tag-red">Red</span></h4>
+<p>Remove “substantial damage”, “fatal injuries”, “killed”, “hospitalized”, NTSB report boilerplate, URLs — before phrase match or similar-story search.</p>
+
+<h4>Step 2 · Phrase match · runs <strong>at same time as Step 3</strong></h4>
+<p>Same clean story from Step 1. Match to Zhang node names: (1) main outcome (2) people (3) multi-word events. Skip negated/hypothetical clauses. Output goes to Step 5 — <em>not</em> through 4a/4b. Alone: 82.4% injury — not main method.</p>
+
+<h4>Step 3 · 100 similar past stories · runs <strong>at same time as Step 2</strong></h4>
+<p><strong>Story search list:</strong> every 1982–2006 story saved as a vector once.</p>
+<p><strong>Why not add test accidents?</strong> They are the exam — search pool must be past accidents only.</p>
+<p>Embed clean story → find 100 closest 1982–2006 accidents (k = 100).</p>
+
+<h4>Step 4a · Event suggestions · <strong>same time as 4b</strong></h4>
+<p>Uses Step 3’s 100 stories only. If 71/100 had “landing phase” → suggest that node with strength ~0.71. Top 3 if common enough vs baseline.</p>
+
+<h4>Step 4b · Injury &amp; damage from neighbors · <strong>same time as 4a</strong></h4>
+<p>Count <strong>NTSB coded</strong> injury/damage on those 100 accidents.</p>
+<ul>
+  <li><strong>Neighbor vote alone:</strong> most common level → 90.9% / 77.4%</li>
+  <li><strong>Severity through network:</strong> feed counts into injury/damage nodes → P(each level) → same top pick</li>
+</ul>
+
+<h4>Step 5 · Update locked network</h4>
+<table>
+  <tr><th>Method</th><th>Input</th><th>Result</th></tr>
+  <tr><td><strong>Severity through network ★</strong></td><td>Step 4b only</td><td>90.9% / 77.4%</td></tr>
+  <tr><td>Neighbor vote alone</td><td>Step 4b, no network</td><td>Same top answer 296/296</td></tr>
+  <tr><td>Phrase match + suggestions</td><td>Steps 2 + 4a</td><td>82.4% inj</td></tr>
+  <tr><td><strong>Combined test (failed)</strong></td><td>2+4a and 4b together</td><td>38.5% / 41.9%</td></tr>
+</table>
+
+<h4>Step 6 · Read answers</h4>
+<p><strong>A)</strong> Highest P(injury level) and P(damage level). <strong>B)</strong> Vote cause category on same 100 stories → 84.2%. Phrase match for causes → 57.7% only.</p>
+
+<h4>Step 7 · Grade</h4>
+<p>Compare to NTSB. Agree on top pick: severity-through-network and neighbor vote picked same #1 on all 296.</p>
+
+<h4>Worked example</h4>
+<pre>Story: "...substantial damage... engine instruments..."
+Step 1: strip "substantial damage" → one clean story
+Step 2 & 3 AT SAME TIME on that clean story:
+  Step 2: engine instrument node = YES
+  Step 3: find 100 similar 1982–2006 accidents
+Step 4a & 4b AT SAME TIME on those 100:
+  4b: e.g. 41 none, 28 minor, 24 serious, 7 fatal injury codes
+Step 5: severity through network (main path uses 4b)
+Step 6: pick highest P(injury); cause vote also from Step 3 pool
+Step 7: compare to NTSB (never used as input)</pre>
+
+<div class="page-break"></div>
+
+<!-- ========== PART 3 ========== -->
+<h2 id="part3">Part 3 — Build network &amp; check Zhang · <span class="tag tag-blue">Blue</span></h2>
+
+<h3>C1 · Data</h3>
+<p>Part 121 accidents · events, findings, persons, injury/damage · BTS 184,517,128 flights.</p>
+
+<h3>C2 · Nodes &amp; edges — example</h3>
+<pre>NODES:
+  [fire]  [loss of engine power]  [landing phase]
+  [person: pilot-in-command]  [pilot error finding]
+  [personnel injury: fatal|serious|minor|none]
+  [aircraft damage: destroyed|substantial|minor|none]
+
+EDGES (influences):
+  fire → loss of engine power → personnel injury
+  person: pilot-in-command → pilot error → landing phase
+  last events in chain → personnel injury & aircraft damage</pre>
+<p>Node = one label or severity variable. Edge = “this can affect that.”</p>
+
+<h3>C3 · Priors</h3>
+<p>P(event per flight) = count / 184,517,128 · Example: P(fire) = 102 / 184,517,128</p>
+
+<h3>C4 · Parents (max 12)</h3>
+<p>Each node gets ≤12 best predictor events. Cap keeps probability tables stable. <strong>Deterministic</strong> = same data → same parents. Chosen by co-occurrence + Zhang edge-ratio rules.</p>
+
+<h3>C5 · Beta-CDF smoothing</h3>
+<p>Rare parent combos → raw 0%/100% nonsense. Zhang’s recipe smooths counts with Beta CDF — we follow paper/code, not free tuning.</p>
+
+<h3>C6 · Table 7</h3>
+<p>102 fires → count P(cause | fire) → 85 rows must match Zhang 85/85.</p>
+
+<h3>C7 · Upgrades recap</h3>
+<table>
+  <tr><th>Fix</th><th>Before</th><th>After</th></tr>
+  <tr><td>Person nodes</td><td>No pilot-error queries</td><td>Fig 12 works</td></tr>
+  <tr><td>4-level severity</td><td>Broken Boolean leaves</td><td>Matches NTSB FATL/SERS/MINR/NONE and DEST/SUBS/MINR/NONE</td></tr>
+</table>
+
+<h3>C8 · Story search list</h3>
+<p>Save one vector per 1982–2006 story · never add 2007–2019 test stories.</p>
+
+<h3>Check we rebuilt Zhang (Job 1)</h3>
+<ol>
+  <li>Table 7: 85/85</li>
+  <li>102 fires; prior OK</li>
+  <li>Table 9: fire → ranked causes</li>
+  <li>Table 10: engine instruments → P(loss of engine power) ≈ 0.95</li>
+  <li>GPT on 11 Zhang texts = phrase match 11/11</li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- ========== PART 4 ========== -->
+<h2 id="part4">Part 4 — Numbers, honesty, talk track</h2>
+
+<h3>Injury &amp; damage — 296 accidents · Table 6</h3>
+<p><strong>Injury %</strong> = % of time our #1 injury pick matched NTSB code. <strong>Damage %</strong> = same for damage.</p>
+<p><strong>Top-1</strong> = single best prediction vs NTSB — exact level match.</p>
+<p><strong>Macro-F1</strong> = average score across all four levels (fatal, serious, minor, none) equally — not dominated by common “none.”</p>
+
+<table>
+  <tr><th>Method</th><th>Injury %</th><th>Damage %</th><th>Plain English</th></tr>
+  <tr><td>Network, no story input</td><td>58.4</td><td>42.6</td><td>Guess most common</td></tr>
+  <tr><td>Phrase match + suggestions</td><td>82.4</td><td>50.7</td><td>Events from text</td></tr>
+  <tr><td>Supervised parser classifier</td><td>85.5</td><td>60.1</td><td>ML on parsed nodes, trained 1982–06</td></tr>
+  <tr><td>Supervised TF-IDF</td><td><strong>92.2</strong></td><td>73.3</td><td>ML on words — beats us on injury</td></tr>
+  <tr><td>Supervised embedding classifier</td><td>91.6</td><td><strong>74.0</strong></td><td>ML on story vectors</td></tr>
+  <tr><td><strong>Severity through network ★</strong></td><td><strong>90.9</strong></td><td><strong>77.4</strong></td><td>Our main method</td></tr>
+  <tr><td>Neighbor vote alone</td><td>90.9</td><td>77.4</td><td>Same top pick</td></tr>
+</table>
+
+<p><strong>Logistic regression</strong> = classic classifier that learns weights from labeled examples. We use trained versions only as <strong>comparison</strong> — “what if you trained on old accidents?” Main pipeline does not train on the 296 test labels.</p>
+
+<h3>Cause type — 253 accidents · Table 8</h3>
+<table>
+  <tr><th>Method</th><th>Top-1 %</th></tr>
+  <tr><td>Most common category guess</td><td>45.8</td></tr>
+  <tr><td>Phrase match → network</td><td>57.7</td></tr>
+  <tr><td><strong>100 similar stories → category vote ★</strong></td><td><strong>84.2</strong></td></tr>
+  <tr><td>Supervised embedding classifier</td><td>88.1</td></tr>
+  <tr><td>Network lift ranking</td><td>50.2</td></tr>
+</table>
+<p><strong>Most common category guess</strong> = always say Personnel. <strong>Network lift ranking</strong> = rank by how much evidence changed belief — failed (50.2%).</p>
+
+<h3>Extra tests that failed or warn · <span class="tag tag-red">Red</span></h3>
+<table>
+  <tr><th>Test</th><th>Result</th></tr>
+  <tr><td>Combined update (phrase + neighbor severity)</td><td>38.5% / 41.9%</td></tr>
+  <tr><td>Fire from phrase match through network</td><td>Bad (AUC ~0.38)</td></tr>
+  <tr><td>Fire from similar stories</td><td>Works (AUC ~0.96)</td></tr>
+  <tr><td>GPT labels on 296 stories</td><td>~68% injury vs 90.9%</td></tr>
+</table>
+
+<h3>Locked after build vs trained (Jesse question)</h3>
+<table>
+  <tr><th>Locked after build</th><td>Network, probability tables, story search list, phrase rules, k=100 — all 1982–2006</td></tr>
+  <tr><th>Zero learnable numbers</th><td>100-neighbor vote — just counting</td></tr>
+  <tr><th>Supervised comparison only</th><td>Logistic regression / TF-IDF / embedding — trained on 1982–2006 labels only</td></tr>
+</table>
+<p><strong>Calibrated</strong> = estimated from count tables once on old data. <strong>Trained / fitted</strong> = comparison classifiers with learned weights — not the main pipeline on 296.</p>
+
+<h3>Don’t say / Do say</h3>
+<table>
+  <tr><th>Don’t</th><th>Do</th></tr>
+  <tr><td>Network beats neighbor vote on injury</td><td>90.9% without training on test labels</td></tr>
+  <tr><td>GPT outputs probabilities</td><td>Network outputs P(injury), P(damage)</td></tr>
+  <tr><td>We beat TF-IDF</td><td>TF-IDF 92.2% &gt; our 90.9% on injury — honest</td></tr>
+  <tr><td>Exact cause phrases on 2007–2019 test</td><td>4 category types only</td></tr>
+  <tr><td>Real-time prevention</td><td>Retrospective archived reports</td></tr>
+</table>
+
+<h3>60-second talk</h3>
+<div class="box-black">
+“We rebuilt Maha’s network on 1982–2006 and matched her tables. Then we asked: can newer accident stories, after stripping cheat phrases, update that locked network and match NTSB codes? Main results: <strong>90.9%</strong> injury and <strong>77.4%</strong> damage using 100 similar past accidents; <strong>84.2%</strong> on four cause types. The network gives the same top injury/damage pick as counting similar accidents — but enables Table 10-style queries. We’re honest: TF-IDF with training scores higher on injury; GPT is a side label reader only.”
+</div>
+
+<div class="page-break"></div>
+
+<!-- ========== PART 5 ========== -->
+<h2 id="part5">Quick reference &amp; self-quiz</h2>
+
+<h3>Daily read order (10 min)</h3>
+<ol>
+  <li>Part 1 — what &amp; why</li>
+  <li>Part 2 — flow diagram + Steps 1–7</li>
+  <li>Part 4 — numbers + don’t/do</li>
+  <li>Part 3 — when you need build detail</li>
+</ol>
+
+<h3>Self-quiz (cover answers)</h3>
+<ol>
+  <li>Two jobs — different questions and numbers?</li>
+  <li>Why not test stories on 1982–2006?</li>
+  <li>Steps 1→7 in order?</li>
+  <li>Where does 84.2% come from?</li>
+  <li>Severity through network vs neighbor vote?</li>
+  <li>What did combined test prove?</li>
+  <li>What is trained on 296? (Nothing in main pipeline.)</li>
+  <li>§9 vs §8 test difference?</li>
+  <li>Two upgrades to Zhang?</li>
+  <li>Why 4 cause categories?</li>
+</ol>
+
+<h3>Paper name → say this</h3>
+<table>
+  <tr><th>Paper says</th><th>You say</th></tr>
+  <tr><td>bn-sev</td><td>Severity through network (90.9% / 77.4%)</td></tr>
+  <tr><td>retr-sev</td><td>Neighbor injury/damage vote</td></tr>
+  <tr><td>bn-fused</td><td>Combined test (failed)</td></tr>
+  <tr><td>TF-IDF LR</td><td>Supervised TF-IDF (92.2% injury)</td></tr>
+</table>
+
+<p class="meta" style="margin-top:32px;">Source: WHITEBOARD_PIPELINE_WALL.md · Full claim tables: WHITEBOARD_OWN_EVERY_CLAIM.md</p>
+
+<div class="page-break"></div>
+
+<!-- ========== PART 6 ========== -->
+<h2 id="part6">Part 6 — Own every claim (do not guess)</h2>
+
+<div class="rule-box">
+  Maha: If you say it, you own it. Four beats: <strong>Claim → How → Why → Proof</strong>.<br>
+  If you cannot point to proof, <strong>do not say it</strong>. Say: “I’d open the eval output / §X — the headline is …”
+</div>
+
+<h3>Main numbers you must own</h3>
+<table>
+  <tr><th>Say</th><th>How</th><th>Why primary</th><th>Proof</th></tr>
+  <tr>
+    <td><strong>90.9% injury</strong> (n=296)</td>
+    <td>100 similar 82–06 stories → count coded injury → severity through network → top level</td>
+    <td>Primary leak-safe path; no training on test</td>
+    <td>Table 6 · <code>heldout_significance.md</code> · <code>frozenbn_heldout_narrative_bn_eval.py</code></td>
+  </tr>
+  <tr>
+    <td><strong>77.4% damage</strong> (n=296)</td>
+    <td>Same path on damage node</td>
+    <td>Same</td>
+    <td>Table 6</td>
+  </tr>
+  <tr>
+    <td><strong>Same top pick 296/296</strong></td>
+    <td>Neighbor vote alone vs severity through network</td>
+    <td>We tested if BN changes top answer — it does not</td>
+    <td>§8.1 check · eval compares both predictors</td>
+  </tr>
+  <tr>
+    <td><strong>84.2% cause type</strong> (n=253)</td>
+    <td>Same 100 stories → vote 4 categories</td>
+    <td>Retrieval beats phrase→network (57.7%)</td>
+    <td>Table 8 · <code>diagnosis_heldout_eval.md</code></td>
+  </tr>
+  <tr>
+    <td><strong>38.5% / 41.9% combined</strong></td>
+    <td>Phrase + neighbor severity in one update</td>
+    <td>We ran on purpose — double-count fails</td>
+    <td>Table 6 combined test row</td>
+  </tr>
+  <tr>
+    <td><strong>92.2% TF-IDF injury</strong></td>
+    <td>Supervised ML on words, trained 82–06 only</td>
+    <td>Comparison baseline — beats us; say honestly</td>
+    <td>Table 6</td>
+  </tr>
+  <tr>
+    <td><strong>85/85 Table 7</strong></td>
+    <td>Count P(cause|fire) on 82–06</td>
+    <td>Job 1 verify — not 90.9%</td>
+    <td><code>verify_zhang_table7.py</code> · App A</td>
+  </tr>
+</table>
+
+<h3>Design choices you must own</h3>
+<table>
+  <tr><th>Say</th><th>Because</th><th>Proof</th></tr>
+  <tr><td>Strip cheat phrases first</td><td>Stories state outcomes — otherwise cheating</td><td><code>redaction_leak_probe.py</code> · §6.1</td></tr>
+  <tr><td>296 not in story search list</td><td>Test = exam; pool = past only</td><td><code>heldout_leak_audit.py</code> 0/296 overlap</td></tr>
+  <tr><td>Network locked after build</td><td>No re-learning from test labels</td><td><code>FREE_PARAMETERS.md</code> · Table 5</td></tr>
+  <tr><td>Test 07–19 not 82–06 stories</td><td>Same data built network + search list</td><td>Design + leak audit</td></tr>
+  <tr><td>4 cause categories only</td><td>2008 taxonomy break</td><td><code>diagnosis_heldout_eval.py</code></td></tr>
+  <tr><td>Person nodes + 4-level severity</td><td>Fix Boolean leaves + pilot queries</td><td><code>bn_upgraded.py</code> · Table 10 demo</td></tr>
+  <tr><td>k=100 similar stories</td><td>Default; k=25 ablation nearly same</td><td><code>heldout_significance_k25.md</code></td></tr>
+  <tr><td>GPT side only</td><td>GPT for P(·) failed; ~68% inj vs 90.9%</td><td>§8.3</td></tr>
+</table>
+
+<h3>Jesse: what is trained?</h3>
+<div class="box-black">
+  <strong>Say:</strong> “Main pipeline: no weights fitted on the 296 test accidents. Network, tables, story search list, phrase rules, k=100 — all from 1982–2006 before scoring the test set. Only <strong>comparison</strong> classifiers (logistic regression, TF-IDF, embedding) were trained — and only on 1982–2006 labels.”<br>
+  <strong>Proof:</strong> <code>docs_FrozenBN/FREE_PARAMETERS.md</code> · draft Table 5
+</div>
+
+<h3>Do not claim (we tested the opposite)</h3>
+<ul>
+  <li>BN improves top injury/damage over neighbor vote — <strong>false</strong> (296/296 same)</li>
+  <li>We beat TF-IDF on injury — <strong>false</strong> (92.2 &gt; 90.9)</li>
+  <li>GPT outputs probabilities — <strong>false</strong> (network does)</li>
+  <li>Phrase match beats similar stories for causes — <strong>false</strong> (57.7 vs 84.2)</li>
+  <li>2020–24 confirmatory done — <strong>false</strong> (not in dataset; draft future only)</li>
+</ul>
+
+<h3>Own each pipeline step (Claim → Proof)</h3>
+<table>
+  <tr><th>Step</th><th>How</th><th>Proof</th></tr>
+  <tr><td>1 Strip</td><td>Remove stated injury/damage before phrase match or similar stories</td><td><code>query_to_bn.redact_severity_phrases</code> · <code>redaction_leak_probe.py</code> · §6.1</td></tr>
+  <tr><td>2 ∥ 3</td><td>Phrase match + 100 similar stories on <strong>same</strong> clean story</td><td><code>parse_query_to_bn_evidence</code> · <code>find_top_matches</code> · §6.2–6.3</td></tr>
+  <tr><td>4a ∥ 4b</td><td>Same 100 stories: event suggestions + count coded injury/damage</td><td><code>retrieval_facts</code> · <code>severity_retrieval_distributions</code> · §6.3–6.4</td></tr>
+  <tr><td>5 Main</td><td>Step 4b only → severity through network</td><td><code>frozenbn_heldout_narrative_bn_eval.py</code> · Table 6</td></tr>
+  <tr><td>6B causes</td><td>Vote 4 categories from Step 3 pool (not Table 9 fire demo)</td><td><code>diagnosis_heldout_eval.py</code> · Table 8</td></tr>
+  <tr><td>7 Grade</td><td>Compare to NTSB codes — never used as input</td><td><code>heldout_significance.md</code> · §7</td></tr>
+</table>
+
+<h3>Maha drill — answer in four beats</h3>
+<table>
+  <tr><th>She asks</th><th>Claim</th><th>Because</th><th>Proof</th></tr>
+  <tr><td>What did you do?</td><td>Rebuild 82–06, verify tables, test stories on 296</td><td>Two jobs: verify then generalize</td><td>Job 1 + Job 2 tables above</td></tr>
+  <tr><td>How does text reach the network?</td><td>Strip → 2∥3 → 4a∥4b → 5 → read P(·)</td><td>Never raw text in BN</td><td>Part 2 flow · <code>query_to_bn.py</code></td></tr>
+  <tr><td>90.9%?</td><td>100 similar stories → coded injury → network</td><td>Primary path, no train on 296</td><td>Table 6 · eval script</td></tr>
+  <tr><td>BN beat neighbors?</td><td><strong>No</strong> — same top pick 296/296</td><td>We ran both predictors</td><td>Table 6 · §8.1</td></tr>
+  <tr><td>84.2%?</td><td>Same 100 → vote cause category</td><td>Beats phrase path 57.7%</td><td>Table 8</td></tr>
+  <tr><td>What did you add?</td><td>Person nodes + 4-level injury/damage</td><td>Fix Zhang leaves + pilot queries</td><td><code>bn_upgraded.py</code></td></tr>
+  <tr><td>What is trained?</td><td>Nothing main on 296</td><td>296 = exam</td><td><code>FREE_PARAMETERS.md</code></td></tr>
+  <tr><td>What failed?</td><td>Combined phrase + neighbor → 38%/42%</td><td>Double-count test</td><td>Table 6</td></tr>
+</table>
+
+<h3>Before meeting — check every box</h3>
+<ul>
+  <li>Two jobs + which numbers go where (90.9 ≠ Table 7)</li>
+  <li>Step 2 ∥ 3 and 4a ∥ 4b from memory</li>
+  <li>90.9 / 77.4 / 84.2 with n=296 or 253 + Table 6 or 8</li>
+  <li>Why strip + leak probe name</li>
+  <li>Three things we do <strong>not</strong> claim (neighbors, TF-IDF, GPT P(·))</li>
+</ul>
+
+<h3>Repo files if challenged (open on laptop)</h3>
+<p><code>query_to_bn.py</code> · <code>bn_upgraded.py</code> · <code>frozenbn_heldout_narrative_bn_eval.py</code> · <code>diagnosis_heldout_eval.py</code> · <code>outputs/heldout_significance.md</code> · <code>outputs/diagnosis_heldout_eval.md</code> · <code>FREE_PARAMETERS.md</code> · <code>REPRODUCE.md</code></p>
+
+<p class="meta"><strong>This print is complete.</strong> Extra detail in <code>WHITEBOARD_OWN_EVERY_CLAIM.md</code> (same folder) if you want the full Job 1 table on paper too.</p>
+
+</body>
+</html>

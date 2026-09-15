@@ -1,0 +1,23 @@
+version: 1
+project: "molt_match"
+generated_at: "REPLACE_ME"
+
+gates:
+  default:
+    - "make lint"
+    - "make test"
+
+tasks:
+  - id: T001
+    title: "REPLACE_ME"
+    status: todo          # todo | doing | blocked | done | skipped
+    depends_on: []
+    owner: implementer
+    max_retries: 3        # max retry attempts before marking blocked
+    files_hint: []
+    acceptance_criteria:
+      - "REPLACE_ME"
+    gates:                # optional per-task override; omit to use default gates
+      - "make lint"
+      - "make test"
+    notes: ""

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 5 — Evaluating Severity: the Numbers and What They Mean</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 5 of 9 ·
+<a href="part4-the-pipeline.html">← Part 4</a></p>
+<span class="edition-badge">Edition 2026-07-30</span>
+<h1>Part 5 — Evaluating Severity: the Numbers and What They Mean</h1>
+
+<h2>5.1 The experiment design</h2>
+<p><b>Test set:</b> every accident in the corpus outside the 1982–2006 window with a factual
+narrative of at least 100 characters — <b>296 accidents from 2007–2019</b>, listed one by one in
+<code>outputs/cohort_manifest.json</code>. <b>Truth:</b> the NTSB-coded injury level (via Zhang's
+derivation rule, <code>zhang_injury_code</code> in <code>code/prognosis.py</code>) and coded
+damage level. <b>Task:</b> 4-way classification for each target. <b>Rule that makes comparisons
+fair:</b> every predictor and every baseline is scored on the <em>identical</em> 296 accidents
+with identical text treatment (4,000-character truncation + redaction) — the manifest script
+cross-checks this and reports <code>true/false</code> per pairing.</p>
+
+<h2>5.2 The metrics, each in one honest paragraph</h2>
+<div class="vocab"><b>Accuracy (top-1).</b> The fraction of accidents where the model's highest-
+probability class equals the coded class. Intuitive, but it flatters models under
+<b>class imbalance</b>: 58.4% of held-out accidents have injury = NONE, so a model that always
+says NONE scores 58.4% while knowing nothing. That is exactly our <code>prior</code> baseline —
+which is why accuracy is never reported alone.</div>
+<div class="vocab"><b>Macro-F1.</b> Compute F1 (the balance of precision and recall) separately
+for each of the 4 classes, then average <em>without</em> weighting by class size — so the rare
+fatal class counts as much as the common none class. A model that ignores rare classes gets
+punished here even if its accuracy looks fine. The always-NONE baseline's Macro-F1 is 0.184
+(injury) / 0.149 (damage).</div>
+<div class="vocab"><b>Brier score.</b> Squared error of the full predicted probability
+distribution against the true outcome — it rewards being <em>confidently right</em> and punishes
+being <em>confidently wrong</em>, unlike accuracy which only looks at the top choice. Lower is
+better.</div>
+<div class="vocab"><b>Bootstrap 95% confidence interval.</b> Resample the 296 accidents with
+replacement 10,000 times, recompute the accuracy each time, and report the middle 95% of the
+results. It answers: "given only 296 test cases, how much could this number wobble?" Seeded
+(seed 42) so reruns are identical.</div>
+<div class="vocab"><b>McNemar exact test.</b> The right significance test for comparing two
+classifiers on the <em>same</em> items. It ignores accidents where both models are right or both
+wrong, and asks: among the <em>discordant</em> accidents (exactly one model right), is the split
+more lopsided than coin flips would explain? The p-value is the probability of a split at least
+this lopsided under a fair coin.</div>
+<div class="vocab"><b>Holm–Bonferroni correction.</b> If you run many significance tests, some
+come up "significant" by luck. Holm's procedure inflates each p-value based on how many tests are
+in the family, controlling the overall false-alarm rate. We designate <b>five primary
+comparisons</b> per target (bn-sev vs each baseline and vs its own ablation) and correct within
+that family; every other comparison is labeled exploratory and never claimed as significant.
+Honest wording note: the primaries were <em>designated</em> during the study, not pre-registered
+before data collection — the report says so.</div>
+<div class="vocab"><b>Sensitivity / specificity (the severe-outcome screen).</b> Collapse the
+4 classes into severe (fatal+serious, or destroyed+substantial) vs not. Sensitivity = fraction of
+truly severe accidents flagged severe; specificity = fraction of non-severe accidents correctly
+cleared. This is the operating view a safety analyst actually cares about.</div>
+
+<h2>5.3 The baselines — including the two that almost beat us</h2>
+<div class="why"><b>Why we attack our own result with strong baselines.</b> A reviewer's first
+question about any fancy pipeline is "would a simple supervised model do just as well?" If the
+authors don't answer it, the reviewer assumes the worst. So we built three supervised competitors
+ourselves, on the identical cohort, and report every result including the uncomfortable ones.</div>
+<table>
+  <tr><th>Baseline</th><th>What it is</th><th>Source file</th></tr>
+  <tr><td><code>lr</code> (parsed features)</td>
+      <td>Logistic regression on the SAME parsed-evidence vector the network consumes,
+      trained on the 1,286 window narratives with labels.</td>
+      <td><code>tests/lr_baseline_heldout.py</code></td></tr>
+  <tr><td><code>emb-lr</code> (embedding)</td>
+      <td>Logistic regression directly on the narrative embedding vector — the strongest
+      "modern NLP" baseline.</td>
+      <td><code>tests/embedding_lr_baseline.py</code></td></tr>
+  <tr><td><code>tfidf-lr</code> (raw text)</td>
+      <td>Logistic regression on TF-IDF word counts of the redacted text. Originated as our
+      leakage probe (Part 7); promoted to a first-class baseline once its strength was apparent,
+      configuration unchanged.</td>
+      <td><code>tests/tfidf_lr_baseline_heldout.py</code></td></tr>
+</table>
+
+<h2>5.4 The results (leak-safe protocol, n = 296)</h2>
+<table>
+  <tr><th>Predictor</th><th>Injury top-1</th><th>Injury Macro-F1</th><th>Damage top-1</th><th>Damage Macro-F1</th></tr>
+  <tr><td>Majority class (prior)</td><td>58.4%</td><td>0.184</td><td>42.6%</td><td>0.149</td></tr>
+  <tr><td>Parsed events only (hard+soft)</td><td>82.4%</td><td>0.422</td><td>50.7%</td><td>0.309</td></tr>
+  <tr><td>Supervised LR, parsed features</td><td>85.5%</td><td>0.440</td><td>60.1%</td><td>0.408</td></tr>
+  <tr><td>Supervised LR, TF-IDF text</td><td>92.2%</td><td>0.603</td><td>73.3%</td><td>0.621</td></tr>
+  <tr><td>Supervised LR, embedding</td><td>91.6%</td><td>0.474</td><td>74.0%</td><td>0.543</td></tr>
+  <tr class="hl"><td>Narrative → frozen BN (bn-sev)</td><td>90.9%</td><td>0.470</td><td>77.4%</td><td>0.697</td></tr>
+</table>
+<p>The paired significance results (all McNemar exact, Holm-corrected within the five primary
+comparisons per target):</p>
+<table>
+  <tr><th>Comparison</th><th>Injury</th><th>Damage</th><th>Reading</th></tr>
+  <tr><td>bn-sev vs prior</td><td>p &lt; 10⁻⁴ *</td><td>p &lt; 10⁻⁴ *</td>
+      <td>The narrative signal is real: +32.5 / +34.8 points.</td></tr>
+  <tr><td>bn-sev vs lr (parsed)</td><td>p = 0.006 *</td><td>p &lt; 10⁻⁴ *</td>
+      <td>Significantly better than the supervised model on its own features.</td></tr>
+  <tr><td>bn-sev vs emb-lr</td><td>p = 1.0</td><td>p = 0.29</td>
+      <td rowspan="2">Statistical ties. The trained models edge us on injury; we edge them on
+      damage; nobody separates. (Injury discordants vs TF-IDF: 8 accidents of 296.)</td></tr>
+  <tr><td>bn-sev vs tfidf-lr</td><td>p = 0.87</td><td>p = 0.29</td></tr>
+  <tr><td>bn-sev vs retrieval-sev</td><td>identical</td><td>identical</td>
+      <td>0/296 discordant — the network mediates losslessly (Part 4).</td></tr>
+</table>
+<div class="why"><b>How to read this honestly — the paper's actual claim.</b> Severity accuracy
+from mechanism text is, empirically, a commodity: three different supervised models and our
+zero-parameter chain all land in one statistical tie. The claim is therefore NOT "we predict
+better." It is: <em>a frozen, validated network driven by free text matches supervised models
+without any training, while additionally providing joint probabilistic reasoning, evidence
+composition, what-if queries, and audit-ready explanations that none of the trained models
+possess.</em> bn-sev also has the best damage Macro-F1 (0.697) and the best damage severe-screen
+sensitivity (75.3%, vs 67.9% embedding / 58.0% TF-IDF) — the operating views where being wrong is
+expensive.</div>
+
+<h2>5.5 The failures, disclosed</h2>
+<div class="fail"><b>What the model misses.</b> The rare classes. Of 3 fatal accidents, only 1 is
+flagged severe on injury (predicted serious); the other 2 are predicted NONE on injury — though
+both are flagged severe on <em>damage</em> (destroyed / substantial), so the screen does not wave
+them through entirely. Minor injuries (16 cases) are never ranked top-1 either. The cause is class
+rarity in this window (3 of 296), not a fixable bug; the confusion matrices are published in full
+in <code>outputs/heldout_significance.md</code> and the limitation is stated in the paper. A note
+for the reader: an earlier README sentence claimed all 3 fatals were flagged severe — the per-item
+data proved it false and it was corrected. Check claims against
+<code>outputs/heldout_per_item.json</code>, not against prose.</div>
+
+<h2>5.6 Hyperparameters: the k question</h2>
+<p>The only knob in the chain is k, the neighbor count (default 100 — the pipeline's pre-set
+retrieval width). An internal validation slice (2002–2006) mildly favored k = 25; a held-out
+ablation at k = 25 scores 89.9% / 77.7% vs 90.9% / 77.4% at k = 100 — a flat plateau, so the
+choice does not matter and nothing was tuned on test data. Sweep:
+<code>tests/retrieval_hyperparam_sensitivity.py</code> → <code>outputs/hyperparam_sensitivity.md</code>;
+k=25 ablation report: <code>outputs/heldout_significance_k25.md</code>; the full "what is fitted
+anywhere" inventory: <code>docs_FrozenBN/FREE_PARAMETERS.md</code>.</p>
+
+<div class="verify"><b>Verify it yourself — the full severity chain, end to end.</b>
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/lr_baseline_heldout.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/embedding_lr_baseline.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/tfidf_lr_baseline_heldout.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/heldout_significance.py</pre>
+The last script consumes the per-item files the first four produce and regenerates the complete
+statistical report — accuracies with CIs, Macro-F1, per-class recall, confusion matrices, the
+severe-outcome screen, and every McNemar/Holm row — at
+<code>outputs/heldout_significance.md</code>. Every number in this part is in that one file.</div>
+
+<p class="crumb"><a href="part6-diagnosis-evaluation.html">Next: Part 6 — Evaluating diagnosis →</a></p>
+</div></body>
+</html>

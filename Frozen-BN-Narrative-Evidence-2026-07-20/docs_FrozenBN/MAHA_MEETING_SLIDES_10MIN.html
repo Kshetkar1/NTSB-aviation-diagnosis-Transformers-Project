@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Maha Meeting — 10 min Project Slides</title>
+  <style>
+    :root { --blue: #1a5490; --green: #1a6b3c; --red: #a32020; --gray: #555; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Segoe UI", system-ui, sans-serif; background: #111; color: #111; }
+    .deck { max-width: 960px; margin: 0 auto; }
+    .slide {
+      display: none;
+      min-height: 100vh;
+      padding: 48px 56px;
+      background: #fff;
+      border-bottom: 8px solid var(--blue);
+    }
+    .slide.active { display: flex; flex-direction: column; justify-content: center; }
+    h1 { font-size: 28pt; color: var(--blue); margin-bottom: 12px; line-height: 1.2; }
+    h2 { font-size: 14pt; color: var(--gray); font-weight: 600; margin-bottom: 24px; }
+    ul { font-size: 17pt; line-height: 1.55; margin-left: 28px; }
+    li { margin-bottom: 10px; }
+    .sub { font-size: 13pt; color: var(--gray); margin-top: 20px; }
+    .tag { display: inline-block; background: #e8f0fa; color: var(--blue); font-size: 11pt; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; }
+    .tag.green { background: #e8f5ec; color: var(--green); }
+    .tag.red { background: #fdeaea; color: var(--red); }
+    .big { font-size: 22pt; font-weight: 700; color: var(--blue); margin: 16px 0; }
+    .pipe {
+      font-size: 13pt; line-height: 1.6; background: #f5f5f5;
+      border-left: 4px solid var(--green); padding: 16px 20px; margin-top: 16px;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14pt; margin-top: 12px; }
+    th, td { border: 1px solid #ccc; padding: 10px 12px; text-align: left; }
+    th { background: #eef2f6; color: var(--blue); }
+    .nav {
+      position: fixed; bottom: 16px; right: 16px; z-index: 99;
+      display: flex; gap: 8px;
+    }
+    .nav button {
+      padding: 10px 18px; font-size: 13pt; cursor: pointer;
+      background: var(--blue); color: #fff; border: none; border-radius: 6px;
+    }
+    .nav button:hover { background: #134070; }
+    .counter { position: fixed; bottom: 20px; left: 20px; color: #888; font-size: 12pt; z-index: 99; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 8px; }
+    .box { background: #f8f8f8; border-radius: 8px; padding: 16px; font-size: 14pt; line-height: 1.5; }
+    .box.warn { border: 2px solid var(--red); background: #fff8f8; }
+    .box.ok { border: 2px solid var(--green); background: #f8fff8; }
+    @media print {
+      .slide { display: block !important; page-break-after: always; min-height: auto; padding: 36px; }
+      .nav, .counter { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="counter"><span id="num">1</span> / 11 · ~10 min · ← → to navigate</div>
+<div class="nav">
+  <button onclick="prev()">← Prev</button>
+  <button onclick="next()">Next →</button>
+</div>
+
+<div class="deck">
+
+<!-- SLIDE 1 ~30s -->
+<div class="slide active">
+  <span class="tag">~30 sec · Start here</span>
+  <h1>Where I am today</h1>
+  <h2>30-min meeting · Kanu · Draft 3</h2>
+  <ul>
+    <li><strong>10 min</strong> — What I did, why, how (this deck)</li>
+    <li><strong>10 min</strong> — Proposal (separate slides)</li>
+    <li><strong>~10 min</strong> — Your questions &amp; direction</li>
+  </ul>
+  <p class="sub">I wrote the draft myself; I use tools to check consistency — I own every claim I make today.</p>
+</div>
+
+<!-- SLIDE 2 ~1 min -->
+<div class="slide">
+  <span class="tag">Problem</span>
+  <h1>What problem are we solving?</h1>
+  <ul>
+    <li>Zhang &amp; Mahadevan built an aviation <strong>Bayesian network</strong> from NTSB <strong>coded</strong> data only — not from investigation <strong>narratives</strong>.</li>
+    <li>Narratives may describe what happened in words codes don’t capture the same way.</li>
+    <li><strong>Question:</strong> Can we turn a narrative into <strong>evidence on that fixed network</strong> — without rebuilding the network from the accidents we score?</li>
+  </ul>
+</div>
+
+<!-- SLIDE 3 ~1 min -->
+<div class="slide">
+  <span class="tag green">Two jobs</span>
+  <h1>Two separate jobs — never merge</h1>
+  <div class="two-col">
+    <div class="box ok">
+      <strong>Job 1 · Verify (1982–2006)</strong><br><br>
+      Rebuilt Zhang’s network from codes.<br>
+      <strong>85/85</strong> Table 7 match · 102 fires · Table 9/10 demos.<br><br>
+      <em>Compare to Zhang’s published numbers.</em>
+    </div>
+    <div class="box ok">
+      <strong>Job 2 · Score narratives (2007–2019)</strong><br><br>
+      <strong>296</strong> newer accidents — never used in the build.<br>
+      <strong>90.9%</strong> injury · <strong>77.4%</strong> damage · <strong>84.2%</strong> causes (253).<br><br>
+      <em>Compare to NTSB codes — not Zhang.</em>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 4 ~1 min -->
+<div class="slide">
+  <span class="tag">Years · plain words</span>
+  <h1>What data — and when</h1>
+  <table>
+    <tr><th>1982–2006</th><td><strong>Build years</strong> — network, probability tables, similarity list, keyword rules. Not “training” our main method.</td></tr>
+    <tr><th>2007–2019</th><td><strong>Scoring years</strong> — 296 accidents we run narratives through and grade vs NTSB. Never added to the build.</td></tr>
+    <tr><th>Part 121</th><td>Same airline scope as Zhang.</td></tr>
+  </table>
+  <p class="sub">Comparison classifiers (TF-IDF, etc.) learn from 1982–2006 labels only — separate from our main pipeline.</p>
+</div>
+
+<!-- SLIDE 5 ~2 min MOST IMPORTANT -->
+<div class="slide">
+  <span class="tag green">How · ~2 min</span>
+  <h1>Pipeline — what goes into the network</h1>
+  <h2>Narratives do NOT enter as text. Only <strong>node values</strong> do.</h2>
+  <div class="pipe">
+    <strong>1 Strip</strong> — remove stated injury/damage phrases (anti-cheating)<br><br>
+    <strong>2 ∥ 3 Same time</strong> — keyword match → network nodes &nbsp;|&nbsp; find 100 most similar 1982–2006 narratives<br><br>
+    <strong>4a ∥ 4b Same time</strong> — event fractions from 100 &nbsp;|&nbsp; <strong>coded</strong> injury/damage counts from 100<br><br>
+    <strong>5 Fixed network</strong> — set node values · run probability math once · tables NOT relearned<br>
+    &nbsp;&nbsp;&nbsp;→ Main severity: <strong>4b only</strong> → 90.9% / 77.4%<br><br>
+    <strong>6 Read</strong> — 6A: top injury/damage level · 6B: vote 4 cause categories → 84.2%<br><br>
+    <strong>7 Grade</strong> — compare to NTSB codes only (never used as input)
+  </div>
+</div>
+
+<!-- SLIDE 6 ~1 min -->
+<div class="slide">
+  <span class="tag">Why these choices</span>
+  <h1>Decisions I can defend</h1>
+  <table>
+    <tr><th>Choice</th><th>Why</th></tr>
+    <tr><td>Verify Zhang first</td><td>Can’t test narratives on an unverified network</td></tr>
+    <tr><td>Strip outcome phrases</td><td>Narratives state the answer — otherwise cheating</td></tr>
+    <tr><td>100 similar accidents</td><td>Past cases carry signal; fixed k=100 before scoring</td></tr>
+    <tr><td>4b-only for main severity</td><td>Merging all paths failed (38%/42%) — double-counting</td></tr>
+    <tr><td>Vote for causes (84.2%)</td><td>Beats keyword→network (57.7%); fair after 2008 taxonomy change</td></tr>
+    <tr><td>Person nodes + 4-level injury/damage</td><td>Extend Zhang — boolean leaves broke; pilot queries needed</td></tr>
+    <tr><td>No learning on 296</td><td>Scoring accidents = exam; network tables stay fixed</td></tr>
+  </table>
+</div>
+
+<!-- SLIDE 7 ~1 min -->
+<div class="slide">
+  <span class="tag red">Honest results</span>
+  <h1>What works · what doesn’t</h1>
+  <div class="two-col">
+    <div class="box ok">
+      <strong>Works</strong><br><br>
+      · Narratives beat “always guess no injury” (58% → 90.9%)<br>
+      · Reproduce Zhang 85/85<br>
+      · Narrative → node evidence on Table 10-style demos<br>
+      · Cause vote 84.2% on 253
+    </div>
+    <div class="box warn">
+      <strong>Does NOT work / don’t claim</strong><br><br>
+      · BN same top severity as counting the 100 — <strong>296/296</strong><br>
+      · TF-IDF injury <strong>92.2% &gt; 90.9%</strong><br>
+      · 84.2% is NOT the BN phrase path (57.7%)<br>
+      · Merged paths 38%/42%
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8 ~1 min CRITICAL LLM -->
+<div class="slide">
+  <span class="tag">LLM — align with lab meeting</span>
+  <h1>LLM: what I told you vs what’s in the paper</h1>
+  <ul>
+    <li><strong>In lab you asked if I use an LLM now → I said no.</strong> Still true for the <strong>main running pipeline</strong>.</li>
+    <li><strong>In the paper §8.3</strong> — four <strong>side experiments</strong> we ran and reported: GPT as label reader on Zhang’s 11 texts (11/11); on 296 ~68% injury vs 90.9%; recoding test; direct P(·) from GPT failed.</li>
+    <li><strong>Main method:</strong> keywords + 100 similar accidents → <strong>network computes probabilities</strong> — not GPT.</li>
+    <li><strong>Future (proposal):</strong> agent / LLM-assisted workflow — next step, not this eval.</li>
+  </ul>
+  <p class="sub">Not “LLM vs no LLM paper” — “we tested LLM paths and rejected them for the primary pipeline.”</p>
+</div>
+
+<!-- SLIDE 9 ~1 min -->
+<div class="slide">
+  <span class="tag red">Draft issues I found</span>
+  <h1>Where the paper is weak — I’d fix</h1>
+  <ul>
+    <li>Abstract &amp; §6.5 still read like the <strong>BN wins</strong> — results say it doesn’t on severity top-1</li>
+    <li>Job 1 and Job 2 blur in Results opening</li>
+    <li>§6.5 sounds like all paths merged — main path is <strong>4b only</strong></li>
+    <li>84.2% should say <strong>vote on 100</strong>, not “BN diagnosis”</li>
+    <li>296 used while fixing scoring code — slightly optimistic (not label leakage)</li>
+  </ul>
+  <p class="sub"><strong>Ask you:</strong> After your edits — JAIS framing? LLM section stay or appendix?</p>
+</div>
+
+<!-- SLIDE 10 ~30s -->
+<div class="slide">
+  <span class="tag green">Extensions vs Zhang</span>
+  <h1>What we added (not replaced)</h1>
+  <ul>
+    <li><strong>Person nodes</strong> — pilot / human-factor queries (Table 10 style)</li>
+    <li><strong>4-level injury &amp; damage</strong> — not boolean yes/no leaves</li>
+    <li><strong>Narrative → node evidence</strong> — Zhang used manual codes only</li>
+    <li><strong>Table 7 counting unchanged</strong> — 85/85</li>
+  </ul>
+  <p class="sub">Contribution = bridge + scoring protocol + honest limits — not “beat Zhang’s numbers.”</p>
+</div>
+
+<!-- SLIDE 11 transition -->
+<div class="slide">
+  <span class="tag">Transition</span>
+  <h1>Next: Proposal (~10 min)</h1>
+  <h2>Project recap done — questions before I switch?</h2>
+  <ul>
+    <li>I can drill any step: what goes in the BN, train on 296, 90.9%, 84.2%, LLM</li>
+    <li>Then: <strong>[your proposal title / next iteration]</strong></li>
+  </ul>
+  <p class="sub">Claim → How → Why → Table 6 or 8</p>
+</div>
+
+</div>
+
+<script>
+  let i = 0;
+  const slides = document.querySelectorAll('.slide');
+  function show(n) {
+    i = Math.max(0, Math.min(n, slides.length - 1));
+    slides.forEach((s, j) => s.classList.toggle('active', j === i));
+    document.getElementById('num').textContent = i + 1;
+  }
+  function next() { show(i + 1); }
+  function prev() { show(i - 1); }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { prev(); }
+  });
+</script>
+
+</body>
+</html>

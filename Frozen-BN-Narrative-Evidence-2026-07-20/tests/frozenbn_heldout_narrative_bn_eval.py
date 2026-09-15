@@ -195,6 +195,12 @@ def main():
     tag = ""
     if "--tag" in sys.argv:
         tag = sys.argv[sys.argv.index("--tag") + 1]
+    # --in-window: score 1982-2006 narratives against the same-window index
+    # with the query accident excluded (leave-one-out). Without exclude-self
+    # this is circular: the narrative retrieves its own coded labels.
+    in_window = "--in-window" in sys.argv
+    if in_window and not tag:
+        tag = "_inwindow_1982_2006"
 
     full = json.loads(FULL.read_text())
     window_ids = set(json.loads(WINDOW.read_text()).keys())
@@ -205,7 +211,10 @@ def main():
 
     held = []
     for k, inc in full.items():
-        if k in window_ids:
+        if in_window:
+            if k not in window_ids:
+                continue
+        elif k in window_ids:
             continue
         narr = str(inc.get("narr_accf") or "").strip()
         if len(narr) < 100:
@@ -214,8 +223,12 @@ def main():
     held.sort(key=lambda t: t[0])
     if limit:
         held = held[:limit]
-    print(f"held-out accidents with narratives: {len(held)} "
+    proto = ("in-window LOO 1982-2006" if in_window
+             else "held-out 2007-2019")
+    print(f"{proto} accidents with narratives: {len(held)} "
           f"(window {len(window_ids)}, full corpus {len(full)})")
+    if in_window:
+        print("exclude-self: ON (query ev_id dropped from k-NN before ranking)")
 
     selftest_virtual_evidence(bn)
     if sev_topk != 100:
@@ -256,13 +269,17 @@ def main():
         # measure exactly that leakage.
         ptext = qb.redact_severity_phrases(text)
         inj_y, dmg_y = truth_states(inc)
+        exclude = [k] if in_window else None
         try:
             hard = qb.parse_query_to_bn_evidence(ptext, names, dataset=ds,
-                                                 semantic=False)
+                                                 semantic=False,
+                                                 exclude_ev_ids=exclude)
             soft = qb.parse_query_to_bn_evidence(
-                ptext, names, dataset=main_app.refined_dataset, semantic=True)
+                ptext, names, dataset=main_app.refined_dataset, semantic=True,
+                exclude_ev_ids=exclude)
             softonly = {lab: c for lab, c, _ in qb.retrieval_facts(
-                ptext, names, main_app.refined_dataset)}
+                ptext, names, main_app.refined_dataset,
+                exclude_ev_ids=exclude)}
         except Exception as exc:
             print(f"  parse failed for {k}: {exc}")
             n_parse_fail += 1
@@ -297,7 +314,8 @@ def main():
         rdist = None
         try:
             rdist = qb.severity_retrieval_distributions(ptext, ds,
-                                                        top_k=sev_topk)
+                                                        top_k=sev_topk,
+                                                        exclude_ev_ids=exclude)
             if rdist:
                 ni = np.array(rdist["injury"])
                 nd = np.array(rdist["damage"])
@@ -325,21 +343,46 @@ def main():
             preds["bn-sev"] = (prior_inj, prior_dmg)
             fell_back("bn-sev")
         # BN-FUSED: event evidence AND k-NN severity in one inference.
-        # Negative ablation -- both signals derive from the same narrative,
-        # so the BN double-counts them (violated conditional independence).
+        #
+        # The severity likelihood must be taken against the marginal that
+        # holds ONCE the event evidence is in, not against the unconditional
+        # prior. Using p0 here made the posterior f_q * (p1/p0); on per-flight
+        # priors (p0(none) ~ 1, p0(fatal) ~ 1e-7) that factor spans 1e5 and
+        # drove the majority state to zero -- the arm scored 38.5% / 41.9%
+        # against a 58.4% / 42.6% prior and predicted `none` once in 173.
+        # See qb.jeffrey_likelihood and outputs/severity_fusion_fix.md.
+        #
+        # With the correct denominator this arm reproduces `bn-sev` exactly,
+        # which is the point: asserting a marginal via Jeffrey conditioning
+        # leaves no room for other evidence to speak to that same node. Real
+        # fusion needs f_q as a LIKELIHOOD against the per-accident base rate,
+        # and that arm ties on injury and loses on damage -- see
+        # tests/severity_fusion_fix.py. Event evidence adds nothing to the
+        # retrieval severity signal under any correct combination rule.
+        def fused_sev(ev_conf):
+            if not (rdist and sev_knn):
+                return sev_knn
+            return {"injury": qb.jeffrey_likelihood(
+                        bn, INJ_NODE, INJ_STATES, rdist["injury"],
+                        confidence=ev_conf),
+                    "damage": qb.jeffrey_likelihood(
+                        bn, DMG_NODE, DMG_STATES, rdist["damage"],
+                        confidence=ev_conf)}
         try:
-            preds["bn-fused"] = (posteriors(bn, soft_pri, sev=sev_knn)
-                                 if (soft_pri or sev_knn)
+            sev_fused = fused_sev(soft_pri)
+            preds["bn-fused"] = (posteriors(bn, soft_pri, sev=sev_fused)
+                                 if (soft_pri or sev_fused)
                                  else (prior_inj, prior_dmg))
         except Exception:
             preds["bn-fused"] = preds["bn-sev"]
             fell_back("bn-fused")
         # BN-FUSED-T: same, event confidences tempered (sqrt) to test whether
-        # softer event evidence rescues the fusion. (It does not.)
+        # softer event evidence changes the picture. (It does not.)
         try:
             temp = {n2: float(c) ** 0.5 for n2, c in soft_pri.items()}
-            preds["bn-fused-t"] = (posteriors(bn, temp, sev=sev_knn)
-                                   if (temp or sev_knn)
+            sev_temp = fused_sev(temp)
+            preds["bn-fused-t"] = (posteriors(bn, temp, sev=sev_temp)
+                                   if (temp or sev_temp)
                                    else (prior_inj, prior_dmg))
         except Exception:
             preds["bn-fused-t"] = preds["bn-fused"]
@@ -471,6 +514,9 @@ def main():
     out_path = OUT if not suffix else OUT.with_name(
         OUT.stem + suffix + OUT.suffix)
     out_path.write_text(json.dumps({
+        "protocol": ("in-window-loo-1982-2006" if in_window
+                     else "heldout-2007-2019"),
+        "exclude_self": bool(in_window),
         "n_heldout": len(held),
         "n_scored_injury": len(scores["prior"]["inj_brier"]),
         "n_scored_damage": len(scores["prior"]["dmg_brier"]),

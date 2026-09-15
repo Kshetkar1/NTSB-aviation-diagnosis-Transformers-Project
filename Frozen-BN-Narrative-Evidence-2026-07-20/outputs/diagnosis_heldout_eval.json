@@ -1089,8 +1089,8 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "PERSONNEL",
-    "ENVIRONMENT",
-    "ORGANIZATIONAL"
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -4003,8 +4003,8 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "PERSONNEL",
-    "ORGANIZATIONAL",
-    "ENVIRONMENT"
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -5037,8 +5037,8 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "PERSONNEL",
-    "ENVIRONMENT",
-    "ORGANIZATIONAL"
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -6340,9 +6340,9 @@
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
     "AIRCRAFT",
+    "ENVIRONMENT",
     "PERSONNEL",
-    "ORGANIZATIONAL",
-    "ENVIRONMENT"
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -6803,8 +6803,8 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "PERSONNEL",
-    "ENVIRONMENT",
-    "ORGANIZATIONAL"
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -7836,8 +7836,8 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "PERSONNEL",
-    "ENVIRONMENT",
-    "ORGANIZATIONAL"
+    "ORGANIZATIONAL",
+    "ENVIRONMENT"
    ]
   },
   {
@@ -9290,8 +9290,8 @@
    "bn-lift:rank": [
     "AIRCRAFT",
     "PERSONNEL",
-    "ORGANIZATIONAL",
-    "ENVIRONMENT"
+    "ENVIRONMENT",
+    "ORGANIZATIONAL"
    ]
   },
   {
@@ -9518,8 +9518,8 @@
    "bn-lift:mrr": 1.0,
    "bn-lift:rank": [
     "AIRCRAFT",
-    "ENVIRONMENT",
     "PERSONNEL",
+    "ENVIRONMENT",
     "ORGANIZATIONAL"
    ]
   },

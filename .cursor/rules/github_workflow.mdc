@@ -1,0 +1,48 @@
+---
+description: >
+  GitHub workflow verification and PR management rules.
+  Defines the standard process for pushing branches, creating PRs, and verifying CI/CD.
+alwaysApply: true
+---
+
+# GitHub Workflow Protocol
+
+> Apply when the user asks to "push", "create PR", "verify GitHub", or similar GitHub operations.
+> For detailed reference (commands, troubleshooting, branch naming): see `.cursor/docs/github_workflow_reference.md`.
+
+## Pre-Push Checklist
+
+Before committing and pushing, verify:
+- All tests pass locally (`make test`)
+- Code is formatted (`make format`)
+- Linting passes (`make lint`)
+- All relevant files are staged (`git status`)
+
+## Commit Rules
+
+- Use conventional commits: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, `chore:`
+- Reference issues: include `fixes #X` or `closes #Y` when applicable
+- Keep focused: one logical change per commit
+
+## PR Creation
+
+1. Verify branch is pushed to remote.
+2. Create PR via `gh pr create --title "..." --body "..." --base <base-branch>`.
+3. PR body must include: summary of changes, related issues, testing notes, breaking changes.
+
+## Post-Push Verification
+
+After pushing or creating a PR:
+1. Check CI status: `gh run list --branch <branch-name> --limit 5`
+2. Verify test + docs jobs pass.
+3. If failures: `gh run view <run-id> --log` for details.
+
+## Summary Report
+
+After completing push/PR/verification, provide a summary:
+- Branch pushed successfully (yes/no)
+- PR created (if applicable)
+- GitHub Actions: test job status
+- GitHub Actions: docs job status
+- Issues to be closed on merge (if any)
+- Any warnings or failures

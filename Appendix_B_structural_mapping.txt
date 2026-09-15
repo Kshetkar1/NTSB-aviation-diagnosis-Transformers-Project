@@ -1,0 +1,5 @@
+Appendix B. Structural mapping experiments (not used in final pipeline)
+
+[Paste this as one paragraph in your voice — beats only]
+
+Early experiments mapped retrieved accidents onto Zhang’s event-sequence structure before aggregating evidence. We tested several variants (reranking neighbors, structure-first matching, and a best-match bypass). None beat the final Section 5 pipeline (deterministic parser + k=100 retrieval + frozen Bayesian network). A best-match bypass hurt accuracy by roughly 1.5–2.5 percentage points relative to the final method. Structure-first matching gave no gain on diagnosis and hurt severity. The reported results in this paper use parser + retrieval only; structural mapping is not part of the deployed pipeline.

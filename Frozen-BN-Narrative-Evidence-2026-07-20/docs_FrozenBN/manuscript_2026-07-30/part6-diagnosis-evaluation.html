@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 6 — Evaluating Diagnosis: Cause Categories Across a Taxonomy Break</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 6 of 9 ·
+<a href="part5-severity-evaluation.html">← Part 5</a></p>
+<span class="edition-badge">Edition 2026-07-30</span>
+<h1>Part 6 — Evaluating Diagnosis: Cause Categories Across a Taxonomy Break</h1>
+
+<h2>6.1 The problem nobody warned us about: NTSB changed its language in 2008</h2>
+<div class="vocab"><b>Vocabulary — the two coding eras.</b> Through 2007, NTSB coded causes with a
+<b>legacy</b> system: a "subject" (e.g. <em>directional control</em>, <em>weather condition</em>)
+optionally attached to a person (<em>Pilot-in-command</em>, <em>Company/operator management</em>).
+From 2008, it switched to <b>CICTT</b> (the CAST/ICAO Common Taxonomy Team system): hierarchical
+codes like <em>Personnel issues → Task performance → Use of equip/info → Aircraft control →
+Copilot</em>. The two vocabularies do not map code-to-code. Our network is built on legacy-era
+data and our test years are CICTT-era — so naive cause matching across the split is impossible
+<em>by design of the data itself</em>.</div>
+<div class="why"><b>Why we solved it with a rollup instead of giving up.</b> CICTT's own top level
+already defines four broad categories — <b>Personnel, Aircraft, Environment, Organizational</b> —
+and every CICTT code names its category in its prefix. So the fair comparison level is the level
+the modern taxonomy itself declares: roll both eras up to the four categories. CICTT-era findings
+map trivially (read the prefix); legacy findings map through explicit keyword rules
+(<code>categorize_legacy</code> in <code>tests/diagnosis_heldout_eval.py</code>) covering 97.6% of
+the window's cause/factor findings. We call this the <b>era-fair</b> evaluation.</div>
+
+<h2>6.2 The rollup is a rule set, and its influence is bounded</h2>
+<p>Hand-written mapping rules are a place bias can hide, so the honest question is not "were the
+rules blessed by a reviewer?" but "how much could the rules be wrong by, and would that change any
+conclusion?" We answer the second question, because it is the one we can actually answer.</p>
+<p>A stratified 75-row sample of the rule set's decisions (50 legacy subject+person rows weighted by
+frequency, 25 CICTT rows as the anchor — their prefix IS the category, so they define the reference
+standard) was reviewed for internal consistency against CICTT's own conventions.</p>
+<table>
+  <tr><th>Review outcome</th><th>Rows</th><th>What happened</th></tr>
+  <tr><td>consistent with CICTT conventions</td><td>68 / 75 (90.7%)</td>
+      <td>Rule agrees with how the modern taxonomy treats that situation type.</td></tr>
+  <tr><td>rule defect → corrected</td><td>2</td><td>Fixed in the rules: the management-attributed
+      service-bulletin finding now maps to Organizational, and "reason for occurrence undetermined"
+      is excluded from cause mapping.</td></tr>
+  <tr><td>taxonomy boundary → mapping kept</td><td>5</td><td>Genuine CICTT boundary cases (person
+      non-compliance vs organizational procedure deficiency) where the taxonomy admits both
+      readings. These are the residual contested mass.</td></tr>
+</table>
+<div class="fail"><b>What this review is not.</b> The review pass was an AI assistant and the rows
+were then checked by the first author. That is <em>self-review with extra steps</em>, not
+independent dual coding, and we make no inter-rater claim from it. It found and fixed two real rule
+defects, which is worth something; it is not validation. The evidence that carries the paper's
+robustness claim is the bound in the next paragraph.</div>
+<div class="why"><b>The sensitivity bound — the actual evidence.</b> All seven contested rows
+together (2 corrected + 5 boundary) touch 316 of 5,062 window cause findings, <b>6.2% of the mapped
+mass</b>. Reassigning a category perturbs the retrieval neighborhood and the network's node scores
+in the <em>same direction for every predictor</em>, so the worst case a full reassignment of that
+mass could produce is <b>≤ 2 percentage points on absolute accuracy, identically signed across
+predictors</b>. Every gap the paper claims is far larger than that — retrieval over the BN event
+path is 26.5 points, the BN event path over the frequency baseline is 11.9 — so no admissible
+re-reading of the contested rows can reorder them. The measured effect of the two corrections
+confirms the scale: retrieval moved 83.8% → 84.2% and nothing else moved at all. Absolute
+accuracies therefore carry a residual mapping uncertainty of ≤ 2 points, and that is how they are
+stated.</div>
+<p class="src">Sample and per-row notes: <code>outputs/mapping_audit_sample.csv</code>; rule set,
+review outcome, and sensitivity bound: <code>outputs/mapping_audit_summary.md</code>; sample
+generator (with a guard so it never overwrites filled-in rows):
+<code>tests/diagnosis_mapping_audit_sample.py</code>. The file names retain the original "audit"
+wording; the framing above is the accurate description of what they contain.</p>
+
+<h2>6.3 The task and the metric, stated precisely</h2>
+<p>Remember from Part 4 that diagnosis is not a second system: the BN predictors below take the
+<em>same</em> parsed narrative evidence as the severity pipeline and read the <em>upstream</em>
+side of the same joint posterior — <code>tests/diagnosis_heldout_eval.py</code> queries
+P(node = Yes | evidence) for every candidate cause, finding, and person node in the network
+(evidence nodes excluded, so the parser cannot grade its own input), then ranks the four
+categories by their best node. What changes between Part 5 and Part 6 is only <em>which nodes
+get scored</em>.</p>
+<div class="vocab"><b>Vocabulary — truth sets and set-membership top-1.</b> An accident usually
+has several coded findings, so its truth is a <em>set</em> of categories (e.g. {Personnel,
+Environment}). Our headline metric: the prediction is correct if the model's top-ranked category
+is in the truth set — the decision-relevant question "is the top suggestion a coded cause?" This
+is a lenient criterion, so we also publish the strict view (exact per-category recall) alongside
+it, plus <b>MRR</b> (mean reciprocal rank: 1/rank of the first correct answer, averaged — 1.0
+means the top answer is always right). Definitions are printed inside the results file itself,
+<code>outputs/diagnosis_heldout_eval.md</code>, so no reader has to guess.</div>
+<p><b>Cohort:</b> the 253 of the 296 held-out accidents that carry cause findings
+(<code>outputs/cohort_manifest.json</code> proves it is a subset).</p>
+
+<h2>6.4 The results (n = 253)</h2>
+<table>
+  <tr><th>Predictor</th><th>Top-1</th><th>95% CI</th><th>MRR</th><th>Notes</th></tr>
+  <tr><td>Category-frequency baseline</td><td>45.8%</td><td>[39.5, 52.2]</td><td>0.685</td>
+      <td>Always guesses the most common category (Personnel).</td></tr>
+  <tr><td>Frozen BN, event evidence (posterior)</td><td>57.7%</td><td>[51.4, 63.6]</td><td>0.759</td>
+      <td>Parsed events → network → cause-category posterior. Beats the baseline,
+      Holm p = 0.0007.</td></tr>
+  <tr class="hl"><td>Narrative retrieval (zero-parameter)</td><td>84.2%</td><td>[79.4, 88.5]</td><td>0.915</td>
+      <td>Categories of the 100 most similar accidents. Holm p &lt; 10⁻⁴ vs baseline.</td></tr>
+  <tr><td>Supervised emb-LR</td><td>88.1%</td><td>[84.2, 91.7]</td><td>0.936</td>
+      <td>Needs coded labels to train. Beats retrieval by 3.9 pts (p = 0.041, exploratory).</td></tr>
+  <tr><td>Frozen BN, event evidence (lift ranking)</td><td>50.2%</td><td>—</td><td>0.723</td>
+      <td><b>Negative result</b>, reported deliberately: ranking by posterior lift is noisy.</td></tr>
+</table>
+<p>Recall balance: retrieval is even across the three common categories (Personnel 68% / Aircraft
+62% / Environment 72%) — it is not just parroting "Personnel." The rare Organizational class is
+effectively unrecovered: retrieval, the frequency baseline, and the lift ranking never rank it
+first (0 of 25) and the BN event path does so exactly once (1 of 25) — the same class-rarity failure
+mode as fatal injuries in Part 5, and disclosed the same way.</p>
+<div class="why"><b>How to read this table.</b> Three findings, in the order of their strength.
+(1) The headline readout is <b>retrieval at 84.2%</b> — narratives carry strong diagnostic signal,
+nearly doubling the frequency baseline with zero training. (2) A supervised model beats it by 3.9
+points (88.1%, p = 0.041) — the measured price of needing no labels, disclosed, not hidden. (3) The
+network's <em>event-evidence path</em> at 57.7% is a <b>structured-inference result and a partial
+negative result at the same time, and it is not a headline</b>. Positive: parsed narrative facts
+propagate through Zhang's CPTs to cause nodes the pipeline was never pointed at and land significantly
+above baseline (Holm p = 0.0007) — evidence that event evidence reaches upstream cause nodes at
+category granularity. Negative: it loses to plain retrieval by 26.5 points, so as a
+<em>predictor</em> of cause category it is not competitive; the fire-node experiment (Part 7.6)
+further shows BN cross-node inference does not beat retrieval on held-out fire (ROC AUC ~0.38–0.46
+vs retrieval ~0.96–0.98), so we do not present cross-node inference as predictive lift.</div>
+<div class="fail"><b>What we tried that did not work (and kept in the paper).</b> Ranking cause
+categories by <em>lift</em> (posterior ÷ prior, "which category increased most") sounded cleverer
+than ranking by posterior. It scores 50.2% — barely above the baseline — because lift amplifies
+noise on small priors. We report it because negative ablations are how a reader learns the design
+was chosen by measurement, not taste (the same lesson as bn-fused in Part 4).</div>
+
+<h2>6.5 What this evaluation does — and does not — cover</h2>
+<div class="fail"><b>The honest scope statement.</b> The pipeline <em>computes</em> posteriors for
+every individual upstream node (hundreds of specific findings, occurrences, and persons — the
+demo shows them for any narrative), but what is <em>quantitatively scored</em> here is only the
+four-category rollup. Finding-level or occurrence-level diagnosis accuracy is not evaluated —
+partly forced by the data (the 2008 taxonomy break means held-out truth labels do not share a
+vocabulary with the network's legacy-era nodes below the category level). The fire-node
+cross-inference experiment (Part 7.6, <code>outputs/fire_node_cross_inference.md</code>) is now
+<b>done and negative</b>: BN ROC AUC ~0.38–0.46 on coded fire (below chance) vs retrieval
+~0.96–0.98 on identical text. Do not claim held-out predictive lift from BN cross-node
+inference; the precise claims are: (1) narratives drive diagnosis at the category level (this
+part), and (2) the BN provides auditable joint reasoning and what-if semantics — not
+outperformance over neighbour voting on unobserved nodes like fire.</div>
+
+<div class="verify"><b>Verify it yourself.</b>
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_heldout_eval.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_emb_lr_baseline.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_mapping_audit_sample.py</pre>
+Outputs: <code>outputs/diagnosis_heldout_eval.md</code> (full report with metric definitions,
+Holm-corrected primary comparisons, per-category recall),
+<code>outputs/diagnosis_emb_lr.md</code>, and the mapping-sample CSV. The rollup rules you would
+check are the two functions <code>categorize_legacy</code> / <code>categorize_cictt</code> in
+<code>tests/diagnosis_heldout_eval.py</code> — deliberately plain keyword rules, so anyone can
+read them.</div>
+
+<p class="crumb"><a href="part7-leakage-and-honesty.html">Next: Part 7 — Leakage, audits, and honest claims →</a></p>
+</div></body>
+</html>

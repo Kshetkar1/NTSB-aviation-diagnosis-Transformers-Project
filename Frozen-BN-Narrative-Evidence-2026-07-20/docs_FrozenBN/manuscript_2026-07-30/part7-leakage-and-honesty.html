@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 7 — Leakage, Audits, and Honest Claims</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 7 of 9 ·
+<a href="part6-diagnosis-evaluation.html">← Part 6</a></p>
+<span class="edition-badge">Edition 2026-07-30</span>
+<h1>Part 7 — Leakage, Audits, and Honest Claims</h1>
+<p>This part is the reason the other six can be believed. It tells the story of how the project's
+numbers got <em>worse</em> on purpose — from 93%/81% to 90.9%/77.4% — and why the worse numbers
+are the publishable ones. If you learn one research habit from this manuscript, learn this part's.</p>
+
+<h2>7.1 The discovery: our model was reading the answer</h2>
+<div class="fail"><b>What went wrong.</b> The early severity results were 93% injury / 81% damage
+— suspiciously high. The suspicion was correct: NTSB narratives often state the outcome in plain
+text ("the airplane was destroyed"; "the flight attendant was seriously injured"), and both the
+retrieval embedding and a "stated severity" reader were consuming those sentences. The model was
+partially <em>copying</em>, not predicting. The fix had three parts: (1) a redaction pass
+(<code>redact_severity_phrases</code> in <code>code/query_to_bn.py</code>) that strips stated
+injury/damage phrases, death/medical wording, and NTSB's full-report boilerplate <em>before any
+use of the text</em>; (2) the stated-severity reader demoted to an OFF-by-default ablation
+(<code>LEAK_SAFE_SEVERITY</code> in <code>shared/code/config.py</code>); (3) a rerun of
+everything. Numbers moved to 90.9% / 77.4% — and every document now labels the old numbers
+"pre-fix, superseded."</div>
+<div class="why"><b>Why we treat losing 2–4 points as a win.</b> Because 93/81 was
+indefensible — one sharp reviewer question ("does the text state the outcome?") would have
+collapsed it. 90.9/77.4 survives that question with an audit trail. Honest numbers are the ones
+you can stand next to.</div>
+
+<h2>7.2 What redaction does and does not do — precision matters</h2>
+<div class="vocab"><b>The precise claim.</b> Redaction removes <em>explicit outcome
+statements</em>. It does NOT remove outcome <em>predictability</em> — a narrative about severe
+turbulence injuring a flight attendant still predicts a serious-injury code from mechanism wording
+alone, and that is the legitimate signal every predictor uses. Early drafts blurred this
+distinction; the current documents state it exactly
+(<code>README.md</code>, leakage protocol section; <code>docs_FrozenBN/RESULTS_SECTION.md</code>).</div>
+<p>The audit that measures this is <code>tests/redaction_leak_probe.py</code> — two probes:</p>
+<table>
+  <tr><th>Probe</th><th>Design</th><th>Injury (full → redacted)</th><th>Damage (full → redacted)</th></tr>
+  <tr><td>Window-trained (the clean audit)</td>
+      <td>TF-IDF + logistic regression fit ONLY on 1982–2006 narratives, scored once on the 296.</td>
+      <td>92.2% → 92.2%</td><td>75.7% → 73.3%</td></tr>
+  <tr><td>In-sample CV (worst-case bound)</td>
+      <td>5-fold cross-validation on the held-out text itself.</td>
+      <td>89.5% → 89.2%</td><td>74.0% → 72.3%</td></tr>
+</table>
+<p>The token check is the point: after redaction, the probe's most predictive words are
+<em>mechanism</em> words (turbulence, flight attendant, landing gear, postcrash fire) — not
+outcome words. That is what "the leak is closed; the signal is legitimate" looks like as a
+measurement. Report: <code>outputs/redaction_leak_probe.md</code>.</p>
+
+<h2>7.3 The probe that became a baseline — an honesty story</h2>
+<div class="fail"><b>What we almost got wrong.</b> Look at that probe table again: 92.2% injury.
+That is <em>higher</em> than bn-sev's 90.9% — meaning the strongest injury predictor in the
+repository was sitting in a leak-audit file while the paper's baseline table showed only weaker
+competitors. Nothing was computed wrong; the <em>placement</em> was wrong, and a reviewer finding
+it would reasonably suspect burial. The fix: the probe was promoted to a first-class baseline
+(<code>tests/tfidf_lr_baseline_heldout.py</code>, configuration unchanged so it cannot be accused
+of tuning), scored per-item on the identical cohort, and added to the Holm primary family. Result
+(Part 5): a statistical tie (p = 0.87 injury / 0.29 damage; 8 discordant accidents), TF-IDF best
+on injury, bn-sev best on damage and on damage Macro-F1 and severe-screen. The story survived
+being honest — and is stronger for it, because now the claim "accuracy is a commodity; the
+network's value is reasoning" has three supervised witnesses instead of two.</div>
+
+<h2>7.4 The full audit stack</h2>
+<table>
+  <tr><th>Audit</th><th>Question it answers</th><th>Script → output</th></tr>
+  <tr><td>Train/test separation</td><td>Are any test accidents in the network window or the
+      retrieval index? (0 of 296.)</td>
+      <td><code>tests/heldout_leak_audit.py</code> → <code>outputs/heldout_leak_audit.md</code></td></tr>
+  <tr><td>Cohort manifest</td><td>Did every evaluation script score the identical accidents?
+      (Yes — IDs published.)</td>
+      <td><code>tests/build_cohort_manifest.py</code> → <code>outputs/cohort_manifest.json</code></td></tr>
+  <tr><td>Redaction probe</td><td>Does redacted text still state outcomes? (No — mechanism tokens
+      only.)</td>
+      <td><code>tests/redaction_leak_probe.py</code> → <code>outputs/redaction_leak_probe.md</code></td></tr>
+  <tr><td>Mapping sensitivity<br><span class="src">(not an audit — see below)</span></td>
+      <td>How much could the diagnosis rollup rules move the results? (Contested mass 316/5,062
+      findings = 6.2% → ≤ 2 pp, same direction for every predictor; observed +0.4 pp.)</td>
+      <td><code>tests/diagnosis_mapping_audit_sample.py</code> →
+          <code>outputs/mapping_audit_sample.csv</code> + <code>mapping_audit_summary.md</code></td></tr>
+  <tr><td>Hyperparameter sweep</td><td>Was k tuned on test data? (No — flat plateau, k=25 ablation
+      published.)</td>
+      <td><code>tests/retrieval_hyperparam_sensitivity.py</code> →
+          <code>outputs/hyperparam_sensitivity.md</code></td></tr>
+  <tr><td>Free parameters</td><td>What is fitted, anywhere? (Nothing in the primary chain.)</td>
+      <td><code>docs_FrozenBN/FREE_PARAMETERS.md</code></td></tr>
+  <tr><td>Environment locks</td><td>Could a stray environment variable swap in a contaminated
+      retrieval index? (No — evaluation scripts pop <code>NTSB_FULL_CORPUS</code> /
+      <code>NTSB_USE_TRAIN_INDEX</code> before loading.)</td>
+      <td>Top of <code>tests/frozenbn_heldout_narrative_bn_eval.py</code> and
+          <code>tests/lr_baseline_heldout.py</code></td></tr>
+</table>
+<div class="fail"><b>Why the mapping row is deliberately not called an audit.</b> Every other row in
+that table <em>measures a fact</em>: an ID either is or is not in the index, a probe either does or
+does not recover outcome words. The category mapping is different — it is a judgement about
+taxonomy, and the only defensible check on a judgement is a coder who is not you. Our 75-row review
+pass was an AI assistant with the rows then checked by the first author, which is self-review with
+extra steps; calling that an "audit" or "dual coding" would be an overclaim, so we do not. What we
+publish instead is the bound (Part 6.2): the contested rows are 6.2% of the mapped mass, they move
+absolute accuracy by at most 2 points in the same direction for every predictor, and every ordering
+the paper claims survives that by more than an order of magnitude. The rules themselves are two
+short keyword functions in the repository, so a reader who disagrees with a specific rule can change
+it and recompute.</div>
+
+<h2>7.5 The limitations we disclose (because no audit can remove them)</h2>
+<table>
+  <tr><th>Limitation</th><th>Why it exists</th><th>How the paper handles it</th></tr>
+  <tr><td>Test-set reuse</td>
+      <td>The 296 held-out accidents were scored repeatedly during development (protocol fixes,
+      ablation design), so reported accuracy may carry some selection optimism — no model
+      parameter was ever fitted to them, but decisions saw their results.</td>
+      <td>Disclosed in <code>RESULTS_SECTION.md</code>; the clean fix is a one-shot confirmation
+      run on a never-touched window (2020–2024), named as planned confirmatory work.</td></tr>
+  <tr><td>Embedding pretraining</td>
+      <td>The OpenAI embedding model may have seen 2007–2019 NTSB reports during its own
+      training; no redaction can reach inside it.</td>
+      <td>Disclosed as a limitation; comparisons stay fair because emb-LR shares the channel, and
+      the TF-IDF baseline (85.5/60.1 → for parsed LR; 92.2/73.3 for TF-IDF text) is the
+      pretraining-free reference point.</td></tr>
+  <tr><td>Rare classes</td>
+      <td>3 fatal, 16 minor-injury, 25 Organizational-cause accidents — too few to learn or
+      retrieve reliably.</td>
+      <td>Per-class recall and confusion matrices published; the fatal-injury misses stated
+      plainly (Part 5.5), and the Organizational best case (1 of 25, by the BN event path) stated
+      rather than rounded to "none".</td></tr>
+  <tr><td>Retrospective text</td>
+      <td>Narratives are written after investigation — this is not real-time prediction.</td>
+      <td>Framed as triage/coding-assist/what-if analysis throughout (Part 1.3).</td></tr>
+  <tr><td>The network adds no severity accuracy</td>
+      <td><em>By construction</em>, not by accident: <code>bn-sev</code> and
+      <code>retrieval-sev</code> are identical on all 296 accidents (0 discordant), because the
+      network faithfully mediates the k-NN evidence rather than adding information to it.</td>
+      <td>Stated in the results, the README, and Part 5 — the contribution claimed is the reasoning
+      layer at zero accuracy cost, never predictive lift.</td></tr>
+  <tr><td>Four-category diagnosis granularity</td>
+      <td>The 2008 taxonomy break means legacy and CICTT codes share no vocabulary below CICTT's top
+      level, so the rollup to four categories is forced by the data, and the rollup itself rests on a
+      keyword rule set that no independent coder has checked.</td>
+      <td>Rules published in full; influence bounded at ≤ 2 pp, order-preserving (Part 6.2). Nothing
+      finer than category level is scored, and Part 6.5 says so.</td></tr>
+  <tr><td>Residual disagreement with Zhang</td>
+      <td>12 of the 93 published BN numbers still differ after the network upgrades (48 exact, 29
+      close).</td>
+      <td>Each is attributed, not hidden: a build-variance envelope quantifies how much tie-jitter in
+      Zhang's own construction moves cells, and his released <code>NTSB.xdsl</code> does not
+      reproduce his published Table 8 either (<code>outputs/bn_posterior_parity.json</code>).</td></tr>
+</table>
+
+<h2>7.6 What remains open, honestly</h2>
+<table>
+  <tr><th>Item</th><th>Status</th></tr>
+  <tr><td>Independent coding of the category mapping</td>
+      <td><b>Not done, and reframed rather than promised.</b> The 75-row consistency review is
+      complete (2 rule defects corrected, evaluation rerun: retrieval 83.8% → 84.2%, nothing else
+      moved — <code>outputs/mapping_audit_sample.csv</code>), but it was self-review, so the paper
+      claims a sensitivity bound (≤ 2 pp, order-preserving) instead of a validated mapping. A truly
+      independent coder would upgrade this from "bounded" to "validated"; nothing else about the
+      paper depends on it.</td></tr>
+  <tr><td>One-shot 2020–2024 confirmation run</td>
+      <td>Planned; requires pulling and processing post-2019 NTSB data. The single strongest
+      remaining upgrade to the evidence.</td></tr>
+  <tr><td>LLM-tier ablation rerun under the current full-redaction protocol</td>
+      <td><b>Done (2026-07-29).</b> Rerun with <code>--llm gpt-4.1 --tag _llm</code> under full
+      redaction (parsers receive redacted text only): tier 1 deterministic 176, tier 2 LLM 120,
+      tier 3 fallback 0; llm-tier 68.2% / 51.7% injury/damage, llm-first 66.9% / 57.8%; bn-sev
+      unchanged at 90.9% / 77.4%. Conclusion unchanged — the LLM is a text reader, not the
+      predictive signal. Outputs: <code>outputs/heldout_narrative_bn_eval_llm.json</code>,
+      <code>outputs/heldout_per_item_llm.json</code>.</td></tr>
+  <tr><td>Fire-node cross-inference experiment</td>
+      <td><b>Done (2026-07-29) — negative result.</b> Feed only parsed event evidence, read
+      P(fire), score against coded fire field on the same 296 held-out accidents. BN ROC AUC
+      ~0.38–0.46 (below chance); retrieval on identical text ~0.96–0.98; keyword-fire regex
+      ~0.94. Does <em>not</em> support "BN cross-node inference retrieval alone cannot."
+      Mechanism: <code>fire</code> has 13 ancestors, 6 barred by leak guard; parser mostly enters
+      only <code>person: flightcrew</code>. Surviving BN claim narrowed to coherent what-if /
+      evidence-composition semantics — not held-out predictive lift on unobserved nodes. Full
+      report: <code>outputs/fire_node_cross_inference.md</code>;
+      script: <code>tests/fire_node_cross_inference.py</code>.</td></tr>
+</table>
+
+<h2>7.7 The habit to take away</h2>
+<div class="why"><b>The pattern behind every fix in this part.</b> Each problem was found by
+asking "what would a hostile reviewer check first?" and then <em>running that check ourselves,
+before they could</em>. Leakage → probe it. Baseline fairness → build the attacker. Judgement calls
+you cannot independently verify (the category mapping) → bound how much they could possibly matter,
+and say plainly that a bound is not a validation. Prose claims → recompute them from the per-item
+files (that is how a false
+"all 3 fatal accidents are flagged severe" sentence was caught — the raw data said 1 of 3).
+The discipline generalizes far beyond this project: your results are only as strong as the
+strongest attack they have already survived.</div>
+
+<div class="verify"><b>Verify the whole audit stack in one sitting.</b>
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/heldout_leak_audit.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/redaction_leak_probe.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/retrieval_hyperparam_sensitivity.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/build_cohort_manifest.py</pre>
+Then read the four outputs in <code>Frozen-BN-Narrative-Evidence-2026-07-20/outputs/</code>. The
+complete reproduce-everything sequence, in order, is
+<code>Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md</code>.</div>
+
+<p class="crumb"><a href="index.html">← Back to the manuscript index</a></p>
+</div></body>
+</html>

@@ -193,6 +193,22 @@ def downstream_labels_from_audit(audit, frac_after_min=0.5, min_support=2):
             and s["frac_after"] > frac_after_min}
 
 
+def _label_is_downstream(label: str, downstream: set) -> bool:
+    """True if `label` matches a sequence-position consequence audit key.
+
+    Audit keys come from occurrence/finding text (often shorter). Zhang
+    cause-factor labels may add parenthetical qualifiers, e.g. audit key
+    ``loss of engine power`` vs cause label
+    ``Loss of engine power (total) - mechanical failure/malfunction``."""
+    low = str(label or "").lower().strip()
+    if not low or not downstream:
+        return False
+    for d in downstream:
+        if low == d or low.startswith(d + " ") or low.startswith(d + "("):
+            return True
+    return False
+
+
 def _causes_list(name, targets, ds, restrict_ev_ids, drop_labels, drop_generic,
                  cause_factor_only=False, exclude_responses=False,
                  downstream=None):
@@ -226,7 +242,7 @@ def _causes_list(name, targets, ds, restrict_ev_ids, drop_labels, drop_generic,
         if drop_generic and low in zd.GENERIC_CAUSES:
             continue
         if exclude_responses and (low in zd.DIAGNOSIS_RESPONSE_LABELS
-                                  or low in downstream):
+                                  or _label_is_downstream(low, downstream)):
             continue
         out.append({"label": lab, "prob": c["probability"], "n": c["n"], "denom": denom})
     return out, denom

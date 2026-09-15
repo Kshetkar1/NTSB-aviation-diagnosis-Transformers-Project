@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 9 — Advisor Q&amp;A (Maha &amp; Jesse)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 9 of 9 ·
+<a href="part8-worked-example.html">← Part 8</a></p>
+<span class="edition-badge">New in 2026-07-30 edition</span>
+<h1>Part 9 — Advisor Q&amp;A: What Maha and Jesse Will Ask</h1>
+<p>Source: <code>docs_FrozenBN/CRIB_SHEET.md</code> (2026-07-29 numbers). Each block gives the
+question, why it is hard, what <em>not</em> to say, and a recommended answer in plain language.</p>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse #1</b>
+<b>"How does the narrative get into the Bayesian network?"</b>
+<p>Three routes, all ending as evidence on named nodes:</p>
+<ol>
+  <li><strong>Hard evidence</strong> — parser matches NTSB vocabulary ("loss of engine power", "fire").
+      Node set to Yes, p=1. No model.</li>
+  <li><strong>Soft evidence</strong> — embed narrative, top-100 similar 1982–2006 accidents; strength =
+      fraction of neighbors with that code (e.g. 40/100 → 0.40).</li>
+  <li><strong>Virtual evidence (bn-sev)</strong> — neighbor injury/damage distribution on severity nodes
+      (Pearl's Jeffrey conditioning).</li>
+</ol>
+<p class="say">One line: <em>The narrative is translated into evidence on Zhang's own coded variables;
+every strength is a fraction counted from 1982–2006 data.</em></p>
+<p><strong>Do not say:</strong> "asserted", "the model learned", or call retrieval output a "posterior."</p>
+</div>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse #2</b>
+<b>"What are the weights? Are they learned?"</b>
+<p class="say">No learned weights in the primary chain. Numbers are (a) frozen Zhang CPTs, (b) measured
+retrieval fractions, or (c) fixed defaults (top_k=100, chosen once on 2002–2006 validation). Only the
+three supervised baselines (lr, emb-lr, tfidf-lr) are fitted. Inventory:
+<code>FREE_PARAMETERS.md</code>.</p>
+</div>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse #3</b>
+<b>"So what are you training? Where's the validation set?"</b>
+<p class="say">Nothing is trained. 1982–2006 builds the network and index; 2002–2006 picks top_k once;
+2007–2019 is held out for final scoring only. Say <strong>frozen</strong>, never <strong>trained</strong>.</p>
+</div>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse #4 — the hard one</b>
+<b>"How many times have you looked at that held-out set?"</b>
+<p>Concede immediately. No parameters were fitted to 2007–2019, but we scored the 296 repeatedly while
+fixing leakage and designing ablations — so <em>decisions</em> saw held-out results. Selection optimism
+is possible.</p>
+<p class="say">The real fix is a one-shot run on 2020–2024 we have never touched. That is a
+<strong>prerequisite for submission</strong>, not a nice-to-have. Until then, read numbers as
+developed-on-test. See RESULTS §5.6.</p>
+</div>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse #5</b>
+<b>"What exactly is that 93% — sensitivity? specificity?"</b>
+<p>Old 93%/81% are superseded. Leak-safe headline:</p>
+<ul>
+  <li>Accuracy (top-1 of 4 states): injury <strong>90.9%</strong>, damage <strong>77.4%</strong> (n=296, bn-sev)</li>
+  <li>Macro-F1: 0.470 injury / 0.697 damage</li>
+  <li>Severe-outcome screen: injury 93.5% sens / 96.8% spec; damage 75.3% / 89.8%</li>
+</ul>
+<p class="say">Full table: <code>outputs/heldout_significance.md</code>.</p>
+</div>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse #6</b>
+<b>"Isn't the model reading the outcome in the text?"</b>
+<p class="say">It was a real risk; we closed it. Outcome phrases stripped before any embedding or parsing;
+stated-severity evidence OFF by default. Numbers dropped 93%/81% → 90.9%/77.4%. Redaction removes
+explicit outcome <em>statements</em>, not mechanism signal — stall/turbulence wording still predicts
+severity legitimately. We promoted the redaction leak probe to baseline (tfidf-lr) so we cannot hide it.</p>
+</div>
+
+<div class="advisor"><b class="tag maha">Maha &amp; Jesse</b>
+<b>"What is the BN contributing?"</b>
+<p class="say">On held-out accuracy, the BN matches retrieval by construction (0/296 discordant) — raw
+signal is narrative→neighbors. The BN adds: (1) validated causal structure (Zhang reproduced to the
+digit); (2) joint reasoning across nodes; (3) what-if and per-node explanations. Retrieval is the
+accuracy claim; the BN is the reasoning-and-explanation claim. Do not oversell the reverse.</p>
+</div>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse / Maha</b>
+<b>"Does the BN do cross-node inference on held-out data?"</b>
+<p class="say"><strong>No on fire.</strong> Parsed event evidence only → P(fire): BN AUC ~0.38–0.46;
+retrieval ~0.97; regex ~0.94. Narrow claim: what-if and evidence composition on a frozen auditable
+model — not held-out predictive lift on unobserved nodes. Diagnosis event path (57.7%) shows parsed
+facts reach cause nodes; that does not extend to fire. Table:
+<code>outputs/fire_node_cross_inference.md</code>.</p>
+</div>
+
+<div class="advisor"><b class="tag maha">Maha</b>
+<b>"Do your numbers match Zhang's?"</b>
+<p class="say">Yes on published quantities: 102 fire occurrences, P(fire)=102/184,517,128=5.527942e-7,
+85/85 Table 7 rows. "113/113" is an internal consistency check, not the paper comparison. Upgraded BN:
+77/93 posteriors exact or close on published Table 8/9 numbers. Reports in
+<code>ZHANG_REPRODUCTION_REPORT.md</code>.</p>
+</div>
+
+<div class="advisor"><b class="tag maha">Maha</b>
+<b>"How do you evaluate diagnosis across the 2008 coding change?"</b>
+<p class="say">Roll both eras to four CICTT top-level categories (Personnel / Aircraft / Environment /
+Organizational). Legacy mapped by published keyword rules (97.6% coverage). Do NOT call it an audit —
+say "documented rule set with ≤2 pp sensitivity bound on contested rows." Results (n=253): retrieval
+84.2%, emb-LR 88.1%, BN event 57.7%, baseline 45.8%.</p>
+</div>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse</b>
+<b>"A linear model beats you — why is your architecture justified?"</b>
+<p class="say">We ran that attack ourselves on the same 296 accidents. Severity: emb-LR 91.6%/74.0%,
+TF-IDF 92.2%/73.3% vs our 90.9%/77.4% — no significant difference (Holm p ≥ 0.29). We win on damage
+Macro-F1 and severe-damage sensitivity. Diagnosis: emb-LR beats us by 3.9 pp — we disclose it. Selling
+point: zero training, every prediction decomposes into named evidence on a validated network.</p>
+</div>
+
+<div class="advisor"><b class="tag maha">Maha — terms</b>
+<b>"Watch your language."</b>
+<table>
+  <tr><th>Banned / wrong</th><th>Say instead</th></tr>
+  <tr><td>"Posterior" for retrieval output</td><td>"weighted neighbor distribution"</td></tr>
+  <tr><td>"Training" the pipeline</td><td>"frozen", "selected on validation", "fitted" (baselines only)</td></tr>
+  <tr><td>"Asserted"</td><td>"parser mapped X to node Y with strength 0.14 from neighbors"</td></tr>
+  <tr><td>"Audit" for category mapping</td><td>"documented rule set, ≤2 pp sensitivity bound"</td></tr>
+</table>
+</div>
+
+<div class="verify"><b>Regenerate all numbers.</b>
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/diagnosis_heldout_eval.py</pre>
+</div>
+
+<p class="nav-footer"><a href="index.html">← Back to index</a></p>
+</div></body>
+</html>

@@ -20,6 +20,13 @@ import zhang_diagnosis as zd
 DATASET = ROOT / "shared" / "data" / "processed" / "refined_dataset_1982_2006.json"
 
 
+def _all_labels(node):
+    labs = [node["label"]]
+    for c in node.get("children") or []:
+        labs.extend(_all_labels(c))
+    return labs
+
+
 def main():
     ds = json.loads(DATASET.read_text(encoding="utf-8"))
     result = trees.build_diagnosis_tree(
@@ -29,12 +36,21 @@ def main():
     )
     root = result["tree"]
     assert root is not None, result["meta"]
+    labels = [lab.lower() for lab in _all_labels(root)]
+    leaked_resp = [lab for lab in labels if lab in zd.DIAGNOSIS_RESPONSE_LABELS]
+    assert not leaked_resp, f"response labels in tree: {leaked_resp}"
+    downstream = trees.downstream_labels_from_audit(
+        trees.outcome_position_audit({"fire"}, ds))
+    leaked_down = [
+        lab for lab in labels
+        if trees._label_is_downstream(lab, downstream)
+    ]
+    assert not leaked_down, f"downstream/prognosis labels in tree: {leaked_down}"
     l1 = [c["label"].lower() for c in root["children"]]
-    leaked = [lab for lab in l1 if lab in zd.DIAGNOSIS_RESPONSE_LABELS]
-    assert not leaked, f"response labels in L1: {leaked}"
     assert "electrical system, electric wiring" in l1
+    assert "loss of engine power (total) - mechanical failure/malfunction" not in l1
     assert result["meta"]["outcome_count_in_pool"] == 102
-    print("PASS: diagnosis L1 has upstream causes only (no evacuation/emergency procedure)")
+    print("PASS: diagnosis tree has upstream causes only (no response or prognosis labels)")
     return 0
 
 

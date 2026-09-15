@@ -1,0 +1,66 @@
+:root {
+  --ink:#1a1a2e; --muted:#5c5c72; --accent:#2b4c7e; --bg:#fbfaf7; --card:#ffffff;
+  --line:#e3e0d8; --code-bg:#f0eee8; --good:#2e6b46; --bad:#a03030; --warn:#8a6d1a;
+  --maha:#5a3d7a; --jesse:#1e5c4a;
+}
+* { box-sizing:border-box; }
+body { font-family: Georgia, 'Times New Roman', serif; background:var(--bg); color:var(--ink);
+       margin:0; line-height:1.65; }
+.wrap { max-width:900px; margin:0 auto; padding:48px 28px 96px; }
+h1 { font-size:1.85rem; margin:0 0 4px; color:var(--accent); }
+h2 { font-size:1.28rem; margin-top:2.2em; border-bottom:1px solid var(--line); padding-bottom:6px; }
+h3 { font-size:1.05rem; margin-top:1.6em; }
+.subtitle { color:var(--muted); font-size:1.05rem; margin-bottom:2em; }
+.edition-badge { display:inline-block; font-family:Menlo,monospace; font-size:0.75rem;
+  background:var(--accent); color:#fff; padding:3px 10px; border-radius:12px; margin-bottom:1em; }
+.crumb { font-size:0.85rem; color:var(--muted); margin-bottom:2em; }
+.crumb a { color:var(--accent); }
+code { font-family:'SF Mono', Menlo, Consolas, monospace; font-size:0.86em;
+       background:var(--code-bg); padding:1px 5px; border-radius:3px; }
+pre { background:var(--code-bg); padding:12px 16px; border-radius:6px; overflow-x:auto;
+      font-size:0.85rem; line-height:1.5; }
+a { color:var(--accent); }
+table { border-collapse:collapse; width:100%; margin:1em 0; font-size:0.93rem; }
+th, td { border:1px solid var(--line); padding:7px 11px; text-align:left; vertical-align:top; }
+th { background:var(--code-bg); }
+.vocab { background:#eef3f9; border-left:4px solid var(--accent); padding:12px 16px; margin:1.2em 0;
+         border-radius:0 6px 6px 0; }
+.vocab b:first-child { color:var(--accent); }
+.why { background:#f2f7f0; border-left:4px solid var(--good); padding:12px 16px; margin:1.2em 0;
+       border-radius:0 6px 6px 0; }
+.why b:first-child { color:var(--good); }
+.fail { background:#faf0f0; border-left:4px solid var(--bad); padding:12px 16px; margin:1.2em 0;
+        border-radius:0 6px 6px 0; }
+.fail b:first-child { color:var(--bad); }
+.verify { background:#faf6ea; border-left:4px solid var(--warn); padding:12px 16px; margin:1.2em 0;
+          border-radius:0 6px 6px 0; }
+.verify b:first-child { color:var(--warn); }
+.advisor { background:#f5f0fa; border-left:4px solid var(--maha); padding:14px 18px; margin:1.4em 0;
+           border-radius:0 8px 8px 0; }
+.advisor.jesse { background:#eef7f3; border-left-color:var(--jesse); }
+.advisor b.tag { display:inline-block; font-family:Menlo,monospace; font-size:0.72rem;
+  padding:2px 8px; border-radius:10px; margin-bottom:8px; }
+.advisor b.tag.maha { background:#e8dff0; color:var(--maha); }
+.advisor b.tag.jesse { background:#d8eee6; color:var(--jesse); }
+.advisor .say { margin-top:10px; padding-top:10px; border-top:1px dashed var(--line);
+  font-style:italic; color:var(--ink); }
+.part { background:var(--card); border:1px solid var(--line); border-radius:8px;
+        padding:18px 22px; margin:14px 0; }
+.part h3 { margin:0 0 6px; font-size:1.1rem; }
+.part p { margin:6px 0; color:var(--muted); font-size:0.97rem; }
+.tag { display:inline-block; font-family:Menlo, monospace; font-size:0.72rem; padding:2px 8px;
+       border-radius:10px; border:1px solid var(--line); color:var(--muted); margin-right:6px; }
+.tag.new { background:#e8f4ea; border-color:#b8d4be; color:var(--good); }
+.step { border:1px solid var(--line); border-radius:8px; padding:14px 18px; margin:12px 0;
+        background:var(--card); }
+.step h3 { margin:0 0 6px; font-size:1.02rem; color:var(--accent); }
+.diagram { background:var(--card); border:1px solid var(--line); border-radius:8px;
+           padding:16px; margin:1.2em 0; overflow-x:auto; text-align:center; }
+.diagram figcaption { font-size:0.85rem; color:var(--muted); margin-top:8px; text-align:left; }
+.src { font-size:0.83rem; color:var(--muted); }
+.timeline td:first-child { white-space:nowrap; font-family:Menlo, monospace; font-size:0.85rem; }
+.status-accepted { color:var(--good); font-weight:bold; }
+.status-rejected { color:var(--bad); }
+.status-foundation { color:var(--accent); }
+.status-superseded { color:var(--warn); }
+.nav-footer { margin-top:3em; padding-top:1em; border-top:1px solid var(--line); font-size:0.9rem; }

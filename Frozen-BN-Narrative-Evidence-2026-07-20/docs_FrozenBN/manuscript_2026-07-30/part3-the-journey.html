@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 3 — The Journey: What We Tried First and Why We Switched</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 3 of 9 ·
+<a href="part2-reproducing-zhang.html">← Part 2</a></p>
+<span class="edition-badge">Edition 2026-07-30</span>
+<h1>Part 3 — The Journey: What We Tried First and Why We Switched</h1>
+<p>Research is not a straight line, and this repository honestly records the detours: each major
+attempt lives in its own dated folder, with its status declared in <code>PROJECT_MAP.md</code> at
+the repository root. This part walks the timeline and — most importantly — explains <em>why</em>
+each earlier idea lost to the next one. Understanding the rejections is understanding the design.</p>
+
+<h2>3.1 March 2026 — Embedding similarity + counting
+  <span class="src">(<code>Embedding-Similarity-Counting-Path-2026-03-25/</code>, SUPERSEDED)</span></h2>
+<p>The first idea was the simplest thing that could possibly work: embed all historical
+narratives, embed a new narrative, find its nearest neighbors by cosine similarity, and
+<b>count</b> outcomes among the neighbors — "17 of your 25 most similar accidents had substantial
+damage." Clustering (k-means) grouped similar accidents for browsing.</p>
+<div class="fail"><b>Why it was superseded.</b> Counting neighbors answers exactly one question at
+a time and produces frequencies with no model behind them. There is no way to combine the counts
+with other knowledge ("we also know there was a fire"), no way to ask what-if questions, no
+validated probabilistic structure — and nothing about it is publishable as new methodology,
+because k-NN outcome counting is decades old. What survived: the embedding + retrieval machinery
+itself (<code>shared/code/main_app.py</code>) became the soft-evidence engine of the final
+approach, and the counting idea survives inside it as the k-NN severity readout (Part 4). Nothing
+was wasted; it just wasn't enough on its own.</div>
+
+<h2>3.2 June 2026 — Reproduce Zhang exactly
+  <span class="src">(<code>Zhang-Replication-Foundation-2026-06-04/</code>, FOUNDATION)</span></h2>
+<p>Covered in Part 2. The decision that everything after would be anchored to a peer-reviewed,
+validated network — rather than to a model of our own invention — was made here.</p>
+
+<h2>3.3 June 2026 — Try to improve the network's probability tables
+  <span class="src">(<code>BN-CPT-Upgrade-Experiments-2026-06-19/</code>, REJECTED)</span></h2>
+<p>With the replication in hand, the natural itch: can we make Zhang's CPTs <em>better</em>?
+Experiments included sparse CPT estimation (many parent-state combinations have very few example
+accidents, so their probability estimates are noisy) and uncertainty envelopes around the CPT
+entries.</p>
+<div class="fail"><b>Why it was rejected.</b> A strategic contradiction, not a technical failure:
+every modification to the network breaks the sentence "the network we query is the one that was
+validated." If we retune the CPTs, we own the burden of re-validating the whole model — which is a
+different, much larger paper. The experiments taught us where the network's estimates are fragile
+(useful for the limitations section), and the variance-envelope machinery survives in
+<code>Frozen-BN-Narrative-Evidence-2026-07-20/tests/bn_variance_envelope.py</code> and the report
+<code>outputs/BN_VARIANCE_REPORT.md</code>. But the main line pivoted to the opposite philosophy:
+<b>change nothing; add evidence.</b> That pivot is where "frozen" was born.</div>
+
+<h2>3.4 July 2026 — The LLM-first parser
+  <span class="src">(<code>LLM-Narrative-Parser-Experiments-2026-07-15/</code>, REJECTED as primary)</span></h2>
+<p>To get narrative facts into the network you must first extract them. The obvious modern answer:
+ask a large language model to read the narrative and output the network-node facts directly.</p>
+<div class="fail"><b>Why it was rejected as the primary path.</b> Three independent reasons, each
+sufficient:
+(1) <b>Accuracy</b> — on the held-out evaluation the LLM-driven predictors reach roughly 69%
+injury / 52–58% damage, far below the 90.9% / 77.4% of the retrieval-based chain (measured under
+the leak-safe protocol: run the main evaluation with <code>--llm gpt-4.1 --tag _llm</code>; outputs
+in <code>outputs/*_llm.json</code>).
+(2) <b>Determinism</b> — LLM outputs vary run to run, which poisons reproducibility; a reviewer
+who reruns your pipeline must get your numbers.
+(3) <b>Cost and dependency</b> — every narrative costs API calls, and the method's core would
+depend on a black box we cannot version.
+What survived: the LLM remains as an optional <em>tier-2 fallback reader</em> in the combined
+parser (<code>code/llm_evidence.py</code>, invoked through <code>code/query_to_bn.py</code>) for
+narratives the deterministic parser cannot handle — with its extracted facts assigned
+<em>data-measured</em> strengths, never trusted raw. The tiered design: deterministic first (176
+of 296 narratives), LLM fallback second (120), hard failure never (0).</div>
+<div class="why"><b>The takeaway that shaped the paper.</b> "The LLM is a text reader, not the
+predictive signal." The signal lives in the historical data (via retrieval); the LLM is one
+optional way to read text, and the system works better with the boring, auditable reader in
+front. This sentence — verified by ablation — is what makes the approach defensible in a
+reliability journal skeptical of LLM magic.</div>
+
+<h2>3.5 July 20, 2026 — Frozen BN + narrative evidence
+  <span class="src">(<code>Frozen-BN-Narrative-Evidence-2026-07-20/</code>, ACCEPTED)</span></h2>
+<p>The synthesis of everything above: keep Zhang's network frozen (3.2/3.3), use embedding
+retrieval as the evidence engine (3.1), use the deterministic parser with optional LLM fallback as
+the text reader (3.4), and connect narrative to network through Pearl's virtual-evidence
+mechanism. Part 4 explains the machinery in full.</p>
+
+<h2>3.6 July 25, 2026 — Structural mapping / re-ranking
+  <span class="src">(<code>Structural-Mapping-Retrieval-2026-07-25/</code>, EXPLORATORY, not in the main evaluation)</span></h2>
+<p>A refinement attempt on retrieval: instead of ranking historical accidents purely by embedding
+similarity, re-rank them by how well their <em>coded structure</em> (events, findings) matches
+what the parser extracted from the query narrative.</p>
+<div class="fail"><b>Why it is not in the main path.</b> The added complexity did not buy a
+reliable improvement over plain cosine retrieval on the held-out tasks, and every additional
+moving part is another thing to validate and explain. It is kept as an appendix lane with worked
+examples — the kind of "we tried the obvious refinement; here is why the simple version stands"
+material reviewers actually like.</div>
+
+<h2>3.7 The pattern in all the rejections</h2>
+<table>
+  <tr><th>Attempt</th><th>Fatal flaw</th><th>What survived into the final approach</th></tr>
+  <tr><td>Embedding + counting</td><td>No model, no reasoning, not novel</td>
+      <td>The entire retrieval engine; k-NN severity readout</td></tr>
+  <tr><td>CPT upgrades</td><td>Breaks the validation transfer</td>
+      <td>The "frozen" philosophy; fragility knowledge for limitations</td></tr>
+  <tr><td>LLM-first parsing</td><td>Weaker, non-deterministic, costly</td>
+      <td>Tier-2 fallback reader with measured strengths</td></tr>
+  <tr><td>Structural re-ranking</td><td>Complexity without measured benefit</td>
+      <td>Appendix worked examples</td></tr>
+</table>
+<div class="why"><b>The meta-lesson.</b> Every rejection was decided by a <em>measurement</em>, not
+a preference — and each rejected folder still exists so the measurement can be rerun. When Part 5
+shows the final numbers, remember that four alternative designs lost to this one on evidence.</div>
+
+<div class="verify"><b>Verify it yourself.</b> The tier usage and LLM-vs-deterministic comparison
+regenerate with:
+<pre>export OPENAI_API_KEY=...   # only needed for the LLM arm
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/frozenbn_heldout_narrative_bn_eval.py --llm gpt-4.1 --tag _llm</pre>
+Outputs land in <code>outputs/heldout_narrative_bn_eval_llm.json</code> (accuracy per predictor,
+tier counts) without touching the canonical leak-safe results — the <code>--tag</code> flag exists
+precisely so ablations can never overwrite headline numbers.</div>
+
+<p class="crumb"><a href="part4-the-pipeline.html">Next: Part 4 — The pipeline →</a></p>
+</div></body>
+</html>

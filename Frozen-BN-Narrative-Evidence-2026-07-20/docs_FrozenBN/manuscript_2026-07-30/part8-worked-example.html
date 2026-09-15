@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 8 — Worked Example: Bird Strike → Forced Landing</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 8 of 9 ·
+<a href="part7-leakage-and-honesty.html">← Part 7</a></p>
+<span class="edition-badge">New in 2026-07-30 edition</span>
+<h1>Part 8 — Worked Example: Bird Strike → Forced Landing</h1>
+<p>This part walks one accident from typed narrative to network posteriors. The scenario is
+<strong>new</strong> — we deliberately avoid the examples already used elsewhere (engine fire,
+windshield failure, landing-gear collapse, LOEP). Here: a single-engine piston aircraft hits birds
+during initial climb, loses power, and executes a forced landing in a field.</p>
+
+<h2>8.1 The synthetic narrative (after redaction)</h2>
+<p>Imagine a user pastes this text into the demo app. Outcome-stating sentences have already been
+removed by <code>redact_severity_phrases()</code> — the investigator's final injury/damage verdict
+is <em>not</em> in the text the system reads.</p>
+<pre>During the initial climb after takeoff, the pilot reported a loud thump and a sudden
+loss of engine power. The pilot observed multiple birds near the departure end of the
+runway. Unable to maintain altitude, the pilot turned back toward the airport but could
+not reach the runway and landed in a field short of the threshold. The airplane struck
+terrain and came to rest upright. Emergency services responded.</pre>
+<div class="vocab"><b>Vocabulary — synthetic but pattern-faithful.</b> This narrative is composed for
+teaching; it mirrors real NTSB wording for bird-strike / power-loss / off-airport landing cases.
+The pipeline steps are identical to what runs on real held-out accidents in
+<code>code/query_to_bn.py</code>.</div>
+
+<h2>8.2 Pipeline overview (five steps)</h2>
+<figure class="diagram">
+<svg viewBox="0 0 820 200" width="100%" style="max-width:820px" aria-label="Pipeline flow">
+  <defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#2b4c7e"/></marker></defs>
+  <rect x="10" y="70" width="120" height="50" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="70" y="100" text-anchor="middle" font-size="12" fill="#1a1a2e">Redact</text>
+  <rect x="160" y="70" width="120" height="50" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="220" y="95" text-anchor="middle" font-size="11" fill="#1a1a2e">Deterministic</text>
+  <text x="220" y="110" text-anchor="middle" font-size="11" fill="#1a1a2e">parser</text>
+  <rect x="310" y="70" width="120" height="50" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="370" y="95" text-anchor="middle" font-size="11" fill="#1a1a2e">Retrieval</text>
+  <text x="370" y="110" text-anchor="middle" font-size="11" fill="#1a1a2e">top-100</text>
+  <rect x="460" y="70" width="130" height="50" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="525" y="95" text-anchor="middle" font-size="11" fill="#1a1a2e">k-NN severity</text>
+  <text x="525" y="110" text-anchor="middle" font-size="11" fill="#1a1a2e">virtual ev.</text>
+  <rect x="620" y="70" width="120" height="50" rx="6" fill="#f2f7f0" stroke="#2e6b46"/>
+  <text x="680" y="95" text-anchor="middle" font-size="11" fill="#1a1a2e">BN</text>
+  <text x="680" y="110" text-anchor="middle" font-size="11" fill="#1a1a2e">inference</text>
+  <line x1="130" y1="95" x2="155" y2="95" stroke="#2b4c7e" marker-end="url(#arr)"/>
+  <line x1="280" y1="95" x2="305" y2="95" stroke="#2b4c7e" marker-end="url(#arr)"/>
+  <line x1="430" y1="95" x2="455" y2="95" stroke="#2b4c7e" marker-end="url(#arr)"/>
+  <line x1="590" y1="95" x2="615" y2="95" stroke="#2b4c7e" marker-end="url(#arr)"/>
+  <text x="70" y="145" text-anchor="middle" font-size="10" fill="#5c5c72">strip outcomes</text>
+  <text x="220" y="145" text-anchor="middle" font-size="10" fill="#5c5c72">hard evidence</text>
+  <text x="370" y="145" text-anchor="middle" font-size="10" fill="#5c5c72">soft evidence</text>
+  <text x="525" y="145" text-anchor="middle" font-size="10" fill="#5c5c72">prognosis channel</text>
+  <text x="680" y="145" text-anchor="middle" font-size="10" fill="#5c5c72">all posteriors</text>
+</svg>
+<figcaption>Figure 8.1 — The accepted pipeline. Severity uses the k-NN virtual-evidence channel
+(bn-sev); diagnosis reads upstream nodes from parsed + soft event evidence. These paths are not
+fused (Part 4, bn-fused negative result).</figcaption>
+</figure>
+
+<h2>8.3 Step-by-step evidence</h2>
+
+<div class="step"><h3>Step A — Hard evidence from the parser</h3>
+<p>The deterministic parser matches NTSB vocabulary in the redacted text:</p>
+<table>
+  <tr><th>Text phrase</th><th>Network node (illustrative)</th><th>Evidence type</th></tr>
+  <tr><td>"loss of engine power"</td><td><code>loss of engine power</code> occurrence</td><td>Hard (Yes, p=1.0)</td></tr>
+  <tr><td>"initial climb" / takeoff context</td><td><code>phase: climb</code> or takeoff phase</td><td>Hard or soft</td></tr>
+  <tr><td>"birds"</td><td>environment / wildlife-related nodes if lexicon hits</td><td>Hard if exact match</td></tr>
+  <tr><td>"landed in a field"</td><td><code>off airport landing</code> / forced landing nodes</td><td>Hard if matched</td></tr>
+  <tr><td>"pilot"</td><td><code>person: flightcrew</code></td><td>Hard (common — 143/296 held-out)</td></tr>
+</table>
+<p>Hard evidence means: if the narrative names the fact in NTSB's own vocabulary, that node is set
+to Yes with probability 1. No learned weights.</p></div>
+
+<div class="step"><h3>Step B — Soft evidence from retrieval</h3>
+<p>The narrative is embedded and compared to ~1,700 window accidents. Suppose the top-100 neighbors
+include many bird-strike, power-loss, and forced-landing cases. Retrieval counts fractions:</p>
+<table>
+  <tr><th>Neighbor fraction</th><th>Example soft fact</th><th>Strength</th></tr>
+  <tr><td>38/100 had bird/wildlife coded</td><td>Environment-related finding</td><td>0.38</td></tr>
+  <tr><td>71/100 had climb/takeoff phase</td><td>Phase = climb</td><td>0.71</td></tr>
+  <tr><td>52/100 had power loss coded</td><td>Loss of engine power</td><td>0.52</td></tr>
+  <tr><td>44/100 had off-airport landing</td><td>Forced / off-airport landing</td><td>0.44</td></tr>
+</table>
+<div class="vocab"><b>Vocabulary — measured fraction, not a tuned weight.</b> Each strength is
+literally "what fraction of my 100 most similar historical accidents had this code?" Nothing is
+fitted on the held-out set.</div></div>
+
+<div class="step"><h3>Step C — Prognosis channel (bn-sev)</h3>
+<p>From the same 100 neighbors, count their coded injury and damage outcomes. Illustrative
+distribution:</p>
+<table>
+  <tr><th>Injury state</th><th>Neighbor count</th><th>Fraction</th></tr>
+  <tr><td>None</td><td>41</td><td>0.41</td></tr>
+  <tr><td>Minor</td><td>28</td><td>0.28</td></tr>
+  <tr><td>Serious</td><td>24</td><td>0.24</td></tr>
+  <tr><td>Fatal</td><td>7</td><td>0.07</td></tr>
+</table>
+<p>This vector enters the injury node as <strong>virtual evidence</strong> (Jeffrey conditioning).
+Top-1 prediction: <strong>None</strong> (41%). The network posterior reproduces this input when no
+competing evidence is on the injury node — the self-test in
+<code>tests/frozenbn_heldout_narrative_bn_eval.py</code> asserts this to four decimals.</p></div>
+
+<h2>8.4 Diagnosis tree: which cause category rises?</h2>
+<p>For diagnosis we use parsed + soft <em>event</em> evidence only (not the severity channel).
+Posteriors on upstream nodes are rolled up to NTSB's four top-level categories (Part 6):</p>
+<figure class="diagram">
+<svg viewBox="0 0 720 320" width="100%" style="max-width:720px" aria-label="Diagnosis tree">
+  <rect x="280" y="10" width="160" height="40" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="360" y="35" text-anchor="middle" font-size="13" fill="#1a1a2e">Narrative evidence</text>
+  <line x1="360" y1="50" x2="360" y2="80" stroke="#2b4c7e"/>
+  <line x1="120" y1="80" x2="600" y2="80" stroke="#2b4c7e"/>
+  <line x1="120" y1="80" x2="120" y2="110" stroke="#2b4c7e"/>
+  <line x1="280" y1="80" x2="280" y2="110" stroke="#2b4c7e"/>
+  <line x1="440" y1="80" x2="440" y2="110" stroke="#2b4c7e"/>
+  <line x1="600" y1="80" x2="600" y2="110" stroke="#2b4c7e"/>
+  <rect x="40" y="110" width="160" height="55" rx="6" fill="#f2f7f0" stroke="#2e6b46"/>
+  <text x="120" y="135" text-anchor="middle" font-size="12" fill="#1a1a2e">Personnel</text>
+  <text x="120" y="152" text-anchor="middle" font-size="10" fill="#5c5c72">pilot actions</text>
+  <rect x="200" y="110" width="160" height="55" rx="6" fill="#faf6ea" stroke="#8a6d1a"/>
+  <text x="280" y="135" text-anchor="middle" font-size="12" fill="#1a1a2e">Aircraft</text>
+  <text x="280" y="152" text-anchor="middle" font-size="10" fill="#5c5c72">powerplant damage</text>
+  <rect x="360" y="110" width="160" height="55" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="440" y="135" text-anchor="middle" font-size="12" fill="#1a1a2e">Environment</text>
+  <text x="440" y="152" text-anchor="middle" font-size="10" fill="#5c5c72">bird strike ↑</text>
+  <rect x="520" y="110" width="160" height="55" rx="6" fill="#f5f0fa" stroke="#5a3d7a"/>
+  <text x="600" y="135" text-anchor="middle" font-size="12" fill="#1a1a2e">Organizational</text>
+  <text x="600" y="152" text-anchor="middle" font-size="10" fill="#5c5c72">usually low</text>
+  <text x="360" y="200" text-anchor="middle" font-size="12" fill="#1a1a2e">Retrieval top-1 category (illustrative): Environment</text>
+  <text x="360" y="222" text-anchor="middle" font-size="11" fill="#5c5c72">84.2% top-1 accuracy on held-out (Part 6) — ranks by neighbor cause mix</text>
+  <rect x="180" y="250" width="360" height="55" rx="6" fill="#faf0f0" stroke="#a03030"/>
+  <text x="360" y="275" text-anchor="middle" font-size="11" fill="#1a1a2e">BN event path alone: 57.7% — parses reach cause nodes but weaker than retrieval</text>
+  <text x="360" y="292" text-anchor="middle" font-size="10" fill="#5c5c72">Do not conflate with severity path (90.9%)</text>
+</svg>
+<figcaption>Figure 8.2 — Diagnosis readout. Retrieval ranks categories by what similar accidents were
+coded as; the BN event path propagates parsed facts through the DAG but scores lower on held-out
+top-1 category accuracy.</figcaption>
+</figure>
+
+<h2>8.5 Prognosis tree: severity readout</h2>
+<figure class="diagram">
+<svg viewBox="0 0 640 240" width="100%" style="max-width:640px" aria-label="Prognosis tree">
+  <rect x="240" y="10" width="160" height="36" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="320" y="33" text-anchor="middle" font-size="12">100 nearest neighbors</text>
+  <line x1="320" y1="46" x2="320" y2="70" stroke="#2b4c7e"/>
+  <line x1="100" y1="70" x2="540" y2="70" stroke="#2b4c7e"/>
+  <line x1="100" y1="70" x2="100" y2="95" stroke="#2b4c7e"/>
+  <line x1="320" y1="70" x2="320" y2="95" stroke="#2b4c7e"/>
+  <line x1="540" y1="70" x2="540" y2="95" stroke="#2b4c7e"/>
+  <rect x="30" y="95" width="140" height="50" rx="6" fill="#f2f7f0" stroke="#2e6b46"/>
+  <text x="100" y="118" text-anchor="middle" font-size="11">Injury distribution</text>
+  <text x="100" y="135" text-anchor="middle" font-size="10" fill="#5c5c72">→ virtual evidence</text>
+  <rect x="250" y="95" width="140" height="50" rx="6" fill="#f2f7f0" stroke="#2e6b46"/>
+  <text x="320" y="118" text-anchor="middle" font-size="11">Damage distribution</text>
+  <text x="320" y="135" text-anchor="middle" font-size="11" fill="#5c5c72">→ virtual evidence</text>
+  <rect x="470" y="95" width="140" height="50" rx="6" fill="#eef3f9" stroke="#2b4c7e"/>
+  <text x="540" y="118" text-anchor="middle" font-size="11">Frozen BN</text>
+  <text x="540" y="135" text-anchor="middle" font-size="10" fill="#5c5c72">posterior = input</text>
+  <text x="320" y="185" text-anchor="middle" font-size="12">Headline held-out: 90.9% injury / 77.4% damage (bn-sev, n=296)</text>
+  <text x="320" y="205" text-anchor="middle" font-size="11" fill="#5c5c72">0/296 discordant vs retrieval-sev — BN adds zero accuracy lift</text>
+  <text x="320" y="225" text-anchor="middle" font-size="11" fill="#5c5c72">Severe-injury screen: 93.5% sensitivity / 96.8% specificity</text>
+</svg>
+<figcaption>Figure 8.3 — Prognosis path. The k-NN neighbor outcome distribution is the predictive
+signal; the network passes it through losslessly for severity when used alone on those nodes.</figcaption>
+</figure>
+
+<h2>8.6 What-if query (what the BN adds beyond retrieval)</h2>
+<div class="why"><b>Why we did this.</b> Accuracy comes from retrieval; the BN's value is
+interrogability. Example what-if on this scenario:</div>
+<p><em>Question:</em> "If we assume there was <strong>no</strong> bird strike (Environment evidence
+removed), how does P(substantial damage) change?"</p>
+<p>The network re-propagates with that node pinned or softened differently. Every node's posterior
+updates jointly — something a neighbor-count table cannot do in one coherent step. This is the
+reasoning claim, not the accuracy claim. On held-out fire prediction, this joint structure did
+<strong>not</strong> beat retrieval (Part 7.6); we narrow the claim accordingly.</p>
+
+<div class="advisor jesse"><b class="tag jesse">Jesse might ask</b>
+<b>"Walk me through one accident end to end."</b>
+<p class="say">Use this Part 8 narrative. Three evidence routes: parser hard matches on power loss
+and forced landing; retrieval soft fractions from 100 similar 1982–2006 accidents; k-NN severity
+as virtual evidence on injury/damage nodes. Diagnosis ranks Environment high because neighbors
+were bird-strike cases; prognosis reads neighbor injury mix. BN posteriors match the k-NN severity
+input — zero extra accuracy — but support what-if and per-node explanation.</p></div>
+
+<div class="verify"><b>Try it live.</b>
+<pre>streamlit run Frozen-BN-Narrative-Evidence-2026-07-20/apps/frozenbn_streamlit_diagnosis_prognosis_demo.py</pre>
+Paste the narrative from §8.1 and compare parser hits, neighbor list, and posteriors.</div>
+
+<p class="nav-footer"><a href="part9-advisor-qa.html">Next: Part 9 — Advisor Q&amp;A →</a></p>
+</div></body>
+</html>

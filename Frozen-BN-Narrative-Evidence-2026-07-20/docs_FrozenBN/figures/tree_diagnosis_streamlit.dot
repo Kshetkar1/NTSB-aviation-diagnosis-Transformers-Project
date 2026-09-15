@@ -1,0 +1,31 @@
+digraph G {
+  rankdir=LR;
+  bgcolor="white";
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11, color="#34495e", penwidth=1.2];
+  edge [fontname="Helvetica", fontsize=10, color="#c0392b", fontcolor="#2c3e50", penwidth=1.4];
+  n0 [label="fire\\n(OUTCOME · N=102)", fillcolor="#c0392b", fontcolor="white"];
+  n0 -> n1 [label="p=0.31\\n32/102"];
+  n1 [label="Airframe/component/system\\nfailure/malfunction\\npath p=0.314", fillcolor="#2980b9", fontcolor="white"];
+  n1 -> n5 [label="p=0.08\\n3/38"];
+  n5 [label="Engine compartment\\npath p=0.025", fillcolor="#2980b9", fontcolor="white"];
+  n1 -> n6 [label="p=0.05\\n2/38"];
+  n6 [label="Maintenance, service of\\naircraft/equipment\\npath p=0.017", fillcolor="#2980b9", fontcolor="white"];
+  n1 -> n7 [label="p=0.05\\n2/38"];
+  n7 [label="Electrical system,\\nelectric wiring\\npath p=0.017", fillcolor="#2980b9", fontcolor="white"];
+  n0 -> n2 [label="p=0.09\\n9/102"];
+  n2 [label="Electrical system,\\nelectric wiring\\npath p=0.088", fillcolor="#2980b9", fontcolor="white"];
+  n2 -> n8 [label="p=0.29\\n4/14"];
+  n8 [label="Airframe/component/system\\nfailure/malfunction\\npath p=0.025", fillcolor="#2980b9", fontcolor="white"];
+  n2 -> n9 [label="p=0.14\\n2/14"];
+  n9 [label="Electrical system, circuit\\nbreaker\\npath p=0.013", fillcolor="#2980b9", fontcolor="white"];
+  n2 -> n10 [label="p=0.14\\n2/14"];
+  n10 [label="Maintenance, installation\\npath p=0.013", fillcolor="#2980b9", fontcolor="white"];
+  n2 -> n11 [label="p=0.14\\n2/14"];
+  n11 [label="Maintenance, modification\\npath p=0.013", fillcolor="#2980b9", fontcolor="white"];
+  n0 -> n3 [label="p=0.06\\n6/102"];
+  n3 [label="Fluid, fuel\\npath p=0.059", fillcolor="#2980b9", fontcolor="white"];
+  n3 -> n12 [label="p=0.38\\n3/8"];
+  n12 [label="Airframe/component/system\\nfailure/malfunction\\npath p=0.022", fillcolor="#2980b9", fontcolor="white"];
+  n0 -> n4 [label="p=0.05\\n5/102"];
+  n4 [label="Auxiliary power unit (APU)\\npath p=0.049", fillcolor="#2980b9", fontcolor="white"];
+}

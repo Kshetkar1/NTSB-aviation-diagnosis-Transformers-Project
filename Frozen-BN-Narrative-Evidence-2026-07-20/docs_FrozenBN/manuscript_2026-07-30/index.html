@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manuscript (2026-07-30) — Narratives as Evidence for a Frozen Bayesian Network</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+
+<span class="edition-badge">Edition 2026-07-30 · detailed teaching manuscript</span>
+<h1>Narratives as Evidence for a Frozen Bayesian Network</h1>
+<p class="subtitle">A start-to-finish manuscript written for a reader who is new to Bayesian networks,
+NTSB data, and leak-safe evaluation. Every claim cites the file in this repository; every number
+cites the test that produced it. New in this edition: a full worked example with fresh diagrams,
+and an advisor Q&amp;A chapter (Maha &amp; Jesse) with exact wording you can use in meetings.</p>
+
+<p><em>Previous edition archived at <code>manuscript_old/</code>.</em></p>
+
+<h2>What this project is, in three sentences</h2>
+<p>Zhang &amp; Mahadevan (2021) built a <em>Bayesian network</em> — a probabilistic model of how
+aviation accidents unfold — from NTSB's hand-coded accident records for 1982–2006; we reproduce
+that network, <strong>freeze it</strong> (never retrain it), and verify it against every
+probability he published, so the model we query is provably the validated one. The new knowledge
+is about the <em>narratives</em>: a free-text accident description is converted into evidence the
+frozen network understands, and one propagation updates <strong>every node at once</strong> —
+downstream severity (<em>prognosis</em>) and upstream causes (<em>diagnosis</em>) — with
+<strong>zero training</strong>. Both directions are scored on held-out 2007–2019 accidents:
+severity reaches 90.9% injury / 77.4% damage and cause categories reach 84.2% by narrative
+retrieval, statistically tied with supervised models — the contribution is the leak-safe evidence
+interface and honest parity, <em>not</em> better accuracy.</p>
+
+<div class="fail"><b>What this project does not claim.</b> The network does <strong>not</strong>
+improve predictive accuracy on severity (0/296 discordant between bn-sev and retrieval-sev). TF-IDF
+logistic regression is numerically best on injury (92.2% vs 90.9%, Holm p = 0.87). On diagnosis,
+emb-LR beats retrieval by 3.9 points (88.1% vs 84.2%). The fire-node experiment shows the BN does
+<strong>not</strong> beat retrieval for cross-node fire prediction (AUC ~0.38–0.46 vs ~0.97). What
+the frozen network buys is joint reasoning, what-if queries, and per-node explanations on a
+validated causal structure — at zero severity accuracy cost.</div>
+
+<h2>The parts (read in order)</h2>
+
+<div class="part">
+  <span class="tag">Part 1</span>
+  <h3><a href="part1-background-and-vocabulary.html">Background and vocabulary</a></h3>
+  <p>NTSB data, Bayesian networks, CPTs, priors, posteriors, evidence, embeddings, held-out testing,
+  leakage — explained from zero with inline definitions before every technical term.</p>
+</div>
+
+<div class="part">
+  <span class="tag">Part 2</span>
+  <h3><a href="part2-reproducing-zhang.html">Reproducing Zhang: the foundation</a></h3>
+  <p>Why we reproduced the 2021 paper to the digit first: 102 fire accidents, P(fire) =
+  5.527942×10⁻⁷, 85/85 Table 7 rows, and the 85-vs-113 honesty lesson.</p>
+</div>
+
+<div class="part">
+  <span class="tag">Part 3</span>
+  <h3><a href="part3-the-journey.html">The journey: what we tried first and why we switched</a></h3>
+  <p>Embedding-counting, CPT upgrades, LLM-first parsing, structural re-ranking — each superseded
+  or rejected, with dated folders as receipts.</p>
+</div>
+
+<div class="part">
+  <span class="tag">Part 4</span>
+  <h3><a href="part4-the-pipeline.html">The pipeline: how a narrative becomes evidence</a></h3>
+  <p>Redaction → deterministic parser (hard evidence) → retrieval (soft evidence) → k-NN severity
+  (virtual evidence) → inference. Why bn-fused double-counts and collapses.</p>
+</div>
+
+<div class="part">
+  <span class="tag">Part 5</span>
+  <h3><a href="part5-severity-evaluation.html">Evaluating severity (prognosis)</a></h3>
+  <p>Held-out design, metrics (accuracy, Macro-F1, Brier, McNemar, Holm, bootstrap CIs,
+  sensitivity/specificity), baselines, and the full results table.</p>
+</div>
+
+<div class="part">
+  <span class="tag">Part 6</span>
+  <h3><a href="part6-diagnosis-evaluation.html">Evaluating diagnosis across a taxonomy break</a></h3>
+  <p>The 2008 coding change, era-fair four-category rollup, mapping sensitivity bound (not an
+  "audit"), and diagnosis results including negative results we report on purpose.</p>
+</div>
+
+<div class="part">
+  <span class="tag">Part 7</span>
+  <h3><a href="part7-leakage-and-honesty.html">Leakage, audits, and honest claims</a></h3>
+  <p>93%/81% → 90.9%/77.4%, redaction scope, leak probe promoted to baseline, fire-node negative
+  result, limitations, and the 2020–2024 confirmatory gate.</p>
+</div>
+
+<div class="part">
+  <span class="tag new">NEW · Part 8</span>
+  <h3><a href="part8-worked-example.html">Worked example: bird strike → forced landing</a></h3>
+  <p>A brand-new accident walkthrough (not used in slides or the old manuscript): synthetic
+  narrative based on real NTSB patterns, step-by-step evidence construction, prognosis and diagnosis
+  tree diagrams, and what-if queries — with SVG figures you can study offline.</p>
+</div>
+
+<div class="part">
+  <span class="tag new">NEW · Part 9</span>
+  <h3><a href="part9-advisor-qa.html">Advisor Q&amp;A: what Maha and Jesse will ask</a></h3>
+  <p>Every hard question from <code>CRIB_SHEET.md</code>, rewritten as a meeting script: the
+  question, why it matters, what <em>not</em> to say, and a one-paragraph answer in your own words.</p>
+</div>
+
+<h2>Recurring box types</h2>
+<table>
+  <tr><th>Box</th><th>Meaning</th></tr>
+  <tr><td><strong>Vocabulary</strong></td><td>Term defined in plain language before use.</td></tr>
+  <tr><td><strong>Why we did this</strong></td><td>Decision and justification, including failed alternatives.</td></tr>
+  <tr><td><strong>Verify it yourself</strong></td><td>Exact command and output file for the claim.</td></tr>
+  <tr><td><strong>Maha / Jesse</strong></td><td>Advisor question with recommended answer wording.</td></tr>
+</table>
+
+<h2>Project timeline</h2>
+<table class="timeline">
+  <tr><th>Date / folder</th><th>Status</th><th>What happened</th></tr>
+  <tr><td><code>Embedding-Similarity-Counting-Path-2026-03-25/</code></td>
+      <td class="status-superseded">SUPERSEDED</td>
+      <td>Embed narratives, count neighbor outcomes — no reasoning layer.</td></tr>
+  <tr><td><code>Zhang-Replication-Foundation-2026-06-04/</code></td>
+      <td class="status-foundation">FOUNDATION</td>
+      <td>Reproduced Zhang exactly — the validated model everything stands on.</td></tr>
+  <tr><td><code>BN-CPT-Upgrade-Experiments-2026-06-19/</code></td>
+      <td class="status-rejected">REJECTED</td>
+      <td>CPT improvements rejected — modifying the validated network undermines the point.</td></tr>
+  <tr><td><code>LLM-Narrative-Parser-Experiments-2026-07-15/</code></td>
+      <td class="status-rejected">REJECTED</td>
+      <td>LLM-first parsing ~69% vs 90.9% — optional tier-2 only.</td></tr>
+  <tr><td><code>Frozen-BN-Narrative-Evidence-2026-07-20/</code></td>
+      <td class="status-accepted">ACCEPTED</td>
+      <td>Current approach and paper target.</td></tr>
+  <tr><td><code>docs_FrozenBN/manuscript_2026-07-30/</code></td>
+      <td class="status-accepted">THIS DOC</td>
+      <td>Detailed teaching manuscript with worked example and advisor Q&amp;A.</td></tr>
+</table>
+
+<div class="verify"><b>Verify everything.</b> Full reproduction list:
+<code>Frozen-BN-Narrative-Evidence-2026-07-20/REPRODUCE.md</code>. Python:
+<code>/Library/Frameworks/Python.framework/Versions/3.11/bin/python3.11</code>.</div>
+
+</div></body>
+</html>

@@ -1,0 +1,20 @@
+digraph G {
+  rankdir=LR;
+  bgcolor="white";
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=10, color="#8e44ad"];
+  query [label="Query\nTrouble with an engine\ninstrument during the flight.", fillcolor="#ecf0f1", fontcolor="#2c3e50"];
+  parse [label="Hard evidence\nengine instrument = Yes\n(c = 1.0)", fillcolor="#f39c12", fontcolor="white"];
+  bn [label="Frozen BN\n(one propagation)", fillcolor="#8e44ad", fontcolor="white"];
+  query -> parse -> bn;
+  t0 [label="Loss of engine power\nP = 0.950", fillcolor="#e67e22", fontcolor="white"];
+  bn -> t0 [label="posterior"];
+  t1 [label="Forced landing\nP = 0.136", fillcolor="#2c3e50", fontcolor="white"];
+  bn -> t1 [label="posterior"];
+  t2 [label="Substantial aircraft\ndamage\nP = 0.051", fillcolor="#2c3e50", fontcolor="white"];
+  bn -> t2 [label="posterior"];
+  t3 [label="Serious injury\nP = 0.076", fillcolor="#2c3e50", fontcolor="white"];
+  bn -> t3 [label="posterior"];
+  t4 [label="No injury\nP = 0.889", fillcolor="#2c3e50", fontcolor="white"];
+  bn -> t4 [label="posterior"];
+}

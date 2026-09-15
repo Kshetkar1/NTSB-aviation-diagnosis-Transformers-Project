@@ -1,0 +1,78 @@
+---
+description: >
+  Global planning and reasoning rules.
+  Defines how Cursor should approach any new experiment, system design,
+  or analytical planning task. Iterative planning protocol with audit -> critique -> question -> refine loop.
+alwaysApply: true
+---
+
+# Iterative Planning Directive
+
+> Apply this directive **only** when the user asks for a plan/experiment/architecture or any non-trivial design.
+> For quick edits/bugfixes, skip this and act directly.
+
+## 0) Intake
+- Restate the **task** in one sentence.
+- State **assumed scope** and **implicit success criteria**.
+
+## 1) AUDIT SNAPSHOT (before planning)
+Produce a short audit of the problem space:
+- **Knowns / Evidence:** what's certain from the prompt or repo context.
+- **Unknowns / Gaps:** missing info that could change decisions.
+- **Constraints:** time, data, infra, budget, compliance, owners.
+- **Dependencies:** modules, services, tools, people.
+- **Risks:** top 3 things that could sink the plan if left unhandled.
+
+## 2) PLAN v1 (Provisional)
+Draft a **concise, actionable** plan with sections:
+- **Objective**
+- **Approach Summary** (one paragraph)
+- **Steps** (numbered, minimal but complete)
+- **Metrics & Evaluation Logic** (what thresholds decide success/fail)
+- **Resources/Artifacts** to create
+- **Timeline / Effort rough cut**
+
+## 3) SELF-CRITIQUE (Red-Team your own plan)
+Critically analyze **PLAN v1**:
+- **Assumption stress test:** which assumptions are fragile?
+- **Failure modes & blast radius** (what breaks; user impact)
+- **Trade-offs:** cost/latency/accuracy/complexity; why this plan vs. alternatives
+- **Simplify/De-risk proposals:** specific cuts/alternatives that keep 80% value
+- **Logical Soundness Proof:** Construct a logic chain (Premise → Logic → Conclusion) to prove feasibility. Identify weak links.
+
+## 4) TARGETED QUESTIONS (prioritized)
+Ask **focused, high-leverage** questions that would *materially* change the plan.
+For each question, add:
+- **Why it matters:** what decision flips based on the answer
+- **Plan branch:** how PLAN would change for option A vs. B
+
+**Stop here and wait for user answers.**  
+Do **not** proceed to execution until at least one clarification round is completed, unless the user says "proceed without answers."
+
+## 5) REVISE → PLAN v2
+After user answers:
+- **Reconcile:** list what changed (Δ) from v1 → v2
+- Update **Steps**, **Metrics**, **Risks**, **Timeline**
+- Re-run **SELF-CRITIQUE** briefly on v2
+
+## 6) LOOP UNTIL READY
+Repeat **(4 → 5)** until **stop condition** holds:
+- User says **"lock plan"** or **"ship this"**, **or**
+- Internal readiness ≥ 0.85 (judgment call) **and**
+  - Remaining unknowns are **non-blocking**
+  - Top risks each have an **owner** and a **mitigation step**
+
+When stopping, output a **LOCKED PLAN** with:
+- Final **Objective**
+- Final **Steps**
+- **Owners** (if known) and **Artifacts**
+- **Metrics/Decision rules**
+- **Risks & Mitigations**
+- **Next checkpoint** (date/criteria)
+
+## 7) GUARDRAILS
+- If the prompt is clearly a **code tweak/refactor**, skip the loop. Add a 1-line plan and act.
+- Never silently assume domain facts—surface them as assumptions in **AUDIT**.
+- Prefer **smallest viable plan** that tests the main hypothesis first; stage the rest.
+
+> This directive is the single source of truth for the planning protocol. See `.cursor/index.mdc` for the full infrastructure index.

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meeting slides — 8 Sept 2026</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#d8dade;font-family:"Helvetica Neue",Arial,sans-serif;color:#16181d;padding:24px 0}
+  .wrap{width:13.33in;margin:0 auto 34px auto}
+  .slide{width:13.33in;height:7.5in;background:#fff;padding:0.42in 0.6in;position:relative;
+         box-shadow:0 3px 14px rgba(0,0,0,.2);overflow:hidden;page-break-after:always}
+  .n{position:absolute;bottom:0.26in;right:0.5in;font-size:13pt;color:#b8bcc4}
+  .bar{position:absolute;left:0;top:0;width:100%;height:9px;background:#12345c}
+  h2{font-size:26pt;line-height:1.1;letter-spacing:-.3pt}
+  .sub{font-size:15pt;color:#6b7280;margin-top:4pt;margin-bottom:10pt}
+  .lbl{font-size:12.5pt;letter-spacing:1.4pt;text-transform:uppercase;color:#8f95a1;
+       font-weight:bold;margin:10pt 0 6pt 0}
+  .row{display:flex;gap:9pt}
+  .st{flex:1;background:#f4f6fa;border-left:4px solid #12345c;padding:8pt 11pt;border-radius:3px}
+  .st b{display:block;font-size:15pt;color:#12345c;margin-bottom:2pt}
+  .st > span{font-size:13pt;line-height:1.28;color:#3a3f4a;display:block}
+  .st i{font-style:normal;color:#b23a2c}
+  .res{display:flex;gap:8pt;margin-top:9pt}
+  .rb{flex:1;text-align:center;background:#12345c;color:#fff;border-radius:4px;padding:8pt 5pt}
+  .rb .v{font-size:23pt;font-weight:bold;line-height:1}
+  .rb .l{font-size:11pt;color:#bcc9dc;margin-top:3pt;line-height:1.25}
+  table{border-collapse:collapse;width:100%}
+  th{background:#12345c;color:#fff;text-align:left;padding:8pt 12pt;font-size:15pt;font-weight:600}
+  td{padding:8pt 12pt;border-bottom:1px solid #e3e5ea;font-size:16.5pt;vertical-align:top}
+  tr:nth-child(even) td{background:#f7f8fa}
+  td.w{width:11%;font-weight:bold;color:#12345c;white-space:nowrap}
+  td b{color:#b23a2c}
+  table.sm td{font-size:14pt;padding:6pt 11pt}
+  table.sm th{font-size:13.5pt;padding:7pt 11pt}
+  .punch{background:#12345c;color:#fff;padding:13pt 19pt;border-radius:4px;font-size:18pt;
+         line-height:1.35;margin-top:14pt}
+  .punch b{color:#ffd97a}
+  .k{font-family:"SF Mono",Menlo,monospace;background:#eef1f6;padding:1px 5px;border-radius:3px;font-size:.85em}
+  .notes{width:13.33in;margin:0 auto;background:#fffdf0;border:1px solid #e0d38c;border-left:6px solid #c9a227;
+         padding:14px 20px;font-size:13.5pt;line-height:1.5;border-radius:0 4px 4px 0}
+  .notes b{color:#7a6210}
+  .notes .t{font-size:11pt;text-transform:uppercase;letter-spacing:1pt;color:#a08420;margin-bottom:5px;font-weight:bold}
+  .grey{background:#eceef2}
+  @page{size:13.33in 7.5in;margin:0}
+  @media print{
+    body{background:#fff;padding:0}
+    .wrap{margin:0;width:13.33in}
+    .slide{box-shadow:none}
+    .notes{width:13.33in;height:7.5in;padding:0.5in 0.7in;font-size:17pt;line-height:1.6;
+           border:none;border-left:14px solid #c9a227;page-break-after:always}
+    .notes .t{font-size:14pt;margin-bottom:14px}
+  }
+</style>
+</head>
+<body>
+
+<!-- 1 -->
+<div class="wrap"><div class="slide"><div class="bar"></div>
+  <h2>The whole pipeline</h2>
+  <p class="sub">Built from <b>coded fields</b>. Can a <b>narrative</b> supply the evidence instead, with nothing retrained?</p>
+
+  <div class="lbl">Built once &mdash; 1982&ndash;2006</div>
+  <div class="row">
+    <div class="st"><b>1 &nbsp;Build the network</b><span>1,742 Part&nbsp;121 accidents. Coded fields only, no narratives. Reproduces the published tables.</span></div>
+    <div class="st"><b>2 &nbsp;Freeze it</b><span>Graph and every probability table fixed from here on. <i>Nothing is ever retrained.</i></span></div>
+    <div class="st"><b>3 &nbsp;Index the narratives</b><span>The 1,288 narratives from those same years. Used only to search, never to fit.</span></div>
+  </div>
+
+  <div class="lbl">Then, for each new accident &mdash; 2007&ndash;2019, never seen before</div>
+  <div class="row">
+    <div class="st"><b>4 &nbsp;Redact</b><span>Strip sentences that state the outcome. Mechanism words stay. <i>0 of 296 still stated injury or damage.</i></span></div>
+    <div class="st"><b>5 &nbsp;Match phrases</b><span>Find NTSB vocabulary terms in the text. Gives certain facts &mdash; hard evidence.</span></div>
+    <div class="st"><b>6 &nbsp;Find neighbours</b><span>Encoder <span style="color:#12345c;font-weight:600">text-embedding-3-small</span>, compared by <span style="color:#12345c;font-weight:600">cosine similarity</span>, first 4,000 characters. Keep the <span style="color:#12345c;font-weight:600">100 closest</span> past accidents.</span></div>
+  </div>
+  <div class="row" style="margin-top:9pt">
+    <div class="st"><b>7 &nbsp;Turn them into evidence</b><span>Neighbours' coded events and outcomes, weighted by similarity, entered on named nodes.</span></div>
+    <div class="st"><b>8 &nbsp;One propagation</b><span>All evidence loaded, inference runs once. Posteriors move; the tables do not.</span></div>
+    <div class="st"><b>9 &nbsp;Grade</b><span>Top-1 injury, damage and cause against the NTSB's own codes.</span></div>
+  </div>
+
+  <div class="res">
+    <div class="rb"><div class="v">85/85</div><div class="l">Table 7 rows reproduced</div></div>
+    <div class="rb"><div class="v">90.9%</div><div class="l">injury &nbsp;/&nbsp; 58.4% baseline</div></div>
+    <div class="rb"><div class="v">77.4%</div><div class="l">damage &nbsp;/&nbsp; 42.6% baseline</div></div>
+    <div class="rb"><div class="v">84.2%</div><div class="l">cause &nbsp;/&nbsp; 45.8% baseline</div></div>
+    <div class="rb"><div class="v">296</div><div class="l">unseen accidents scored</div></div>
+  </div>
+<div class="n">1</div></div></div>
+<div class="notes"><div class="t">If he says "explain the project to me" — this slide is the whole answer</div>
+  <b>Talk track, about three minutes.</b> "You and Zhang built a Bayesian network out of the NTSB's coded fields. The narratives sat unused. My question was whether the narrative alone can set the evidence on that same network, with nothing retrained."<br>
+  Then walk left to right. Land on three things and don't rush them:<br>
+  <b>Step 4</b> — redaction is what makes the test honest; without it the narrative often states the answer.<br>
+  <b>Step 6</b> — this is the part not currently in the paper, so say the settings out loud. If he asks why 3-small and not large: <b>"we did not test large."</b> Flat. Then note TF-IDF is in the paper as a pretraining-free baseline, so the result doesn't hang on one encoder.<br>
+  <b>Step 8</b> — one propagation, tables fixed. This is the answer to "did you train anything." No.<br>
+  <b>The bottom strip is your evidence.</b> Every one of those regenerated from source on 7 September.<br>
+  <b>If he asks where it fails</b>, turn to the backup slide — don't improvise it.
+</div>
+
+<!-- 2 -->
+<div class="wrap"><div class="slide"><div class="bar"></div>
+  <h2>I went back through the draft. These are the ones that matter.</h2>
+  <p class="sub">About 45 items in total. These five change the science; the rest are numbers and wording.</p>
+  <table>
+    <tr><th class="w" style="width:11%">Section</th><th style="width:41%">What it says now</th><th>What it should say</th></tr>
+    <tr><td class="w">6.3, 6.4</td>
+        <td>Evidence strength is the <b>fraction of the 100</b> neighbours &mdash; "71 of 100 becomes 0.71"</td>
+        <td>It is <b>similarity-weighted</b>, Laplace-smoothed, then converted to a likelihood ratio. <b>Section 6 does not describe what the code does.</b></td></tr>
+    <tr><td class="w">6.3</td>
+        <td>&mdash; nothing &mdash;</td>
+        <td>The encoder, the similarity metric and the truncation length <b>appear nowhere in the paper.</b> Nobody could reimplement this and get my numbers.</td></tr>
+    <tr><td class="w">5.4, 10.1</td>
+        <td>Parent ties are broken <b>at random</b> &mdash; and §10.1 makes that the entire explanation for the cells that differ</td>
+        <td>The selection is <b>deterministic</b> &mdash; ratio, then edge support, then name. That is why there is no seed. <b>The discussion rests on a cause that isn't there.</b></td></tr>
+    <tr><td class="w">8.1, 8.2</td>
+        <td>The method "ties strong supervised baselines"</td>
+        <td>Only for injury <b>accuracy</b>: TF-IDF 92.2% to our 90.9%, a real tie (p&nbsp;=&nbsp;0.289). <b>Not</b> on Macro-F1 &mdash; 0.603 to our 0.470. And embedding LR beats us on cause, 88.1% to 84.2% (p&nbsp;=&nbsp;0.041). We <i style="font-style:normal;color:#2e7d32">do</i> win on damage, 77.4% to 73.3%. <b>Say all of it.</b></td></tr>
+    <tr><td class="w">8.1, 6.5</td>
+        <td>82.4% &nbsp;&middot;&nbsp; propagation "updates the <b>CPTs</b>"</td>
+        <td><b>82.1%</b> after the 7 Sept rerun. And propagation updates <b>posteriors</b> &mdash; the CPTs never change.</td></tr>
+  </table>
+<div class="n">2</div></div></div>
+<div class="notes"><div class="t">Open the meeting with this, before the pipeline if you can</div>
+  <b>Say:</b> "Before you give me your edits — I re-ran every number yesterday and went back through the draft myself. I found about forty-five things. Five of them change the science. Can I show you those first?"<br>
+  That single move changes what the next twenty minutes are. He came to tell you what's wrong; you're telling him first.<br>
+  <b>Order is deliberate.</b> The top two are methods-integrity and reproducibility: someone reimplementing from the paper builds something different from what produced the numbers. For a journal those outrank everything else, so lead with them, not with the arithmetic.<br>
+  <b>Do not editorialize on row 3.</b> State it and move. It's a correction to your own §10.1, and it's the row most likely to pull him into a long tangent about the twelve cells.<br>
+  <b>If he asks how you found them:</b> you re-ran the evaluation scripts from source and read the draft against the code, section by section. That's the true answer and it's the one he wants to hear.
+</div>
+
+<!-- 3 -->
+<div class="wrap"><div class="slide"><div class="bar"></div>
+  <h2>The rest of the list</h2>
+  <p class="sub">Leave-behind. Candidate for an appendix or the response letter &mdash; not for reading aloud.</p>
+  <table class="sm">
+    <tr><th class="w" style="width:13%">Where</th><th>Item</th></tr>
+    <tr><td class="w">1, 5.7</td><td><b>Overclaim.</b> "Extended so the reproduction matches the published numbers" is too strong. Meanwhile the genuinely new finding is buried: the published recipe alone <b>cannot</b> reproduce the published severity rows &mdash; the four-state upgrade is what makes them reproducible. That belongs in the abstract, not §5.7.</td></tr>
+    <tr><td class="w">10.1</td><td><b>Ambiguous count.</b> "12 of 93" never names which build. The strict rebuild differs on <b>26</b>; 12 is the count after the upgrades resolve 14. Table 7's 85/85 is a separate scoreboard, so "12 of 93" next to it can read as "85 of 93."</td></tr>
+    <tr><td class="w">Table 5</td><td><b>Open item.</b> "k = 100 fixed before test scoring" &mdash; the repo also holds k=25 and k=99 runs. Confirming whether those were sensitivity checks after the fact, or tuning.</td></tr>
+    <tr><td class="w">10.2</td><td><b>Three missing limitations.</b> (a) The encoder's pretraining may already include 2007&ndash;2019 text. (b) The per-flight prior puts posteriors orders of magnitude below the empirical rates. (c) Two of the twelve cells return the prior unchanged &mdash; the evidence never reaches the node.</td></tr>
+    <tr><td class="w">10.2</td><td><b>Per-class results absent.</b> On injury the method only ever predicts "none" or "serious" &mdash; never fatal, never minor, in any of the 296. Cause has the same hole: organizational is 0 of 25. Reported nowhere.</td></tr>
+    <tr><td class="w">4</td><td><b>Concepts missing.</b> Conditional independence and d-separation never appear, in a Bayesian network paper. §4.2 says the brake-wear posterior is "higher than the prior" without computing it &mdash; it is <b>0.64</b>, up from 0.10.</td></tr>
+    <tr><td class="w">8.3</td><td><b>LLM framing.</b> Asking the model for probabilities directly is unusable (calibration error 0.74 against 0.12) &mdash; currently reads as a side note rather than a negative result.</td></tr>
+    <tr><td class="w">mechanics</td><td>Tables jump 6&nbsp;&rarr;&nbsp;8, then my numbering collides with the source paper's. §8.2 points at §8.3 for CICTT. §7 unnumbered. One duplicated paragraph. Table 1's 1,288 needs its filter stated.</td></tr>
+  </table>
+<div class="n">3</div></div></div>
+<div class="notes"><div class="t">Hand it over, don't present it</div>
+  <b>Say:</b> "The rest is on this last slide — I'll send it. Tell me if you want it as an appendix or just fixed quietly."<br>
+  That question is worth asking. If he wants an appendix, the audit becomes a section of the paper and the reproducibility story gets stronger. If he wants it fixed quietly, you've saved yourself writing it up.<br>
+  <b>Row 1 is the one to point at if he only looks at one.</b> Everything else on this slide is a fix; that row is a result you currently aren't claiming.
+</div>
+
+<!-- backup -->
+<div class="wrap"><div class="slide grey"><div class="bar"></div>
+  <h2>Backup &mdash; where it fails, if he asks</h2>
+  <p class="sub">How far retrieval lifts a class above its own base rate, when that class is the truth</p>
+  <table class="sm">
+    <tr><th style="width:34%">Class</th><th>Share of the pool</th><th>Mean probability when true</th><th>Separation</th></tr>
+    <tr><td>injury &mdash; serious</td><td>19.7%</td><td>0.873</td><td><b style="color:#12345c">6.9&times;</b></td></tr>
+    <tr><td>damage &mdash; destroyed</td><td>4.5%</td><td>0.181</td><td><b style="color:#12345c">6.3&times;</b></td></tr>
+    <tr><td>injury &mdash; fatal</td><td>4.3%</td><td>0.101 &nbsp;<span style="color:#6b7280">(n=3)</span></td><td><b style="color:#12345c">3.9&times;</b></td></tr>
+    <tr><td>damage &mdash; minor</td><td>34.2%</td><td>0.463</td><td><b style="color:#12345c">2.1&times;</b></td></tr>
+    <tr><td>injury &mdash; minor</td><td>10.3%</td><td>0.122</td><td><b>1.4&times;</b></td></tr>
+  </table>
+  <div class="punch">Destroyed damage is <b>rarer</b> than minor injury and separates four times better. The blocker is not class size &mdash; narratives just don't distinguish <b>"one person was hurt"</b> from <b>"nobody was hurt."</b></div>
+<div class="n">backup</div></div></div>
+<div class="notes"><div class="t">Only if he asks "where does it break?"</div>
+  <b>Lead with the blunt version:</b> on injury it is effectively a two-class predictor. Across all 296 accidents it outputs only "none" or "serious." P(minor) never exceeds 0.211 anywhere in the test set and P(fatal) never exceeds 0.168, against 0.91 and 0.98 for the two that win &mdash; neither can ever take an argmax.<br>
+  <b>Two different failures, keep them apart.</b> Fatal has real separation but n=3, so it's unevaluable in this window. Minor injury has 16 cases and essentially no separation.<br>
+  <b>If he asks whether you can fix it:</b> reweighting by base rate recovers fatal but not minor, and the Macro-F1 gain rests on a single accident &mdash; too thin to publish, and picking the weight on the test set is the thing you've avoided everywhere else. Minor injury needs a different signal.<br>
+  <b>Also true and worth having ready:</b> the BN doesn't add accuracy over plain neighbour voting on severity, because the evidence is constructed as L(j)&nbsp;=&nbsp;f(j)/p&#8320;(j), which cancels the network's own prior exactly &mdash; there's a self-test asserting it to 1e-6. The network mediates the retrieval signal without distorting it. That's a design choice, not a disappointment.
+</div>
+
+</body>
+</html>

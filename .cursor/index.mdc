@@ -1,0 +1,89 @@
+---
+alwaysApply: true
+Rule Type: Always
+Description: >
+  Master index of all .cursor rules, skills, commands, and agents.
+  Helps the orchestrator and contributors discover available capabilities.
+---
+
+# .cursor Infrastructure Index
+
+> This file is the single discovery point for all rules, skills, commands, and agents.
+
+## Rules (always-on)
+
+| File | Purpose |
+|------|---------|
+| `rules/00-orchestrator.md` | Core orchestrator behavior: GSD path then RALF path, state management, subagent spawning |
+| `rules/10-gsd-spec.md` | GSD spec-first workflow: PRD, Plan, and TASKS.yaml quality bars |
+| `rules/20-ralf-execution.md` | RALF execution loop: implement, verify, review, iterate with logging |
+| `rules/30-cli-and-gates.md` | CLI subagent constraints (non-interactive) and default gate commands |
+| `rules/planning_directive.mdc` | Iterative planning protocol: audit, plan, self-critique, question, refine |
+| `rules/github_workflow.mdc` | GitHub push/PR/CI verification protocol |
+
+## Skills (load on demand)
+
+| Skill | File | Purpose |
+|-------|------|---------|
+| council | `skills/council/SKILL.md` | Triad reasoning: Analyst (exploit), Challenger (critique), Explorer (explore) |
+| cursor-cli | `skills/cursor-cli/SKILL.md` | Non-interactive CLI subagent rules: output discipline, error reporting |
+| gsd | `skills/gsd/SKILL.md` | Spec-first workflow: onboard, PRD, plan, task DAG |
+| prompt-engineer | `skills/prompt-engineer/SKILL.md` | High-fidelity subagent prompt construction |
+| ralf | `skills/ralf/SKILL.md` | Implementation loop with gates, memory, and architecture drift detection |
+| experiment-loop | `skills/experiment-loop/SKILL.md` | Autonomous experimentation: hypothesis, execute, analyze, iterate |
+| frontend-design | `skills/frontend-design/skill.md` | Distinctive, production-grade frontend interfaces with high design quality |
+
+## Commands (user-invoked)
+
+| Command | File | Purpose |
+|---------|------|---------|
+| `/gsd` | `commands/gsd.md` | Entry point: routes to /gsd-spec then /gsd-plan |
+| `/gsd-spec` | `commands/gsd-spec.md` | Phase 1: onboard + PRD generation |
+| `/gsd-plan` | `commands/gsd-plan.md` | Phase 2: plan + task DAG generation |
+| `/ralf` | `commands/ralf.md` | Execute tasks via async RALF loop with CLI subagents |
+| `/verify` | `commands/verify.md` | Run gate commands (tests, lint, typecheck) |
+| `/ship` | `commands/ship.md` | PR description draft + changelog update |
+| `/council` | `commands/council.md` | Triad reasoning: analyze, challenge, explore, synthesize |
+| `/plan` | `commands/plan.md` | Refine PRD into implementation plan |
+| `/taskgraph` | `commands/taskgraph.md` | Generate or refine the task DAG (TASKS.yaml) |
+| `/research` | `commands/research.md` | Spawn researcher subagent for codebase exploration |
+| `/audit` | `commands/audit.md` | Deep codebase audit: logical correctness, design reasoning |
+| `/quick-audit` | `commands/quick-audit.md` | Lightweight audit of a single file/function |
+| `/analyze` | `commands/analyze.md` | Interpret code, data, results, or notebooks |
+| `/check-plan` | `commands/check-plan.md` | Verify implementation matches a LOCKED PLAN |
+| `/document` | `commands/document.md` | Differential documentation: sync docs with code changes |
+| `/onboard` | `commands/onboard.md` | Re-enter project context or explain to a new contributor |
+| `/smart-commit` | `commands/smart-commit.md` | Synchronized commit: code + docs + changelog |
+| `/smart-pr` | `commands/smart-pr.md` | Verified PR creation with plan compliance check |
+| `/planning-workflow` | `commands/planning-workflow.md` | Iterative planning directive (audit, critique, refine, lock) |
+| `/status` | `commands/status.md` | Quick project state overview: tasks, gates, memory |
+| `/reset-state` | `commands/reset-state.md` | Archive current state and start fresh for a new feature |
+| `/experiment` | `commands/experiment.md` | Autonomous experimentation loop: hypothesize, execute, analyze, iterate |
+
+## Agents (subagent personas)
+
+| Agent | File | Purpose |
+|-------|------|---------|
+| implementer | `agents/implementer.md` | Implements a single task with minimal diff |
+| verifier | `agents/verifier.md` | Runs gates and reports failures precisely |
+| reviewer | `agents/reviewer.md` | Semantic review against PRD and acceptance criteria |
+| challenger | `agents/challenger.md` | Challenges assumptions, finds failure modes |
+| explorer | `agents/explorer.md` | Generates alternative approaches including non-obvious ones |
+| researcher | `agents/researcher.md` | Gathers information via code search and web; produces RESEARCH.md |
+
+## State Layout
+
+| Directory | Purpose |
+|-----------|---------|
+| `state/gsd/` | PRD, plan, task graph, research results |
+| `state/ralf/` | Execution logs, gates, memory, ship summary |
+| `state/ralf/logs/T###/` | Per-task logs: prompt, output, exit code, notes |
+| `state/experiments/` | Experiment journal, hypotheses, status, output notebooks |
+
+## Templates
+
+| File | Purpose |
+|------|---------|
+| `templates/PRD_TEMPLATE.md` | PRD skeleton with required sections |
+| `templates/PLAN_TEMPLATE.md` | Implementation plan skeleton |
+| `templates/TASKS_TEMPLATE.yaml` | Task DAG skeleton with gates and AC |

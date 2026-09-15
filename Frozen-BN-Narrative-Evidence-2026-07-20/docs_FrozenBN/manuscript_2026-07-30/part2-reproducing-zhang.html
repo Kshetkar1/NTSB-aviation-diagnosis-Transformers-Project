@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Part 2 — Reproducing Zhang: the Foundation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body><div class="wrap">
+<p class="crumb"><a href="index.html">← Manuscript index</a> · Part 2 of 9 ·
+<a href="part1-background-and-vocabulary.html">← Part 1</a></p>
+<span class="edition-badge">Edition 2026-07-30</span>
+<h1>Part 2 — Reproducing Zhang: the Foundation</h1>
+
+<h2>2.1 Why reproduce someone else's paper before doing anything new?</h2>
+<div class="why"><b>Why we did this.</b> Our entire claim is "a <em>validated</em> network can be
+driven by free text." The word <em>validated</em> does the heavy lifting: if the network we query
+is not demonstrably the one Zhang &amp; Mahadevan published and peer review accepted, then every
+downstream result sits on an unverified model, and a reviewer can dismiss all of it with one
+question. Reproduction-first also forced us to understand every data-filtering decision in the
+original paper — knowledge that later saved us from several subtle mistakes. The reproduction is
+the boring part of the project and also the load-bearing part.</div>
+<p class="src">Everything reproduced lives in
+<code>Zhang-Replication-Foundation-2026-06-04/</code> (the vendored reference material: Zhang's
+network file <code>NTSB.xdsl</code>, the Bureau of Transportation Statistics departure
+spreadsheet, replication scripts) and in
+<code>Frozen-BN-Narrative-Evidence-2026-07-20/tests/reproduce_*.py</code>. The complete claim
+audit is <code>Frozen-BN-Narrative-Evidence-2026-07-20/docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md</code>.</p>
+
+<h2>2.2 What Zhang built, in plain language</h2>
+<p>Zhang &amp; Mahadevan (RESS 2021) took NTSB's coded records for large-aircraft accidents from
+<b>1982–2006</b> and built a Bayesian network for accident analysis, with in-flight fire as the
+running example. Three published quantities matter for reproduction:</p>
+<table>
+  <tr><th>Quantity</th><th>Zhang published</th><th>We reproduce</th><th>Status</th></tr>
+  <tr><td>Fire occurrences, 1982–2006</td><td>102</td><td>102</td><td>exact</td></tr>
+  <tr><td>Prior P(fire) per flight</td><td>5.53×10⁻⁷</td><td>5.527942×10⁻⁷</td><td>exact
+      (his rounding)</td></tr>
+  <tr><td>Table 7 — cause distribution given fire</td><td>85 rows</td><td>85/85 match</td>
+      <td>exact</td></tr>
+</table>
+<div class="vocab"><b>Vocabulary — P(fire) is a formula, not network output.</b> Zhang computes
+the fire prior as (number of fire accidents) ÷ (total US departures in the window, from the BTS
+spreadsheet: 184,517,128 flights). We reproduce that arithmetic to the digit. We are careful to
+say we reproduce his <em>formula</em>, not a marginal propagated through his network — an early
+draft of our report blurred that distinction and we corrected it
+(<code>docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md</code>, executive summary).</div>
+
+<h2>2.3 Our dataset window</h2>
+<p>To rebuild his numbers we had to rebuild his data. The result is
+<code>shared/data/processed/refined_dataset_1982_2006.json</code>: <b>1,742 accidents</b>, of
+which <b>1,286</b> carry a usable factual narrative (≥100 characters) and <b>102</b> are fire
+accidents. Every count in the project traces back to this file.</p>
+<div class="fail"><b>What went wrong along the way (and the fix).</b> NTSB distributes its
+pre-2008 data with a legacy "sequence of events" layer in separate tables. Our first merged
+dataset never joined that layer, so all 1,742 pre-2007 accidents initially had <em>empty</em>
+findings — which silently broke any cause analysis. The fix (re-merging the legacy layer) is
+documented in <code>docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md</code> and implemented by
+<code>tests/add_findings_1982_2006.py</code> and <code>tests/rebuild_1982_2006.py</code>. Lesson
+an undergrad should take: the hardest bugs in applied work are usually in the data plumbing, not
+the model.</div>
+
+<h2>2.4 The 85-versus-113 lesson: how a true number becomes a false claim</h2>
+<div class="fail"><b>What went wrong.</b> Zhang's Table 7 lists causes for fire accidents,
+filtered to findings coded as Cause or Factor ("C/F filter"), which yields <b>85 rows</b> — and we
+match all 85 exactly. But we also had an extended mode without that filter, which yields
+<b>113</b> causes, and for a while our documents claimed "113/113 match Zhang exactly." That
+claim was wrong in a subtle way: Zhang never <em>published</em> a 113-row table, so "matching" it
+only meant our own two code paths agreed with each other — internal consistency dressed up as
+external validation. During the July 2026 review pass we corrected every document to say
+<b>85/85 against the published table</b>, with the 113 figure explicitly labeled an internal
+consistency check. The correction touched
+<code>docs_FrozenBN/ZHANG_REPRODUCTION_REPORT.md</code>, <code>README.md</code>, the crib sheet,
+and three presentation decks.</div>
+<div class="why"><b>Why this story is in the manuscript.</b> Because it is the project's clearest
+example of the difference between a true number and an honest claim. Nothing about the 113 was
+computationally wrong — the <em>sentence around it</em> overclaimed. Most of the review work in
+this project (Part 7) is exactly this kind of sentence surgery, and you should learn to spot it
+in your own writing.</div>
+
+<h2>2.5 What "frozen" means, precisely</h2>
+<div class="vocab"><b>Vocabulary — frozen.</b> After the network is built from the 1982–2006 coded
+data (structure + every CPT), <em>nothing about it ever changes again</em>. New accidents never
+update its tables. All adaptation to a new accident happens at query time, through evidence.
+Freezing is what makes the validation transferable: the thing we query is provably the thing
+that was validated. It is also what makes the approach cheap — no retraining, ever.</div>
+<p class="src">The freeze boundary in code: <code>code/bn_upgraded.py</code> builds the network
+once from <code>prognosis.load_dataset()</code> (the window file); the evaluation scripts then
+only call inference on it. The complete inventory of what is and is not fitted anywhere in the
+system: <code>docs_FrozenBN/FREE_PARAMETERS.md</code>.</p>
+
+<div class="verify"><b>Verify it yourself.</b>
+<pre>python Frozen-BN-Narrative-Evidence-2026-07-20/tests/reproduce_fire_prior.py
+python Frozen-BN-Narrative-Evidence-2026-07-20/tests/reproduce_table7.py</pre>
+The first prints the fire count (102) and P(fire) = 5.527942×10⁻⁷ from the BTS departures file in
+<code>Zhang-Replication-Foundation-2026-06-04/reference/data/</code>. The second regenerates the
+Table 7 comparison. Two bugs we found and fixed in these very scripts during review — a wrong
+departures-file path and a transposed digit in the total-flights constant (184,5<b>72</b>,128 vs
+the correct 184,5<b>17</b>,128) — are worth knowing about: even verification code needs
+verification.</div>
+
+<p class="crumb"><a href="part3-the-journey.html">Next: Part 3 — The journey →</a></p>
+</div></body>
+</html>

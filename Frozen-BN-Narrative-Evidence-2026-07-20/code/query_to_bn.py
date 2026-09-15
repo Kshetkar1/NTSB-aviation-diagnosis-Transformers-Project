@@ -45,6 +45,7 @@ and this is how the narrative is exploited END TO END: text -> retrieval
 """
 from __future__ import annotations
 
+import os
 import re
 
 import zhang_diagnosis as zd
@@ -180,7 +181,8 @@ def _incident_bn_labels(inc: dict) -> set:
 def retrieval_facts(query: str, names, dataset: dict,
                     top_k: int = 100, min_fq: float = 0.15,
                     min_lift: float = 3.0, top_m: int = 3,
-                    max_conf: float = 0.95, leak_safe: bool = True):
+                    max_conf: float = 0.95, leak_safe: bool = True,
+                    exclude_ev_ids=None):
     """Soft facts suggested by the narrative, via the SAME embedding retrieval
     the counting pipeline uses.
 
@@ -205,7 +207,7 @@ def retrieval_facts(query: str, names, dataset: dict,
     n_total = len(dataset)
 
     emb = main_app.get_embedding(inference_query(query, leak_safe=leak_safe))
-    scores, matches = main_app.find_top_matches(emb)
+    scores, matches = main_app.find_top_matches(emb, exclude_ev_ids=exclude_ev_ids)
     pool, seen = [], set()
     for s, m in zip(scores, matches):
         if m.get("source") != "incident":
@@ -303,6 +305,32 @@ _REDACT_ONLY = [
     re.compile(r"\b(this|the) (accident )?report (number )?(is|are|will be)"
                r"\s+available[^.]*", re.I),
     re.compile(r"\bntsb[/ ]?aar\S*|\baar[- ]?\d\d\S*", re.I),
+    # Bare statements that harm befell a person. The graded phrases ("serious
+    # injury", "minor injury") were already removed above, but an unqualified
+    # "and was injured" still states that the coded injury level is not `none`,
+    # and `none` is the majority class. Audited 2026-09-09: survivors of this
+    # kind appeared in 77 of 296 held-out narratives and separated
+    # not-none at 74.0% against a 41.6% base rate, enough for a
+    # keyword-only classifier to reach 70.3%.
+    #
+    # Any mention of injury in an accident narrative is a statement about the
+    # target variable, so every `injur*` token goes. Event description is left
+    # intact: "the passenger fell to the floor" survives, "and was injured"
+    # does not. Generic `damage` is deliberately NOT stripped -- "damage to the
+    # bottom of the fuselage" describes the event rather than asserting a coded
+    # level, the graded damage phrases are already gone, and the measured
+    # residual on damage is small (49.3% keyword-only against a 42.6% prior).
+    re.compile(r"\b\w*injur\w*\b", re.I),
+    # burns to persons; plain "burned"/"burning" is left alone because it
+    # usually describes fire damage to the aircraft, which is a legitimate event
+    re.compile(r"\b(first|second|third|1st|2nd|3rd)[- ]degree burn\w*\b", re.I),
+    re.compile(r"\b(sustain\w+|suffer\w+|receiv\w+|incurr?\w*)\s+"
+               r"(\w+\s+){0,3}burn\w*\b", re.I),
+    re.compile(r"\bburn\w*\s+to\s+(the\s+)?(pilot|copilot|crew|"
+               r"flight\s?attendant|passenger)\w*\b", re.I),
+    # on-scene medical response implies someone was hurt
+    re.compile(r"\b(paramedics?|ambulance|emergency medical|"
+               r"\bems\b|medical personnel|first responders?)\b", re.I),
 ]
 
 
@@ -396,7 +424,8 @@ def severity_likelihoods(dataset: dict, alpha: float = 0.5) -> dict:
 
 def severity_retrieval_distributions(query: str, dataset: dict,
                                      top_k: int = 100, alpha: float = 0.5,
-                                     leak_safe: bool = True):
+                                     leak_safe: bool = True,
+                                     exclude_ev_ids=None):
     """Similarity-weighted injury/damage distributions among the top_k accidents
     most similar to the narrative -- the SAME retrieval pool the soft-fact pass
     uses, aggregated over the severity outcomes instead of the event labels.
@@ -410,7 +439,7 @@ def severity_retrieval_distributions(query: str, dataset: dict,
     import prognosis as pg
 
     emb = main_app.get_embedding(inference_query(query, leak_safe=leak_safe))
-    scores, matches = main_app.find_top_matches(emb)
+    scores, matches = main_app.find_top_matches(emb, exclude_ev_ids=exclude_ev_ids)
     pool, seen = [], set()
     for s, m in zip(scores, matches):
         if m.get("source") != "incident":
@@ -541,27 +570,54 @@ def _node_priors(bn, nodes):
     return out
 
 
+# Reference prior used to build soft-evidence likelihood ratios.
+#   "conditional" (default) -- p1 = P(node | hard evidence). Correct.
+#   "unconditional"         -- p0 = P(node). The pre-2026-09-11 behaviour,
+#                              retained so the audit can reproduce it.
+SOFT_EVIDENCE_REFERENCE = os.getenv("SOFT_EVIDENCE_REFERENCE", "conditional")
+
+
 def apply_evidence(ie, bn, confidence: dict):
     """Set parsed evidence on a pyAgrum inference engine.
 
     confidence 1.0  -> hard evidence (node clamped to 'Yes').
     confidence c<1  -> JEFFREY conditioning via Pearl virtual evidence: the
         narrative says the fact holds with probability ~c, so the likelihood
-        ratio is set against the network's own prior p0,
-            LR = [c/(1-c)] / [p0/(1-p0)],
-        which makes the updated belief in the fact land at c (exactly, when
-        it is the only soft fact). A plain [c, 1-c] likelihood would be
-        swallowed by the per-flight priors (~1e-7) and move nothing.
+        ratio is set against the belief the network already holds about that
+        node,
+            LR = [c/(1-c)] / [p_ref/(1-p_ref)],
+        which lands the updated belief at c. A plain [c, 1-c] likelihood
+        would be swallowed by the per-flight priors (~1e-7) and move nothing.
+
+        p_ref must be the prior that actually holds at inference time, i.e.
+        p1 = P(node | hard evidence). Using the UNCONDITIONAL p0 is exact
+        only when the soft fact is the sole piece of evidence; with hard
+        event evidence present it overshoots, because p1 >> p0. Measured on
+        the held-out cohort (tests/a12_soft_evidence_audit.py, n = 253,
+        599 soft facts), the unconditional version drove 29.7% of facts
+        entered below c = 0.5 to a posterior above 0.999 -- functionally
+        hard evidence. Against p1 the median |posterior - c| is at machine
+        epsilon and saturation falls to 3.2%. This is the same correction
+        already applied to the severity nodes in `jeffrey_likelihood`.
     """
     soft = [n for n, c in confidence.items() if c < 0.999]
-    priors = _node_priors(bn, soft)
-    for node, c in confidence.items():
+    hard = [n for n, c in confidence.items() if c >= 0.999]
+
+    for node in hard:
+        ie.addEvidence(node, "Yes")
+    if not soft:
+        return
+
+    if SOFT_EVIDENCE_REFERENCE == "conditional" and hard:
+        priors = _node_priors_given(bn, soft, hard)
+    else:
+        priors = _node_priors(bn, soft)
+
+    for node in soft:
+        c = confidence[node]
         v = bn.variable(node)
-        if c >= 0.999:
-            ie.addEvidence(node, "Yes")
-            continue
-        p0 = min(max(priors.get(node, 0.5), 1e-12), 1 - 1e-12)
-        lr = (c / (1.0 - c)) / (p0 / (1.0 - p0))
+        p_ref = min(max(priors.get(node, 0.5), 1e-12), 1 - 1e-12)
+        lr = (c / (1.0 - c)) / (p_ref / (1.0 - p_ref))
         # likelihood vector proportional to [LR, 1]; scale to max 1 for pyAgrum
         l_yes, l_no = (1.0, 1.0 / lr) if lr >= 1.0 else (lr, 1.0)
         lik = [l_yes if v.label(i) == "Yes" else l_no
@@ -569,10 +625,64 @@ def apply_evidence(ie, bn, confidence: dict):
         ie.addEvidence(node, lik)
 
 
+def _node_priors_given(bn, nodes, hard_nodes):
+    """P(node='Yes' | hard_nodes all 'Yes') for each node in `nodes`."""
+    import pyagrum as gum
+    if not nodes:
+        return {}
+    ie = gum.LazyPropagation(bn)
+    for n in hard_nodes:
+        ie.addEvidence(n, "Yes")
+    for n in nodes:
+        ie.addTarget(n)
+    ie.makeInference()
+    out = {}
+    for n in nodes:
+        v = bn.variable(n)
+        yes = [i for i in range(v.domainSize()) if v.label(i) == "Yes"][0]
+        out[n] = float(ie.posterior(n)[yes])
+    return out
+
+
+def jeffrey_likelihood(bn, node: str, states, f_q, confidence: dict = None):
+    """Likelihood vector driving `node`'s marginal to f_q GIVEN `confidence`.
+
+    Jeffrey conditioning asserts a marginal. Expressed as a Pearl likelihood
+    vector, the ratio must be taken against the marginal that actually holds
+    at inference time:
+
+        L(j) = f_q(j) / p1(j),   p1 = P(node | confidence)
+
+    Dividing by the UNCONDITIONAL prior p0 instead is correct only when no
+    other evidence is entered. With event evidence present the posterior
+    becomes p1 * f_q / p0, i.e. f_q reweighted by p1/p0 -- and on the
+    per-flight severity priors, where p0(none) ~ 1 and p0(fatal) ~ 1e-7, that
+    factor spans five orders of magnitude and annihilates the majority state
+    even when both inputs agree it is the most likely one.
+    """
+    import numpy as np
+    import pyagrum as gum
+    ie = gum.LazyPropagation(bn)
+    if confidence:
+        apply_evidence(ie, bn, confidence)
+    ie.addTarget(node)
+    ie.makeInference()
+    v = bn.variable(node)
+    post = ie.posterior(node)
+    by_label = {v.label(i): float(post[i]) for i in range(v.domainSize())}
+    p1 = np.array([by_label[s] for s in states], dtype=float)
+    f = np.maximum(np.asarray(f_q, dtype=float), 1e-9)
+    lik = f / np.maximum(p1, 1e-12)
+    lik = lik / lik.max()
+    by_state = dict(zip(states, lik))
+    return [float(by_state[v.label(i)]) for i in range(v.domainSize())]
+
+
 def parse_query_to_bn_evidence(query: str, bn_names, dataset=None,
                                semantic: bool = False,
                                semantic_threshold: float = 0.45,
-                               leak_safe: bool = True) -> dict:
+                               leak_safe: bool = True,
+                               exclude_ev_ids=None) -> dict:
     """Parse a free-text narrative into BN evidence nodes.
 
     bn_names : iterable of node names from the built network (bn.names()).
@@ -678,7 +788,8 @@ def parse_query_to_bn_evidence(query: str, bn_names, dataset=None,
     have_event_evidence = any(not e.startswith("person: ") for e in evidence)
     if semantic and dataset and not have_event_evidence:
         try:
-            soft = retrieval_facts(query, names, dataset, leak_safe=leak_safe)
+            soft = retrieval_facts(query, names, dataset, leak_safe=leak_safe,
+                                   exclude_ev_ids=exclude_ev_ids)
         except Exception:
             soft = []
         for node, conf, why in soft:

@@ -1,0 +1,86 @@
+#,Contributory factor,n,P(c|fire) Zhang,P(c|fire) Ours,|Diff|
+1,"Fuel system, nozzle",2,0.01960,0.01960,<0.0005
+2,"Exhaust system, stack",1,0.00980,0.00980,<0.0005
+3,"Fuel system, drain",2,0.01960,0.01960,<0.0005
+4,"Fuel system, fuel control",2,0.01960,0.01960,<0.0005
+5,"Maintenance, service of aircraft/equipment",2,0.01960,0.01960,<0.0005
+6,"Miscellaneous, bolt/nut/fastener/clamp/spring",1,0.00980,0.00980,<0.0005
+7,"Electrical system, fuse",1,0.00980,0.00980,<0.0005
+8,Evacuation,1,0.00980,0.00980,<0.0005
+9,"Ignition system, exciter",1,0.00980,0.00980,<0.0005
+10,"Aircraft/equipment, inadequate design",1,0.00980,0.00980,<0.0005
+11,"Electrical system, circuit breaker",2,0.01960,0.01960,<0.0005
+12,"Maintenance, service bulletin/letter",3,0.02941,0.02941,<0.0005
+13,"Aircraft/equipment inadequate, aircraft component",1,0.00980,0.00980,<0.0005
+14,"Engine accessories, engine starter",2,0.01960,0.01960,<0.0005
+15,Condition(s)/step(s) insufficiently defined,1,0.00980,0.00980,<0.0005
+16,Panic,1,0.00980,0.00980,<0.0005
+17,Unknown quantity,2,0.01960,0.01960,<0.0005
+18,Engine compartment,3,0.02941,0.02941,<0.0005
+19,Passenger compartment light(s),1,0.00980,0.00980,<0.0005
+20,"Aircraft/equipment, inadequate standard/requirement",1,0.00980,0.00980,<0.0005
+21,"Fluid, hydraulic",1,0.00980,0.00980,<0.0005
+22,Overrun,1,0.00980,0.00980,<0.0005
+23,"Anti-ice/deice system, windshield",1,0.00980,0.00980,<0.0005
+24,"Inadequate substantiation process, Insufficient review",1,0.00980,0.00980,<0.0005
+25,Loss of engine power (total) - mechanical failure/malfunction,9,0.08823,0.08823,<0.0005
+26,Landing gear,1,0.00980,0.00980,<0.0005
+27,Portable electrical equipment,1,0.00980,0.00980,<0.0005
+28,Hazardous material (HAZMAT),1,0.00980,0.00980,<0.0005
+29,Miscellaneous/other,2,0.01960,0.01960,<0.0005
+30,"Engine assembly, other",1,0.00980,0.00980,<0.0005
+31,Smoke detector(s),1,0.00980,0.00980,<0.0005
+32,"Fire extinguisher, portable",1,0.00980,0.00980,<0.0005
+33,"Ignition system, ignition harness",2,0.01960,0.01960,<0.0005
+34,"Maintenance, installation",4,0.03921,0.03921,<0.0005
+35,Emergency procedure,1,0.00980,0.00980,<0.0005
+36,Airframe/component/system failure/malfunction,32,0.31372,0.31372,<0.0005
+37,"Fire warning system, lavatory",1,0.00980,0.00980,<0.0005
+38,"Electrical system, generator",1,0.00980,0.00980,<0.0005
+39,"Fluid, fuel",6,0.05882,0.05882,<0.0005
+40,Engine assembly,1,0.00980,0.00980,<0.0005
+41,Auxiliary power unit (APU),5,0.04901,0.04901,<0.0005
+42,"Landing gear, tire",2,0.01960,0.01960,<0.0005
+43,"Fire extinguisher, powerplant",2,0.01960,0.01960,<0.0005
+44,Starting procedure,1,0.00980,0.00980,<0.0005
+45,Electrical system,1,0.00980,0.00980,<0.0005
+46,"Compressor assembly, blade",1,0.00980,0.00980,<0.0005
+47,"Fuselage, cabin",1,0.00980,0.00980,<0.0005
+48,Overheat warning system,1,0.00980,0.00980,<0.0005
+49,Procedure inadequate,4,0.03921,0.03921,<0.0005
+50,"Fire extinguisher, cargo",2,0.01960,0.01960,<0.0005
+51,"Miscellaneous equipment/furnishings, lavatories",1,0.00980,0.00980,<0.0005
+52,"Ignition system, igniter plug",1,0.00980,0.00980,<0.0005
+53,Maintenance,3,0.02941,0.02941,<0.0005
+54,"Maintenance, overhaul",1,0.00980,0.00980,<0.0005
+55,"Insufficient standards/requirements, Aircraft",1,0.00980,0.00980,<0.0005
+56,"Combustion assembly, combustion liner",1,0.00980,0.00980,<0.0005
+57,Fire/explosion,1,0.00980,0.00980,<0.0005
+58,"Fuel system, line fitting",2,0.01960,0.01960,<0.0005
+59,Powerplant,1,0.00980,0.00980,<0.0005
+60,Insufficient standards/requirements,1,0.00980,0.00980,<0.0005
+61,Loss of engine power (partial) - mechanical failure/malfunction,4,0.03921,0.03921,<0.0005
+62,"Window, flight compartment window/windshield",1,0.00980,0.00980,<0.0005
+63,"Hydraulic system, line",1,0.00980,0.00980,<0.0005
+64,Hazardous materials leak/spill,2,0.01960,0.01960,<0.0005
+65,Brakes (normal),2,0.01960,0.01960,<0.0005
+66,"Maintenance, approved airworthiness inspection program (AAIP)/progressive program",1,0.00980,0.00980,<0.0005
+67,"Fuel system, tank",1,0.00980,0.00980,<0.0005
+68,"Maintenance, alignment",1,0.00980,0.00980,<0.0005
+69,Miscellaneous,1,0.00980,0.00980,<0.0005
+70,Wing,1,0.00980,0.00980,<0.0005
+71,Reason for occurrence undetermined,2,0.01960,0.01960,<0.0005
+72,"Maintenance, compliance with airworthiness directive (AD)",1,0.00980,0.00980,<0.0005
+73,On ground/water collision with object,1,0.00980,0.00980,<0.0005
+74,"Maintenance, inspection",1,0.00980,0.00980,<0.0005
+75,"Maintenance, modification",2,0.01960,0.01960,<0.0005
+76,Cargo/baggage,3,0.02941,0.02941,<0.0005
+77,"Electrical system, auxiliary power unit (APU)",1,0.00980,0.00980,<0.0005
+78,"Electrical system, electric wiring",9,0.08823,0.08823,<0.0005
+79,Loss of engine power,2,0.01960,0.01960,<0.0005
+80,"Lubricating system, oil line",1,0.00980,0.00980,<0.0005
+81,"Fuel system, fuel flow divider/distributor",1,0.00980,0.00980,<0.0005
+82,Procedures/directives,2,0.01960,0.01960,<0.0005
+83,Loss of engine power (total) - nonmechanical,1,0.00980,0.00980,<0.0005
+84,"Fuel system, primer system",1,0.00980,0.00980,<0.0005
+85,Weather condition,1,0.00980,0.00980,<0.0005
