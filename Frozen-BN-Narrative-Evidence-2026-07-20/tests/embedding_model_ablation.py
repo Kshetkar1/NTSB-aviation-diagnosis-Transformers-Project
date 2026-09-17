@@ -24,6 +24,13 @@ Run:
   # the real comparison
   python3.11 tests/embedding_model_ablation.py \
       --models text-embedding-3-small,text-embedding-3-large
+
+  # local DistilBERT (no API; pip install sentence-transformers)
+  python3.11 tests/embedding_model_ablation.py \
+      --models text-embedding-3-small,sentence-transformers/distilbert-base-nli-mean-tokens
+
+  # quick smoke on first N held-out accidents
+  python3.11 tests/embedding_model_ablation.py --limit 30 --models ...
 """
 from __future__ import annotations
 
@@ -58,6 +65,12 @@ INJ_LAB = ["fatal", "serious", "minor", "none"]
 DMG_LAB = ["destroyed", "substantial", "minor", "none"]
 TEXT_FIELD = "narr_accf"
 
+_LOCAL_ENCODER_CACHE: dict[str, object] = {}
+
+
+def is_openai_embedding_model(model: str) -> bool:
+    return model.startswith("text-embedding-")
+
 
 def truth_states(inc):
     inj = pg.zhang_injury_code(inc)
@@ -66,8 +79,56 @@ def truth_states(inc):
     return inj_i, (DMG_BY_CODE.get(d) if d in DMG_BY_CODE else None)
 
 
+def embed_batch_local(texts, model, batch=32):
+    """Local sentence encoder (e.g. DistilBERT via sentence-transformers)."""
+    from sentence_transformers import SentenceTransformer
+
+    if model not in _LOCAL_ENCODER_CACHE:
+        print(f"  loading {model} ...")
+        _LOCAL_ENCODER_CACHE[model] = SentenceTransformer(model)
+    st = _LOCAL_ENCODER_CACHE[model]
+    clean = [t.replace("\n", " ") for t in texts]
+    emb = st.encode(
+        clean,
+        batch_size=batch,
+        show_progress_bar=len(clean) > 64,
+        normalize_embeddings=True,
+    )
+    return np.asarray(emb, dtype=np.float32)
+
+
+def patch_query_embedding(model: str) -> None:
+    """Route main_app.get_embedding to OpenAI or a local encoder for this run."""
+    import main_app
+    import config
+
+    if is_openai_embedding_model(model):
+        config.EMBEDDING_MODEL = model
+        main_app.EMBEDDING_MODEL = model
+        return
+
+    if model not in _LOCAL_ENCODER_CACHE:
+        from sentence_transformers import SentenceTransformer
+
+        print(f"  loading {model} for query encoding ...")
+        _LOCAL_ENCODER_CACHE[model] = SentenceTransformer(model)
+    st = _LOCAL_ENCODER_CACHE[model]
+
+    def get_embedding(text, use_cache=True):
+        text = text.replace("\n", " ")
+        v = st.encode(text, normalize_embeddings=True)
+        return np.asarray(v, dtype=np.float32).tolist()
+
+    main_app.get_embedding = get_embedding
+    config.EMBEDDING_MODEL = model
+    main_app.EMBEDDING_MODEL = model
+
+
 def embed_batch(texts, model, batch=64):
     """Embed with retry; returns an (n, dim) L2-normalised float32 array."""
+    if not is_openai_embedding_model(model):
+        return embed_batch_local(texts, model, batch=min(batch, 32))
+
     import main_app
     client = main_app.get_client()
     out = []
@@ -90,7 +151,7 @@ def embed_batch(texts, model, batch=64):
 
 def build_index(model, window_ds):
     """Build (or load) a window index for `model` from TEXT_FIELD."""
-    tag = model.replace("/", "_")
+    tag = model.replace("/", "_").replace(":", "_")
     npy = PROC / f"embeddings_1982_2006__{tag}.npy"
     jsn = PROC / f"embeddings_map_1982_2006__{tag}.json"
     if npy.exists() and jsn.exists():
@@ -121,8 +182,7 @@ def score(model, held, ds, use_shipped=False):
         main_app.embeddings = emb
         main_app.embeddings_map = emap
         main_app.DATA_LOADED = True
-        config.EMBEDDING_MODEL = model
-        main_app.EMBEDDING_MODEL = model
+        patch_query_embedding(model)
     pi, pd_, ti, td = [], [], [], []
     for n, (k, inc, narr) in enumerate(held):
         t = qb.redact_severity_phrases(narr[:4000])
@@ -156,6 +216,14 @@ def main():
     if "--models" in sys.argv:
         models = sys.argv[sys.argv.index("--models") + 1].split(",")
     shipped_only = "--shipped-only" in sys.argv
+    limit = None
+    if "--limit" in sys.argv:
+        limit = int(sys.argv[sys.argv.index("--limit") + 1])
+
+    if not FULL.exists() or not WINDOW.exists():
+        print(f"Missing data:\n  {FULL}\n  {WINDOW}")
+        print("Run data processing in shared/data/processed first.")
+        return 1
 
     full = json.loads(FULL.read_text())
     window_ids = set(json.loads(WINDOW.read_text()).keys())
@@ -171,6 +239,8 @@ def main():
             continue
         held.append((k, inc, narr))
     held.sort(key=lambda t: t[0])
+    if limit is not None:
+        held = held[:limit]
     print(f"cohort: {len(held)}")
 
     results = {}
