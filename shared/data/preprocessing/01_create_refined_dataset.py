@@ -5,9 +5,14 @@ import numpy as np
 from pathlib import Path
 import sys
 
-# Import config from parent directory
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Import config from shared/code
+REPO_ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(REPO_ROOT / "shared" / "code"))
 from config import DATA_DIR
+
+RAW_DIR = DATA_DIR.parent / "raw"
+if not RAW_DIR.is_dir():
+    raise SystemExit(f"Raw NTSB files not found: {RAW_DIR}")
 
 print("Starting Data loading process now! ")
 
@@ -15,20 +20,19 @@ print("Starting Data loading process now! ")
 # It's good practice to wrap this in a try/except block to catch file errors
 try:
     # Excel Files are generally reliable to load
-    df_aircraft = pd.read_excel(DATA_DIR / "aircraft.xlsx")
-    df_engines = pd.read_excel(DATA_DIR / "engines.xlsx")
-    df_events = pd.read_excel(DATA_DIR / "events.xlsx")
-    df_findings = pd.read_excel(DATA_DIR / "findings.xlsx")
-    df_injury = pd.read_excel(DATA_DIR / "injury.xlsx")
-    df_narratives = pd.read_excel(DATA_DIR / "narratives.xlsx")
+    df_aircraft = pd.read_excel(RAW_DIR / "aircraft.xlsx")
+    df_engines = pd.read_excel(RAW_DIR / "engines.xlsx")
+    df_events = pd.read_excel(RAW_DIR / "events.xlsx")
+    df_findings = pd.read_excel(RAW_DIR / "findings.xlsx")
+    df_injury = pd.read_excel(RAW_DIR / "injury.xlsx")
+    df_narratives = pd.read_excel(RAW_DIR / "narratives.xlsx")
 
     # Text files need specific separators. Most NTSB files use TABS (`\t`).
     # The dictionary file `ct_seqevt.txt` is an exception and uses a COMMA.
-    df_ct_seqevt = pd.read_csv(DATA_DIR / "ct_seqevt.txt", sep=",", low_memory=False, quotechar='"')
-    # Correcting file names from .csv to .txt and using tab separator
-    df_Events_sequences = pd.read_csv(DATA_DIR / "Events_Sequence.txt", sep='\t', low_memory=False, quotechar='"')
-    df_occurences = pd.read_csv(DATA_DIR / "Occurrences.txt", sep='\t', low_memory=False, quotechar='"')
-    df_seq_of_events = pd.read_csv(DATA_DIR / "seq_of_events.txt", sep='\t', low_memory=False, quotechar='"')
+    df_ct_seqevt = pd.read_csv(RAW_DIR / "ct_seqevt.txt", sep=",", low_memory=False, quotechar='"')
+    df_Events_sequences = pd.read_csv(RAW_DIR / "Events_Sequence.txt", sep='\t', low_memory=False, quotechar='"')
+    df_occurences = pd.read_csv(RAW_DIR / "Occurrences.txt", sep=',', low_memory=False, quotechar='"')
+    df_seq_of_events = pd.read_csv(RAW_DIR / "seq_of_events.txt", sep='\t', low_memory=False, quotechar='"')
     print("\n✅ All files loaded successfully.")
 
 except FileNotFoundError as e:
@@ -146,5 +150,11 @@ output_filename = DATA_DIR / "merged_dataset.json"
 with open(output_filename, 'w') as f:
     json.dump(final_data_dict, f, indent=4)
 
+refined_filename = DATA_DIR / "refined_dataset.json"
+with open(refined_filename, 'w') as f:
+    json.dump(final_data_dict, f, indent=4)
+
 print(f"\n✅ Success! Merged incident dataset saved to '{output_filename}'")
+print(f"✅ Also wrote '{refined_filename}' (same content; legacy name for Frozen-BN)")
+print(f"   incidents: {len(final_data_dict)}")
 

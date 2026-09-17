@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -24,7 +25,7 @@ for _p in (_SHARED, _FROZEN_CODE):
         sys.path.insert(0, str(_p))
 ROOT = REPO_ROOT
 SRC = ROOT / "shared" / "data" / "processed" / "refined_dataset.json"
-OCC = ROOT / "data" / "raw" / "Occurrences.txt"
+OCC = ROOT / "shared" / "data" / "raw" / "Occurrences.txt"
 META = ROOT / "Zhang-Replication-Foundation-2026-06-04" / "reference" / "data" / "metaData.xlsx"
 OUT = ROOT / "shared" / "data" / "processed" / "refined_dataset_1982_2006.json"
 
@@ -38,11 +39,14 @@ def year(v) -> int | None:
 
 def main() -> None:
     ref = json.loads(SRC.read_text(encoding="utf-8"))
-    pre = {k: v for k, v in ref.items() if (y := year(v)) is not None and y <= 2006}
+    pre = {k: v for k, v in ref.items()
+           if (y := year(v)) is not None and 1982 <= y <= 2006}
     print(f"refined_dataset: {len(ref)} total -> {len(pre)} in 1982-2006")
 
     md = pd.read_excel(META, dtype=str)
-    md["clean"] = md["meaning"].astype(str).map(lambda s: re.sub("[^a-zA-Z]+", "", s))
+    md["clean"] = md["meaning"].fillna("").astype(str).map(
+        lambda s: re.sub("[^a-zA-Z]+", "", s)
+    )
     code2meaning = dict(zip(md["code_iaids"].astype(str), md["meaning"].astype(str)))
     fire_codes = set(md[md["clean"] == FIRE_MEANING]["code_iaids"].astype(str))
 

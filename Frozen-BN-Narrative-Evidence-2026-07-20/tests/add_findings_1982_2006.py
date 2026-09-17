@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -21,7 +22,7 @@ for _p in (_SHARED, _FROZEN_CODE):
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
 ROOT = REPO_ROOT
-RAW = ROOT / "data" / "raw"
+RAW = ROOT / "shared" / "data" / "raw"
 META = ROOT / "Zhang-Replication-Foundation-2026-06-04" / "reference" / "data" / "metaData.xlsx"
 DS = ROOT / "shared" / "data" / "processed" / "refined_dataset_1982_2006.json"
 
@@ -74,7 +75,7 @@ def main() -> None:
     fire_airframe = sum(
         1 for v in ds.values()
         if any(s.get("Occurrence_Code") == "171" for s in v.get("sequence_of_events", []))
-        and any("Airframe/component/system failure" in (fd.get("finding_description") or "")
+        and any("Airframe/component/system failure" in str(fd.get("finding_description") or "")
                 for fd in v.get("findings", []))
     )
     print(f"fire accidents with an airframe-malfunction finding: {fire_airframe}")
