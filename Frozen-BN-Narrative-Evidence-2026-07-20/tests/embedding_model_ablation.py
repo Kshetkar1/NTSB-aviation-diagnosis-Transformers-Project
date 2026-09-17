@@ -244,8 +244,11 @@ def main():
     print(f"cohort: {len(held)}")
 
     results = {}
-    print("\nshipped index (reference point)")
-    results["shipped index (3-small)"] = score(None, held, ds, use_shipped=True)
+    if main_app.DATA_LOADED and not shipped_only:
+        print("\nshipped index (reference point)")
+        results["shipped index (3-small)"] = score(None, held, ds, use_shipped=True)
+    elif not shipped_only:
+        print("\nshipped index skipped (no embeddings.npy on disk)")
     if not shipped_only:
         for m in models:
             print(f"\n{m}")
