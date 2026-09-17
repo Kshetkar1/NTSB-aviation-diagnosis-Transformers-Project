@@ -90,11 +90,20 @@ def build_minimal_json() -> None:
 
 
 def main() -> int:
-    if not (RAW / "narratives.xlsx").is_file():
+    if FULL.is_file() and WINDOW.is_file():
+        n = len(json.loads(FULL.read_text()))
+        if n > 2000:
+            print(f"Using existing refined dataset ({n} incidents).")
+            print("For a full rebuild run: python3 shared/data/preprocessing/build_refined_complete.py")
+        elif not (RAW / "narratives.xlsx").is_file():
+            print(f"Stub dataset too small; raw missing under {RAW}")
+            return 1
+        else:
+            build_minimal_json()
+    elif not (RAW / "narratives.xlsx").is_file():
         print(f"Missing raw data under {RAW}")
         return 1
-
-    if not FULL.is_file() or not WINDOW.is_file():
+    else:
         build_minimal_json()
 
     ablation = Path(__file__).resolve().parent / "embedding_model_ablation.py"
